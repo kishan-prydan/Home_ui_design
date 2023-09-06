@@ -1,0 +1,17 @@
+export default {
+  primary: '#060606',
+  secondary: '#4A2125',
+  header: '#4A2125',
+  hoverColor: '#DCF4FF',
+  white: '#ffffff',
+  grey: '#adb5bd',
+  danger: '#f72585',
+  iconFirstColor: '#FFFFFF',
+  iconSecondColor: '#DCF4FF',
+  iconThirdColor: '#E8E5FA',
+  iconForthColor: '#F6DEF6',
+  iconFifthColor: '#FDE3CC',
+  iconSixthColor: '#C7D4FF',
+  iconSeventhColor: '#BDF3D1',
+  iconBackgroundColor: '#f0f1f5',
+};
