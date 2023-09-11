@@ -74,9 +74,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.homereactnative"
+    namespace "com.G4"
     defaultConfig {
-        applicationId "com.homereactnative"
+        applicationId "com.G4"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

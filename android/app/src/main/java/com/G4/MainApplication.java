@@ -1,4 +1,4 @@
-package com.homereactnative;
+package com.G4;
 
 import android.app.Application;
 import com.facebook.react.PackageList;
