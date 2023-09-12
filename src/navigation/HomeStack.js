@@ -1,14 +1,20 @@
 import React from 'react';
-import {ADDHOME, HOME, HOMEVIEW, SWEETHOME,APPDRAWERNAVIGATION} from '../constants/routeNames';
-import Home from '../screens/Home';
-import HomeView from '../screens/HomeView';
-import AddHome from '../screens/AddHome';
-import SweetHome from '../screens/SweetHome';
+import {createStackNavigator} from '@react-navigation/stack';
+import {
+  HOME,
+  ADDHOME,
+  HOMEVIEW,
+  SWEETHOME,
+  APPDRAWERNAVIGATION,
+} from '../constants/routeNames';
+import {AddHome, Home, HomeView, SweetHome} from '../screens';
 import AppDrawerNavigation from './AppDrawerNavigation';
 
-const AppNavigation = Stack => {
+const Stack = createStackNavigator();
+
+export default function HomeStack() {
   return (
-    <>
+    <Stack.Navigator>
       <Stack.Screen
         name={HOME}
         component={Home}
@@ -30,8 +36,6 @@ const AppNavigation = Stack => {
         component={AppDrawerNavigation}
         options={{headerShown: false}}
       />
-    </>
+    </Stack.Navigator>
   );
-};
-
-export default AppNavigation;
+}
