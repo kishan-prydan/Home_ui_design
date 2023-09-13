@@ -1,8 +1,6 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import * as React from 'react';
-import {Image} from 'react-native';
 import colors from '../assets/theme/colors';
-import imagePath from '../constants/imagePath';
 import {
   CAMERA,
   CURTAIN,
@@ -38,23 +36,8 @@ export default function BottomTabNavigator() {
         headerShown: false,
         tabBarInactiveTintColor: colors.inActive,
         tabBarActiveTintColor: colors.themeColor,
-        tabBarStyle: {height: 60},
+        tabBarStyle: {height: 65},
         tabBarShowLabel: false,
-        tabBarOptions: {
-          scrollEnabled: true,
-          style: {
-            backgroundColor: 'purple',
-          },
-          labelStyle: {
-            fontSize: 12,
-          },
-          tabStyle: {
-            width: 60,
-          },
-          indicatorStyle: {
-            backgroundColor: 'teal',
-          },
-        },
       }}>
       <BototmTab.Screen
         name={LIGHT}
@@ -66,9 +49,9 @@ export default function BottomTabNavigator() {
                 style={{
                   color: focused ? colors.themeColor : colors.inActive,
                 }}
-                type={'fa5'}
+                type={'materialCommunity'}
                 name={'lightbulb'}
-                size={25}
+                size={20}
               />
             );
           },
@@ -86,7 +69,7 @@ export default function BottomTabNavigator() {
                 }}
                 type={'entypo'}
                 name={'sound-mix'}
-                size={25}
+                size={20}
               />
             );
           },
@@ -102,7 +85,7 @@ export default function BottomTabNavigator() {
                 }}
                 type={'fa6'}
                 name={'snowflake'}
-                size={25}
+                size={20}
               />
             );
           },
@@ -120,7 +103,7 @@ export default function BottomTabNavigator() {
                 }}
                 type={'fa6'}
                 name={'music'}
-                size={25}
+                size={20}
               />
             );
           },
@@ -138,7 +121,7 @@ export default function BottomTabNavigator() {
                 }}
                 type={'materialCommunity'}
                 name={'curtains'}
-                size={25}
+                size={20}
               />
             );
           },
@@ -156,7 +139,7 @@ export default function BottomTabNavigator() {
                 }}
                 type={'fa6'}
                 name={'fan'}
-                size={25}
+                size={20}
               />
             );
           },
@@ -174,7 +157,7 @@ export default function BottomTabNavigator() {
                 }}
                 type={'materialCommunity'}
                 name={'controller-classic'}
-                size={25}
+                size={20}
               />
             );
           },
@@ -192,7 +175,7 @@ export default function BottomTabNavigator() {
                 }}
                 type={'fa'}
                 name={'leaf'}
-                size={25}
+                size={20}
               />
             );
           },
@@ -210,7 +193,7 @@ export default function BottomTabNavigator() {
                 }}
                 type={'fa6'}
                 name={'photo-film'}
-                size={25}
+                size={20}
               />
             );
           },
@@ -228,7 +211,7 @@ export default function BottomTabNavigator() {
                 }}
                 type={'fa6'}
                 name={'video'}
-                size={25}
+                size={20}
               />
             );
           },

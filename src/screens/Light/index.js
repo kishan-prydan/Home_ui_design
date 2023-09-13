@@ -3,7 +3,9 @@ import React, {Component} from 'react';
 import {View, Alert, StyleSheet} from 'react-native';
 import Header from '../../component/common/Header';
 import {useNavigation} from '@react-navigation/native';
-import { APPDRAWERNAVIGATION, HOME } from '../../constants/routeNames';
+import {APPDRAWERNAVIGATION, HOME} from '../../constants/routeNames';
+import colors from '../../assets/theme/colors';
+import BackgroundColor from '../../component/common/BackgroundColor';
 
 const Light = () => {
   const {navigate} = useNavigation();
@@ -38,6 +40,7 @@ const Light = () => {
           }}
         />
       </View>
+	  <BackgroundColor />
     </View>
   );
 };
