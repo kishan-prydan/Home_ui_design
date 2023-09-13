@@ -1,5 +1,5 @@
 import colors from "../../assets/theme/colors";
-
+import { BOTTOMTABNAVIGATOR } from "../../constants/routeNames";
 
 let data = [
   {
@@ -8,7 +8,7 @@ let data = [
     type: 'fa6',
     name: 'lightbulb',
     color: colors.iconSecondColor,
-    alert: 'Light card pressed',
+    screen: BOTTOMTABNAVIGATOR,
   },
   {
     id: 1,

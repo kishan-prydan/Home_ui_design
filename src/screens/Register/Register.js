@@ -12,10 +12,9 @@ import styles from './styles';
 import CustomButton from '../../component/common/CustomButton';
 import TextInputWithLabel from '../../component/TextInputWithLabel/TextInputWithLabel';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import Routes from '../../navigation/Routes';
-import {HOME, LOADING} from '../../constants/routeNames';
+import { LOADING, LOGIN } from '../../constants/routeNames';
 
-const LoginComponent = () => {
+const RegisterComponent = () => {
   const {navigate} = useNavigation();
 
   const [code, setCode] = useState('');
@@ -28,7 +27,7 @@ const LoginComponent = () => {
 
   useEffect(() => {
     // if (clicked) {
-    validateForm();
+      validateForm();
     // }
   }, [code, userName, password]);
 
@@ -59,55 +58,30 @@ const LoginComponent = () => {
     setIsFormValid(Object.keys(errors).length === 0);
   };
 
-  //get the login data from the local storage
+  //set the login data into the local storage
 
-  // const login = async () => {
-  //   let userData = await AsyncStorage.getItem('userData');
-  //   if (userData) {
-  //     userData = JSON.parse(userData);
-  //     if (
-  //       code == userData.code &&
-  //       userName == userData.userName &&
-  //       password == userData.password
-  //     ) {
-  //       navigate(HOME)
-  //       AsyncStorage.setItem(
-  //         'userData',
-  //         JSON.stringify({...userData, loggedIn: true}),
-  //       );
-  //     } else {
-  //       Alert.alert('Error', 'Invalid Details');
-  //     }
-  //   } else {
-  //     Alert.alert('Error', 'User does not exist');
-  //   }
-  // };
+  const loginData = {
+    dealerCode: code,
+    username: userName,
+    password: password,
+  };
 
-  // const loginData = {
-  //   dealerCode: code,
-  //   username: userName,
-  //   password: password,
-  // };
-
-  // const login = async loginData => {
-  //   try {
-  //     await AsyncStorage.setItem('loginData', JSON.stringify(loginData));
-  //     console.log(
-  //       `Dealer code : ${code}, User Name : ${userName}, Password : ${password}}`,
-  //     );
-  //   } catch (error) {
-  //     console.error('Error storing login data: ', error);
-  //   }
-  // };
-
-  const handleSubmit = () => {
-    if (isFormValid) {
-      // login(loginData);
-      Alert.alert('Login successfully!');
+  const storeLoginData = async loginData => {
+    try {
+      await AsyncStorage.setItem('loginData', JSON.stringify(loginData));
       console.log(
         `Dealer code : ${code}, User Name : ${userName}, Password : ${password}}`,
       );
-      navigate(HOME);
+    } catch (error) {
+      console.error('Error storing login data: ', error);
+    }
+  };
+
+  const handleSubmit = () => {
+    if (isFormValid) {
+      storeLoginData(loginData);
+      Alert.alert('Register successfully!');
+      navigate(LOGIN)
       // setCode('');
       // setUserName('');
       // setPassword('');
@@ -167,8 +141,8 @@ const LoginComponent = () => {
             <TouchableOpacity
               activeOpacity={0.7}
               style={styles.forgotView}
-              onPress={() => Alert.alert('Forgot password button clicked')}>
-              <Text style={styles.forgotText}>Forgot Password ?</Text>
+              onPress={() => navigate(LOGIN)}>
+              <Text style={styles.forgotText}>Log in</Text>
             </TouchableOpacity>
           </View>
 
@@ -176,7 +150,7 @@ const LoginComponent = () => {
             <CustomButton
               style={styles.loginButton}
               secondary
-              title="Log in"
+              title="Register"
               onPress={() => {
                 handleSubmit();
               }}
@@ -188,4 +162,4 @@ const LoginComponent = () => {
   );
 };
 
-export default LoginComponent;
+export default RegisterComponent;

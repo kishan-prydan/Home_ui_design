@@ -5,8 +5,7 @@ import Header from '../../component/common/Header';
 import data from './data';
 import styles from './styles';
 import {useNavigation} from '@react-navigation/native';
-import AppDrawerNavigation from '../../navigation/AppDrawerNavigation';
-import { HOME } from '../../constants/routeNames';
+import {APPDRAWERNAVIGATION, HOME} from '../../constants/routeNames';
 
 const SweetHome = ({navigation}) => {
   const {navigate} = useNavigation();
@@ -31,7 +30,7 @@ const SweetHome = ({navigation}) => {
           forthName={'backward'}
           size={24}
           onPressFirst={() => {
-            navigate(AppDrawerNavigation)
+            navigate(APPDRAWERNAVIGATION);
           }}
           onPressSecond={() => {
             navigate(HOME);
@@ -56,7 +55,9 @@ const SweetHome = ({navigation}) => {
                 name={item.name}
                 title={item.title}
                 IconView={{backgroundColor: item.color}}
-                onPress={() => Alert.alert(item.alert)}
+                onPress={() => {
+                  item.screen ? navigate(item.screen) : Alert.alert(item.alert);
+                }}
               />
               <View style={{paddingHorizontal: 2}} />
             </>

@@ -4,11 +4,26 @@ import {Alert, View} from 'react-native';
 import styles from './styles';
 import BackgroundImage from '../../component/BackgroundImage';
 import {useNavigation} from '@react-navigation/native';
-import { SWEETHOME } from '../../constants/routeNames';
+import {LOGIN, SWEETHOME} from '../../constants/routeNames';
+import {Button} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import CircleWithIcon from '../../component/common/CircleWithIcon/CircleWithIcon';
+import colors from '../../assets/theme/colors';
 
 const HomeView = () => {
   const {navigate} = useNavigation();
-  
+
+  // const handleLogout = async () => {
+  //   try {
+  //     await AsyncStorage.removeItem('loginData');
+  //     Alert.alert('Logged out successfully');
+  //     navigate(LOGIN)
+
+  //   } catch (error) {
+  //     console.error('Error logging out: ', error);
+  //   }
+  // };
+
   return (
     <>
       <View style={{paddingHorizontal: 20}}>
@@ -36,12 +51,28 @@ const HomeView = () => {
           }}
         />
       </View>
-      <View style={styles.backgroudImageContainer}>
-        <BackgroundImage
-          onPress={() => {navigate(SWEETHOME);}}
-        />
-        {/* <BackgroundImage onPress={() => Alert.alert('Second Home View Card Pressed')}/> */}
+      <View style={styles.imageContainer}>
+        <View style={styles.backgroudImageContainer}>
+          <BackgroundImage
+            onPress={() => {
+              navigate(SWEETHOME);
+            }}
+          />
+        </View>
+
+        <View style={styles.iconView}>
+          <CircleWithIcon
+            circleView={{backgroundColor: colors.secondary}}
+            iconStyle={{color: colors.yellow}}
+            iconType={'ant'}
+            iconName={'star'}
+            onPress={() =>{Alert.alert("Bottom star button pressed")}}
+          />
+        </View>
       </View>
+      {/* <View>
+        <Button title="Logout" onPress={handleLogout} />
+      </View> */}
     </>
   );
 };

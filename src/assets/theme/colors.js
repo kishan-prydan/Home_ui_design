@@ -16,9 +16,10 @@ export default {
   iconBackgroundColor: '#f0f1f5',
   themeColor: '#4A2125',
   black: 'rgba(0,0,0,1)',
-  blackOpacity50: 'rgba(0,0,0,0.5)',
+  inActive: '#B4B4B4',
   blackOpacity80: 'rgba(0,0,0,0.8)',
   blackOpacity30: 'rgba(0,0,0,0.3)',
   borderColor: 'rgba(0,0,0,0.08)',
-  blue: '#352CAD'
+  blue: '#352CAD',
+  yellow: '#FDCC05',
 };
