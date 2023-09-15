@@ -12,7 +12,9 @@ export const ADDHOME = 'Add Home';
 export const SWEETHOME = 'Sweet_Home';
 export const APPDRAWERNAVIGATION = 'AppDrawerNavigation';
 export const LIGHT = 'Light';
+export const RGBW = 'RGBW';
 export const BOTTOMTABNAVIGATOR = 'BottomTabNavigator'
+export const SECONDBOTTOMTABNAVIGATOR = 'SecondBottomTabNavigator'
 export const DMX = 'Dmx';
 export const HVAC = 'Hvac';
 export const ZAUDIO = 'Z-Audio';
@@ -22,4 +24,5 @@ export const OTHERCONTROL = 'OtherControl';
 export const IRRIGATION = 'Irrigation';
 export const MEDIA = 'Media';
 export const CAMERA = 'Camera';
+export const LIGHTSETTING = 'LightSetting';
 

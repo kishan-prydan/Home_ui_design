@@ -1,15 +1,13 @@
-import React from 'react'
-import styles from './styles'
-import { Text, View } from 'react-native'
+import React from 'react';
+import styles from './styles';
+import {Text, View} from 'react-native';
 
-const TextComponent = ({title}) => {
+const TextComponent = ({title, wrapper}) => {
   return (
-    <View style={styles.wrapper}>
-      <Text style={styles.textMain}>
-        {title}
-      </Text>
+    <View style={{...styles.wrapper, ...wrapper}}>
+      <Text style={styles.textMain}>{title}</Text>
     </View>
-  )
-}
+  );
+};
 
-export default TextComponent
+export default TextComponent;

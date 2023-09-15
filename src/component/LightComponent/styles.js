@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     alignItems: 'center',
     flexDirection: 'row',
-    paddingHorizontal: moderateScale(12),
+    justifyContent: 'space-evenly',
   },
   SwitchInnerSliderView: {
     height: moderateScale(115),
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     alignItems: 'center',
     flexDirection: 'row',
-    paddingHorizontal: moderateScale(12),
+    paddingHorizontal: moderateScale(15),
   },
   circleWithIcon: {
     backgroundColor: 'pink',

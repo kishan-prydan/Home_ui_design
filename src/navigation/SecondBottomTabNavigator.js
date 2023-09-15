@@ -8,7 +8,6 @@ import {
   FAN,
   HVAC,
   IRRIGATION,
-  LIGHT,
   MEDIA,
   OTHERCONTROL,
   RGBW,
@@ -21,7 +20,6 @@ import {
   Fan,
   Hvac,
   Irrigation,
-  Light,
   Media,
   OtherControl,
   Rgbw,
@@ -31,7 +29,7 @@ import Icon from '../component/common/Icon';
 
 const BototmTab = createBottomTabNavigator();
 
-export default function BottomTabNavigator() {
+export default function SecondBottomTabNavigator() {
   return (
     <BototmTab.Navigator
       screenOptions={{
@@ -42,8 +40,8 @@ export default function BottomTabNavigator() {
         tabBarShowLabel: false,
       }}>
       <BototmTab.Screen
-        name={LIGHT}
-        component={Light}
+        name={RGBW}
+        component={Rgbw}
         options={{
           tabBarIcon: ({focused}) => {
             return (

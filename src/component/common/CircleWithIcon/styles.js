@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
 	componentStyle: {
-	  flex: 1,
+	//   flex: 1,
 	},
 	circleView: {
 	  height: 50,
@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
 	  borderRadius: 25,
 	  alignItems: 'center',
 	  justifyContent: 'center',
+	  backgroundColor: 'pink'
 	},
 	circleViewEffect: {
 	  height: 50,

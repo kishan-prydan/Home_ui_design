@@ -26,8 +26,8 @@ const SweetHome = ({navigation}) => {
           secondName={'home'}
           thirdType={'entypo'}
           thirdName={'menu'}
-          forthType={'fs5'}
-          forthName={'backward'}
+          forthType={'ioni'}
+          forthName={'arrow-undo'}
           size={24}
           onPressFirst={() => {
             navigate(APPDRAWERNAVIGATION);

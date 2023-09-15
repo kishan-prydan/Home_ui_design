@@ -1,18 +1,20 @@
 //import liraries
 import React from 'react';
-import {View, Alert, ScrollView, FlatList} from 'react-native';
+import {View, Alert} from 'react-native';
 import Header from '../../component/common/Header';
 import {useNavigation} from '@react-navigation/native';
-import {APPDRAWERNAVIGATION, HOME} from '../../constants/routeNames';
+import {
+  APPDRAWERNAVIGATION,
+  HOME,
+  LIGHTSETTING,
+} from '../../constants/routeNames';
 import BackgroundColor from '../../component/common/BackgroundColor';
 import HeaderIconComponent from '../../component/common/HeaderIconComponent';
 import styles from './styles';
-import RangeSlider from '../../component/common/RangeSlider';
-import CircleWithIcon from '../../component/common/CircleWithIcon/CircleWithIcon';
-import LightComponent from '../../component/LightComponent';
-import data from './data';
+import PressableIconText from '../../component/common/PressableIconText';
+import colors from '../../assets/theme/colors';
 
-const Light = () => {
+const Rgbw = () => {
   const {navigate} = useNavigation();
 
   return (
@@ -22,7 +24,7 @@ const Light = () => {
           iconFirst
           iconThird
           iconForth
-          title={'Light'}
+          title={'RGBW'}
           type={'fa6'}
           name={'circle-plus'}
           firstType={'entypo'}
@@ -40,17 +42,12 @@ const Light = () => {
           onPressSecond={() => {
             navigate(HOME);
           }}
-          onPressForth={() => {
-            Alert.alert('Add button pressed');
-          }}
+          onPressForth={() => navigate(LIGHTSETTING)}
         />
       </View>
       <BackgroundColor>
         <View style={styles.secondHeaderView}>
           <HeaderIconComponent
-            firstIcon
-            typeFirst={'fa'}
-            nameFirst={'refresh'}
             secondIcon
             typeSecond={'fa5'}
             nameSecond={'eye'}
@@ -61,26 +58,16 @@ const Light = () => {
           />
         </View>
 
-        <FlatList
-          showsVerticalScrollIndicator={false}
-          data={data}
-          renderItem={({item}) => (
-            <LightComponent
-              iconType={item.type}
-              iconName={item.name}
-              circleWithIcon={{backgroundColor: item.color}}
-              iconStyle={{color: item.iconColor}}
-              value={item.value}
-              titleTextPresent= {item.titleTextPresent}
-              text={item.text}
-              switchTitleText={item.switchText}
-              switchPresent = {item.switchTitleText}
-            />
-          )}
-        />
+        <PressableIconText 
+			onPress={()=>navigate(LIGHTSETTING)}
+			circleStyle={{backgroundColor: colors.iconSecondColor}}
+            iconType={'fa6'}
+            iconName={'lightbulb'}
+			title={'RGBW'}
+		/>
       </BackgroundColor>
     </View>
   );
 };
 
-export default Light;
+export default Rgbw;

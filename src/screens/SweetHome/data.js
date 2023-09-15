@@ -1,5 +1,5 @@
 import colors from "../../assets/theme/colors";
-import { BOTTOMTABNAVIGATOR } from "../../constants/routeNames";
+import { BOTTOMTABNAVIGATOR, SECONDBOTTOMTABNAVIGATOR } from "../../constants/routeNames";
 
 let data = [
   {
@@ -16,7 +16,7 @@ let data = [
     type: 'fa6',
     name: 'lightbulb',
     color: colors.iconThirdColor,
-    alert: 'RGBW card pressed',
+    screen: SECONDBOTTOMTABNAVIGATOR,
   },
   {
     id: 3,

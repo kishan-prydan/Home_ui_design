@@ -6,6 +6,7 @@ import styles from './styles';
 const HeaderIconComponent = ({
   firstIconPress,
   secondIconPress,
+  ThirdIconPress,
   firstIcon,
   secondIcon,
   textPresend,
@@ -13,6 +14,8 @@ const HeaderIconComponent = ({
   typeSecond,
   nameFirst,
   nameSecond,
+  typeThird,
+  nameThird,
   textName,
 }) => {
   return (
@@ -46,7 +49,14 @@ const HeaderIconComponent = ({
           <Text style={[styles.textStyle, styles.iconColor]}>{textName}</Text>
         </View>
       ) : (
-        <View />
+        <TouchableOpacity onPress={ThirdIconPress}>
+          <Icon
+            type={typeThird}
+            name={nameThird}
+            size={22}
+            style={styles.iconColor}
+          />
+        </TouchableOpacity>
       )}
     </View>
   );

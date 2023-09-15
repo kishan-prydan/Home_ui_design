@@ -6,6 +6,7 @@ import FAIcon from 'react-native-vector-icons/FontAwesome';
 import FAIcon5 from 'react-native-vector-icons/FontAwesome5';
 import FAIcon6 from 'react-native-vector-icons/FontAwesome6';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const getIconFont = type => {
   switch (type) {
@@ -23,6 +24,8 @@ const getIconFont = type => {
       return FAIcon6;
     case 'ant':
       return AntDesign;
+    case 'ioni':
+      return Ionicons;
     default:
       return FAIcon;
   }

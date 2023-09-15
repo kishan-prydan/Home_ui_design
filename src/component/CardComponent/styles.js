@@ -9,11 +9,14 @@ export default StyleSheet.create({
     borderRadius: scale(15),
     elevation: 5,
     marginBottom: moderateVerticalScale(15),
-    justifyContent: 'center',
+    // justifyContent: 'center',
     alignItems: 'center',
   },
 
   innerContainer:{
     alignItems: 'center',
   },
+  textStyle:{
+    paddingTop: moderateVerticalScale(10),
+  }
 });

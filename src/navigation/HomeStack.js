@@ -9,18 +9,24 @@ import {
   SPLASH,
   LOGIN,
   BOTTOMTABNAVIGATOR,
+  RGBW,
+  SECONDBOTTOMTABNAVIGATOR,
+  LIGHTSETTING,
 } from '../constants/routeNames';
 import {
   AddHome,
   Home,
   HomeView,
+  LightSetting,
   Login,
+  Rgbw,
   SplashScreen,
   SweetHome,
 } from '../screens';
 import AppDrawerNavigation from './AppDrawerNavigation';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import BottomTabNavigator from './BottomTabNavigator';
+import SecondBottomTabNavigator from './SecondBottomTabNavigator';
 
 const Stack = createStackNavigator();
 
@@ -89,6 +95,16 @@ export default function HomeStack() {
         <Stack.Screen 
           name={BOTTOMTABNAVIGATOR}
           component={BottomTabNavigator}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen 
+          name={SECONDBOTTOMTABNAVIGATOR}
+          component={SecondBottomTabNavigator}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen 
+          name={LIGHTSETTING}
+          component={LightSetting}
           options={{headerShown: false}}
         />
       </>
