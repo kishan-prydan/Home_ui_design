@@ -7,7 +7,6 @@ import {
   SWEETHOME,
   APPDRAWERNAVIGATION,
   SPLASH,
-  REGISTER,
   LOGIN,
   BOTTOMTABNAVIGATOR,
 } from '../constants/routeNames';
@@ -15,9 +14,7 @@ import {
   AddHome,
   Home,
   HomeView,
-  Light,
   Login,
-  Register,
   SplashScreen,
   SweetHome,
 } from '../screens';
@@ -102,11 +99,6 @@ export default function HomeStack() {
           component={SplashScreen}
           options={{headerShown: false}}
         />
-        {/* <Stack.Screen
-            name={REGISTER}
-            component={Register}
-            options={{headerShown: false}}
-          /> */}
         <Stack.Screen
           name={LOGIN}
           component={Login}

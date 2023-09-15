@@ -69,6 +69,7 @@ const Light = () => {
               iconType={item.type}
               iconName={item.name}
               circleWithIcon={{backgroundColor: item.color}}
+              iconStyle={{color: item.iconColor}}
               value={item.value}
               titleTextPresent= {item.titleTextPresent}
               text={item.text}

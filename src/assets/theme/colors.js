@@ -23,4 +23,5 @@ export default {
   blue: '#352CAD',
   yellow: '#FDCC05',
   sliderColor: '#B4B4B4',
+  iconColor: '#6D603D'
 };

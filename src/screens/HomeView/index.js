@@ -66,6 +66,7 @@ const HomeView = () => {
             iconStyle={{color: colors.yellow}}
             iconType={'ant'}
             iconName={'star'}
+            disabled={false}
             onPress={() =>{Alert.alert("Bottom star button pressed")}}
           />
         </View>

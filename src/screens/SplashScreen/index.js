@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {View, Image} from 'react-native';
-import { HOME, LOGIN, REGISTER } from '../../constants/routeNames';
+import { HOME, LOGIN } from '../../constants/routeNames';
 import imagePath from '../../constants/imagePath';
 import styles from './styles';
 

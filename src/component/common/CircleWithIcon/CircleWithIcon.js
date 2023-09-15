@@ -12,11 +12,13 @@ const CircleWithIcon = ({
   iconStyle,
   iconType,
   iconName,
+  disabled,
 }) => {
   return (
     <TouchableOpacity
       style={styles.componentStyle}
       onPress={onPress}
+      disabled={disabled}
       activeOpacity={0.7}>
       {!!effectColor ? (
         <View style={{...styles.circleViewEffect, ...circleViewEffect}}>

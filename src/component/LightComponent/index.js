@@ -14,6 +14,7 @@ const LightComponent = ({
   titleTextPresent,
   switchPresent,
   switchTitleText,
+  iconStyle,
 }) => {
   const [isEnabled, setIsEnabled] = useState(true);
 
@@ -24,7 +25,9 @@ const LightComponent = ({
           <CircleWithIcon
             iconType={iconType}
             iconName={iconName}
+            disabled={true}
             circleView={{...styles.circleWithIcon, ...circleWithIcon}}
+            iconStyle={iconStyle}
           />
 
           <View style={styles.switchView}>
@@ -46,7 +49,9 @@ const LightComponent = ({
           <CircleWithIcon
             iconType={iconType}
             iconName={iconName}
+            disabled={true}
             circleView={{...styles.circleWithIcon, ...circleWithIcon}}
+            iconStyle={iconStyle}
           />
 
           <RangeSlider

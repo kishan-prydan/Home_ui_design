@@ -1,6 +1,5 @@
 //Auth stack screens
 export const SPLASH = 'Splash';
-export const REGISTER = 'Register';
 export const LOGIN = 'Login';
 export const LOADING = 'Loading';
 

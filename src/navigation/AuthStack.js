@@ -1,7 +1,7 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import {LOADING, LOGIN, REGISTER, SPLASH} from '../constants/routeNames';
-import {SplashScreen, Login, Loading, Register} from '../screens';
+import {LOADING, LOGIN, SPLASH} from '../constants/routeNames';
+import {SplashScreen, Login, Loading,} from '../screens';
 
 const Stack = createStackNavigator();
 
@@ -11,11 +11,6 @@ export default function AuthStack() {
       <Stack.Screen
         name={SPLASH}
         component={SplashScreen}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name={REGISTER}
-        component={Register}
         options={{headerShown: false}}
       />
       <Stack.Screen

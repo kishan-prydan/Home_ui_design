@@ -1,6 +1,5 @@
 //Auth Stack Screens
 export {default as SplashScreen} from './SplashScreen';
-export {default as Register} from './Register';
 export {default as Login} from './Login';
 export {default as Loading} from './LoadingScreen/LoadingScreen';
 
