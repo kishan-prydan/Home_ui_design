@@ -22,4 +22,5 @@ export default {
   borderColor: 'rgba(0,0,0,0.08)',
   blue: '#352CAD',
   yellow: '#FDCC05',
+  sliderColor: '#B4B4B4',
 };

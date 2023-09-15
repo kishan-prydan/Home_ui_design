@@ -12,4 +12,6 @@ export default {
 
     splashScreenImage: require('../assets/images/splashScreen.jpg'),
     backgroundImage:require('../assets/images/backgroundImage.png'),
+
+    sliderCircle: require('../assets/images/dotCircle.png'),
 }

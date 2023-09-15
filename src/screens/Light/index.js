@@ -1,18 +1,23 @@
 //import liraries
-import React, {Component} from 'react';
-import {View, Alert, StyleSheet} from 'react-native';
+import React from 'react';
+import {View, Alert, ScrollView, FlatList} from 'react-native';
 import Header from '../../component/common/Header';
 import {useNavigation} from '@react-navigation/native';
 import {APPDRAWERNAVIGATION, HOME} from '../../constants/routeNames';
-import colors from '../../assets/theme/colors';
 import BackgroundColor from '../../component/common/BackgroundColor';
+import HeaderIconComponent from '../../component/common/HeaderIconComponent';
+import styles from './styles';
+import RangeSlider from '../../component/common/RangeSlider';
+import CircleWithIcon from '../../component/common/CircleWithIcon/CircleWithIcon';
+import LightComponent from '../../component/LightComponent';
+import data from './data';
 
 const Light = () => {
   const {navigate} = useNavigation();
 
   return (
     <View style={styles.container}>
-      <View style={{paddingHorizontal: 20}}>
+      <View style={styles.headreView}>
         <Header
           iconFirst
           iconThird
@@ -40,15 +45,41 @@ const Light = () => {
           }}
         />
       </View>
-	  <BackgroundColor />
+      <BackgroundColor>
+        <View style={styles.secondHeaderView}>
+          <HeaderIconComponent
+            firstIcon
+            typeFirst={'fa'}
+            nameFirst={'refresh'}
+            secondIcon
+            typeSecond={'fa5'}
+            nameSecond={'eye'}
+            textPresend
+            textName={'0.4 KV'}
+            firstIconPress={() => Alert.alert('Refresh icon pressed')}
+            secondIconPress={() => Alert.alert('Eye icon pressed')}
+          />
+        </View>
+
+        <FlatList
+          showsVerticalScrollIndicator={false}
+          data={data}
+          renderItem={({item}) => (
+            <LightComponent
+              iconType={item.type}
+              iconName={item.name}
+              circleWithIcon={{backgroundColor: item.color}}
+              value={item.value}
+              titleTextPresent= {item.titleTextPresent}
+              text={item.text}
+              switchTitleText={item.switchText}
+              switchPresent = {item.switchTitleText}
+            />
+          )}
+        />
+      </BackgroundColor>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 export default Light;
