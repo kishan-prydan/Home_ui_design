@@ -1,32 +1,37 @@
-import React from 'react';
-import {View, Alert, StyleSheet, Text} from 'react-native';
+import React, {useState} from 'react';
+import {View, Alert, FlatList, ScrollView} from 'react-native';
 import Header from '../../component/common/Header';
 import {useNavigation} from '@react-navigation/native';
 import {APPDRAWERNAVIGATION, HOME} from '../../constants/routeNames';
 import BackgroundColor from '../../component/common/BackgroundColor';
 import styles from './styles';
+import HeaderIconComponent from '../../component/common/HeaderIconComponent';
+import LightSettingBoxComponent from '../../component/LightSettingBoxComponent';
+import data from './data';
+import PressableIcon from '../../component/common/PressableIcon';
+import TextComponent from '../../component/common/TextComponent';
+import colors from '../../assets/theme/colors';
+import CheckBoxComponent from '../../component/common/CheckBoxComponent';
 
 const LightSetting = () => {
   const {navigate} = useNavigation();
+  const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
       <View style={styles.headreView}>
         <Header
           iconFirst
-          iconThird
           iconForth
           title={'Light Setting'}
-          type={'fa6'}
-          name={'circle-plus'}
+          type={'ioni'}
+          name={'arrow-undo'}
           firstType={'entypo'}
           firstName={'home'}
           secondType={'entypo'}
           secondName={'home'}
           thirdType={'entypo'}
           thirdName={'menu'}
-          forthType={'ioni'}
-          forthName={'arrow-undo'}
           size={24}
           onPressFirst={() => {
             navigate(APPDRAWERNAVIGATION);
@@ -34,16 +39,45 @@ const LightSetting = () => {
           onPressSecond={() => {
             navigate(HOME);
           }}
-          onPressForth={() => {
-            Alert.alert('Add button pressed');
-          }}
         />
       </View>
       <BackgroundColor>
-        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-          <Text style={{color: 'black', fontSize: 40, fontWeight: 'bold'}}>
-            Kishan
-          </Text>
+        <View style={styles.boxTitleContainer}>
+          <FlatList
+            showsVerticalScrollIndicator={false}
+            data={data}
+            renderItem={({item}) => (
+              <LightSettingBoxComponent
+                mainTitle={item.mainTitle}
+                boxTitle={item.boxTitle}
+              />
+            )}
+          />
+        </View>
+        <View style={styles.pressableIconStyle}>
+          <TextComponent
+            title={'Select Icon : '}
+            textStyle={{color: colors.primary}}
+          />
+          <PressableIcon />
+        </View>
+        <View style={styles.checkBoxStyle}>
+          <CheckBoxComponent/>
+        </View>
+        <View style={styles.secondHeaderView}>
+          <HeaderIconComponent
+            firstIcon
+            typeFirst={'ioni'}
+            nameFirst={'save-sharp'}
+            secondIcon
+            typeSecond={'fa6'}
+            nameSecond={'trash-can'}
+            typeThird={'fa5'}
+            nameThird={'arrow-circle-left'}
+            firstIconPress={() => Alert.alert('Save icon pressed')}
+            secondIconPress={() => Alert.alert('Trash icon pressed')}
+            thirdIconPress={() => navigation.goBack()}
+          />
         </View>
       </BackgroundColor>
     </View>

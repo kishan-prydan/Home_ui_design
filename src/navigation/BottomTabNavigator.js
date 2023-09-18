@@ -28,6 +28,7 @@ import {
   ZAudio,
 } from '../screens';
 import Icon from '../component/common/Icon';
+import ScrollBottomTabComponent from './ScrollBottomTabComponent';
 
 const BototmTab = createBottomTabNavigator();
 
@@ -40,7 +41,10 @@ export default function BottomTabNavigator() {
         tabBarActiveTintColor: colors.themeColor,
         tabBarStyle: {height: 65},
         tabBarShowLabel: false,
-      }}>
+      }}
+      // tabBar={(props) => <ScrollBottomTabComponent {...props} />}
+      >  
+    
       <BototmTab.Screen
         name={LIGHT}
         component={Light}
