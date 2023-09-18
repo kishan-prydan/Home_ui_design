@@ -3,7 +3,7 @@ import React from 'react';
 import {View, Alert, ScrollView, FlatList} from 'react-native';
 import Header from '../../component/common/Header';
 import {useNavigation} from '@react-navigation/native';
-import {APPDRAWERNAVIGATION, HOME} from '../../constants/routeNames';
+import {APPDRAWERNAVIGATION, HOME, LIGHTSETTING} from '../../constants/routeNames';
 import BackgroundColor from '../../component/common/BackgroundColor';
 import HeaderIconComponent from '../../component/common/HeaderIconComponent';
 import styles from './styles';
@@ -57,7 +57,7 @@ const Light = () => {
             textPresend
             textName={'0.4 KV'}
             firstIconPress={() => Alert.alert('Refresh icon pressed')}
-            secondIconPress={() => Alert.alert('Eye icon pressed')}
+            secondIconPress={() => navigate(LIGHTSETTING)}
           />
         </View>
 

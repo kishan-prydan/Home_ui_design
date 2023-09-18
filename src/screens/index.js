@@ -20,3 +20,4 @@ export {default as Irrigation} from './Irrigation';
 export {default as Media} from './Media';
 export {default as Camera} from './Camera';
 export {default as LightSetting} from './LightSetting';
+export {default as RgbwComponent} from './Rgbw/RgbwComponent';

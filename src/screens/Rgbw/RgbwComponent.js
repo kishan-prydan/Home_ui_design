@@ -1,13 +1,9 @@
-//import liraries
 import React from 'react';
-import {View, Alert} from 'react-native';
+import {View, Alert, Text} from 'react-native';
 import Header from '../../component/common/Header';
-import {useNavigation} from '@react-navigation/native';
 import {
   APPDRAWERNAVIGATION,
-  HOME,
-  LIGHTSETTING,
-  RGBWCOMPONENT,
+  HOME
 } from '../../constants/routeNames';
 import BackgroundColor from '../../component/common/BackgroundColor';
 import HeaderIconComponent from '../../component/common/HeaderIconComponent';
@@ -15,9 +11,7 @@ import styles from './styles';
 import PressableIconText from '../../component/common/PressableIconText';
 import colors from '../../assets/theme/colors';
 
-const Rgbw = () => {
-  const {navigate} = useNavigation();
-
+const RgbwComponent = () => {
   return (
     <View style={styles.container}>
       <View style={styles.headreView}>
@@ -59,16 +53,12 @@ const Rgbw = () => {
           />
         </View>
 
-        <PressableIconText
-          onPress={() => navigate(RGBWCOMPONENT)}
-          circleStyle={{backgroundColor: colors.iconSecondColor}}
-          iconType={'fa6'}
-          iconName={'lightbulb'}
-          title={'RGBW'}
-        />
+        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+			<Text style={{fontSize: 32, color: 'red', fontWeight: 'bold'}}>Kishan</Text>
+		</View>
       </BackgroundColor>
     </View>
   );
 };
 
-export default Rgbw;
+export default RgbwComponent;

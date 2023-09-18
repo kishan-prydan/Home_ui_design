@@ -25,4 +25,5 @@ export const IRRIGATION = 'Irrigation';
 export const MEDIA = 'Media';
 export const CAMERA = 'Camera';
 export const LIGHTSETTING = 'LightSetting';
+export const RGBWCOMPONENT = 'RgbwComponent';
 

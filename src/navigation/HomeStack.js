@@ -12,6 +12,7 @@ import {
   RGBW,
   SECONDBOTTOMTABNAVIGATOR,
   LIGHTSETTING,
+  RGBWCOMPONENT,
 } from '../constants/routeNames';
 import {
   AddHome,
@@ -20,6 +21,7 @@ import {
   LightSetting,
   Login,
   Rgbw,
+  RgbwComponent,
   SplashScreen,
   SweetHome,
 } from '../screens';
@@ -105,6 +107,11 @@ export default function HomeStack() {
         <Stack.Screen 
           name={LIGHTSETTING}
           component={LightSetting}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen 
+          name={RGBWCOMPONENT}
+          component={RgbwComponent}
           options={{headerShown: false}}
         />
       </>
