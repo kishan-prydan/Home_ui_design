@@ -12,18 +12,15 @@ const styles = StyleSheet.create({
     paddingVertical: moderateVerticalScale(20),
   },
   boxTitleContainer: {
-    paddingHorizontal: moderateScale(20),
     marginTop: moderateVerticalScale(20),
   },
   pressableIconStyle: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: moderateScale(20),    
     paddingVertical: moderateVerticalScale(20),
   },
-  checkBoxStyle:{
-    paddingHorizontal: moderateScale(20),
+  checkBoxStyle: {
     paddingVertical: moderateVerticalScale(10),
   },
 });

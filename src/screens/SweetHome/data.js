@@ -1,5 +1,5 @@
 import colors from "../../assets/theme/colors";
-import { BOTTOMTABNAVIGATOR, SECONDBOTTOMTABNAVIGATOR } from "../../constants/routeNames";
+import { BOTTOMTABNAVIGATOR, HVAC, SECONDBOTTOMTABNAVIGATOR } from "../../constants/routeNames";
 
 let data = [
   {
@@ -32,7 +32,7 @@ let data = [
     type: 'fa6',
     name: 'snowflake',
     color: colors.iconFifthColor,
-    alert: 'HVAC card pressed',
+    screen: HVAC,
   },
   {
     id: 5,

@@ -26,4 +26,6 @@ export const MEDIA = 'Media';
 export const CAMERA = 'Camera';
 export const LIGHTSETTING = 'LightSetting';
 export const RGBWCOMPONENT = 'RgbwComponent';
+export const FAHRENHEITSCREEN = 'FahrenheitScreen';
+export const CELSIUSSCREEN = 'CelsiusScreen';
 

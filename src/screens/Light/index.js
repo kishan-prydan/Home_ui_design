@@ -1,14 +1,12 @@
 //import liraries
 import React from 'react';
-import {View, Alert, ScrollView, FlatList} from 'react-native';
+import {View, Alert, FlatList} from 'react-native';
 import Header from '../../component/common/Header';
 import {useNavigation} from '@react-navigation/native';
 import {APPDRAWERNAVIGATION, HOME, LIGHTSETTING} from '../../constants/routeNames';
 import BackgroundColor from '../../component/common/BackgroundColor';
 import HeaderIconComponent from '../../component/common/HeaderIconComponent';
 import styles from './styles';
-import RangeSlider from '../../component/common/RangeSlider';
-import CircleWithIcon from '../../component/common/CircleWithIcon/CircleWithIcon';
 import LightComponent from '../../component/LightComponent';
 import data from './data';
 

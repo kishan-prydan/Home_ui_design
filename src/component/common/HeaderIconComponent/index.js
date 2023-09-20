@@ -2,8 +2,11 @@ import React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import Icon from '../Icon';
 import styles from './styles';
+import ClickableIcon from '../ClickableIcon';
+import colors from '../../../assets/theme/colors';
 
 const HeaderIconComponent = ({
+  PowerIconPresent,
   firstIconPress,
   secondIconPress,
   thirdIconPress,
@@ -17,8 +20,48 @@ const HeaderIconComponent = ({
   typeThird,
   nameThird,
   textName,
+  backgroundIconName,
+  backgroundIconType,
+  backgroundIconOnPress,
 }) => {
-  return (
+  return !!PowerIconPresent ? (
+    <View style={styles.iconStyle}>
+      <View style={styles.clickableIconView}>
+        <ClickableIcon
+          iconName={backgroundIconName}
+          iconType={backgroundIconType}
+          secondContainer={styles.iconContainer}
+          iconSize={22}
+          onPress={backgroundIconOnPress}
+        />
+        <TouchableOpacity onPress={firstIconPress}>
+          <Icon
+            type={typeFirst}
+            name={nameFirst}
+            size={22}
+            style={styles.iconColor}
+          />
+        </TouchableOpacity>
+      </View>
+      <TouchableOpacity onPress={secondIconPress}>
+        <Icon
+          type={typeSecond}
+          name={nameSecond}
+          size={32}
+          style={{color: colors.danger}}
+        />
+      </TouchableOpacity>
+      <View style={styles.textIconView}>
+        <Icon
+          type={typeThird}
+          name={nameThird}
+          size={22}
+          style={styles.iconColor}
+        />
+        <Text style={[styles.textStyle, styles.iconColor, styles.marginView]}>{textName}</Text>
+      </View>
+    </View>
+  ) : (
     <View style={styles.iconStyle}>
       {!!firstIcon ? (
         <TouchableOpacity onPress={firstIconPress}>

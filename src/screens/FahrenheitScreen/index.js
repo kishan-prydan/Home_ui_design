@@ -1,16 +1,12 @@
-import React from 'react';
-import {View, Alert, FlatList} from 'react-native';
+import React, {Component} from 'react';
+import {View, Text, StyleSheet, Alert} from 'react-native';
 import Header from '../../component/common/Header';
-import {APPDRAWERNAVIGATION, HOME} from '../../constants/routeNames';
+import styles from './styles';
 import BackgroundColor from '../../component/common/BackgroundColor';
 import HeaderIconComponent from '../../component/common/HeaderIconComponent';
-import styles from './styles';
-import PressableIconText from '../../component/common/PressableIconText';
-import colors from '../../assets/theme/colors';
-import RgbwSliderComponent from '../../component/RgbwSliderComponent';
-import data from './data';
+import CircularSliderComponent from '../../component/CircularSliderComponent';
 
-const RgbwComponent = () => {
+const FahrenheitScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.headreView}>
@@ -18,7 +14,7 @@ const RgbwComponent = () => {
           iconFirst
           iconThird
           iconForth
-          title={'RGBW'}
+          title={'TEST'}
           type={'fa6'}
           name={'circle-plus'}
           firstType={'entypo'}
@@ -45,34 +41,30 @@ const RgbwComponent = () => {
             secondIcon
             typeSecond={'fa5'}
             nameSecond={'eye'}
-            textPresend
-            textName={'0.4 KV'}
-            firstIconPress={() => Alert.alert('Refresh icon pressed')}
             secondIconPress={() => Alert.alert('Eye icon pressed')}
           />
         </View>
-
-        <View style={styles.sliderView}>
-          <FlatList
-            showsVerticalScrollIndicator={false}
-            data={data}
-            renderItem={({item}) => (
-              <RgbwSliderComponent
-                mainTitle={item.title}
-                iconType={item.iconType}
-                iconName={item.iocnName}
-                iconStyle={{color: item.iconColor}}
-                circleWithIcon={{...styles.circleIcon, backgroundColor: item.backgroundColor}}
-                value={item.value}
-                titleTextPresent
-                text={''}
-              />
-            )}
+        <View style={styles.secondBoxStyle}>
+          <HeaderIconComponent
+            PowerIconPresent
+            backgroundIconType={'material'}
+            backgroundIconName={'edit'}
+            backgroundIconOnPress={() => Alert.alert('kishan1')}
+            typeFirst={'fa'}
+            nameFirst={'refresh'}
+            firstIconPress={() => Alert.alert('kishan2')}
+            typeSecond={'fa6'}
+            nameSecond={'power-off'}
+            secondIconPress={() => Alert.alert('kishan3')}
+            typeThird={'fa5'}
+            nameThird={'tachometer-alt'}
+            textName={'1.5 KV'}
           />
         </View>
+        <CircularSliderComponent />
       </BackgroundColor>
     </View>
   );
 };
 
-export default RgbwComponent;
+export default FahrenheitScreen;

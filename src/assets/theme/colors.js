@@ -5,7 +5,8 @@ export default {
   hoverColor: '#DCF4FF',
   white: '#ffffff',
   grey: '#adb5bd',
-  danger: '#f72585',
+  lightGrey: '#F3F2FA',
+  danger: '#FE0112',
   iconFirstColor: '#FFFFFF',
   iconSecondColor: '#DCF4FF',
   iconThirdColor: '#E8E5FA',
@@ -13,6 +14,8 @@ export default {
   iconFifthColor: '#FDE3CC',
   iconSixthColor: '#C7D4FF',
   iconSeventhColor: '#BDF3D1',
+  iconEightColor: '#BD9E34',
+  iconninethColor: '#6D603D',
   iconBackgroundColor: '#f0f1f5',
   themeColor: '#4A2125',
   black: 'rgba(0,0,0,1)',
@@ -23,5 +26,6 @@ export default {
   blue: '#352CAD',
   yellow: '#FDCC05',
   sliderColor: '#B4B4B4',
-  iconColor: '#6D603D'
+  iconColor: '#6D603D',
+  green: '#1DD02E',
 };

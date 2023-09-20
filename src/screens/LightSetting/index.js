@@ -12,6 +12,7 @@ import PressableIcon from '../../component/common/PressableIcon';
 import TextComponent from '../../component/common/TextComponent';
 import colors from '../../assets/theme/colors';
 import CheckBoxComponent from '../../component/common/CheckBoxComponent';
+import Container from '../../component/common/Container';
 
 const LightSetting = () => {
   const {navigate} = useNavigation();
@@ -42,43 +43,54 @@ const LightSetting = () => {
         />
       </View>
       <BackgroundColor>
-        <View style={styles.boxTitleContainer}>
-          <FlatList
-            showsVerticalScrollIndicator={false}
-            data={data}
-            renderItem={({item}) => (
-              <LightSettingBoxComponent
-                mainTitle={item.mainTitle}
-                boxTitle={item.boxTitle}
-              />
-            )}
-          />
-        </View>
-        <View style={styles.pressableIconStyle}>
-          <TextComponent
-            title={'Select Icon : '}
-            textStyle={{color: colors.primary}}
-          />
-          <PressableIcon />
-        </View>
-        <View style={styles.checkBoxStyle}>
-          <CheckBoxComponent/>
-        </View>
-        <View style={styles.secondHeaderView}>
-          <HeaderIconComponent
-            firstIcon
-            typeFirst={'ioni'}
-            nameFirst={'save-sharp'}
-            secondIcon
-            typeSecond={'fa6'}
-            nameSecond={'trash-can'}
-            typeThird={'fa5'}
-            nameThird={'arrow-circle-left'}
-            firstIconPress={() => Alert.alert('Save icon pressed')}
-            secondIconPress={() => Alert.alert('Trash icon pressed')}
-            thirdIconPress={() => navigation.goBack()}
-          />
-        </View>
+        <Container>
+          <View style={styles.boxTitleContainer}>
+            {/* <FlatList
+              showsVerticalScrollIndicator={false}
+              data={data}
+              renderItem={({item}) => (
+                <LightSettingBoxComponent
+                  mainTitle={item.mainTitle}
+                  boxTitle={item.boxTitle}
+                />
+              )}
+            /> */}
+            {data.map((item, index) => {
+              return (
+                <LightSettingBoxComponent
+                  key={index}
+                  mainTitle={item.mainTitle}
+                  boxTitle={item.boxTitle}
+                />
+              );
+            })}
+          </View>
+          <View style={styles.pressableIconStyle}>
+            <TextComponent
+              title={'Select Icon : '}
+              textStyle={{color: colors.primary}}
+            />
+            <PressableIcon />
+          </View>
+          <View style={styles.checkBoxStyle}>
+            <CheckBoxComponent />
+          </View>
+          <View style={styles.secondHeaderView}>
+            <HeaderIconComponent
+              firstIcon
+              typeFirst={'ioni'}
+              nameFirst={'save-sharp'}
+              secondIcon
+              typeSecond={'fa6'}
+              nameSecond={'trash-can'}
+              typeThird={'fa5'}
+              nameThird={'arrow-circle-left'}
+              firstIconPress={() => Alert.alert('Save icon pressed')}
+              secondIconPress={() => Alert.alert('Trash icon pressed')}
+              thirdIconPress={() => navigation.goBack()}
+            />
+          </View>
+        </Container>
       </BackgroundColor>
     </View>
   );

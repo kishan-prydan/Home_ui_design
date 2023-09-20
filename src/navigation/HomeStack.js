@@ -9,18 +9,21 @@ import {
   SPLASH,
   LOGIN,
   BOTTOMTABNAVIGATOR,
-  RGBW,
   SECONDBOTTOMTABNAVIGATOR,
   LIGHTSETTING,
   RGBWCOMPONENT,
+  HVAC,
+  FAHRENHEITSCREEN,
+  CELSIUSSCREEN,
 } from '../constants/routeNames';
 import {
   AddHome,
+  FahrenheitScreen,
   Home,
   HomeView,
+  Hvac,
   LightSetting,
   Login,
-  Rgbw,
   RgbwComponent,
   SplashScreen,
   SweetHome,
@@ -29,6 +32,7 @@ import AppDrawerNavigation from './AppDrawerNavigation';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import BottomTabNavigator from './BottomTabNavigator';
 import SecondBottomTabNavigator from './SecondBottomTabNavigator';
+import CelsiusScreen from '../screens/CelsiusScreen';
 
 const Stack = createStackNavigator();
 
@@ -112,6 +116,21 @@ export default function HomeStack() {
         <Stack.Screen 
           name={RGBWCOMPONENT}
           component={RgbwComponent}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen 
+          name={HVAC}
+          component={Hvac}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen 
+          name={FAHRENHEITSCREEN}
+          component={FahrenheitScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen 
+          name={CELSIUSSCREEN}
+          component={CelsiusScreen}
           options={{headerShown: false}}
         />
       </>

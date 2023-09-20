@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {moderateScale, moderateVerticalScale} from 'react-native-size-matters';
+import colors from '../../assets/theme/colors';
 
 const styles = StyleSheet.create({
   container: {
@@ -8,18 +9,14 @@ const styles = StyleSheet.create({
   headreView: {
     paddingHorizontal: moderateScale(20),
   },
-  sliderView: {
-    paddingHorizontal: 20,
-    flex: 1,
-  },
   secondHeaderView: {
     paddingVertical: moderateVerticalScale(20),
   },
-  circleIcon: {
-    height: 64,
-    width: 64,
-    borderRadius: 32,
-    alignItems: 'center',
+  secondBoxStyle: {
+    marginHorizontal: moderateScale(20),
+    backgroundColor: colors.white,
+    height: moderateScale(80),
+    borderRadius: 5,
     justifyContent: 'center',
   },
 });

@@ -7,7 +7,7 @@ import styles from './styles';
 import {useNavigation} from '@react-navigation/native';
 import {APPDRAWERNAVIGATION, HOME} from '../../constants/routeNames';
 
-const SweetHome = ({navigation}) => {
+const SweetHome = () => {
   const {navigate} = useNavigation();
 
   return (
