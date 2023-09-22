@@ -28,4 +28,5 @@ export const LIGHTSETTING = 'LightSetting';
 export const RGBWCOMPONENT = 'RgbwComponent';
 export const FAHRENHEITSCREEN = 'FahrenheitScreen';
 export const CELSIUSSCREEN = 'CelsiusScreen';
+export const ACSETTING = 'AcSetting';
 

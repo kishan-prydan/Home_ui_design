@@ -11,7 +11,8 @@ let data = [
     id: 1,
     Cvalue: 22,
     degree: 'c',
-    screen: CELSIUSSCREEN
+    // screen: CELSIUSSCREEN
+    screen: FAHRENHEITSCREEN
   },
 ];
 

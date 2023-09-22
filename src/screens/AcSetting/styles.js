@@ -10,14 +10,20 @@ const styles = StyleSheet.create({
     paddingHorizontal: moderateScale(20),
   },
   secondHeaderView: {
-    paddingTop: moderateVerticalScale(20),
+    paddingTop: moderateScale(40),
   },
-  secondBoxStyle: {
-    backgroundColor: colors.white,
-    height: moderateScale(70),
-    borderRadius: 5,
-    justifyContent: 'center',
+  boxTitleContainer: {
+    marginTop: moderateVerticalScale(20),
   },
+  boxTitileinnerContainer:{
+    flexDirection: 'row',
+		alignItems: 'center',
+		justifyContent: 'space-between',
+		marginVertical: moderateVerticalScale(10)
+  },
+  textStyle:{
+		color: colors.primary
+	},
 });
 
 export default styles;

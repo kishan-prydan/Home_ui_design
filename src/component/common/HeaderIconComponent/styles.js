@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 import colors from '../../../assets/theme/colors';
-import {moderateScale} from 'react-native-size-matters';
+import {moderateScale, scale} from 'react-native-size-matters';
 
 const styles = StyleSheet.create({
   iconStyle: {
@@ -12,13 +12,13 @@ const styles = StyleSheet.create({
     color: colors.themeColor,
   },
   textStyle: {
-    fontSize: 18,
+    fontSize: scale(18),
     fontWeight: 'bold',
   },
   iconContainer: {
-    height: moderateScale(40),
-    width: moderateScale(40),
-    borderRadius: 20,
+    height: moderateScale(30),
+    width: moderateScale(30),
+    borderRadius: 15,
     borderWidth: 0,
     alignItems: 'center',
     justifyContent: 'center',
@@ -35,6 +35,8 @@ const styles = StyleSheet.create({
   },
   marginView: {
 	marginLeft: moderateScale(5),
+  fontSize: scale(16),
+  fontWeight: 'bold',
   },
 });
 

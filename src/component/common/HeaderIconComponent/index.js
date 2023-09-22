@@ -31,14 +31,14 @@ const HeaderIconComponent = ({
           iconName={backgroundIconName}
           iconType={backgroundIconType}
           secondContainer={styles.iconContainer}
-          iconSize={22}
+          iconSize={18}
           onPress={backgroundIconOnPress}
         />
         <TouchableOpacity onPress={firstIconPress}>
           <Icon
             type={typeFirst}
             name={nameFirst}
-            size={22}
+            size={18}
             style={styles.iconColor}
           />
         </TouchableOpacity>
@@ -47,7 +47,7 @@ const HeaderIconComponent = ({
         <Icon
           type={typeSecond}
           name={nameSecond}
-          size={32}
+          size={26}
           style={{color: colors.danger}}
         />
       </TouchableOpacity>
@@ -55,10 +55,10 @@ const HeaderIconComponent = ({
         <Icon
           type={typeThird}
           name={nameThird}
-          size={22}
+          size={18}
           style={styles.iconColor}
         />
-        <Text style={[styles.textStyle, styles.iconColor, styles.marginView]}>{textName}</Text>
+        <Text style={[styles.iconColor, styles.marginView]}>{textName}</Text>
       </View>
     </View>
   ) : (

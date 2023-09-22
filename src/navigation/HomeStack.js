@@ -15,8 +15,10 @@ import {
   HVAC,
   FAHRENHEITSCREEN,
   CELSIUSSCREEN,
+  ACSETTING,
 } from '../constants/routeNames';
 import {
+  AcSettings,
   AddHome,
   FahrenheitScreen,
   Home,
@@ -131,6 +133,11 @@ export default function HomeStack() {
         <Stack.Screen 
           name={CELSIUSSCREEN}
           component={CelsiusScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen 
+          name={ACSETTING}
+          component={AcSettings}
           options={{headerShown: false}}
         />
       </>

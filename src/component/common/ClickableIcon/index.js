@@ -4,7 +4,18 @@ import Icon from '../Icon';
 import styles from './styles';
 import colors from '../../../assets/theme/colors';
 
-const ClickableIcon = ({elevation, container, secondContainer, iconSize, onPress, iconType, iconName}) => {
+const ClickableIcon = ({
+  elevation,
+  container,
+  secondContainer,
+  iconSize,
+  onPress,
+  iconType,
+  iconName,
+  iconStyle,
+  disabled,
+  changeColor,
+}) => {
   return !!elevation ? (
     <TouchableOpacity
       style={{...styles.container, ...container}}
@@ -19,14 +30,15 @@ const ClickableIcon = ({elevation, container, secondContainer, iconSize, onPress
     </TouchableOpacity>
   ) : (
     <TouchableOpacity
-      style={{...styles.secondContainer, ...secondContainer}}
+      style={{...styles.secondContainer, ...secondContainer, ...changeColor}}
       activeOpacity={0.7}
-      onPress={onPress}>
+      onPress={onPress}
+      disabled={disabled}>
       <Icon
         type={iconType}
         name={iconName}
         size={iconSize}
-        style={{color: colors.themeColor}}
+        style={{...styles.iconStyle, ...iconStyle}}
       />
     </TouchableOpacity>
   );

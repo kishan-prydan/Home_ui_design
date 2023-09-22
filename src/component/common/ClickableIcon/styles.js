@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {moderateScale, moderateVerticalScale} from 'react-native-size-matters';
+import {moderateScale} from 'react-native-size-matters';
 import colors from '../../../assets/theme/colors';
 
 const styles = StyleSheet.create({
@@ -25,7 +25,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: colors.green,
-  }
+  },
+  iconStyle:{
+    color: colors.themeColor,
+  },
 });
 
 export default styles;
