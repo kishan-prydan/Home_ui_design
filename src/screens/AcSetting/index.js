@@ -53,7 +53,7 @@ const AcSetting = () => {
                 textStyle={styles.textStyle}
                 title={'A/C Name : '}
               />
-              <BoxTitle boxTitle={'test 1'} />
+              <BoxTitle boxTitle={'test 1'} container={styles.boxTitileElevation}/>
             </View>
 
             <View style={styles.boxTitileinnerContainer}>
@@ -61,7 +61,7 @@ const AcSetting = () => {
                 textStyle={styles.textStyle}
                 title={'Subnet ID : '}
               />
-              <BoxTitle boxTitle={'1'} />
+              <BoxTitle boxTitle={'1'} container={styles.boxTitileElevation}/>
             </View>
 
             <View style={styles.boxTitileinnerContainer}>
@@ -69,7 +69,7 @@ const AcSetting = () => {
                 textStyle={styles.textStyle}
                 title={'Device ID : '}
               />
-              <BoxTitle boxTitle={'12'} />
+              <BoxTitle boxTitle={'12'} container={styles.boxTitileElevation}/>
             </View>
 
             <View style={styles.boxTitileinnerContainer}>
@@ -86,7 +86,7 @@ const AcSetting = () => {
                 textStyle={styles.textStyle}
                 title={'AC Sync No : '}
               />
-              <BoxTitle boxTitle={'1'} />
+              <BoxTitle boxTitle={'1'} container={styles.boxTitileElevation}/>
             </View>
 
           <View style={styles.secondHeaderView}>

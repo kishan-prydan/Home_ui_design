@@ -24,6 +24,9 @@ const styles = StyleSheet.create({
   textStyle:{
 		color: colors.primary
 	},
+  boxTitileElevation:{
+    elevation: 0,
+  },
 });
 
 export default styles;

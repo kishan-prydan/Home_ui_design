@@ -38,4 +38,13 @@ export default {
   cardIconColorTwo: '#F1253A',
   cardIconColorThree: '#04C21E',
   fanBackgroundColor: '#BABAC3',
+  pink: '#E9347B',
+  chromeColor: '#D00ECF',
+  orange: '#EE7009',
+  musicBackgroundColorOne: '#DCF4FF',
+  musicBackgroundColorTwo: '#E0F6E9',
+  musicBackgroundColorThree: '#E1E7FD',
+  musicBackgroundColorFour: '#FFE5F0',
+  musicBackgroundColorFive: '#F9E6F9',
+  musicBackgroundColorSix: '#FFECDE',
 };

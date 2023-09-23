@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {View, Image} from 'react-native';
-import { HOME, LOGIN } from '../../constants/routeNames';
+import { HOME, LOGIN, SWEETHOME } from '../../constants/routeNames';
 import imagePath from '../../constants/imagePath';
 import styles from './styles';
 
@@ -9,6 +9,7 @@ const SplashScreen = ({navigation}) => {
     setTimeout(() => {
       // navigation.replace(LOGIN);
       navigation.replace(HOME);
+      // navigation.replace(SWEETHOME);
     }, 2000);
   }, []);
 

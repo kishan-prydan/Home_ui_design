@@ -9,8 +9,12 @@ import PressableIconText from '../../component/common/PressableIconText';
 import colors from '../../assets/theme/colors';
 import RgbwSliderComponent from '../../component/RgbwSliderComponent';
 import data from './data';
+import { useNavigation } from '@react-navigation/native';
 
 const RgbwComponent = () => {
+
+  const {navigate} = useNavigation();
+
   return (
     <View style={styles.container}>
       <View style={styles.headreView}>

@@ -6,7 +6,6 @@ import {useNavigation} from '@react-navigation/native';
 import {
   APPDRAWERNAVIGATION,
   HOME,
-  LIGHTSETTING,
   RGBWCOMPONENT,
 } from '../../constants/routeNames';
 import BackgroundColor from '../../component/common/BackgroundColor';

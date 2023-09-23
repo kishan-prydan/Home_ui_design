@@ -25,7 +25,7 @@ const ClickableIcon = ({
         type={iconType}
         name={iconName}
         size={30}
-        style={{color: colors.themeColor}}
+        style={{...styles.iconStyle, ...iconStyle}}
       />
     </TouchableOpacity>
   ) : (

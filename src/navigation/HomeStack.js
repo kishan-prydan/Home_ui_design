@@ -16,6 +16,7 @@ import {
   FAHRENHEITSCREEN,
   CELSIUSSCREEN,
   ACSETTING,
+  ZAUDIO,
 } from '../constants/routeNames';
 import {
   AcSettings,
@@ -29,6 +30,7 @@ import {
   RgbwComponent,
   SplashScreen,
   SweetHome,
+  ZAudio,
 } from '../screens';
 import AppDrawerNavigation from './AppDrawerNavigation';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -138,6 +140,11 @@ export default function HomeStack() {
         <Stack.Screen 
           name={ACSETTING}
           component={AcSettings}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen 
+          name={ZAUDIO}
+          component={ZAudio}
           options={{headerShown: false}}
         />
       </>

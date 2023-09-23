@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {View, StyleSheet, Alert} from 'react-native';
 import ClickableIcon from '../common/ClickableIcon';
 import colors from '../../assets/theme/colors';
+import styles from './styles';
 
 const IconclickColorChange = () => {
   const [isToggledOne, setIsToggledOne] = useState(false);
@@ -72,41 +73,5 @@ const IconclickColorChange = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingVertical: 10,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    width: '50%',
-    paddingLeft: 20,
-  },
-  iconFirstContainer: {
-    borderWidth: 0,
-    height: 26,
-    width: 26,
-    borderRadius: 13,
-    // backgroundColor: colors.fanBackgroundColor,
-  },
-  iconSecondContainer: {
-    borderWidth: 0,
-    height: 36,
-    width: 36,
-    borderRadius: 18,
-    // backgroundColor: colors.fanBackgroundColor,
-  },
-  iconThirdContainer: {
-    borderWidth: 0,
-    height: 46,
-    width: 46,
-    borderRadius: 23,
-    // backgroundColor: colors.fanBackgroundColor,
-  },
-  iconStyle: {
-    color: colors.white,
-  },
-});
 
 export default IconclickColorChange;

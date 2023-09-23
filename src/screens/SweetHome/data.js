@@ -1,5 +1,5 @@
 import colors from "../../assets/theme/colors";
-import { BOTTOMTABNAVIGATOR, HVAC, SECONDBOTTOMTABNAVIGATOR } from "../../constants/routeNames";
+import { BOTTOMTABNAVIGATOR, HVAC, SECONDBOTTOMTABNAVIGATOR, ZAUDIO } from "../../constants/routeNames";
 
 let data = [
   {
@@ -40,7 +40,7 @@ let data = [
     type: 'fa6',
     name: 'music',
     color: colors.iconSixthColor,
-    alert: 'Z-AUDIO card pressed',
+    screen: ZAUDIO,
   },
   {
     id: 6,

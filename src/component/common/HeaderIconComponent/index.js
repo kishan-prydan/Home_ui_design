@@ -23,9 +23,10 @@ const HeaderIconComponent = ({
   backgroundIconName,
   backgroundIconType,
   backgroundIconOnPress,
+  iconStyle
 }) => {
   return !!PowerIconPresent ? (
-    <View style={styles.iconStyle}>
+    <View style={{...styles.iconStyle, ...iconStyle}}>
       <View style={styles.clickableIconView}>
         <ClickableIcon
           iconName={backgroundIconName}
@@ -62,7 +63,7 @@ const HeaderIconComponent = ({
       </View>
     </View>
   ) : (
-    <View style={styles.iconStyle}>
+    <View style={{...styles.iconStyle, ...iconStyle}}>
       {!!firstIcon ? (
         <TouchableOpacity onPress={firstIconPress}>
           <Icon
