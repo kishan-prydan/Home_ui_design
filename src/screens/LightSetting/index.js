@@ -73,7 +73,7 @@ const LightSetting = () => {
             <PressableIcon />
           </View>
           <View style={styles.checkBoxStyle}>
-            <CheckBoxComponent />
+            <CheckBoxComponent title={'Allow Control Main Screen '}/>
           </View>
           <View style={styles.secondHeaderView}>
             <HeaderIconComponent

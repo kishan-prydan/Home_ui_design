@@ -23,7 +23,8 @@ const HeaderIconComponent = ({
   backgroundIconName,
   backgroundIconType,
   backgroundIconOnPress,
-  iconStyle
+  iconStyle,
+  iconColor
 }) => {
   return !!PowerIconPresent ? (
     <View style={{...styles.iconStyle, ...iconStyle}}>
@@ -40,7 +41,7 @@ const HeaderIconComponent = ({
             type={typeFirst}
             name={nameFirst}
             size={18}
-            style={styles.iconColor}
+            style={{...styles.iconColor, ...iconColor}}
           />
         </TouchableOpacity>
       </View>
@@ -57,7 +58,7 @@ const HeaderIconComponent = ({
           type={typeThird}
           name={nameThird}
           size={18}
-          style={styles.iconColor}
+          style={{...styles.iconColor, ...iconColor}}
         />
         <Text style={[styles.iconColor, styles.marginView]}>{textName}</Text>
       </View>
@@ -70,7 +71,7 @@ const HeaderIconComponent = ({
             type={typeFirst}
             name={nameFirst}
             size={22}
-            style={styles.iconColor}
+            style={{...styles.iconColor, ...iconColor}}
           />
         </TouchableOpacity>
       ) : (
@@ -82,7 +83,7 @@ const HeaderIconComponent = ({
             type={typeSecond}
             name={nameSecond}
             size={22}
-            style={styles.iconColor}
+            style={{...styles.iconColor, ...iconColor}}
           />
         </TouchableOpacity>
       ) : (
@@ -98,7 +99,7 @@ const HeaderIconComponent = ({
             type={typeThird}
             name={nameThird}
             size={22}
-            style={styles.iconColor}
+            style={{...styles.iconColor, ...iconColor}}
           />
         </TouchableOpacity>
       )}

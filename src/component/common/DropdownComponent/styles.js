@@ -8,6 +8,11 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     width: '55%',
   },
+  dropDownContainerDark: {
+    backgroundColor: colors.textBoxOpacity,
+    borderRadius: 5,
+    width: '55%',
+  },
   dropdown: {
     borderColor: 'transparent',
     paddingHorizontal: moderateScale(20),
@@ -26,14 +31,29 @@ const styles = StyleSheet.create({
     fontSize: scale(16),
     color: colors.themeColor,
   },
+  placeholderStyleDark: {
+    fontSize: scale(16),
+    color: colors.white,
+    fontWeight: 600,
+  },
   selectedTextStyle: {
     fontSize: scale(16),
     color: colors.themeColor,
+  },
+  selectedTextStyleDark: {
+    fontSize: scale(16),
+    color: colors.white,
+    fontWeight: 600,
   },
   inputSearchStyle: {
     height: moderateScale(40),
     fontSize: scale(16),
     color: colors.themeColor,
+  },
+  inputSearchStyleDark: {
+    height: moderateScale(40),
+    fontSize: scale(16),
+    color: colors.white,
   },
 });
 

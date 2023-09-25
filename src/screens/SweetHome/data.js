@@ -1,5 +1,5 @@
 import colors from "../../assets/theme/colors";
-import { BOTTOMTABNAVIGATOR, HVAC, SECONDBOTTOMTABNAVIGATOR, ZAUDIO } from "../../constants/routeNames";
+import { BOTTOMTABNAVIGATOR, CURTAIN, HVAC, SECONDBOTTOMTABNAVIGATOR, ZAUDIO } from "../../constants/routeNames";
 
 let data = [
   {
@@ -48,7 +48,7 @@ let data = [
     type: 'materialCommunity',
     name: 'curtains',
     color: colors.iconSeventhColor,
-    alert: 'Curtain card pressed',
+    screen: CURTAIN,
   },
   {
     id: 7,

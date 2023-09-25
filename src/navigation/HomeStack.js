@@ -18,10 +18,12 @@ import {
   ACSETTING,
   ZAUDIO,
   MUSICSETTING,
+  CURTAIN,
 } from '../constants/routeNames';
 import {
   AcSettings,
   AddHome,
+  Curtain,
   FahrenheitScreen,
   Home,
   HomeView,
@@ -152,6 +154,11 @@ export default function HomeStack() {
         <Stack.Screen
           name={MUSICSETTING}
           component={MusicSetting}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name={CURTAIN}
+          component={Curtain}
           options={{headerShown: false}}
         />
       </>

@@ -2,6 +2,8 @@ export default {
   primary: '#060606',
   secondary: '#4A2125',
   header: '#4A2125',
+  headerOpacity: 'rgba(186, 175, 173, 0.6)',
+  textBoxOpacity: 'rgba(130, 105, 105, 0.7)',
   hoverColor: '#DCF4FF',
   white: '#FFFFFF',
   grey: '#adb5bd',

@@ -1,7 +1,6 @@
 import React from 'react';
 import {View, TouchableOpacity, Image, Text} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import colors from '../../../assets/theme/colors';
 import styles from './styles';
 import Icon from '../../common/Icon';
 
@@ -29,6 +28,7 @@ const Header = ({
   thirdType,
   forthName,
   forthType,
+  textView,
 }) => {
   const navigation = useNavigation();
   return (
@@ -78,7 +78,7 @@ const Header = ({
             />
           </TouchableOpacity>
         ) : (
-          <Text style={styles.textView}>{title}</Text>
+          <Text style={{...styles.textView, ...textView}}>{title}</Text>
         )}
       </View>
       <View>
