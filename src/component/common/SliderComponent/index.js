@@ -6,7 +6,15 @@ import {moderateScale, scale} from 'react-native-size-matters';
 import {Slider} from '@rneui/base';
 import ClickableIcon from '../ClickableIcon';
 
-const SliderComponent = ({initialValue, sliderStyle}) => {
+const SliderComponent = ({
+  initialValue,
+  volumeButtonPresent,
+  sliderStyle,
+  orientation,
+  step,
+  sliderValue,
+  sliderValueChange
+}) => {
   const [value, setValue] = useState(
     initialValue === null || '' || undefined ? 50 : initialValue,
   );
@@ -24,7 +32,7 @@ const SliderComponent = ({initialValue, sliderStyle}) => {
     value === 100 ? Alert.alert('reached minimum valume') : setValue(value + 5);
   };
 
-  return (
+  return !!volumeButtonPresent ? (
     <View style={styles.container}>
       <ClickableIcon
         iconType={'fa6'}
@@ -60,13 +68,29 @@ const SliderComponent = ({initialValue, sliderStyle}) => {
       {/* check value here to know about the problem */}
       {/* <Text>{value}</Text> */}
     </View>
+  ) : (
+    // this slider is working fine
+    <View style={styles.container}>
+      <Slider
+        style={{...styles.slider, ...sliderStyle}}
+        minimumValue={0}
+        maximumValue={100}
+        minimumTrackTintColor={colors.themeColor}
+        maximumTrackTintColor={colors.inActive}
+        thumbTintColor={colors.themeColor}
+        thumbStyle={styles.thumbStyle}
+        step={step}
+        value={sliderValue}
+        onValueChange={sliderValueChange}
+        orientation={orientation}
+      />
+      {/* <Text>{value}</Text> */}
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-  },
+  container: {},
   thumbStyle: {
     height: moderateScale(12),
     width: moderateScale(12),

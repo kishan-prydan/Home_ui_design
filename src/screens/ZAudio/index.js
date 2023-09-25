@@ -1,40 +1,18 @@
 //import liraries
 import React, {useState} from 'react';
-import {View, Text, Alert} from 'react-native';
+import {View, Alert} from 'react-native';
 import Header from '../../component/common/Header';
-import {APPDRAWERNAVIGATION, HOME} from '../../constants/routeNames';
+import {APPDRAWERNAVIGATION, HOME, MUSICSETTING} from '../../constants/routeNames';
 import {useNavigation} from '@react-navigation/native';
 import styles from './styles';
 import BackgroundColor from '../../component/common/BackgroundColor';
 import MusicSecondHeader from '../../component/MusicSecondHeader';
 import MusicPlayerFirst from '../../component/MusicPlayerFirst';
-
-const Component2 = () => (
-  <View style={styles.component}>
-    <Text>Component 2</Text>
-  </View>
-);
-
-const Component3 = () => (
-  <View style={styles.component}>
-    <Text>Component 3</Text>
-  </View>
-);
-const Component4 = () => (
-  <View style={styles.component}>
-    <Text>Component 4</Text>
-  </View>
-);
-const Component5 = () => (
-  <View style={styles.component}>
-    <Text>Component 5</Text>
-  </View>
-);
-const Component6 = () => (
-  <View style={styles.component}>
-    <Text>Component 6</Text>
-  </View>
-);
+import MusicPlayerSixth from '../../component/MusicPlayerSixth';
+import MusicPlayerFifth from '../../component/MusicPlayerFifth';
+import MusicPlayerFourth from '../../component/MusicPlayerFourth';
+import MusicPlayerThird from '../../component/MusicPlayerThird';
+import Container from '../../component/common/Container';
 
 const ZAudio = () => {
   const {navigate} = useNavigation();
@@ -84,16 +62,16 @@ const ZAudio = () => {
         <View style={styles.secondMusicHeaderView}>
           <MusicSecondHeader
             onPressFirst={() => showComponent(<MusicPlayerFirst />)}
-            onPressSecond={() => showComponent(<Component2 />)}
-            onPressThird={() => showComponent(<Component3 />)}
-            onPressFourth={() => showComponent(<Component4 />)}
-            onPressFifth={() => showComponent(<Component5 />)}
-            onPressSixth={() => showComponent(<Component6 />)}
+            onPressSecond={() => navigate(MUSICSETTING)}
+            onPressThird={() => showComponent(<MusicPlayerThird />)}
+            onPressFourth={() => showComponent(<MusicPlayerFourth />)}
+            onPressFifth={() => showComponent(<MusicPlayerFifth />)}
+            onPressSixth={() => showComponent(<MusicPlayerSixth />)}
           />
         </View>
-        <View style={styles.musicCardContaner}>
+        <Container style={styles.musicCardContaner}>
           <View style={styles.secondBoxStyle}>{currentComponent}</View>
-        </View>
+        </Container>
       </BackgroundColor>
     </View>
   );

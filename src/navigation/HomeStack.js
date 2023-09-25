@@ -17,6 +17,7 @@ import {
   CELSIUSSCREEN,
   ACSETTING,
   ZAUDIO,
+  MUSICSETTING,
 } from '../constants/routeNames';
 import {
   AcSettings,
@@ -27,6 +28,7 @@ import {
   Hvac,
   LightSetting,
   Login,
+  MusicSetting,
   RgbwComponent,
   SplashScreen,
   SweetHome,
@@ -145,6 +147,11 @@ export default function HomeStack() {
         <Stack.Screen 
           name={ZAUDIO}
           component={ZAudio}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name={MUSICSETTING}
+          component={MusicSetting}
           options={{headerShown: false}}
         />
       </>

@@ -10,8 +10,12 @@ const MusicController = ({
   playPausePress,
   forewardPress,
   shufflePress,
+  stopIcon,
+  backWardIcon,
+  forewardIcon,
+  shuffleIcon,
 }) => {
-  const [initailIcon, setinitailIcon] = useState(false);
+  const [initailIcon, setinitailIcon] = useState(true);
 
   const iconChange = () => {
     setinitailIcon(!initailIcon);
@@ -27,46 +31,63 @@ const MusicController = ({
 
   return (
     <View style={styles.container}>
-      <ClickableIcon
-        iconType={'fa6'}
-        iconName={'stop'}
-        iconSize={12}
-        secondContainer={styles.firstIconContainer}
-        iconStyle={{color: colors.white}}
-        onPress={stopPress}
-      />
-      <ClickableIcon
-        iconType={'fa6'}
-        iconName={'backward'}
-        iconSize={20}
-        secondContainer={styles.secondIconContainer}
-        iconStyle={{color: colors.themeColor}}
-        onPress={backPress}
-      />
+      {!!stopIcon ? (
+        <ClickableIcon
+          iconType={'fa6'}
+          iconName={'stop'}
+          iconSize={12}
+          secondContainer={styles.firstIconContainer}
+          iconStyle={{color: colors.white}}
+          onPress={stopPress}
+        />
+      ) : (
+        <View />
+      )}
+      {!!backWardIcon ? (
+        <ClickableIcon
+          iconType={'fa6'}
+          iconName={'backward'}
+          iconSize={20}
+          secondContainer={styles.secondIconContainer}
+          iconStyle={{color: colors.themeColor}}
+          onPress={backPress}
+        />
+      ) : (
+        <View />
+      )}
       <ClickableIcon
         iconType={'fa6'}
         iconName={initailIcon ? 'play' : 'pause'}
         elevation
+        iconSize={20}
         container={styles.thirdIconContainer}
         iconStyle={{color: colors.white}}
         onPress={onPressHandler}
       />
-      <ClickableIcon
-        iconType={'fa6'}
-        iconName={'forward'}
-        iconSize={20}
-        secondContainer={styles.forthIconContainer}
-        iconStyle={{color: colors.themeColor}}
-        onPress={forewardPress}
-      />
-      <ClickableIcon
-        iconType={'fa6'}
-        iconName={'shuffle'}
-        iconSize={20}
-        secondContainer={styles.fifthIconContainer}
-        iconStyle={{color: colors.themeColor}}
-        onPress={shufflePress}
-      />
+      {!!forewardIcon ? (
+        <ClickableIcon
+          iconType={'fa6'}
+          iconName={'forward'}
+          iconSize={20}
+          secondContainer={styles.forthIconContainer}
+          iconStyle={{color: colors.themeColor}}
+          onPress={forewardPress}
+        />
+      ) : (
+        <View />
+      )}
+      {!!shuffleIcon ? (
+        <ClickableIcon
+          iconType={'fa6'}
+          iconName={'shuffle'}
+          iconSize={20}
+          secondContainer={styles.fifthIconContainer}
+          iconStyle={{color: colors.themeColor}}
+          onPress={shufflePress}
+        />
+      ) : (
+        <View />
+      )}
     </View>
   );
 };

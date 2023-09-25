@@ -1,11 +1,12 @@
 import {StyleSheet} from 'react-native';
 import {moderateScale, moderateVerticalScale} from 'react-native-size-matters';
-import colors from '../../assets/theme/colors';
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    height: moderateScale(490),
+  },
   secondHeaderView: {
-    paddingVertical: moderateVerticalScale(20),
+    paddingVertical: moderateVerticalScale(12),
     paddingHorizontal: moderateScale(20),
   },
   secondHeaderViewStyle: {
@@ -19,6 +20,9 @@ const styles = StyleSheet.create({
   },
   sliderStyle: {
     height: moderateScale(240),
+  },
+  musicControllerContainer:{
+    paddingTop: moderateVerticalScale(10),
   },
 });
 

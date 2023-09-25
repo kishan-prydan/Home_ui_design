@@ -2,9 +2,8 @@ import React, {Component} from 'react';
 import {Text, TouchableOpacity} from 'react-native';
 import Icon from '../Icon';
 import styles from './styles';
-import colors from '../../../assets/theme/colors';
 
-const ClickableIcon = ({
+const RectangleIcon = ({
   elevation,
   container,
   secondContainer,
@@ -18,13 +17,13 @@ const ClickableIcon = ({
 }) => {
   return !!elevation ? (
     <TouchableOpacity
-      style={{...styles.container, ...container, iconSize}}
+      style={{...styles.container, ...container}}
       activeOpacity={0.7}
       onPress={onPress}>
       <Icon
         type={iconType}
         name={iconName}
-        size={25}
+        size={30}
         style={{...styles.iconStyle, ...iconStyle}}
       />
     </TouchableOpacity>
@@ -44,4 +43,4 @@ const ClickableIcon = ({
   );
 };
 
-export default ClickableIcon;
+export default RectangleIcon;

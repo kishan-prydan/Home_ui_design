@@ -1,12 +1,5 @@
 import React, {Component} from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  Alert,
-  FlatList,
-  ScrollView,
-} from 'react-native';
+import {View, Alert, FlatList, ScrollView} from 'react-native';
 import styles from './styles';
 import HeaderIconComponent from '../common/HeaderIconComponent';
 import SliderComponent from '../common/SliderComponent';
@@ -16,10 +9,7 @@ import MusicController from '../MusicController';
 
 const MusicPlayerFirst = () => {
   return (
-    <ScrollView
-      style={styles.container}
-      nestedScrollEnabled={true}
-      showsVerticalScrollIndicator={false}>
+    <View style={styles.container}>
       <View style={styles.secondHeaderView}>
         <HeaderIconComponent
           firstIcon
@@ -46,19 +36,26 @@ const MusicPlayerFirst = () => {
           />
         </View>
         <View>
-          <SliderComponent initialValue={85} sliderStyle={styles.sliderStyle} />
+          <SliderComponent
+            volumeButtonPresent
+            initialValue={85}
+            sliderStyle={styles.sliderStyle}
+          />
         </View>
       </View>
-      <View style={{paddingBottom: 30}} />
-      <View>
+      <View style={styles.musicControllerContainer}>
         <MusicController
+          stopIcon
+          backWardIcon
+          forewardIcon
+          shuffleIcon
           stopPress={() => Alert.alert('Stop button clicked')}
           backPress={() => Alert.alert('Back button clicked')}
           forewardPress={() => Alert.alert('Forward button clicked')}
           shufflePress={() => Alert.alert('Shuffle button clicked')}
         />
       </View>
-    </ScrollView>
+    </View>
   );
 };
 

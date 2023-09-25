@@ -1,0 +1,83 @@
+import React from 'react';
+import {Alert, View} from 'react-native';
+import styles from './styles';
+import Header from '../../component/common/Header';
+import BackgroundColor from '../../component/common/BackgroundColor';
+import {useNavigation} from '@react-navigation/native';
+import {APPDRAWERNAVIGATION, HOME} from '../../constants/routeNames';
+import LightSettingBoxComponent from '../../component/LightSettingBoxComponent';
+import data from './data';
+import CustomButton from '../../component/common/CustomButton';
+import Container from '../../component/common/Container';
+
+const MusicSetting = () => {
+  const {navigate} = useNavigation();
+  const navigation = useNavigation();
+  return (
+    <View style={styles.container}>
+      <View style={styles.headreView}>
+        <Header
+          iconFirst
+          iconForth
+          title={'Music Setting'}
+          type={'ioni'}
+          name={'arrow-undo'}
+          firstType={'entypo'}
+          firstName={'home'}
+          secondType={'entypo'}
+          secondName={'home'}
+          thirdType={'entypo'}
+          thirdName={'menu'}
+          size={24}
+          onPressFirst={() => {
+            navigate(APPDRAWERNAVIGATION);
+          }}
+          onPressSecond={() => {
+            navigate(HOME);
+          }}
+        />
+      </View>
+      <BackgroundColor>
+        <View style={styles.boxTitleContainer}>
+          <Container>
+            <View style={styles.lightSettingStyle}>
+              {/* <FlatList
+              showsVerticalScrollIndicator={false}
+              data={data}
+              renderItem={({item}) => (
+                <LightSettingBoxComponent
+                  mainTitle={item.mainTitle}
+                  boxTitle={item.boxTitle}
+                />
+              )}
+            /> */}
+              {data.map((item, index) => {
+                return (
+                  <LightSettingBoxComponent
+                    key={index}
+                    mainTitle={item.mainTitle}
+                    boxTitle={item.boxTitle}
+                    container={styles.lightSettingBoxComponentContainer}
+                  />
+                );
+              })}
+            </View>
+          </Container>
+          <View style={styles.customButtonContainer}>
+            <CustomButton
+              style={styles.customButtonStyle}
+              secondary
+              title="UPDATE"
+              onPress={() => {
+                Alert.alert('Updated Successfully');
+                navigation.goBack();
+              }}
+            />
+          </View>
+        </View>
+      </BackgroundColor>
+    </View>
+  );
+};
+
+export default MusicSetting;

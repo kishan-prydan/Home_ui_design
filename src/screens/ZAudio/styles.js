@@ -10,8 +10,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: moderateScale(20),
   },
   secondMusicHeaderView: {
-    paddingTop: moderateVerticalScale(20),
-    paddingBottom: moderateVerticalScale(5),
+    paddingTop: moderateVerticalScale(10),
+    paddingBottom: moderateVerticalScale(15),
     paddingHorizontal: moderateScale(20),
   },
   secondBoxStyle: {
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   musicCardContaner:{
-    padding: moderateScale(20),
+    // backgroundColor: 'purple',
   },
 });
 
