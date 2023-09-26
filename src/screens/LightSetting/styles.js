@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
   },
   secondHeaderView: {
     paddingVertical: moderateVerticalScale(20),
+    paddingHorizontal: moderateScale(20),    
   },
   boxTitleContainer: {
     marginTop: moderateVerticalScale(20),

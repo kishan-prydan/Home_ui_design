@@ -24,7 +24,8 @@ const HeaderIconComponent = ({
   backgroundIconType,
   backgroundIconOnPress,
   iconStyle,
-  iconColor
+  iconColor,
+  whiteText,
 }) => {
   return !!PowerIconPresent ? (
     <View style={{...styles.iconStyle, ...iconStyle}}>
@@ -91,17 +92,34 @@ const HeaderIconComponent = ({
       )}
       {!!textPresend ? (
         <View>
-          <Text style={[styles.textStyle, styles.iconColor]}>{textName}</Text>
+          <Text
+            style={
+              !!whiteText
+                ? {color: colors.white}
+                : [styles.textStyle, styles.iconColor]
+            }>
+            {textName}
+          </Text>
         </View>
       ) : (
-        <TouchableOpacity onPress={thirdIconPress}>
-          <Icon
-            type={typeThird}
-            name={nameThird}
-            size={22}
-            style={{...styles.iconColor, ...iconColor}}
-          />
-        </TouchableOpacity>
+        <View style={styles.textIconView}>
+          <TouchableOpacity onPress={thirdIconPress}>
+            <Icon
+              type={typeThird}
+              name={nameThird}
+              size={18}
+              style={{...styles.iconColor, ...iconColor}}
+            />
+          </TouchableOpacity>
+          <Text
+            style={
+              !!whiteText
+                ? styles.whiteTextView
+                : [styles.iconColor, styles.marginView]
+            }>
+            {textName}
+          </Text>
+        </View>
       )}
     </View>
   );

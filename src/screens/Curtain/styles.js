@@ -18,8 +18,7 @@ const styles = StyleSheet.create({
   },
   checkBoxStyle: {
     flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: moderateVerticalScale(10),
+    paddingVertical: moderateVerticalScale(20),
     // backgroundColor: 'plum',
   },
   boxTitileinnerContainer: {
@@ -27,6 +26,29 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     marginVertical: moderateVerticalScale(10),
+  },
+  checkBoxInnerStyle:{
+    color: colors.white, 
+    fontWeight: 600
+  },
+  OnOffIconView:{
+    paddingVertical: moderateVerticalScale(10),
+  },
+  customButtonContainer:{
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',    
+    paddingTop: moderateVerticalScale(15),
+  },
+  customButtonSecondContainer:{
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingBottom: moderateVerticalScale(15),
+  },
+  customButtonStyle:{
+    backgroundColor: colors.white,
+    borderRadius: 25,
+    width: '45%',
   },
 });
 

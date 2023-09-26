@@ -1,6 +1,5 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import * as React from 'react';
-import colors from '../assets/theme/colors';
 import {
   CAMERA,
   CURTAIN,
@@ -35,29 +34,21 @@ const BototmTab = createBottomTabNavigator();
 export default function BottomTabNavigator() {
   return (
     <BototmTab.Navigator
-      screenOptions={{
-        headerShown: false,
-        tabBarInactiveTintColor: colors.inActive,
-        tabBarActiveTintColor: colors.themeColor,
-        tabBarStyle: {height: 65},
-        tabBarShowLabel: false,
-      }}
-      // tabBar={(props) => <ScrollBottomTabComponent {...props} />}
-      >  
-    
+      screenOptions={{headerShown: false}}
+      tabBar={props => <ScrollBottomTabComponent {...props} />}>
       <BototmTab.Screen
         name={LIGHT}
         component={Light}
         options={{
-          tabBarIcon: ({focused}) => {
+          tabBarIcon: ({size, color}) => {
             return (
               <Icon
                 style={{
-                  color: focused ? colors.themeColor : colors.inActive,
+                  color: color,
                 }}
-                type={'materialCommunity'}
+                type={'fa5'}
                 name={'lightbulb'}
-                size={20}
+                size={size}
               />
             );
           },
@@ -67,15 +58,15 @@ export default function BottomTabNavigator() {
         name={DMX}
         component={Dmx}
         options={{
-          tabBarIcon: ({focused}) => {
+          tabBarIcon: ({size, color}) => {
             return (
               <Icon
                 style={{
-                  color: focused ? colors.themeColor : colors.inActive,
+                  color: color,
                 }}
                 type={'entypo'}
                 name={'sound-mix'}
-                size={20}
+                size={size}
               />
             );
           },
@@ -83,15 +74,15 @@ export default function BottomTabNavigator() {
       />
       <BototmTab.Screen
         options={{
-          tabBarIcon: ({focused}) => {
+          tabBarIcon: ({size, color}) => {
             return (
               <Icon
                 style={{
-                  color: focused ? colors.themeColor : colors.inActive,
+                  color: color,
                 }}
                 type={'fa6'}
                 name={'snowflake'}
-                size={20}
+                size={size}
               />
             );
           },
@@ -101,15 +92,15 @@ export default function BottomTabNavigator() {
       />
       <BototmTab.Screen
         options={{
-          tabBarIcon: ({focused}) => {
+          tabBarIcon: ({size, color}) => {
             return (
               <Icon
                 style={{
-                  color: focused ? colors.themeColor : colors.inActive,
+                  color: color,
                 }}
                 type={'fa6'}
                 name={'music'}
-                size={20}
+                size={size}
               />
             );
           },
@@ -119,15 +110,15 @@ export default function BottomTabNavigator() {
       />
       <BototmTab.Screen
         options={{
-          tabBarIcon: ({focused}) => {
+          tabBarIcon: ({size, color}) => {
             return (
               <Icon
                 style={{
-                  color: focused ? colors.themeColor : colors.inActive,
+                  color: color,
                 }}
                 type={'materialCommunity'}
                 name={'curtains'}
-                size={20}
+                size={size}
               />
             );
           },
@@ -137,15 +128,15 @@ export default function BottomTabNavigator() {
       />
       <BototmTab.Screen
         options={{
-          tabBarIcon: ({focused}) => {
+          tabBarIcon: ({size, color}) => {
             return (
               <Icon
                 style={{
-                  color: focused ? colors.themeColor : colors.inActive,
+                  color: color,
                 }}
                 type={'fa6'}
                 name={'fan'}
-                size={20}
+                size={size}
               />
             );
           },
@@ -155,15 +146,15 @@ export default function BottomTabNavigator() {
       />
       <BototmTab.Screen
         options={{
-          tabBarIcon: ({focused}) => {
+          tabBarIcon: ({size, color}) => {
             return (
               <Icon
                 style={{
-                  color: focused ? colors.themeColor : colors.inActive,
+                  color: color,
                 }}
                 type={'materialCommunity'}
                 name={'controller-classic'}
-                size={20}
+                size={size}
               />
             );
           },
@@ -173,15 +164,15 @@ export default function BottomTabNavigator() {
       />
       <BototmTab.Screen
         options={{
-          tabBarIcon: ({focused}) => {
+          tabBarIcon: ({size, color}) => {
             return (
               <Icon
                 style={{
-                  color: focused ? colors.themeColor : colors.inActive,
+                  color: color,
                 }}
                 type={'fa'}
                 name={'leaf'}
-                size={20}
+                size={size}
               />
             );
           },
@@ -191,15 +182,15 @@ export default function BottomTabNavigator() {
       />
       <BototmTab.Screen
         options={{
-          tabBarIcon: ({focused}) => {
+          tabBarIcon: ({size, color}) => {
             return (
               <Icon
                 style={{
-                  color: focused ? colors.themeColor : colors.inActive,
+                  color: color,
                 }}
                 type={'fa6'}
                 name={'photo-film'}
-                size={20}
+                size={size}
               />
             );
           },
@@ -209,15 +200,15 @@ export default function BottomTabNavigator() {
       />
       <BototmTab.Screen
         options={{
-          tabBarIcon: ({focused}) => {
+          tabBarIcon: ({size, color}) => {
             return (
               <Icon
                 style={{
-                  color: focused ? colors.themeColor : colors.inActive,
+                  color: color,
                 }}
                 type={'fa6'}
                 name={'video'}
-                size={20}
+                size={size}
               />
             );
           },

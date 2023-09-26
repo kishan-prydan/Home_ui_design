@@ -22,12 +22,12 @@ const CheckBoxComponent = ({
     <View style={styles.container}>
       <CheckBox
         center
-        checked={check1}
-        onPress={() => handleCheck()}
-        wrapperStyle={{color: 'white', paddingLeft: 0}}
-        containerStyle={{backgroundColor: 'transparent', paddingLeft: 0}}
+        checked={checked}
+        onPress={onPress}
+        containerStyle={{backgroundColor: 'transparent', padding: 0, margin: 0, }}
         uncheckedColor={!!whiteColor ? colors.white : colors.themeColor}
         checkedColor={!!whiteColor ? colors.white : colors.themeColor}
+        
       />
       <TextComponent title={title} textStyle={textStyle} />
     </View>

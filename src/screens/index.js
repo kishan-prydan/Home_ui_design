@@ -14,6 +14,7 @@ export {default as Dmx} from './Dmx';
 export {default as Hvac} from './Hvac';
 export {default as ZAudio} from './ZAudio';
 export {default as Curtain} from './Curtain';
+export {default as TestCurtain} from './TestCurtain';
 export {default as Fan} from './Fan';
 export {default as OtherControl} from './OtherControl';
 export {default as Irrigation} from './Irrigation';

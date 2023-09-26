@@ -16,6 +16,30 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: colors.themeColor,
   },
+  PressableTitleContainer: {
+    flexDirection: 'row',
+  },
+  PressableTitleInnerContaner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  wrapperContainer: {
+    paddingRight: 10,
+  },
+  textStyle: {
+    color: colors.white,
+    fontWeight: 600,
+  },
+  PressableIconContainer: {
+    height: 40,
+    width: 40,
+    borderRadius: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'transparent',
+    borderWidth: 2,
+    borderColor: colors.white,
+  },
 });
 
 export default styles;

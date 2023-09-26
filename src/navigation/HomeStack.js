@@ -19,6 +19,7 @@ import {
   ZAUDIO,
   MUSICSETTING,
   CURTAIN,
+  TESTCURTAIN,
 } from '../constants/routeNames';
 import {
   AcSettings,
@@ -34,6 +35,7 @@ import {
   RgbwComponent,
   SplashScreen,
   SweetHome,
+  TestCurtain,
   ZAudio,
 } from '../screens';
 import AppDrawerNavigation from './AppDrawerNavigation';
@@ -159,6 +161,11 @@ export default function HomeStack() {
         <Stack.Screen
           name={CURTAIN}
           component={Curtain}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name={TESTCURTAIN}
+          component={TestCurtain}
           options={{headerShown: false}}
         />
       </>

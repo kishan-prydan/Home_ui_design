@@ -5,7 +5,7 @@ import {moderateScale, scale} from 'react-native-size-matters';
 const styles = StyleSheet.create({
   iconStyle: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     alignItems: 'center',
   },
   iconColor: {
@@ -37,6 +37,12 @@ const styles = StyleSheet.create({
 	marginLeft: moderateScale(5),
   fontSize: scale(16),
   fontWeight: 'bold',
+  },
+  whiteTextView: {
+	marginLeft: moderateScale(5),
+  fontSize: scale(16),
+  fontWeight: 'bold',
+  color: colors.white
   },
 });
 

@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
     height: moderateScale(70),
     borderRadius: 5,
     justifyContent: 'center',
+    paddingHorizontal: moderateScale(15),
   },
 });
 

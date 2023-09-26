@@ -13,6 +13,7 @@ import HeaderIconComponent from '../../component/common/HeaderIconComponent';
 import styles from './styles';
 import PressableIconText from '../../component/common/PressableIconText';
 import colors from '../../assets/theme/colors';
+import Container from '../../component/common/Container';
 
 const Rgbw = () => {
   const {navigate} = useNavigation();
@@ -58,13 +59,15 @@ const Rgbw = () => {
           />
         </View>
 
-        <PressableIconText
-          onPress={() => navigate(RGBWCOMPONENT)}
-          circleStyle={{backgroundColor: colors.iconSecondColor}}
-          iconType={'fa6'}
-          iconName={'lightbulb'}
-          title={'RGBW'}
-        />
+        <Container>
+          <PressableIconText
+            onPress={() => navigate(RGBWCOMPONENT)}
+            circleStyle={{backgroundColor: colors.iconSecondColor}}
+            iconType={'fa6'}
+            iconName={'lightbulb'}
+            title={'RGBW'}
+          />
+        </Container>
       </BackgroundColor>
     </View>
   );

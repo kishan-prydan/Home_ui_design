@@ -12,6 +12,13 @@ const CustomButton = ({
   loading,
   onPress,
   style,
+  darkmode,
+  blackText,
+  font16,
+  font14,
+  font12,
+  font10,
+  upperCase,
 }) => {
   const getBgColor = () => {
     if (disabled) {
@@ -31,6 +38,7 @@ const CustomButton = ({
     <TouchableOpacity
       disabled={disabled}
       onPress={onPress}
+      activeOpacity={0.7}
       style={[styles.wrapper, {backgroundColor: getBgColor()}, style]}>
       <View style={[styles.loaderSection]}>
         {loading && (
@@ -41,10 +49,25 @@ const CustomButton = ({
         {title && (
           <Text
             style={{
-              color: disabled ? 'black' : colors.white,
+              color: disabled
+                ? 'black'
+                : darkmode
+                ? colors.themeColor
+                : blackText
+                ? colors.primary
+                : colors.white,
               paddingLeft: loading ? 5 : 0,
-              fontSize: 18,
-              fontWeight: 'bold'
+              fontSize: font10
+                ? 10
+                : font12
+                ? 12
+                : font14
+                ? 14
+                : font16
+                ? 16
+                : 18,
+              fontWeight: 'bold',
+              textTransform: upperCase ? 'uppercase' : 'none',
             }}>
             {loading ? 'Please wait...' : title}
           </Text>

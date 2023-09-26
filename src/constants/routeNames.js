@@ -19,6 +19,7 @@ export const DMX = 'Dmx';
 export const HVAC = 'Hvac';
 export const ZAUDIO = 'Z-Audio';
 export const CURTAIN = 'Curtain';
+export const TESTCURTAIN = 'TestCurtain';
 export const FAN = 'Fan';
 export const OTHERCONTROL = 'OtherControl';
 export const IRRIGATION = 'Irrigation';

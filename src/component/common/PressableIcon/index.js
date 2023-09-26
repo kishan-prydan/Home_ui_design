@@ -4,17 +4,62 @@ import {Alert, TouchableOpacity, View} from 'react-native';
 import Icon from '../Icon';
 import styles from './styles';
 import colors from '../../../assets/theme/colors';
+import TextComponent from '../TextComponent';
 
-const PressableIcon = () => {
+const PressableIcon = ({PressableTitle, firstTitle, secondTitle}) => {
   const [selected, setSelected] = useState(false);
   const handleChange = () => {
     setSelected(!selected);
     selected === true
-      ? Alert.alert('Icon 1 selected')
-      : Alert.alert('Icon 2 selected');
+      ? Alert.alert('On icon pressed')
+      : Alert.alert('Off icon pressed');
   };
 
-  return (
+  return !!PressableTitle ? (
+    <View style={styles.PressableTitleContainer}>
+      <View style={styles.PressableTitleInnerContaner}>
+        <TextComponent
+          title={firstTitle}
+          textStyle={styles.textStyle}
+          wrapper={styles.wrapperContainer}
+        />
+        <TouchableOpacity
+          onPress={() => handleChange()}
+          style={[
+            styles.PressableIconContainer,
+            !selected == true ? {backgroundColor: colors.orange} : '',
+          ]}>
+          <Icon
+            type={'fa6'}
+            name={'power-off'}
+            size={20}
+            style={{color: colors.white}}
+          />
+        </TouchableOpacity>
+      </View>
+      <View style={{paddingHorizontal: 15}} />
+      <View style={styles.PressableTitleInnerContaner}>
+        <TextComponent
+          title={secondTitle}
+          textStyle={styles.textStyle}
+          wrapper={styles.wrapperContainer}
+        />
+        <TouchableOpacity
+          onPress={() => handleChange()}
+          style={[
+            styles.PressableIconContainer,
+            selected == true ? {backgroundColor: colors.orange} : '',
+          ]}>
+          <Icon
+            type={'fa6'}
+            name={'power-off'}
+            size={20}
+            style={{color: colors.white}}
+          />
+        </TouchableOpacity>
+      </View>
+    </View>
+  ) : (
     <View style={styles.mainContainer}>
       <TouchableOpacity
         onPress={() => handleChange()}

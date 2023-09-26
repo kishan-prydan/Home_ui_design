@@ -4,7 +4,7 @@ import { moderateScale } from 'react-native-size-matters';
 
 const styles = StyleSheet.create({
 	container: {
-	  paddingHorizontal: moderateScale(20),
+	//   paddingHorizontal: moderateScale(20),
 	},
 	innerView: {
 	  flexDirection: 'row',
