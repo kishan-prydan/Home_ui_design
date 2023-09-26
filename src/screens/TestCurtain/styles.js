@@ -1,6 +1,8 @@
+
+
 import {StyleSheet} from 'react-native';
+import {moderateScale, moderateVerticalScale, scale} from 'react-native-size-matters';
 import colors from '../../assets/theme/colors';
-import {moderateScale, moderateVerticalScale} from 'react-native-size-matters';
 
 const styles = StyleSheet.create({
   container: {
@@ -12,35 +14,44 @@ const styles = StyleSheet.create({
   },
   secondHeaderView: {
     paddingVertical: moderateVerticalScale(20),
-    paddingHorizontal: moderateScale(40),
+    paddingHorizontal: moderateScale(20),
   },
-  circleViewStyle: {
-    backgroundColor: colors.themeColor,
-    height: 64,
-    width: 64,
-    borderRadius: 32,
+  boxTitleContainer: {
+    marginTop: moderateVerticalScale(5),
   },
-  boxContainerStyle: {
+  checkBoxStyle: {
+    flexDirection: 'row',
+    paddingVertical: moderateVerticalScale(20),
+    // backgroundColor: 'plum',
+  },
+  boxTitileinnerContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    overflow: 'hidden',
-    paddingHorizontal: 15,
+    justifyContent: 'space-between',
+    marginVertical: moderateVerticalScale(10),
   },
-  boxContainerInnerStyle:{
-    paddingLeft: 15,
-  },
-  textStyle:{
-    color: colors.white,
+  checkBoxInnerStyle:{
+    color: colors.white, 
     fontWeight: 600
   },
-  customButtonStyle: {
-    backgroundColor: colors.lightGrey,
-    width: 55,
-    height: 20,
+  OnOffIconView:{
+    paddingVertical: moderateVerticalScale(10),
   },
-  buttonContainer: {
+  customButtonContainer:{
     flexDirection: 'row',
-    paddingTop: 5,
+    alignItems: 'center',
+    justifyContent: 'space-between',    
+    paddingTop: moderateVerticalScale(15),
+  },
+  customButtonSecondContainer:{
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingBottom: moderateVerticalScale(15),
+  },
+  customButtonStyle:{
+    backgroundColor: colors.white,
+    borderRadius: 25,
+    width: '45%',
   },
 });
 

@@ -25,3 +25,5 @@ export {default as RgbwComponent} from './Rgbw/RgbwComponent';
 export {default as FahrenheitScreen} from './FahrenheitScreen';
 export {default as AcSettings} from './AcSetting';
 export {default as MusicSetting} from './MusicSetting';
+export {default as MoodScreen} from './MoodScreen';
+export {default as MoodSetting} from './MoodSetting';

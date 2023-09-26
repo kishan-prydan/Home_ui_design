@@ -20,6 +20,7 @@ import {
   MUSICSETTING,
   CURTAIN,
   TESTCURTAIN,
+  MODSETTING,
 } from '../constants/routeNames';
 import {
   AcSettings,
@@ -31,6 +32,7 @@ import {
   Hvac,
   LightSetting,
   Login,
+  MoodSetting,
   MusicSetting,
   RgbwComponent,
   SplashScreen,
@@ -166,6 +168,11 @@ export default function HomeStack() {
         <Stack.Screen
           name={TESTCURTAIN}
           component={TestCurtain}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name={MODSETTING}
+          component={MoodSetting}
           options={{headerShown: false}}
         />
       </>

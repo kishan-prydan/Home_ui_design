@@ -9,6 +9,7 @@ import {
   IRRIGATION,
   LIGHT,
   MEDIA,
+  MOODSCREEN,
   OTHERCONTROL,
   RGBW,
   ZAUDIO,
@@ -22,6 +23,7 @@ import {
   Irrigation,
   Light,
   Media,
+  MoodScreen,
   OtherControl,
   Rgbw,
   ZAudio,
@@ -89,6 +91,24 @@ export default function BottomTabNavigator() {
         }}
         name={HVAC}
         component={Hvac}
+      />
+      <BototmTab.Screen
+        name={MOODSCREEN}
+        component={MoodScreen}
+        options={{
+          tabBarIcon: ({size, color}) => {
+            return (
+              <Icon
+                style={{
+                  color: color,
+                }}
+                type={'fa'}
+                name={'heart'}
+                size={size}
+              />
+            );
+          },
+        }}
       />
       <BototmTab.Screen
         options={{

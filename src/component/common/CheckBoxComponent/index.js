@@ -11,6 +11,7 @@ const CheckBoxComponent = ({
   checked,
   textStyle,
   onPress,
+  container
 }) => {
   const [check1, setCheck1] = useState(false);
 
@@ -19,7 +20,7 @@ const CheckBoxComponent = ({
   };
 
   return !!checkBoxLeft ? (
-    <View style={styles.container}>
+    <View style={{...styles.container, ...container}}>
       <CheckBox
         center
         checked={checked}

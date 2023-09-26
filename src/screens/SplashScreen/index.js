@@ -7,9 +7,9 @@ import styles from './styles';
 const SplashScreen = ({navigation}) => {
   useEffect(() => {
     setTimeout(() => {
-      // navigation.replace(LOGIN);
+      navigation.replace(LOGIN);
       // navigation.replace(HOME);
-      navigation.replace(SWEETHOME);
+      // navigation.replace(SWEETHOME);
     }, 2000);
   }, []);
 
