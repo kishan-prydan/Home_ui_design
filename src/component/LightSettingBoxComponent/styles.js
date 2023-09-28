@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
   },
   darkBoxTextStyle:{
 	color: colors.white,
-	fontWeight: 600,
+	fontWeight: 'normal',
   },
   boxContainer:{
 	backgroundColor: colors.textBoxOpacity,

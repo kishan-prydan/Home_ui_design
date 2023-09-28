@@ -21,19 +21,27 @@ import {
   CURTAIN,
   TESTCURTAIN,
   MODSETTING,
+  MOODSCREEN,
+  FANSETTING,
+  OTHERCONTROL,
+  FAN,
 } from '../constants/routeNames';
 import {
   AcSettings,
   AddHome,
   Curtain,
   FahrenheitScreen,
+  Fan,
+  FanSetting,
   Home,
   HomeView,
   Hvac,
   LightSetting,
   Login,
+  MoodScreen,
   MoodSetting,
   MusicSetting,
+  OtherControl,
   RgbwComponent,
   SplashScreen,
   SweetHome,
@@ -171,8 +179,28 @@ export default function HomeStack() {
           options={{headerShown: false}}
         />
         <Stack.Screen
+          name={MOODSCREEN}
+          component={MoodScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
           name={MODSETTING}
           component={MoodSetting}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name={FAN}
+          component={Fan}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name={FANSETTING}
+          component={FanSetting}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name={OTHERCONTROL}
+          component={OtherControl}
           options={{headerShown: false}}
         />
       </>

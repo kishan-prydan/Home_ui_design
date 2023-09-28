@@ -6,6 +6,9 @@ const styles = StyleSheet.create({
     flex: 1,
     marginBottom: moderateVerticalScale(55),
   },
+  componentContainer: {
+    flex: 1,
+  },
   headreView: {
     paddingHorizontal: moderateScale(20),
   },

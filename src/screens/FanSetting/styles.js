@@ -1,3 +1,5 @@
+
+
 import {StyleSheet} from 'react-native';
 import {moderateScale, moderateVerticalScale, scale} from 'react-native-size-matters';
 import colors from '../../assets/theme/colors';
@@ -22,12 +24,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     marginVertical: moderateVerticalScale(10),
-  },
-  pressableIconStyle: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingVertical: moderateVerticalScale(20),
   },
 });
 

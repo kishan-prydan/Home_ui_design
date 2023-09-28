@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, Alert, FlatList, ScrollView} from 'react-native';
 import Header from '../../component/common/Header';
 import {useNavigation} from '@react-navigation/native';
@@ -7,16 +7,24 @@ import BackgroundColor from '../../component/common/BackgroundColor';
 import styles from './styles';
 import HeaderIconComponent from '../../component/common/HeaderIconComponent';
 import LightSettingBoxComponent from '../../component/LightSettingBoxComponent';
-import data from './data';
 import PressableIcon from '../../component/common/PressableIcon';
 import TextComponent from '../../component/common/TextComponent';
 import colors from '../../assets/theme/colors';
 import CheckBoxComponent from '../../component/common/CheckBoxComponent';
 import Container from '../../component/common/Container';
+import data from './data';
 
 const LightSetting = () => {
   const {navigate} = useNavigation();
   const navigation = useNavigation();
+
+  const [value, setvalue] = useState('');
+
+  // console.log(value);
+
+  const handleInputChange = (text) => {
+    setvalue(text);
+  };
 
   return (
     <View style={styles.container}>
@@ -60,7 +68,9 @@ const LightSetting = () => {
                 <LightSettingBoxComponent
                   key={index}
                   mainTitle={item.mainTitle}
-                  boxTitle={item.boxTitle}
+                  value={item.boxTitle}
+                  onChangeText={handleInputChange}
+                  editable={item.edit}
                 />
               );
             })}
@@ -70,10 +80,13 @@ const LightSetting = () => {
               title={'Select Icon : '}
               textStyle={{color: colors.primary}}
             />
-            <PressableIcon />
+            <PressableIcon 
+              iconType={'fa5'}
+              iconName={'lightbulb'}
+            />
           </View>
           <View style={styles.checkBoxStyle}>
-            <CheckBoxComponent title={'Allow Control Main Screen '}/>
+            <CheckBoxComponent title={'Allow Control Main Screen '} />
           </View>
           <View style={styles.secondHeaderView}>
             <HeaderIconComponent

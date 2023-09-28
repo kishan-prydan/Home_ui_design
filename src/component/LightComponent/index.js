@@ -15,6 +15,8 @@ const LightComponent = ({
   switchPresent,
   switchTitleText,
   iconStyle,
+  onPress,
+  onLongPress
 }) => {
   const [isEnabled, setIsEnabled] = useState(true);
 
@@ -25,7 +27,8 @@ const LightComponent = ({
           <CircleWithIcon
             iconType={iconType}
             iconName={iconName}
-            disabled={true}
+            onPress={onPress}
+            onLongPress={onLongPress}
             circleView={{...styles.circleWithIcon, ...circleWithIcon}}
             iconStyle={iconStyle}
           />
@@ -49,7 +52,8 @@ const LightComponent = ({
           <CircleWithIcon
             iconType={iconType}
             iconName={iconName}
-            disabled={true}
+            onPress={onPress}
+            onLongPress={onLongPress}
             circleView={{...styles.circleWithIcon, ...circleWithIcon}}
             iconStyle={iconStyle}
           />

@@ -10,6 +10,14 @@ const RangeSlider = ({
   titleText,
   titleTextPresent,
   sliderStyle,
+  onlySlider,
+  whiteThumbTintColor,
+  thumbStyle,
+  maximumTrackTintColorChnage,
+  minimumValue,
+  maximumValue,
+  step,
+  trackStyle,
 }) => {
   const screenWidth = Dimensions.get('window').width;
 
@@ -23,15 +31,14 @@ const RangeSlider = ({
 
   const boxWidthPercentage = screenWidth;
 
-  // console.log(screenWidth);
   return !!titleTextPresent ? (
     <View style={styles.container}>
       <Text style={styles.titleTextStyle}>{titleText}</Text>
       <Slider
         style={{
-          // width: `${boxWidthPercentage}%`, 
+          // width: `${boxWidthPercentage}%`,
           ...styles.slider,
-          ...sliderStyle
+          ...sliderStyle,
         }}
         minimumValue={0}
         maximumValue={100}
@@ -56,6 +63,32 @@ const RangeSlider = ({
       />
       <Text style={styles.textStyle}>{`${value}%`}</Text>
     </View>
+  ) : onlySlider ? (
+    <Slider
+      style={{...styles.slider, ...sliderStyle}}
+      minimumValue={minimumValue}
+      maximumValue={maximumValue}
+      minimumTrackTintColor={colors.themeColor}
+      maximumTrackTintColor={
+        maximumTrackTintColorChnage ? colors.themeColor : colors.sliderColor
+      }
+      thumbTintColor={whiteThumbTintColor ? colors.white : colors.themeColor}
+      thumbStyle={{...styles.thumbStyle, ...thumbStyle}}
+      thumbProps={{
+        children: (
+          <Icon
+            type={'materialCommunity'}
+            name={'checkbox-blank-circle'}
+            size={16}
+            style={{color: 'white'}}
+          />
+        ),
+      }}
+      step={step}
+      value={value}
+      onValueChange={onValueChange}
+      trackStyle={{...styles.trackStyle, ...trackStyle}}
+    />
   ) : (
     <View style={styles.container}>
       <Slider

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Alert} from 'react-native';
 import Header from '../../component/common/Header';
 import {useNavigation} from '@react-navigation/native';
@@ -14,6 +14,9 @@ import DropdownComponent from '../../component/common/DropdownComponent';
 const AcSetting = () => {
   const {navigate} = useNavigation();
   const navigation = useNavigation();
+  
+  const [value, setValue] = useState('');
+  const [isFocus, setIsFocus] = useState(false);
 
   const data = [
     {label: 'AC', value: '1'},
@@ -53,7 +56,10 @@ const AcSetting = () => {
                 textStyle={styles.textStyle}
                 title={'A/C Name : '}
               />
-              <BoxTitle boxTitle={'test 1'} container={styles.boxTitileElevation}/>
+              <BoxTitle
+                value={'test 1'}
+                container={styles.boxTitileElevation}
+              />
             </View>
 
             <View style={styles.boxTitileinnerContainer}>
@@ -61,7 +67,7 @@ const AcSetting = () => {
                 textStyle={styles.textStyle}
                 title={'Subnet ID : '}
               />
-              <BoxTitle boxTitle={'1'} container={styles.boxTitileElevation}/>
+              <BoxTitle value={'1'} container={styles.boxTitileElevation} />
             </View>
 
             <View style={styles.boxTitileinnerContainer}>
@@ -69,7 +75,7 @@ const AcSetting = () => {
                 textStyle={styles.textStyle}
                 title={'Device ID : '}
               />
-              <BoxTitle boxTitle={'12'} container={styles.boxTitileElevation}/>
+              <BoxTitle value={'12'} container={styles.boxTitileElevation} />
             </View>
 
             <View style={styles.boxTitileinnerContainer}>
@@ -77,17 +83,28 @@ const AcSetting = () => {
                 textStyle={styles.textStyle}
                 title={'AC Type ID : '}
               />
-              <DropdownComponent data={data} />
+              <DropdownComponent
+                data={data}
+                labelField="label"
+                valueField="value"
+                value={value}
+                onFocus={() => setIsFocus(true)}
+                onBlur={() => setIsFocus(false)}
+                onChange={item => {
+                  setValue(item.value);
+                  setIsFocus(false);
+                }}
+              />
             </View>
           </View>
 
           <View style={styles.boxTitileinnerContainer}>
-              <TextComponent
-                textStyle={styles.textStyle}
-                title={'AC Sync No : '}
-              />
-              <BoxTitle boxTitle={'1'} container={styles.boxTitileElevation}/>
-            </View>
+            <TextComponent
+              textStyle={styles.textStyle}
+              title={'AC Sync No : '}
+            />
+            <BoxTitle value={'1'} container={styles.boxTitileElevation} />
+          </View>
 
           <View style={styles.secondHeaderView}>
             <HeaderIconComponent

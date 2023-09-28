@@ -8,22 +8,34 @@ import styles from './styles';
 const LightSettingBoxComponent = ({
   darkMode,
   mainTitle,
-  boxTitle,
   container,
+  value,
+  onChangeText,
+  editable,
+  keyboardType
 }) => {
   return !!darkMode ? (
     <View style={styles.container}>
       <TextComponent textStyle={styles.darkTextStyle} title={mainTitle} />
       <BoxTitle
-        boxTitle={boxTitle}
         container={{...styles.boxContainer, ...container}}
-		textStyle={styles.darkBoxTextStyle}
+        textStyle={styles.darkBoxTextStyle}
+        value={value}
+        onChangeText={onChangeText}
+        editable={editable}
+        keyboardType={keyboardType}
       />
     </View>
   ) : (
     <View style={styles.container}>
       <TextComponent textStyle={styles.textStyle} title={mainTitle} />
-      <BoxTitle boxTitle={boxTitle} container={container} />
+      <BoxTitle
+        container={container}
+        value={value}
+        onChangeText={onChangeText}
+        editable={editable}
+        keyboardType={keyboardType}
+      />
     </View>
   );
 };

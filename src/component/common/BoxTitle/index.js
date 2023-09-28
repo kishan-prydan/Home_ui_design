@@ -1,16 +1,39 @@
 //import liraries
-import React from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import React, {useState} from 'react';
+import {View, Text, TouchableOpacity, TextInput} from 'react-native';
 import styles from './styles';
+import colors from '../../../assets/theme/colors';
 
-const BoxTitle = ({clickableText, boxTitle, container, textStyle, onPress}) => {
+const BoxTitle = ({
+  clickableText,
+  boxTitle,
+  container,
+  textStyle,
+  onPress,
+  onChangeText,
+  value,
+  editable,
+  disabled,
+  keyboardType,
+}) => {
   return !!clickableText ? (
-    <TouchableOpacity style={{...styles.container, ...container}} onPress={onPress} activeOpacity={0.5}>
+    <TouchableOpacity
+      style={{...styles.container, ...container}}
+      onPress={onPress}
+      activeOpacity={0.5}
+      disabled={disabled}>
       <Text style={{...styles.textStyle, ...textStyle}}>{boxTitle}</Text>
     </TouchableOpacity>
   ) : (
     <View style={{...styles.container, ...container}}>
-      <Text style={{...styles.textStyle, ...textStyle}}>{boxTitle}</Text>
+      <TextInput
+        style={{...styles.textStyle, ...textStyle}}
+        onChangeText={onChangeText}
+        value={value}
+        selectionColor={colors.themeColor}
+        editable={editable}
+        keyboardType={keyboardType}
+      />
     </View>
   );
 };

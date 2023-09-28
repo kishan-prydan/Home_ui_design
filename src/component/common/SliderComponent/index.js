@@ -13,7 +13,13 @@ const SliderComponent = ({
   orientation,
   step,
   sliderValue,
-  sliderValueChange
+  sliderValueChange,
+  minimumValue,
+  maximumValue,
+  whiteColor,
+  trackStyle,
+  maximumTrackTintColorChnage,
+  thumbStyle
 }) => {
   const [value, setValue] = useState(
     initialValue === null || '' || undefined ? 50 : initialValue,
@@ -73,16 +79,19 @@ const SliderComponent = ({
     <View style={styles.container}>
       <Slider
         style={{...styles.slider, ...sliderStyle}}
-        minimumValue={0}
-        maximumValue={100}
+        minimumValue={minimumValue}
+        maximumValue={maximumValue}
         minimumTrackTintColor={colors.themeColor}
-        maximumTrackTintColor={colors.inActive}
-        thumbTintColor={colors.themeColor}
-        thumbStyle={styles.thumbStyle}
+        maximumTrackTintColor={
+          maximumTrackTintColorChnage ? colors.themeColor : colors.inActive
+        }
+        thumbTintColor={whiteColor ? colors.white : colors.themeColor}
+        thumbStyle={{...styles.thumbStyle, ...thumbStyle}}
         step={step}
         value={sliderValue}
         onValueChange={sliderValueChange}
         orientation={orientation}
+        trackStyle={trackStyle}
       />
       {/* <Text>{value}</Text> */}
     </View>

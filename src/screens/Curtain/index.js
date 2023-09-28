@@ -44,7 +44,7 @@ const Curtain = () => {
           onPressSecond={() => {
             navigate(HOME);
           }}
-          onPressForth={() => Alert.alert('Add Icon Pressed')}
+          onPressForth={() => navigate(TESTCURTAIN)}
           textView={{color: colors.primary}}
         />
         </View>
@@ -84,7 +84,7 @@ const Curtain = () => {
                     font10
                     upperCase
                     style={styles.customButtonStyle}
-                    onPress={() => navigate(TESTCURTAIN)}
+                    onPress={() => Alert.alert('Open button pressed')}
                   />
                   <View style={{paddingHorizontal: 10}} />
                   <CustomButton

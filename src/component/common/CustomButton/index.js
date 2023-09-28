@@ -50,7 +50,7 @@ const CustomButton = ({
           <Text
             style={{
               color: disabled
-                ? 'black'
+                ? colors.white
                 : darkmode
                 ? colors.themeColor
                 : blackText

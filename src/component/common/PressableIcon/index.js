@@ -6,13 +6,27 @@ import styles from './styles';
 import colors from '../../../assets/theme/colors';
 import TextComponent from '../TextComponent';
 
-const PressableIcon = ({PressableTitle, firstTitle, secondTitle}) => {
+const PressableIcon = ({
+  PressableTitle,
+  firstTitle,
+  secondTitle,
+  bottomTextPresent,
+  whiteText,
+  iconColor,
+  style,
+  backgroundColor,
+  iconType,
+  iconName,
+  bottomFirstTitle,
+  bottomSecondTitle,
+}) => {
+
   const [selected, setSelected] = useState(false);
   const handleChange = () => {
     setSelected(!selected);
     selected === true
-      ? Alert.alert('On icon pressed')
-      : Alert.alert('Off icon pressed');
+      ? Alert.alert('1st icon pressed')
+      : Alert.alert('2nd icon pressed');
   };
 
   return !!PressableTitle ? (
@@ -61,33 +75,57 @@ const PressableIcon = ({PressableTitle, firstTitle, secondTitle}) => {
     </View>
   ) : (
     <View style={styles.mainContainer}>
-      <TouchableOpacity
-        onPress={() => handleChange()}
-        style={[
-          styles.container,
-          !selected == true ? {backgroundColor: colors.blue} : '',
-        ]}>
-        <Icon
-          type={'fa5'}
-          name={'lightbulb'}
-          size={25}
-          style={{color: 'yellow'}}
-        />
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => handleChange()}
-        style={[
-          styles.container,
-          {marginLeft: 20},
-          selected == true ? {backgroundColor: colors.blue} : '',
-        ]}>
-        <Icon
-          type={'fa5'}
-          name={'lightbulb'}
-          size={25}
-          style={{color: 'yellow'}}
-        />
-      </TouchableOpacity>
+      <View style={{alignItems: 'center'}}>
+        <TouchableOpacity
+          onPress={() => handleChange()}
+          style={[
+            backgroundColor ? styles.containerWhite : styles.container,
+            !selected == true ? {backgroundColor: colors.orange} : '',
+          ]}>
+          <Icon
+            type={iconType}
+            name={iconName}
+            size={25}
+            style={iconColor ? style : {color: 'yellow'}}
+          />
+        </TouchableOpacity>
+        {!!bottomTextPresent ? (
+          <TextComponent
+            title={bottomFirstTitle}
+            textStyle={
+              whiteText
+                ? {color: colors.white, fontSize: 12, paddingTop: 6}
+                : {color: colors.themeColor}
+            }
+          />
+        ) : null}
+      </View>
+      <View style={{paddingHorizontal: 15}} />
+      <View style={{alignItems: 'center'}}>
+        <TouchableOpacity
+          onPress={() => handleChange()}
+          style={[
+            backgroundColor ? styles.containerWhite : styles.container,
+            selected == true ? {backgroundColor: colors.orange} : '',
+          ]}>
+          <Icon
+            type={iconType}
+            name={iconName}
+            size={25}
+            style={iconColor ? style : {color: 'yellow'}}
+          />
+        </TouchableOpacity>
+        {!!bottomTextPresent ? (
+          <TextComponent
+            title={bottomSecondTitle}
+            textStyle={
+              whiteText
+                ? {color: colors.white, fontSize: 12, paddingTop: 6}
+                : {color: colors.themeColor}
+            }
+          />
+        ) : null}
+      </View>
     </View>
   );
 };

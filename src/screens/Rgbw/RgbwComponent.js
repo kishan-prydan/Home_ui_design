@@ -16,7 +16,7 @@ const RgbwComponent = () => {
   const {navigate} = useNavigation();
 
   return (
-    <View style={styles.container}>
+    <View style={styles.componentContainer}>
       <View style={styles.headreView}>
         <Header
           iconFirst
@@ -51,7 +51,6 @@ const RgbwComponent = () => {
             nameSecond={'eye'}
             textPresend
             textName={'0.4 KV'}
-            firstIconPress={() => Alert.alert('Refresh icon pressed')}
             secondIconPress={() => Alert.alert('Eye icon pressed')}
           />
         </View>
@@ -70,6 +69,7 @@ const RgbwComponent = () => {
                 value={item.value}
                 titleTextPresent
                 text={''}
+                onLongPress={() => Alert.alert('Long press button pressed')}
               />
             )}
           />

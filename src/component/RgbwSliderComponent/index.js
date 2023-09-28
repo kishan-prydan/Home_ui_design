@@ -14,6 +14,8 @@ const RgbwSliderComponent = ({
   value,
   text,
   circleWithIcon,
+  onPress,
+  onLongPress
 }) => {
   return (
     <View style={styles.container}>
@@ -28,7 +30,9 @@ const RgbwSliderComponent = ({
         <CircleWithIcon
           iconType={iconType}
           iconName={iconName}
-          disabled={true}
+          disabled={false}
+          onPress={onPress}
+          onLongPress={onLongPress}
           circleView={{...styles.circleWithIcon, ...circleWithIcon}}
           iconStyle={iconStyle}
         />

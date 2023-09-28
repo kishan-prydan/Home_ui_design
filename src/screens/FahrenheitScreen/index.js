@@ -7,10 +7,9 @@ import HeaderIconComponent from '../../component/common/HeaderIconComponent';
 import Container from './../../component/common/Container/index';
 import DegreeCard from '../../component/DegreeCard/DegreeCard';
 import {useNavigation} from '@react-navigation/native';
-import { ACSETTING, APPDRAWERNAVIGATION, HOME } from '../../constants/routeNames';
+import {ACSETTING, APPDRAWERNAVIGATION, HOME} from '../../constants/routeNames';
 
 const FahrenheitScreen = () => {
-
   const {navigate} = useNavigation();
 
   return (

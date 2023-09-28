@@ -1,6 +1,6 @@
 //import liraries
 import React from 'react';
-import {View, TouchableOpacity} from 'react-native';
+import {View, TouchableWithoutFeedback} from 'react-native';
 import Icon from '../Icon';
 import styles from './styles';
 
@@ -13,11 +13,14 @@ const CircleWithIcon = ({
   iconType,
   iconName,
   disabled,
+  onLongPress,
 }) => {
   return (
-    <TouchableOpacity
+    <TouchableWithoutFeedback
       style={styles.componentStyle}
+      onLongPress={onLongPress}
       onPress={onPress}
+      delayLongPress={150}
       disabled={disabled}
       activeOpacity={0.7}>
       {!!effectColor ? (
@@ -39,7 +42,7 @@ const CircleWithIcon = ({
           />
         </View>
       )}
-    </TouchableOpacity>
+    </TouchableWithoutFeedback>
   );
 };
 

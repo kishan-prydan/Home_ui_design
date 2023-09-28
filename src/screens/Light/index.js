@@ -55,7 +55,7 @@ const Light = () => {
             textPresend
             textName={'0.4 KV'}
             firstIconPress={() => Alert.alert('Refresh icon pressed')}
-            secondIconPress={() => navigate(LIGHTSETTING)}
+            secondIconPress={() => Alert.alert('Eye icon pressed')}
           />
         </View>
 
@@ -73,6 +73,7 @@ const Light = () => {
               text={item.text}
               switchTitleText={item.switchText}
               switchPresent = {item.switchTitleText}
+              onLongPress={() =>navigate(LIGHTSETTING)}
             />
           )}
         />

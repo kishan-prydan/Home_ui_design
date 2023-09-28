@@ -10,11 +10,12 @@ import data from './data';
 import IconclickColorChange from '../IconclickColorChange';
 
 const DegreeCard = () => {
-
   return (
     <View style={styles.container}>
       <View style={styles.boxTitleStyle}>
         <BoxTitle
+          clickableText
+          disabled={true}
           boxTitle={'\u2109>\u2103'}
           textStyle={styles.textComponent}
           container={styles.textContainer}
@@ -60,7 +61,7 @@ const DegreeCard = () => {
             />
           );
         })}
-        <IconTextSwitchCard 
+        <IconTextSwitchCard
           title={'Auto'}
           innerStyle={{backgroundColor: colors.cardColorFour}}
           iconView={{backgroundColor: 'transparent'}}
@@ -71,8 +72,10 @@ const DegreeCard = () => {
       <View style={styles.fanIconBoxTitleStyle}>
         <IconclickColorChange />
 
-        <BoxTitle 
-          boxTitle={"Auto"}
+        <BoxTitle
+          clickableText
+          disabled={true}
+          boxTitle={'Auto'}
           container={styles.boxTitleContainer}
           textStyle={styles.boxTitleTextStyle}
         />

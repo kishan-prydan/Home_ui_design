@@ -11,7 +11,6 @@ const styles = StyleSheet.create({
   },
   secondMusicHeaderView: {
     paddingTop: moderateVerticalScale(10),
-    paddingBottom: moderateVerticalScale(15),
     paddingHorizontal: moderateScale(20),
   },
   secondBoxStyle: {

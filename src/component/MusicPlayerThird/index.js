@@ -40,6 +40,8 @@ const MusicPlayerThird = ({playPausePress}) => {
         <SliderComponent
           orientation="horizontal"
           sliderValue={value}
+          minimumValue={0}
+          maximumValue={100}
           step={1}
           sliderValueChange={onValueChange}
           sliderStyle={styles.sliderStyle}

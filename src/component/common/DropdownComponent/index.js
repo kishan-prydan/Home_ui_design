@@ -3,9 +3,18 @@ import {View, Text} from 'react-native';
 import {Dropdown} from 'react-native-element-dropdown';
 import styles from './styles';
 
-const DropdownComponent = ({darkMode, data}) => {
-  const [value, setValue] = useState(null);
-  const [isFocus, setIsFocus] = useState(false);
+const DropdownComponent = ({
+  darkMode,
+  data,
+  value,
+  valueField,
+  labelField,
+  onChange,
+  onFocus,
+  onBlur,
+}) => {
+  // const [value, setValue] = useState(null);
+  // const [isFocus, setIsFocus] = useState(false);
 
   return !!darkMode ? (
     <View style={styles.dropDownContainerDark}>
@@ -17,16 +26,13 @@ const DropdownComponent = ({darkMode, data}) => {
         data={data}
         search
         maxHeight={300}
-        labelField="label"
-        valueField="value"
+        labelField={labelField}
+        valueField={valueField}
         searchPlaceholder="Search..."
         value={value}
-        onFocus={() => setIsFocus(true)}
-        onBlur={() => setIsFocus(false)}
-        onChange={item => {
-          setValue(item.value);
-          setIsFocus(false);
-        }}
+        onChange={onChange}
+        onFocus={onFocus}
+        onBlur={onBlur}
       />
     </View>
   ) : (
@@ -39,16 +45,19 @@ const DropdownComponent = ({darkMode, data}) => {
         data={data}
         search
         maxHeight={300}
-        labelField="label"
-        valueField="value"
+        labelField={labelField}
+        valueField={valueField}
         searchPlaceholder="Search..."
         value={value}
-        onFocus={() => setIsFocus(true)}
-        onBlur={() => setIsFocus(false)}
-        onChange={item => {
-          setValue(item.value);
-          setIsFocus(false);
-        }}
+        // onFocus={() => setIsFocus(true)}
+        // onBlur={() => setIsFocus(false)}
+        // onChange={item => {
+        //   setValue(item.value);
+        //   setIsFocus(false);
+        // }}
+        onChange={onChange}
+        onFocus={onFocus}
+        onBlur={onBlur}
       />
     </View>
   );

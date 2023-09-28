@@ -62,13 +62,6 @@ const styles = StyleSheet.create({
 	justifyContent: 'space-between',
     paddingVertical: moderateVerticalScale(10),
   },
-  textViewStyle: {
-    backgroundColor: colors.containerBoxOpacity,
-    width: '75%',
-    borderRadius: 5,
-    paddingRight: moderateScale(10),
-    height: 45,
-  },
   iconViewStyle: {
     // backgroundColor: 'aqua',
     width: '20%',

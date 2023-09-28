@@ -1,5 +1,5 @@
 import colors from "../../assets/theme/colors";
-import { BOTTOMTABNAVIGATOR, CURTAIN, HVAC, SECONDBOTTOMTABNAVIGATOR, ZAUDIO } from "../../constants/routeNames";
+import { BOTTOMTABNAVIGATOR, CURTAIN, FAN, HVAC, MOODSCREEN, OTHERCONTROL, SECONDBOTTOMTABNAVIGATOR, ZAUDIO } from "../../constants/routeNames";
 
 let data = [
   {
@@ -56,7 +56,7 @@ let data = [
     type: 'fa6',
     name: 'fan',
     color: colors.iconFifthColor,
-    alert: 'Moods card pressed',
+    screen: MOODSCREEN,
   },
   {
     id: 8,
@@ -64,7 +64,7 @@ let data = [
     type: 'fa6',
     name: 'fan',
     color: colors.iconForthColor,
-    alert: 'Fan card pressed',
+    screen: FAN
   },
   {
     id: 9,
@@ -72,7 +72,7 @@ let data = [
     type: 'materialCommunity',
     name: 'controller-classic',
     color: colors.iconThirdColor,
-    alert: 'Other Control card pressed',
+    screen: OTHERCONTROL,
   },
   {
     id: 10,

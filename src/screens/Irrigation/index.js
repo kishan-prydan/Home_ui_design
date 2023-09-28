@@ -1,25 +1,117 @@
-//import liraries
-import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, {Component} from 'react';
+import {View, Text, Alert} from 'react-native';
+import styles from './styles';
+import {useNavigation} from '@react-navigation/native';
+import Header from '../../component/common/Header';
+import Container from '../../component/common/Container';
+import colors from '../../assets/theme/colors';
+import BackgroundImage from '../../component/common/BackgroundImage';
+import HeaderIconComponent from '../../component/common/HeaderIconComponent';
+import BoxContainer from '../../component/common/BoxContainer';
+import CircleWithIcon from '../../component/common/CircleWithIcon/CircleWithIcon';
+import TextComponent from '../../component/common/TextComponent';
+import CustomButton from '../../component/common/CustomButton';
+import {APPDRAWERNAVIGATION, HOME} from '../../constants/routeNames';
 
-// create a component
 const Irrigation = () => {
-	return (
-		<View style={styles.container}>
-			<Text>Irrigation</Text>
-		</View>
-	);
+  const {navigate} = useNavigation();
+
+  return (
+    <BackgroundImage>
+      <View style={styles.container}>
+        <View style={styles.headreView}>
+          <Header
+            iconFirst
+            iconThird
+            iconForth
+            title={'IRRIGATION'}
+            type={'fa6'}
+            name={'circle-plus'}
+            firstType={'entypo'}
+            firstName={'home'}
+            secondType={'entypo'}
+            secondName={'home'}
+            thirdType={'entypo'}
+            thirdName={'menu'}
+            forthType={'ioni'}
+            forthName={'arrow-undo'}
+            size={24}
+            onPressFirst={() => {
+              navigate(APPDRAWERNAVIGATION);
+            }}
+            onPressSecond={() => {
+              navigate(HOME);
+            }}
+            onPressForth={() => Alert.alert('kishan')}
+            textView={{color: colors.primary}}
+          />
+        </View>
+        <View style={styles.secondHeaderView}>
+          <HeaderIconComponent
+            secondIcon
+            typeSecond={'fa6'}
+            nameSecond={'eye'}
+            whiteText
+            typeThird={'fa5'}
+            nameThird={'tachometer-alt'}
+            textName={'0.4 KV'}
+            firstIconPress={() => Alert.alert('Refresh icon pressed')}
+            secondIconPress={() => Alert.alert('Eye icon pressed')}
+            iconColor={{color: colors.white}}
+          />
+        </View>
+        <Container>
+          <BoxContainer>
+            <View style={styles.boxContainerStyle}>
+              <CircleWithIcon
+                iconType={'fa6'}
+                iconName={'leaf'}
+                iconStyle={{color: colors.white}}
+                circleView={styles.circleViewStyle}
+                disabled={true}
+              />
+              <View style={{flex: 1}}>
+                <View style={styles.boxContainerInnerStyle}>
+                  <TextComponent title={'IR 1'} textStyle={styles.textStyle} />
+                  <View style={styles.buttonContainer}>
+                    <CustomButton
+                      title={'run'}
+                      blackText
+                      font10
+                      upperCase
+                      style={styles.customButtonStyle}
+                      onPress={() => Alert.alert('Run button pressed')}
+                    />
+                    <View style={{paddingHorizontal: 10}} />
+                    <CustomButton
+                      title={'stop'}
+                      blackText
+                      font10
+                      upperCase
+                      style={[
+                        styles.customButtonStyle,
+                        {backgroundColor: colors.yellow},
+                      ]}
+                      onPress={() => Alert.alert('Stop button pressed')}
+                    />
+                  </View>
+                </View>
+                <View style={styles.buttonOtherContainer}>
+                  <CustomButton
+                    title={'Run Time : 39600 seconds'}
+                    whiteText
+                    font10
+                    style={styles.customOtherButtonStyle}
+					disabled={true}
+                  />
+                </View>
+              </View>
+            </View>
+          </BoxContainer>
+        </Container>
+      </View>
+    </BackgroundImage>
+  );
 };
 
-// define your styles
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		justifyContent: 'center',
-		alignItems: 'center',
-		backgroundColor: 'white',
-	},
-});
-
-//make this component available to the app
 export default Irrigation;

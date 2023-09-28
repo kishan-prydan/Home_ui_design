@@ -16,6 +16,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: colors.themeColor,
   },
+  containerWhite: {
+    height: 50,
+    width: 50,
+    borderRadius: 25,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.white,
+  },
   PressableTitleContainer: {
     flexDirection: 'row',
   },

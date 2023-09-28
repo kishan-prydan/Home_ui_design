@@ -57,6 +57,8 @@ const MusicPlayerFifth = () => {
           sliderValue={value}
           sliderValueChange={onValueChange}
           step={1}
+          minimumValue={0}
+          maximumValue={100}
           sliderStyle={styles.secondSliderStyle}
         />
         <Text style={styles.textStyle}>{calculateTime()}</Text>

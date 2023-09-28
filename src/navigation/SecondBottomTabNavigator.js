@@ -171,24 +171,6 @@ export default function SecondBottomTabNavigator() {
                 style={{
                   color: color,
                 }}
-                type={'materialCommunity'}
-                name={'controller-classic'}
-                size={size}
-              />
-            );
-          },
-        }}
-        name={OTHERCONTROL}
-        component={OtherControl}
-      />
-      <BototmTab.Screen
-        options={{
-          tabBarIcon: ({size, color}) => {
-            return (
-              <Icon
-                style={{
-                  color: color,
-                }}
                 type={'fa'}
                 name={'leaf'}
                 size={size}
