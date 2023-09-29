@@ -28,3 +28,4 @@ export {default as MusicSetting} from './MusicSetting';
 export {default as MoodScreen} from './MoodScreen';
 export {default as MoodSetting} from './MoodSetting';
 export {default as FanSetting} from './FanSetting';
+export {default as IrrigationSetting} from './IrrigationSetting';

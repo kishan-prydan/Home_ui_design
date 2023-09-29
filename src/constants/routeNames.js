@@ -34,4 +34,4 @@ export const MUSICSETTING = 'MusicSetting';
 export const MOODSCREEN = 'MoodScreen';
 export const MODSETTING = 'MoodSetting';
 export const FANSETTING = 'FanSetting';
-
+export const IRRIGATIONSETTING = 'IRRIGATIONSETTING';

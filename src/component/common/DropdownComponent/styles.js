@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   inputSearchStyleDark: {
     height: moderateScale(40),
     fontSize: scale(16),
-    color: colors.white,
+    color: colors.themeColor,
   },
 });
 

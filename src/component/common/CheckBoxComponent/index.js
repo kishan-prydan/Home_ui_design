@@ -34,7 +34,7 @@ const CheckBoxComponent = ({
     </View>
   ) : (
     <View style={styles.container}>
-      <TextComponent title={title} />
+      <TextComponent title={title} textStyle={textStyle}/>
       <CheckBox
         center
         checked={check1}

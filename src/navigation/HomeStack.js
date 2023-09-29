@@ -25,6 +25,7 @@ import {
   FANSETTING,
   OTHERCONTROL,
   FAN,
+  IRRIGATIONSETTING,
 } from '../constants/routeNames';
 import {
   AcSettings,
@@ -36,6 +37,7 @@ import {
   Home,
   HomeView,
   Hvac,
+  IrrigationSetting,
   LightSetting,
   Login,
   MoodScreen,
@@ -201,6 +203,11 @@ export default function HomeStack() {
         <Stack.Screen
           name={OTHERCONTROL}
           component={OtherControl}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name={IRRIGATIONSETTING}
+          component={IrrigationSetting}
           options={{headerShown: false}}
         />
       </>

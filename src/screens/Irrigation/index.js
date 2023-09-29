@@ -11,10 +11,12 @@ import BoxContainer from '../../component/common/BoxContainer';
 import CircleWithIcon from '../../component/common/CircleWithIcon/CircleWithIcon';
 import TextComponent from '../../component/common/TextComponent';
 import CustomButton from '../../component/common/CustomButton';
-import {APPDRAWERNAVIGATION, HOME} from '../../constants/routeNames';
+import {APPDRAWERNAVIGATION, HOME, IRRIGATIONSETTING} from '../../constants/routeNames';
 
 const Irrigation = () => {
   const {navigate} = useNavigation();
+
+  const time = '39600';
 
   return (
     <BackgroundImage>
@@ -42,7 +44,7 @@ const Irrigation = () => {
             onPressSecond={() => {
               navigate(HOME);
             }}
-            onPressForth={() => Alert.alert('kishan')}
+            onPressForth={() => navigate(IRRIGATIONSETTING)}
             textView={{color: colors.primary}}
           />
         </View>
@@ -60,55 +62,69 @@ const Irrigation = () => {
             iconColor={{color: colors.white}}
           />
         </View>
-        <Container>
-          <BoxContainer>
-            <View style={styles.boxContainerStyle}>
-              <CircleWithIcon
-                iconType={'fa6'}
-                iconName={'leaf'}
-                iconStyle={{color: colors.white}}
-                circleView={styles.circleViewStyle}
-                disabled={true}
-              />
-              <View style={{flex: 1}}>
-                <View style={styles.boxContainerInnerStyle}>
-                  <TextComponent title={'IR 1'} textStyle={styles.textStyle} />
-                  <View style={styles.buttonContainer}>
-                    <CustomButton
-                      title={'run'}
-                      blackText
-                      font10
-                      upperCase
-                      style={styles.customButtonStyle}
-                      onPress={() => Alert.alert('Run button pressed')}
+        <View style={styles.mianDisplayView}>
+          <Container>
+            <BoxContainer>
+              <View style={styles.boxContainerStyle}>
+                <CircleWithIcon
+                  iconType={'fa6'}
+                  iconName={'leaf'}
+                  iconStyle={{color: colors.white}}
+                  circleView={styles.circleViewStyle}
+                  disabled={true}
+                />
+                <View style={{flex: 1}}>
+                  <View style={styles.boxContainerInnerStyle}>
+                    <TextComponent
+                      title={'IR 1'}
+                      textStyle={styles.textStyle}
                     />
-                    <View style={{paddingHorizontal: 10}} />
+                    <View style={styles.buttonContainer}>
+                      <CustomButton
+                        title={'run'}
+                        blackText
+                        font10
+                        upperCase
+                        style={styles.customButtonStyle}
+                        onPress={() => Alert.alert('Run button pressed')}
+                      />
+                      <View style={{paddingHorizontal: 10}} />
+                      <CustomButton
+                        title={'stop'}
+                        blackText
+                        font10
+                        upperCase
+                        style={[
+                          styles.customButtonStyle,
+                          {backgroundColor: colors.yellow},
+                        ]}
+                        onPress={() => Alert.alert('Stop button pressed')}
+                      />
+                    </View>
+                  </View>
+                  <View style={styles.buttonOtherContainer}>
                     <CustomButton
-                      title={'stop'}
-                      blackText
+                      title={`Run Time : ${time} seconds`}
+                      whiteText
                       font10
-                      upperCase
-                      style={[
-                        styles.customButtonStyle,
-                        {backgroundColor: colors.yellow},
-                      ]}
-                      onPress={() => Alert.alert('Stop button pressed')}
+                      style={styles.customOtherButtonStyle}
+                      disabled={true}
                     />
                   </View>
                 </View>
-                <View style={styles.buttonOtherContainer}>
-                  <CustomButton
-                    title={'Run Time : 39600 seconds'}
-                    whiteText
-                    font10
-                    style={styles.customOtherButtonStyle}
-					disabled={true}
-                  />
-                </View>
               </View>
-            </View>
-          </BoxContainer>
-        </Container>
+            </BoxContainer>
+          </Container>
+          <View style={styles.stopButtonView}>
+            <CustomButton 
+              title={'all stop'}
+              upperCase
+              darkmode
+              style={styles.stopButtonStyle}
+              onPress={() => Alert.alert('All Stops button clicked')}
+            />
+          </View>
+        </View>
       </View>
     </BackgroundImage>
   );

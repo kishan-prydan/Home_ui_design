@@ -50,4 +50,7 @@ export default {
   musicBackgroundColorFour: '#FFE5F0',
   musicBackgroundColorFive: '#F9E6F9',
   musicBackgroundColorSix: '#FFECDE',
+  timePickerHeader: '#9A252E',
+  timePickerHeaderOpacity: '#CD7C83',
+
 };
