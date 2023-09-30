@@ -1,5 +1,5 @@
 import colors from "../../assets/theme/colors";
-import { BOTTOMTABNAVIGATOR, CURTAIN, FAN, HVAC, MOODSCREEN, OTHERCONTROL, SECONDBOTTOMTABNAVIGATOR, ZAUDIO } from "../../constants/routeNames";
+import { BOTTOMTABNAVIGATOR, CURTAIN, FAN, HVAC, MEDIA, MOODSCREEN, OTHERCONTROL, SECONDBOTTOMTABNAVIGATOR, ZAUDIO } from "../../constants/routeNames";
 
 let data = [
   {
@@ -69,8 +69,8 @@ let data = [
   {
     id: 9,
     title: 'other control',
-    type: 'materialCommunity',
-    name: 'controller-classic',
+    type: 'fa6',
+    name: 'gamepad',
     color: colors.iconThirdColor,
     screen: OTHERCONTROL,
   },
@@ -88,7 +88,7 @@ let data = [
     type: 'fa6',
     name: 'photo-film',
     color: colors.iconSeventhColor,
-    alert: 'Media card pressed',
+    screen: MEDIA,
   },
   {
     id: 12,

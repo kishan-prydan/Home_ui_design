@@ -1,22 +1,16 @@
+//import liraries
 import React from 'react';
-import {View, Alert, TouchableOpacity, Image, FlatList} from 'react-native';
+import {View, FlatList, Alert} from 'react-native';
 import styles from './styles';
+import BackgroundImage from '../../component/common/BackgroundImage';
 import {useNavigation} from '@react-navigation/native';
 import Header from '../../component/common/Header';
-import Container from '../../component/common/Container';
 import colors from '../../assets/theme/colors';
-import BackgroundImage from '../../component/common/BackgroundImage';
-import {
-  APPDRAWERNAVIGATION,
-  HOMEVIEW,
-  MEDIASETTING,
-} from '../../constants/routeNames';
-import TextComponent from '../../component/common/TextComponent';
-import imagePath from '../../constants/imagePath';
-import MediaBoxComponent from '../../component/MediaBoxComponent';
+import {APPDRAWERNAVIGATION, HOME} from '../../constants/routeNames';
+import MediaSettingBox from '../../component/MediaSettingBox';
 import data from './data';
 
-const Media = () => {
+const MediaSetting = () => {
   const {navigate} = useNavigation();
 
   return (
@@ -25,41 +19,34 @@ const Media = () => {
         <View style={styles.headreView}>
           <Header
             iconFirst
-            iconThird
             iconForth
-            title={'MEDIA'}
-            type={'fa6'}
-            name={'circle-plus'}
+            title={'MEDIA SETTINGS'}
+            type={'ioni'}
+            name={'arrow-undo'}
             firstType={'entypo'}
             firstName={'home'}
             secondType={'entypo'}
             secondName={'home'}
             thirdType={'entypo'}
             thirdName={'menu'}
-            forthType={'ioni'}
-            forthName={'arrow-undo'}
             size={24}
             onPressFirst={() => {
               navigate(APPDRAWERNAVIGATION);
             }}
             onPressSecond={() => {
-              navigate(HOMEVIEW);
+              navigate(HOME);
             }}
-            onPressForth={() => Alert.alert('Button pressed')}
             textView={{color: colors.primary}}
           />
         </View>
-
-        <View style={styles.mianDisplayView}>
+        <View style={styles.mainViewContainer}>
           <FlatList
             showsVerticalScrollIndicator={false}
             data={data}
-            numColumns={3}
             renderItem={({item}) => (
-              <>
-                <View style={{paddingHorizontal: 5}} />
-                <MediaBoxComponent
-                  source={item.image}
+              <View style={{paddingBottom: 10}}>
+                <MediaSettingBox
+                  id={item.id}
                   title={item.title}
                   onPress={() =>
                     item.screen
@@ -67,10 +54,8 @@ const Media = () => {
                       : Alert.alert('Screen not available')
                   }
                 />
-                <View style={{paddingHorizontal: 5}} />
-              </>
+              </View>
             )}
-            contentContainerStyle={styles.contentContainer}
           />
         </View>
       </View>
@@ -78,4 +63,4 @@ const Media = () => {
   );
 };
 
-export default Media;
+export default MediaSetting;

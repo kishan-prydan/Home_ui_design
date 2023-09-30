@@ -26,6 +26,10 @@ import {
   OTHERCONTROL,
   FAN,
   IRRIGATIONSETTING,
+  MEDIA,
+  MEDIASETTING,
+  WATCHTVSCREEN,
+  MEDIAOTHERSETTING,
 } from '../constants/routeNames';
 import {
   AcSettings,
@@ -40,6 +44,9 @@ import {
   IrrigationSetting,
   LightSetting,
   Login,
+  Media,
+  MediaOtherSettings,
+  MediaSetting,
   MoodScreen,
   MoodSetting,
   MusicSetting,
@@ -48,6 +55,7 @@ import {
   SplashScreen,
   SweetHome,
   TestCurtain,
+  WatchTVScreen,
   ZAudio,
 } from '../screens';
 import AppDrawerNavigation from './AppDrawerNavigation';
@@ -208,6 +216,26 @@ export default function HomeStack() {
         <Stack.Screen
           name={IRRIGATIONSETTING}
           component={IrrigationSetting}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name={MEDIA}
+          component={Media}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name={MEDIASETTING}
+          component={MediaSetting}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name={MEDIAOTHERSETTING}
+          component={MediaOtherSettings}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name={WATCHTVSCREEN}
+          component={WatchTVScreen}
           options={{headerShown: false}}
         />
       </>

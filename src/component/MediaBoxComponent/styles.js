@@ -1,10 +1,15 @@
 import {StyleSheet} from 'react-native';
 import colors from '../../assets/theme/colors';
-import { moderateScale, moderateVerticalScale, scale } from 'react-native-size-matters';
+import {
+  moderateScale,
+  moderateVerticalScale,
+  scale,
+} from 'react-native-size-matters';
 
 const styles = StyleSheet.create({
   containerView: {
     alignItems: 'center',
+    paddingBottom: moderateVerticalScale(20),
   },
   cardMainView: {
     backgroundColor: colors.textBoxOpacity,
@@ -25,9 +30,9 @@ const styles = StyleSheet.create({
   textStyle: {
     color: colors.white,
     paddingTop: moderateVerticalScale(8),
-    fontWeight: 600,
-    fontSize: scale(15),
-	textTransform: 'uppercase',
+    fontWeight: 500,
+    fontSize: scale(14),
+    textTransform: 'uppercase',
   },
 });
 

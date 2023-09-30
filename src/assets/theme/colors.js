@@ -5,6 +5,8 @@ export default {
   headerOpacity: 'rgba(186, 175, 173, 0.6)',
   textBoxOpacity: 'rgba(130, 105, 105, 0.7)',
   containerBoxOpacity: 'rgba(150, 140, 145, 0.8)',
+  otherContainerBoxOpacity: 'rgba(350,250,249, 0.5)',
+  boxBackgroundOpacity: 'rgba(47, 21, 20, 0.9)',
   hoverColor: '#DCF4FF',
   white: '#FFFFFF',
   grey: '#adb5bd',

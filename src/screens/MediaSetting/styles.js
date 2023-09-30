@@ -1,10 +1,7 @@
+//import liraries
 import {StyleSheet} from 'react-native';
 import colors from '../../assets/theme/colors';
-import {
-  moderateScale,
-  moderateVerticalScale,
-  scale,
-} from 'react-native-size-matters';
+import {moderateScale, moderateVerticalScale} from 'react-native-size-matters';
 
 const styles = StyleSheet.create({
   container: {
@@ -14,14 +11,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: moderateScale(20),
     backgroundColor: colors.headerOpacity,
   },
-  mianDisplayView: {
-    flex: 1,
-    // backgroundColor: 'midnightblue',
-    alignItems: 'center',
+  mainViewContainer: {
+    paddingHorizontal: moderateScale(20),
     paddingTop: moderateVerticalScale(20),
-  },
-  contentContainer: {
-    width: '100%',
+    paddingBottom: moderateVerticalScale(5),
   },
 });
 
