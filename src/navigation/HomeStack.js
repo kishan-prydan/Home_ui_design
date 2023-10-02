@@ -34,10 +34,13 @@ import {
   WATCHAPPLETV,
   WATCHROKU,
   WATCHSATELLITE,
+  IRRIGATION,
+  CAMERA,
 } from '../constants/routeNames';
 import {
   AcSettings,
   AddHome,
+  Camera,
   Curtain,
   FahrenheitScreen,
   Fan,
@@ -45,6 +48,7 @@ import {
   Home,
   HomeView,
   Hvac,
+  Irrigation,
   IrrigationSetting,
   LightSetting,
   Login,
@@ -264,6 +268,16 @@ export default function HomeStack() {
         <Stack.Screen
           name={WATCHSATELLITE}
           component={WatchSatellite}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name={IRRIGATION}
+          component={Irrigation}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name={CAMERA}
+          component={Camera}
           options={{headerShown: false}}
         />
       </>

@@ -1,5 +1,5 @@
 import colors from "../../assets/theme/colors";
-import { BOTTOMTABNAVIGATOR, CURTAIN, FAN, HVAC, MEDIA, MOODSCREEN, OTHERCONTROL, SECONDBOTTOMTABNAVIGATOR, ZAUDIO } from "../../constants/routeNames";
+import { BOTTOMTABNAVIGATOR, CAMERA, CURTAIN, FAN, HVAC, IRRIGATION, MEDIA, MOODSCREEN, OTHERCONTROL, SECONDBOTTOMTABNAVIGATOR, ZAUDIO } from "../../constants/routeNames";
 
 let data = [
   {
@@ -80,7 +80,7 @@ let data = [
     type: 'fa',
     name: 'leaf',
     color: colors.iconSixthColor,
-    alert: 'Irrigation card pressed',
+    screen: IRRIGATION,
   },
   {
     id: 11,
@@ -96,7 +96,7 @@ let data = [
     type: 'fa6',
     name: 'video',
     color: colors.iconSecondColor,
-    alert: 'Camera card pressed',
+    screen: CAMERA,
   },
 ];
 export default data;
