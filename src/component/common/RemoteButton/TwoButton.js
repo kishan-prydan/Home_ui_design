@@ -13,7 +13,8 @@ const TwoButton = ({
   onPressFirst,
   onPressSecond,
   circleTextOne,
-  title,
+  titleOne,
+  titleTwo,
   disabledOne,
   circleTextTwo,
   disabledTwo,
@@ -26,6 +27,7 @@ const TwoButton = ({
   onPressRecFirst,
   onPressRecSecond,
   onPressRecThird,
+  textStyle,
 }) => {
   return !!maxWidthButtonAvailable ? (
     <View style={styles.circleButtonView}>
@@ -34,7 +36,7 @@ const TwoButton = ({
         iconName={firstIconName}
         onPress={onPressFirst}
         circleText={circleTextOne}
-        title={title}
+        title={titleOne}
         disabled={disabledOne}
       />
       <RectangleMaxWidthButton
@@ -53,7 +55,7 @@ const TwoButton = ({
         iconName={secondIconName}
         onPress={onPressSecond}
         circleText={circleTextTwo}
-        title={title}
+        title={titleTwo}
         disabled={disabledTwo}
       />
     </View>
@@ -64,16 +66,18 @@ const TwoButton = ({
         iconName={firstIconName}
         onPress={onPressFirst}
         circleText={circleTextOne}
-        title={title}
+        title={titleOne}
         disabled={disabledOne}
+        textStyle={textStyle}
       />
       <CircleButton
         iconType={secondIconType}
         iconName={secondIconName}
         onPress={onPressSecond}
         circleText={circleTextTwo}
-        title={title}
+        title={titleTwo}
         disabled={disabledTwo}
+        textStyle={textStyle}
       />
     </View>
   );

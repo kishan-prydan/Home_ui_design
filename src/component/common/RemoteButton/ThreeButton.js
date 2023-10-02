@@ -31,6 +31,7 @@ const ThreeButton = ({
   onPressForth,
   rectangleIconViewStyle,
   size,
+  textStyle,
 }) => {
   return (
     <View style={styles.container}>
@@ -42,7 +43,8 @@ const ThreeButton = ({
           iconName={firstIconName}
           onPress={onPressFirst}
           rectangleIconViewStyle={rectangleIconViewStyle}
-		  size={size}
+          size={size}
+          textStyle={textStyle}
         />
       )}
 
@@ -54,7 +56,8 @@ const ThreeButton = ({
           iconName={secondIconName}
           onPress={onPressSecond}
           rectangleIconViewStyle={rectangleIconViewStyle}
-		  size={size}
+          size={size}
+          textStyle={textStyle}
         />
       )}
 
@@ -66,7 +69,8 @@ const ThreeButton = ({
           iconName={thirdIconName}
           onPress={onPressThird}
           rectangleIconViewStyle={rectangleIconViewStyle}
-		  size={size}
+          size={size}
+          textStyle={textStyle}
         />
       )}
 
@@ -78,7 +82,8 @@ const ThreeButton = ({
           iconName={forthIconName}
           onPress={onPressForth}
           rectangleIconViewStyle={rectangleIconViewStyle}
-		  size={size}
+          size={size}
+          textStyle={textStyle}
         />
       )}
     </View>

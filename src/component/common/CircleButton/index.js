@@ -4,6 +4,7 @@ import Icon from '../Icon';
 import imagePath from '../../../constants/imagePath';
 import colors from '../../../assets/theme/colors';
 import TextComponent from '../TextComponent';
+import { moderateScale, scale } from 'react-native-size-matters';
 
 const CircleButton = ({
   onPress,
@@ -38,8 +39,8 @@ const CircleButton = ({
 
 const styles = StyleSheet.create({
   circleIconViewStyle: {
-    height: 40,
-    width: 40,
+    height: moderateScale(40),
+    width: moderateScale(40),
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -48,7 +49,7 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     color: colors.white,
-    fontSize: 9,
+    fontSize: scale(9),
     fontWeight: 700,
     // textTransform: 'uppercase',
   },

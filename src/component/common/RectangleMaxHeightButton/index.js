@@ -7,6 +7,8 @@ import Icon from '../Icon';
 import imagePath from '../../../constants/imagePath';
 import colors from '../../../assets/theme/colors';
 import TextComponent from '../TextComponent';
+import { moderateScale } from 'react-native-size-matters';
+import { scale } from 'react-native-size-matters';
 
 const RectangleMaxHeightButton = ({
   onPressFirst,
@@ -46,8 +48,8 @@ const RectangleMaxHeightButton = ({
 
 const styles = StyleSheet.create({
   rectangleIconViewStyle: {
-    height: 150,
-    width: 45,
+    height: moderateScale(150),
+    width: moderateScale(45),
     alignItems: 'center',
     justifyContent: 'space-around',
   },
@@ -56,7 +58,7 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     color: colors.white,
-    fontSize: 12,
+    fontSize: scale(12),
     fontWeight: 500,
     textTransform: 'uppercase',
   },

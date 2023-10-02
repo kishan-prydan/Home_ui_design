@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {moderateScale} from 'react-native-size-matters';
+import { moderateScale, scale, moderateVerticalScale } from 'react-native-size-matters';
 import colors from '../../assets/theme/colors';
 
 const styles = StyleSheet.create({
@@ -12,10 +12,13 @@ const styles = StyleSheet.create({
   },
   mianViewStyle: {
     backgroundColor: colors.boxBackgroundOpacity,
-    height: moderateScale(520),
     borderRadius: 20,
+    paddingVertical: moderateVerticalScale(20),
     paddingHorizontal: moderateScale(20),
-    justifyContent: 'center',
+  },
+  textStyle:{
+    fontSize: scale(16),
+    paddingRight: moderateScale(3),
   },
 });
 

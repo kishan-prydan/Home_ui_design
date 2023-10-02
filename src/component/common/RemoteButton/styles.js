@@ -24,7 +24,6 @@ const styles = StyleSheet.create({
   textStyle:{
     fontSize: scale(16),
     paddingRight: moderateScale(3),
-
   },
 });
 

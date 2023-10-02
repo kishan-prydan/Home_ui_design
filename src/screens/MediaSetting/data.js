@@ -1,4 +1,4 @@
-import { MEDIASETTING, WATCHTVSCREEN } from "../../constants/routeNames";
+import { WATCHAPPLETV, WATCHDVD, WATCHROKU, WATCHSATELLITE, WATCHTVSCREEN } from "../../constants/routeNames";
 
 let data = [
 	{
@@ -9,17 +9,17 @@ let data = [
 	{
 		id: 24,
 		title: 'watch DVD',
-		// screen: MEDIASETTING,
+		screen: WATCHDVD,
 	},
 	{
 		id: 25,
 		title: 'watch Apple TV',
-		// screen: MEDIASETTING,
+		screen: WATCHAPPLETV,
 	},
 	{
 		id: 26,
 		title: 'watch Roku',
-		// screen: MEDIASETTING,
+		screen: WATCHROKU,
 	},
 	{
 		id: 27,
@@ -29,7 +29,7 @@ let data = [
 	{
 		id: 28,
 		title: 'watch Satellite',
-		// screen: MEDIASETTING,
+		screen: WATCHSATELLITE,
 	},
 	{
 		id: 29,

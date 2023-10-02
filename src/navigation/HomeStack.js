@@ -30,6 +30,10 @@ import {
   MEDIASETTING,
   WATCHTVSCREEN,
   MEDIAOTHERSETTING,
+  WATCHDVD,
+  WATCHAPPLETV,
+  WATCHROKU,
+  WATCHSATELLITE,
 } from '../constants/routeNames';
 import {
   AcSettings,
@@ -55,6 +59,10 @@ import {
   SplashScreen,
   SweetHome,
   TestCurtain,
+  WatchAppleTV,
+  WatchDVD,
+  WatchRoku,
+  WatchSatellite,
   WatchTVScreen,
   ZAudio,
 } from '../screens';
@@ -236,6 +244,26 @@ export default function HomeStack() {
         <Stack.Screen
           name={WATCHTVSCREEN}
           component={WatchTVScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name={WATCHDVD}
+          component={WatchDVD}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name={WATCHAPPLETV}
+          component={WatchAppleTV}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name={WATCHROKU}
+          component={WatchRoku}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name={WATCHSATELLITE}
+          component={WatchSatellite}
           options={{headerShown: false}}
         />
       </>

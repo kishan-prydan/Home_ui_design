@@ -38,3 +38,7 @@ export const MODSETTING = 'MoodSetting';
 export const FANSETTING = 'FanSetting';
 export const IRRIGATIONSETTING = 'IRRIGATIONSETTING';
 export const WATCHTVSCREEN = 'WatchTvScreen';
+export const WATCHDVD = 'WatchDVD';
+export const WATCHAPPLETV = 'WatchAppleTV';
+export const WATCHROKU = 'WatchRoku';
+export const WATCHSATELLITE = 'WatchSatellite';

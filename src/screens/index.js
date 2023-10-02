@@ -32,3 +32,7 @@ export {default as MoodSetting} from './MoodSetting';
 export {default as FanSetting} from './FanSetting';
 export {default as IrrigationSetting} from './IrrigationSetting';
 export {default as WatchTVScreen} from './WatchTVScreen';
+export {default as WatchDVD} from './WatchDVD';
+export {default as WatchAppleTV} from './WatchAppleTV';
+export {default as WatchRoku} from './WatchRoku';
+export {default as WatchSatellite} from './WatchSatellite';

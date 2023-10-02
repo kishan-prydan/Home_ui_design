@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {moderateScale} from 'react-native-size-matters';
+import {moderateScale, scale} from 'react-native-size-matters';
 import colors from '../../assets/theme/colors';
 
 const styles = StyleSheet.create({
@@ -16,6 +16,10 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     paddingHorizontal: moderateScale(20),
     justifyContent: 'center',
+  },
+  textStyle: {
+    fontSize: scale(16),
+    paddingRight: moderateScale(3),
   },
 });
 

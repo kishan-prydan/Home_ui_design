@@ -16,6 +16,7 @@ const RectangleButton = ({
   size,
   title,
   rectangleText,
+  textStyle
 }) => {
   return (
     <TouchableOpacity activeOpacity={0.6} onPress={onPress}>
@@ -24,7 +25,7 @@ const RectangleButton = ({
         resizeMode="cover"
         style={{...styles.rectangleIconViewStyle, ...rectangleIconViewStyle}}>
         {!!rectangleText ? (
-          <TextComponent title={title} textStyle={styles.textStyle} />
+          <TextComponent title={title} textStyle={{...styles.textStyle, ...textStyle}} />
         ) : (
           <Icon
             type={iconType}
@@ -50,7 +51,7 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     color: colors.white,
-    fontSize: 13,
+    fontSize: 12,
     fontWeight: 500,
     textTransform: 'uppercase',
   },

@@ -12,16 +12,16 @@ const styles = StyleSheet.create({
   textStyle: {
     color: colors.primary,
   },
-  darkTextStyle:{
-	color: colors.white,
+  darkTextStyle: {
+    color: colors.white,
   },
-  darkBoxTextStyle:{
-	color: colors.white,
-	fontWeight: 'normal',
+  darkBoxTextStyle: {
+    color: colors.white,
+    fontWeight: 'normal',
   },
-  boxContainer:{
-	backgroundColor: colors.textBoxOpacity,
-	elevation: 0
+  boxContainer: {
+    backgroundColor: colors.textBoxOpacity,
+    elevation: 0,
   },
 });
 

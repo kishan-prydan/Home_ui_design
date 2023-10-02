@@ -13,9 +13,7 @@ import {
 } from '../../constants/routeNames';
 import FourButton from '../../component/common/RemoteButton/FourButton';
 import TwoButton from '../../component/common/RemoteButton/TwoButton';
-import MiddleButton from '../../component/common/RemoteButton/MiddleButton';
 import VolumeChangeButton from '../../component/common/RemoteButton/VolumeChangeButton';
-import RectangleButton from '../../component/common/RectangleButton';
 import ThreeButton from '../../component/common/RemoteButton/ThreeButton';
 
 const WatchTVScreen = () => {
@@ -86,9 +84,9 @@ const WatchTVScreen = () => {
               onPressFirst={() => Alert.alert('Back button pressed')}
               onPressSecond={() => Alert.alert('Next button pressed')}
             />
-            <View style={{paddingVertical: 40}} />
+            <View style={{paddingVertical: 30}} />
             <VolumeChangeButton />
-            <View style={{paddingVertical: 40}} />
+            <View style={{paddingVertical: 30}} />
 
             <FourButton
               circleTextOne
@@ -119,11 +117,11 @@ const WatchTVScreen = () => {
               secondIcon
               secondIconType={'ant'}
               secondIconName={'CodeSandbox'}
-			  onPressSecond={() => Alert.alert('Box button pressed')}
-			  thirdIcon
-			  thirdIconType={'entypo'}
-			  thirdIconName={'cross'}
-			  onPressThird={() => Alert.alert('Cancel button pressed')}
+              onPressSecond={() => Alert.alert('Box button pressed')}
+              thirdIcon
+              thirdIconType={'entypo'}
+              thirdIconName={'cross'}
+              onPressThird={() => Alert.alert('Cancel button pressed')}
             />
           </View>
         </Container>
