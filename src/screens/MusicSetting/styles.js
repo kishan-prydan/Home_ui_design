@@ -17,9 +17,6 @@ const styles = StyleSheet.create({
   lightSettingBoxComponentContainer: {
     elevation: 0,
   },
-  lightSettingStyle:{
-	// backgroundColor: 'purple',
-  },
   customButtonContainer: {
     width: '100%',
 	marginBottom: moderateVerticalScale(30),

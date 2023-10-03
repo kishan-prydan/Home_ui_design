@@ -2,31 +2,19 @@ import React from 'react';
 import Header from '../../component/common/Header';
 import {Alert, View} from 'react-native';
 import styles from './styles';
-import BackgroundImage from '../../component/BackgroundImage';
 import {useNavigation} from '@react-navigation/native';
-import {LOGIN, SWEETHOME} from '../../constants/routeNames';
-import {Button} from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import {SWEETHOME} from '../../constants/routeNames';
 import CircleWithIcon from '../../component/common/CircleWithIcon/CircleWithIcon';
 import colors from '../../assets/theme/colors';
+import ClickableBackgroundImage from '../../component/BackgroundImage';
+import { moderateScale } from 'react-native-size-matters';
 
 const HomeView = () => {
   const {navigate} = useNavigation();
 
-  // const handleLogout = async () => {
-  //   try {
-  //     await AsyncStorage.removeItem('loginData');
-  //     Alert.alert('Logged out successfully');
-  //     navigate(LOGIN)
-
-  //   } catch (error) {
-  //     console.error('Error logging out: ', error);
-  //   }
-  // };
-
   return (
     <>
-      <View style={{paddingHorizontal: 20}}>
+      <View style={{paddingHorizontal: moderateScale(20)}}>
         <Header
           iconFirst
           iconSecond
@@ -53,7 +41,7 @@ const HomeView = () => {
       </View>
       <View style={styles.imageContainer}>
         <View style={styles.backgroudImageContainer}>
-          <BackgroundImage
+          <ClickableBackgroundImage
             onPress={() => {
               navigate(SWEETHOME);
             }}
@@ -67,13 +55,12 @@ const HomeView = () => {
             iconType={'ant'}
             iconName={'star'}
             disabled={false}
-            onPress={() =>{Alert.alert("Bottom star button pressed")}}
+            onPress={() => {
+              Alert.alert('Bottom star button pressed');
+            }}
           />
         </View>
       </View>
-      {/* <View>
-        <Button title="Logout" onPress={handleLogout} />
-      </View> */}
     </>
   );
 };

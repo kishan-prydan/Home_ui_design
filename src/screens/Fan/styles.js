@@ -6,7 +6,6 @@ import colors from '../../assets/theme/colors';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: 'yellow',
   },
   headreView: {
     paddingHorizontal: moderateScale(20),
@@ -32,7 +31,7 @@ const styles = StyleSheet.create({
   boxContainerInnerStyle: {
     paddingHorizontal: moderateScale(15),
   },
-  lineView:{
+  lineView: {
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -42,14 +41,13 @@ const styles = StyleSheet.create({
   },
   sliderStyle: {
     width: moderateScale(150),
-    height: 30,
+    height: moderateScale(30),
   },
   trackStyle: {
     width: moderateScale(150),
     borderWidth: 1,
     borderColor: colors.sliderColor,
     height: moderateScale(12),
-    // backgroundColor: 'purple',
     borderRadius: 25,
   },
   thumbStyle: {

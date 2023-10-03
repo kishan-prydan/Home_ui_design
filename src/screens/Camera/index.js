@@ -10,7 +10,7 @@ import HeaderIconComponent from '../../component/common/HeaderIconComponent';
 import BoxContainer from '../../component/common/BoxContainer';
 import TextComponent from '../../component/common/TextComponent';
 import CustomButton from '../../component/common/CustomButton';
-import {APPDRAWERNAVIGATION, HOME} from '../../constants/routeNames';
+import {APPDRAWERNAVIGATION, CAMERASETTING, HOME, SCENCECONTROLSETTINGS} from '../../constants/routeNames';
 import CircleWithIcon from '../../component/common/CircleWithIcon/CircleWithIcon';
 
 const Camera = () => {
@@ -24,7 +24,7 @@ const Camera = () => {
             iconFirst
             iconThird
             iconForth
-            title={'Camera'}
+            title={'SCENE CONTROL'}
             type={'fa6'}
             name={'circle-plus'}
             firstType={'entypo'}
@@ -42,7 +42,7 @@ const Camera = () => {
             onPressSecond={() => {
               navigate(HOME);
             }}
-            onPressForth={() => Alert.alert('settings')}
+            onPressForth={() => navigate(SCENCECONTROLSETTINGS)}
             textView={{color: colors.primary}}
           />
         </View>
@@ -66,16 +66,17 @@ const Camera = () => {
         <Container>
           <BoxContainer>
             <View style={styles.boxContainerStyle}>
-			  <CircleWithIcon
-			  	iconType={'fa6'}
-				iconName={'video'}
-				iconStyle={{color: colors.white}}
+              <CircleWithIcon
+                iconType={'fa6'}
+                iconName={'video'}
+                iconStyle={{color: colors.white}}
                 circleView={styles.circleViewStyle}
-				disabled={true}
-			  />
+                disabled={false}
+                onLongPress={() => navigate(CAMERASETTING)}
+              />
               <View style={styles.boxContainerInnerStyle}>
                 <TextComponent
-                  title={'Test Camera'}
+                  title={'Screen 1'}
                   textStyle={styles.textStyle}
                 />
                 <View style={styles.buttonContainer}>

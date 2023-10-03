@@ -1,10 +1,11 @@
 import {StyleSheet} from 'react-native';
 import colors from '../../../assets/theme/colors';
+import { moderateScale, scale } from 'react-native-size-matters';
 
 const styles = StyleSheet.create({
     mainIconTextView: {
-        height: 90,
-        width: 160,
+        height: moderateScale(90),
+        width: moderateScale(160),
         borderRadius: 5,
         backgroundColor: colors.white,
         justifyContent: 'center',
@@ -13,23 +14,22 @@ const styles = StyleSheet.create({
       iconTextView: {
         flexDirection: 'row',
         alignItems: 'center',
-        paddingLeft: 12,
+        paddingLeft: moderateScale(12),
       },
     
       IconView: {
-        height: 56,
-        width: 56,
+        height: moderateScale(56),
+        width: moderateScale(56),
         borderRadius: 28,
         alignItems: 'center',
         justifyContent: 'center',
-        // backgroundColor: colors.iconSecondColor,
       },
     
       textView: {
         textTransform: 'uppercase',
-        paddingLeft: 12,
-        fontSize: 13,
-        width: 100,
+        paddingLeft: moderateScale(12),
+        fontSize: scale(13),
+        width: moderateScale(100),
         fontWeight: 'bold',
         color: colors.primary,
       },

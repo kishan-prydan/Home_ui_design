@@ -31,34 +31,23 @@ const IrrigationSetting = () => {
 
   const [value, setValue] = useState('');
   const [isFocus, setIsFocus] = useState(false);
-  const [text, settext] = useState('ir1');
-  const [secondText, setsecondText] = useState('2');
-  const [thirdText, setThirdText] = useState('2');
+  const [deviceName, setdeviceName] = useState('ir1');
+  const [subnetID, setsubnetID] = useState('2');
+  const [deviceID, setdeviceID] = useState('2');
   const [ChannelID, setChannelID] = useState('2');
 
-
-  const handleChange = () => {
-    settext(value => {
-      value;
-    });
+  const handleChangeDeviceName = value => {
+    setdeviceName(value);
   };
-  const handleChangeOther = () => {
-    setsecondText(value => {
-      value;
-    });
+  const handleChangeSubnetID = value => {
+    setsubnetID(value);
   };
-  const handleChangeThird = () => {
-    setThirdText(value => {
-      value;
-    });
+  const handleChangeDeviceID = value => {
+    setdeviceID(value);
   };
-  const handleChangeChannel = () => {
-    setChannelID(value => {
-      value;
-    });
+  const handleChangeChannel = value => {
+    setChannelID(value);
   };
-
-
 
   return (
     <BackgroundImage>
@@ -91,25 +80,25 @@ const IrrigationSetting = () => {
             <LightSettingBoxComponent
               darkMode
               mainTitle={'Device Name : '}
-              value={text}
+              value={deviceName}
               editable={true}
-              onChangeText={() => handleChange()}
+              onChangeText={() => handleChangeDeviceName()}
             />
             <LightSettingBoxComponent
               darkMode
               mainTitle={'Subnet ID : '}
-              value={secondText}
+              value={subnetID}
               editable={true}
               keyboardType="numeric"
-              onChangeText={() => handleChangeOther()}
+              onChangeText={() => handleChangeSubnetID()}
             />
             <LightSettingBoxComponent
               darkMode
               mainTitle={'Device ID : '}
-              value={thirdText}
+              value={deviceID}
               editable={true}
               keyboardType="numeric"
-              onChangeText={() => handleChangeThird()}
+              onChangeText={() => handleChangeDeviceID()}
             />
             <LightSettingBoxComponent
               darkMode
@@ -119,14 +108,12 @@ const IrrigationSetting = () => {
               keyboardType="numeric"
               onChangeText={() => handleChangeChannel()}
             />
-            <View style={styles.checkBoxStyle}>
-              <CheckBoxComponent
-                title={'Is Automatic:  '}
-                whiteColor
-                textStyle={styles.checkBoxTextStyle}
-              />
-            </View>
-			<TimePicketComponent/>
+            <CheckBoxComponent
+              title={'Is Automatic:  '}
+              whiteColor
+              textStyle={styles.checkBoxTextStyle}
+            />
+            <TimePicketComponent />
             <View style={styles.boxTitileinnerContainer}>
               <TextComponent
                 textStyle={{color: colors.white}}
@@ -155,8 +142,8 @@ const IrrigationSetting = () => {
               secondIcon
               typeSecond={'fa6'}
               nameSecond={'trash-can'}
-              typeThird={'fa'}
-              nameThird={'arrow-circle-left'}
+              typeThird={'fa6'}
+              nameThird={'circle-arrow-left'}
               firstIconPress={() => Alert.alert('Save icon pressed')}
               secondIconPress={() => Alert.alert('Trash icon pressed')}
               thirdIconPress={() => navigation.goBack()}

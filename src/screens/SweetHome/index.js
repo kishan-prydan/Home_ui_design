@@ -6,6 +6,7 @@ import data from './data';
 import styles from './styles';
 import {useNavigation} from '@react-navigation/native';
 import {APPDRAWERNAVIGATION, HOME} from '../../constants/routeNames';
+import { moderateScale } from 'react-native-size-matters';
 
 const SweetHome = () => {
   const {navigate} = useNavigation();
@@ -49,7 +50,7 @@ const SweetHome = () => {
           keyExtractor={item => item.id}
           renderItem={({item}) => (
             <>
-              <View style={{paddingHorizontal: 2}} />
+              <View style={{paddingHorizontal: moderateScale(2)}} />
               <IconTextCard
                 type={item.type}
                 name={item.name}
@@ -59,7 +60,7 @@ const SweetHome = () => {
                   item.screen ? navigate(item.screen) : Alert.alert(item.alert);
                 }}
               />
-              <View style={{paddingHorizontal: 2}} />
+              <View style={{paddingHorizontal: moderateScale(2)}} />
             </>
           )}
           contentContainerStyle={styles.contentContainer}

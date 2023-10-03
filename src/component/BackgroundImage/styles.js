@@ -35,7 +35,6 @@ const styles = StyleSheet.create({
 
   content: {
     position: 'absolute',
-    // backgroundColor: 'blue',
     flexDirection: 'row',
     alignItems: 'center',
     paddingLeft: moderateScale(25),
@@ -48,6 +47,23 @@ const styles = StyleSheet.create({
     width: moderateScale(32),
     borderRadius: scale(16),
     backgroundColor: colors.white,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  IconView: {
+    height: 30,
+    width: 30,
+    borderRadius: 15,
+    backgroundColor: colors.iconBackgroundColor,
+    position: 'absolute',
+    right: 0,
+    elevation: 7,
+    marginRight: 7,
+    marginTop: 7,
+  },
+
+  EditButtonIcon:{
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },

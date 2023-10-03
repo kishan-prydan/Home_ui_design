@@ -20,8 +20,7 @@ const styles = StyleSheet.create({
     fontSize: scale(16),
   },
   checkBoxStyleContainer: {
-	flex: 1,
-    // backgroundColor: 'yellow',
+    flex: 1,
   },
   checkBoxStyle: {
     flexDirection: 'row',
@@ -36,11 +35,10 @@ const styles = StyleSheet.create({
     marginBottom: moderateVerticalScale(12),
   },
   customButtonContainer: {
-	position: 'absolute',
-	bottom: 0,
-	width: '100%',
+    position: 'absolute',
+    bottom: 0,
+    width: '100%',
     paddingHorizontal: moderateScale(20),
-	// backgroundColor: 'purple',
   },
   customButtonStyle: {
     backgroundColor: colors.white,
@@ -53,17 +51,16 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     color: colors.white,
-    fontSize: 16,
+    fontSize: scale(16),
     fontWeight: 600,
   },
   innerViewStyle: {
     flex: 1,
     flexDirection: 'row',
-	justifyContent: 'space-between',
+    justifyContent: 'space-between',
     paddingVertical: moderateVerticalScale(10),
   },
   iconViewStyle: {
-    // backgroundColor: 'aqua',
     width: '20%',
     alignItems: 'center',
   },
@@ -77,10 +74,9 @@ const styles = StyleSheet.create({
   },
   iconTextStyle: {
     color: colors.white,
-    fontSize: 12,
+    fontSize: scale(12),
     fontWeight: 600,
   },
-
 
   appContainer: {
     flex: 1,

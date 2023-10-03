@@ -13,8 +13,8 @@ const styles = StyleSheet.create({
   iconView:{
     alignSelf: 'flex-end',
     position: 'absolute',
-    bottom: 40,
-    right: 20,
+    bottom: moderateVerticalScale(40),
+    right: moderateScale(20),
   },
 });
 

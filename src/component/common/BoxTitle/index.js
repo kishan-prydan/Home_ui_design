@@ -15,6 +15,7 @@ const BoxTitle = ({
   editable,
   disabled,
   keyboardType,
+  secureTextEntry,
 }) => {
   return !!clickableText ? (
     <TouchableOpacity
@@ -33,6 +34,7 @@ const BoxTitle = ({
         selectionColor={colors.themeColor}
         editable={editable}
         keyboardType={keyboardType}
+        secureTextEntry={secureTextEntry}
       />
     </View>
   );

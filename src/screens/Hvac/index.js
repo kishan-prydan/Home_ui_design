@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Alert, FlatList} from 'react-native';
+import {View, Alert} from 'react-native';
 import BackgroundColor from '../../component/common/BackgroundColor';
 import HeaderIconComponent from '../../component/common/HeaderIconComponent';
 import Header from '../../component/common/Header';

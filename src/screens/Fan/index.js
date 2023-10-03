@@ -1,10 +1,14 @@
 //import liraries
-import React, {Component} from 'react';
-import {View, Text, StyleSheet, Alert} from 'react-native';
+import React from 'react';
+import {View, Alert} from 'react-native';
 import BackgroundImage from '../../component/common/BackgroundImage';
 import Header from '../../component/common/Header';
 import {useNavigation} from '@react-navigation/native';
-import {APPDRAWERNAVIGATION, FANSETTING, HOME} from '../../constants/routeNames';
+import {
+  APPDRAWERNAVIGATION,
+  FANSETTING,
+  HOME,
+} from '../../constants/routeNames';
 import colors from '../../assets/theme/colors';
 import HeaderIconComponent from '../../component/common/HeaderIconComponent';
 import styles from './styles';
@@ -79,13 +83,13 @@ const Fan = () => {
                 <TextComponent title={'FAN 1'} textStyle={styles.textStyle} />
               </View>
               <View style={styles.lineView}>
-				<View style={styles.lineNumberView}>
-					<FanSliderComponent title={'Off'}/>
-					<FanSliderComponent title={'1'}/>
-					<FanSliderComponent title={'2'}/>
-					<FanSliderComponent title={'3'}/>
-				</View>
-				<SliderComponent
+                <View style={styles.lineNumberView}>
+                  <FanSliderComponent title={'Off'} />
+                  <FanSliderComponent title={'1'} />
+                  <FanSliderComponent title={'2'} />
+                  <FanSliderComponent title={'3'} />
+                </View>
+                <SliderComponent
                   sliderValue={2}
                   minimumValue={0}
                   maximumValue={3}

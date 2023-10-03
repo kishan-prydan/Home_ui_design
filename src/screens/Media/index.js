@@ -1,18 +1,11 @@
 import React from 'react';
-import {View, Alert, TouchableOpacity, Image, FlatList} from 'react-native';
+import {View, Alert, FlatList} from 'react-native';
 import styles from './styles';
 import {useNavigation} from '@react-navigation/native';
 import Header from '../../component/common/Header';
-import Container from '../../component/common/Container';
 import colors from '../../assets/theme/colors';
 import BackgroundImage from '../../component/common/BackgroundImage';
-import {
-  APPDRAWERNAVIGATION,
-  HOMEVIEW,
-  MEDIASETTING,
-} from '../../constants/routeNames';
-import TextComponent from '../../component/common/TextComponent';
-import imagePath from '../../constants/imagePath';
+import {APPDRAWERNAVIGATION, HOMEVIEW} from '../../constants/routeNames';
 import MediaBoxComponent from '../../component/MediaBoxComponent';
 import data from './data';
 

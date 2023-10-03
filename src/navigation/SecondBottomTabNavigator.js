@@ -1,6 +1,5 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import * as React from 'react';
-import colors from '../assets/theme/colors';
 import {
   CAMERA,
   CURTAIN,
@@ -10,7 +9,6 @@ import {
   IRRIGATION,
   MEDIA,
   MOODSCREEN,
-  OTHERCONTROL,
   RGBW,
   ZAUDIO,
 } from '../constants/routeNames';
@@ -23,7 +21,6 @@ import {
   Irrigation,
   Media,
   MoodScreen,
-  OtherControl,
   Rgbw,
   ZAudio,
 } from '../screens';

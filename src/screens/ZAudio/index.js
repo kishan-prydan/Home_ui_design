@@ -13,6 +13,7 @@ import MusicPlayerFifth from '../../component/MusicPlayerFifth';
 import MusicPlayerFourth from '../../component/MusicPlayerFourth';
 import MusicPlayerThird from '../../component/MusicPlayerThird';
 import Container from '../../component/common/Container';
+import MusicPlayerSecond from '../../component/MusicPlayerSecond';
 
 const ZAudio = () => {
   const {navigate} = useNavigation();
@@ -54,7 +55,7 @@ const ZAudio = () => {
           onPressSecond={() => {
             navigate(HOME);
           }}
-          onPressForth={() => Alert.alert('Add Icon Pressed')}
+          onPressForth={() => navigate(MUSICSETTING)}
         />
       </View>
 
@@ -62,7 +63,7 @@ const ZAudio = () => {
         <View style={styles.secondMusicHeaderView}>
           <MusicSecondHeader
             onPressFirst={() => showComponent(<MusicPlayerFirst />)}
-            onPressSecond={() => navigate(MUSICSETTING)}
+            onPressSecond={() => showComponent(<MusicPlayerSecond />)}
             onPressThird={() => showComponent(<MusicPlayerThird />)}
             onPressFourth={() => showComponent(<MusicPlayerFourth />)}
             onPressFifth={() => showComponent(<MusicPlayerFifth />)}

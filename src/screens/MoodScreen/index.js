@@ -1,12 +1,11 @@
 //import liraries
 import React from 'react';
-import {View, Text, Alert} from 'react-native';
+import {View, Alert} from 'react-native';
 import styles from './styles';
 import {useNavigation} from '@react-navigation/native';
 import BackgroundImage from '../../component/common/BackgroundImage';
 import Header from '../../component/common/Header';
 import HeaderIconComponent from '../../component/common/HeaderIconComponent';
-import Container from '../../component/common/Container';
 import {APPDRAWERNAVIGATION, HOME, MODSETTING} from '../../constants/routeNames';
 import colors from '../../assets/theme/colors';
 import CustomButton from '../../component/common/CustomButton';

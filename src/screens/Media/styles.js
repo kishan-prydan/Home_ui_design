@@ -3,7 +3,6 @@ import colors from '../../assets/theme/colors';
 import {
   moderateScale,
   moderateVerticalScale,
-  scale,
 } from 'react-native-size-matters';
 
 const styles = StyleSheet.create({
@@ -16,7 +15,6 @@ const styles = StyleSheet.create({
   },
   mianDisplayView: {
     flex: 1,
-    // backgroundColor: 'midnightblue',
     alignItems: 'center',
     paddingTop: moderateVerticalScale(20),
   },

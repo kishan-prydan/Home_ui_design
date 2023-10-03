@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Alert, View} from 'react-native';
 import styles from './styles';
 import Header from '../../component/common/Header';
@@ -13,6 +13,15 @@ import Container from '../../component/common/Container';
 const MusicSetting = () => {
   const {navigate} = useNavigation();
   const navigation = useNavigation();
+
+  const [values, setValues] = useState(data.map(value => value.boxTitle));
+
+  const handleInputChange = (index, newValue) => {
+    const newValues = [...values];
+    newValues[index] = newValue;
+    setValues(newValues);
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.headreView}>
@@ -47,7 +56,14 @@ const MusicSetting = () => {
               renderItem={({item}) => (
                 <LightSettingBoxComponent
                   mainTitle={item.mainTitle}
-                  boxTitle={item.boxTitle}
+                    boxTitle={item.boxTitle}
+                    container={styles.lightSettingBoxComponentContainer}
+                    value={values[index]}
+                    onChangeText={newValue =>
+                      handleInputChange(index, newValue)
+                    }
+                    keyboardType={item.keyboardType}
+                    editable={item.edit}
                 />
               )}
             /> */}
@@ -58,6 +74,12 @@ const MusicSetting = () => {
                     mainTitle={item.mainTitle}
                     boxTitle={item.boxTitle}
                     container={styles.lightSettingBoxComponentContainer}
+                    value={values[index]}
+                    onChangeText={newValue =>
+                      handleInputChange(index, newValue)
+                    }
+                    keyboardType={item.keyboardType}
+                    editable={item.edit}
                   />
                 );
               })}

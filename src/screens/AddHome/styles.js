@@ -1,30 +1,32 @@
 import {StyleSheet} from 'react-native';
 import colors from '../../assets/theme/colors';
-import {moderateScale} from 'react-native-size-matters';
+import {
+  moderateScale,
+  moderateVerticalScale,
+  scale,
+} from 'react-native-size-matters';
 
 export default StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: 'yellow',
-    alignItems: 'center',
     justifyContent: 'space-between',
+    paddingHorizontal: moderateScale(20),
   },
-
-  imageView: {
+  mainViewStyle: {
     flex: 1,
-    // backgroundColor: 'blue',
+    alignItems: 'center',
     justifyContent: 'center',
   },
 
-  // innerButton: {
-  //   width: 180,
-  //   height: 50,
-  //   borderRadius: 10,
-  // },
+  imageView: {
+    paddingTop: moderateVerticalScale(20),
+    alignItems: 'center',
+  },
+
+  innerViewStyle: {},
 
   savebuttonContainer: {
-    padding: moderateScale(20),
-    width: '100%',
+    paddingBottom: moderateScale(20),
   },
 
   saveButton: {
@@ -32,5 +34,11 @@ export default StyleSheet.create({
     backgroundColor: colors.secondary,
     shadowColor: colors.secondary,
     elevation: 10,
+  },
+  textStyle: {
+    fontSize: scale(16),
+    color: colors.themeColor,
+    fontWeight: 'bold',
+    paddingTop: moderateVerticalScale(10),
   },
 });

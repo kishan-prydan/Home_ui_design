@@ -85,7 +85,7 @@ const PressableIcon = ({
           <Icon
             type={iconType}
             name={iconName}
-            size={25}
+            size={20}
             style={iconColor ? style : {color: 'yellow'}}
           />
         </TouchableOpacity>
@@ -111,7 +111,7 @@ const PressableIcon = ({
           <Icon
             type={iconType}
             name={iconName}
-            size={25}
+            size={20}
             style={iconColor ? style : {color: 'yellow'}}
           />
         </TouchableOpacity>

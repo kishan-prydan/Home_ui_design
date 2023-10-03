@@ -10,8 +10,6 @@ import {
   LIGHT,
   MEDIA,
   MOODSCREEN,
-  OTHERCONTROL,
-  RGBW,
   ZAUDIO,
 } from '../constants/routeNames';
 import {
@@ -24,8 +22,6 @@ import {
   Light,
   Media,
   MoodScreen,
-  OtherControl,
-  Rgbw,
   ZAudio,
 } from '../screens';
 import Icon from '../component/common/Icon';

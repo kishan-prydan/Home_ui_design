@@ -29,7 +29,7 @@ const FanSetting = () => {
   const [secondText, setsecondText] = useState('');
   const [thirdText, setThirdText] = useState('');
   const [addChannel, setaddChannel] = useState('');
-  const [gear, setGear] = useState('4');
+  const [gear, setGear] = useState('3');
 
   const handleChange = () => {
     settext(value => {
@@ -154,8 +154,8 @@ const FanSetting = () => {
               secondIcon
               typeSecond={'fa6'}
               nameSecond={'trash-can'}
-              typeThird={'fa'}
-              nameThird={'arrow-circle-left'}
+              typeThird={'fa6'}
+              nameThird={'circle-arrow-left'}
               firstIconPress={() => Alert.alert('Save icon pressed')}
               secondIconPress={() => Alert.alert('Trash icon pressed')}
               thirdIconPress={() => navigation.goBack()}

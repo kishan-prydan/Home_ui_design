@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import { View, Text, PanResponder } from 'react-native';
-import { Svg, Circle, Defs, LinearGradient, Stop } from 'react-native-svg';
+import React, {useState} from 'react';
+import {View, Text, PanResponder} from 'react-native';
+import {Svg, Circle, Defs, LinearGradient, Stop} from 'react-native-svg';
 import colors from '../../assets/theme/colors';
 
-const CircularSliderComponent = ({ width, height, gradientColors }) => {
+const CircularSliderComponent = ({width, height, gradientColors}) => {
   const [angle, setAngle] = useState(180);
 
   const panResponder = PanResponder.create({
     onStartShouldSetPanResponder: () => true,
     onPanResponderMove: (e, gestureState) => {
-      const { moveX, moveY } = gestureState;
+      const {moveX, moveY} = gestureState;
       const centerX = width / 2;
       const centerY = height / 2;
       const radius = Math.min(centerX, centerY) - 20;
@@ -30,8 +30,8 @@ const CircularSliderComponent = ({ width, height, gradientColors }) => {
   const centerY = height / 2;
   const radius = Math.min(centerX, centerY) - 20;
 
-  const thumbX = centerX + radius * Math.cos((angle * (Math.PI / 180)));
-  const thumbY = centerY + radius * Math.sin((angle * (Math.PI / 180)));
+  const thumbX = centerX + radius * Math.cos(angle * (Math.PI / 180));
+  const thumbY = centerY + radius * Math.sin(angle * (Math.PI / 180));
 
   const maxValue = 100;
   const value = Math.round((angle / 360) * maxValue);
@@ -69,8 +69,12 @@ const CircularSliderComponent = ({ width, height, gradientColors }) => {
           {...panResponder.panHandlers}
         />
       </Svg>
-      <View style={{ position: 'absolute', top: centerY - 15, left: centerX - 25 }}>
-        <Text style={{ fontSize: 26, fontWeight: 'bold', color: colors.primary }}>{value}{'\u2103'}</Text>
+      <View
+        style={{position: 'absolute', top: centerY - 15, left: centerX - 25}}>
+        <Text style={{fontSize: 26, fontWeight: 'bold', color: colors.primary}}>
+          {value}
+          {'\u2103'}
+        </Text>
       </View>
     </View>
   );

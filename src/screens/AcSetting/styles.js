@@ -12,9 +12,6 @@ const styles = StyleSheet.create({
   secondHeaderView: {
     paddingTop: moderateScale(40),
   },
-  boxTitleContainer: {
-    marginTop: moderateVerticalScale(20),
-  },
   boxTitileinnerContainer:{
     flexDirection: 'row',
 		alignItems: 'center',

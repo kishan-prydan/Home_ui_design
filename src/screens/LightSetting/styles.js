@@ -12,9 +12,6 @@ const styles = StyleSheet.create({
     paddingVertical: moderateVerticalScale(20),
     paddingHorizontal: moderateScale(20),    
   },
-  boxTitleContainer: {
-    marginTop: moderateVerticalScale(20),
-  },
   pressableIconStyle: {
     flexDirection: 'row',
     alignItems: 'center',

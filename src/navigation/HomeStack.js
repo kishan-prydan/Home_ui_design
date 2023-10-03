@@ -36,11 +36,14 @@ import {
   WATCHSATELLITE,
   IRRIGATION,
   CAMERA,
+  SCENCECONTROLSETTINGS,
+  CAMERASETTING,
 } from '../constants/routeNames';
 import {
   AcSettings,
   AddHome,
   Camera,
+  CameraSettings,
   Curtain,
   FahrenheitScreen,
   Fan,
@@ -60,6 +63,7 @@ import {
   MusicSetting,
   OtherControl,
   RgbwComponent,
+  ScenceControlSettings,
   SplashScreen,
   SweetHome,
   TestCurtain,
@@ -278,6 +282,16 @@ export default function HomeStack() {
         <Stack.Screen
           name={CAMERA}
           component={Camera}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name={CAMERASETTING}
+          component={CameraSettings}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name={SCENCECONTROLSETTINGS}
+          component={ScenceControlSettings}
           options={{headerShown: false}}
         />
       </>

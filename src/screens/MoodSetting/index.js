@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Alert, TextInput} from 'react-native';
+import {View, Alert} from 'react-native';
 import styles from './styles';
 import BackgroundImage from '../../component/common/BackgroundImage';
 import Header from '../../component/common/Header';
@@ -78,16 +78,16 @@ const MoodSetting = () => {
             </Container>
           </View>
 
-          {/* This code is used to display the icons */}
+          {/* This code is used to display the icons, you can modify it as per your requirements*/}
           <View style={styles.appContainer}>
             <View style={styles.iconDisplay}>
-            <Icon
-              type={selectedIcon.type}
-              name={selectedIcon.icon}
-              size={40}
-              color="yellow"
-            />
-          </View>
+              <Icon
+                type={selectedIcon.type}
+                name={selectedIcon.icon}
+                size={40}
+                color="yellow"
+              />
+            </View>
             <IconSelector
               isVisible={isVisible}
               selectedIcon={selectedIcon}

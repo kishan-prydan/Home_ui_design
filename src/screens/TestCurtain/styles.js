@@ -22,7 +22,6 @@ const styles = StyleSheet.create({
   checkBoxStyle: {
     flexDirection: 'row',
     paddingVertical: moderateVerticalScale(20),
-    // backgroundColor: 'plum',
   },
   boxTitileinnerContainer: {
     flexDirection: 'row',

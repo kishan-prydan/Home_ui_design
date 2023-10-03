@@ -6,7 +6,6 @@ import colors from '../../assets/theme/colors';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-	// backgroundColor: 'yellow',
   },
   headreView: {
     paddingHorizontal: moderateScale(20),
@@ -18,11 +17,11 @@ const styles = StyleSheet.create({
   },
   boxContainerStyle: {
     flex: 1,
-	justifyContent: 'space-between',
+    justifyContent: 'space-between',
   },
   boxContainerFirstStyle: {
     flex: 4,
-	alignItems: 'center',
+    alignItems: 'center',
   },
   boxContainerSecondStyle: {
     flex: 1,

@@ -1,5 +1,17 @@
-import colors from "../../assets/theme/colors";
-import { BOTTOMTABNAVIGATOR, CAMERA, CURTAIN, FAN, HVAC, IRRIGATION, MEDIA, MOODSCREEN, OTHERCONTROL, SECONDBOTTOMTABNAVIGATOR, ZAUDIO } from "../../constants/routeNames";
+import colors from '../../assets/theme/colors';
+import {
+  BOTTOMTABNAVIGATOR,
+  CAMERA,
+  CURTAIN,
+  FAN,
+  HVAC,
+  IRRIGATION,
+  MEDIA,
+  MOODSCREEN,
+  OTHERCONTROL,
+  SECONDBOTTOMTABNAVIGATOR,
+  ZAUDIO,
+} from '../../constants/routeNames';
 
 let data = [
   {
@@ -24,7 +36,7 @@ let data = [
     type: 'entypo',
     name: 'sound-mix',
     color: colors.iconForthColor,
-    alert: 'DMX card pressed',
+    alert: 'Screen not available',
   },
   {
     id: 4,
@@ -64,7 +76,7 @@ let data = [
     type: 'fa6',
     name: 'fan',
     color: colors.iconForthColor,
-    screen: FAN
+    screen: FAN,
   },
   {
     id: 9,

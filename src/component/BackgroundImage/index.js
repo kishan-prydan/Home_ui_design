@@ -10,14 +10,31 @@ import Icon from '../common/Icon';
 import styles from './styles';
 import colors from '../../assets/theme/colors';
 
-const BackgroundImage = ({onPress}) => {
+const ClickableBackgroundImage = ({onPress}) => {
   return (
     <View style={styles.imageContainer}>
-      <TouchableOpacity style={{flex: 1}} onPress={onPress} activeOpacity={0.7}>
+      <TouchableOpacity style={{flex: 1}} onPress={onPress} activeOpacity={0.9}>
         <ImageBackground
           source={require('../../assets/images/bedroom-image.jpg')}
           style={styles.image}
           imageStyle={styles.imageStyle}>
+          <View>
+            <TouchableOpacity
+              style={styles.IconView}
+              activeOpacity={0.7}
+              onPress={() => {
+                Alert.alert('Icon Pressed');
+              }}>
+              <View style={styles.EditButtonIcon}>
+                <Icon
+                  type={'fa6'}
+                  name={'lightbulb'}
+                  size={18}
+                  style={{color: colors.secondary}}
+                />
+              </View>
+            </TouchableOpacity>
+          </View>
           <View style={styles.content}>
             <TouchableOpacity
               style={styles.iconContainer}
@@ -39,4 +56,4 @@ const BackgroundImage = ({onPress}) => {
   );
 };
 
-export default BackgroundImage;
+export default ClickableBackgroundImage;

@@ -1,7 +1,6 @@
 
-
-import React, {Component} from 'react';
-import {View, Text, Alert} from 'react-native';
+import React from 'react';
+import {View, Alert} from 'react-native';
 import styles from './styles';
 import {useNavigation} from '@react-navigation/native';
 import Header from '../../component/common/Header';

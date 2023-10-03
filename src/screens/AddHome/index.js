@@ -1,5 +1,5 @@
 import React, {useRef, useState} from 'react';
-import {View, Text, StyleSheet, Alert, Image} from 'react-native';
+import {View, Text, Alert, Image} from 'react-native';
 import styles from './styles';
 import ImagePicker from '../../component/common/ImagePicker';
 import RBSheet from 'react-native-raw-bottom-sheet';
@@ -9,6 +9,7 @@ import Input from '../../component/common/Input';
 const AddHome = ({navigation}) => {
   const refRBSheet = useRef();
   const [imagePath, setImagePath] = useState(null);
+  const [text, setText] = useState('');
 
   const handleImageSelected = path => {
     setImagePath(path);
@@ -16,39 +17,46 @@ const AddHome = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.imageView}>
-        {imagePath && (
-          <Image
-            source={{uri: imagePath}}
-            width={150}
-            height={150}
-            alt="image"
+      <View style={styles.mainViewStyle}>
+        <View style={styles.innerViewStyle}>
+          <View style={styles.imageView}>
+            {imagePath && (
+              <Image
+                source={{uri: imagePath}}
+                width={150}
+                height={150}
+                alt="image"
+              />
+            )}
+            <Text style={styles.textStyle}>{text}</Text>
+          </View>
+          <Input
+            placeholder={'Enter Name Here'}
+            value={text}
+            onChangeText={value => setText(value)}
           />
-        )}
-      </View>
-      <View style={{flex: 1}}>
-        <Input placeholder={'Enter Name Here'} />
-        <CustomButton
-          style={styles.innerButton}
-          secondary
-          title="Select Image"
-          onPress={() => refRBSheet.current.open()}
-        />
-        <RBSheet
-          ref={refRBSheet}
-          height={150}
-          openDuration={250}
-          dragFromTopOnly
-          closeOnDragDown
-          customStyles={{
-            container: {
-              borderTopRightRadius: 20,
-              borderTopLeftRadius: 20,
-              paddingLeft: 30,
-            },
-          }}>
-          <ImagePicker imagePathProps={handleImageSelected} />
-        </RBSheet>
+          <CustomButton
+            secondary
+            title="Select Image"
+            onPress={() => refRBSheet.current.open()}
+          />
+          <RBSheet
+            ref={refRBSheet}
+            height={150}
+            openDuration={250}
+            dragFromTopOnly
+            closeOnDragDown
+            closeOnPressBack
+            customStyles={{
+              container: {
+                borderTopRightRadius: 20,
+                borderTopLeftRadius: 20,
+                paddingLeft: 30,
+              },
+            }}>
+            <ImagePicker imagePathProps={handleImageSelected} />
+          </RBSheet>
+        </View>
       </View>
       <View style={styles.savebuttonContainer}>
         <CustomButton
@@ -57,7 +65,7 @@ const AddHome = ({navigation}) => {
           title="Save"
           onPress={() => {
             Alert.alert('Added Successfully');
-            navigation.goBack()
+            navigation.goBack();
           }}
         />
       </View>

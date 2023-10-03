@@ -11,7 +11,11 @@ import BoxContainer from '../../component/common/BoxContainer';
 import CircleWithIcon from '../../component/common/CircleWithIcon/CircleWithIcon';
 import TextComponent from '../../component/common/TextComponent';
 import CustomButton from '../../component/common/CustomButton';
-import {APPDRAWERNAVIGATION, HOME, IRRIGATIONSETTING} from '../../constants/routeNames';
+import {
+  APPDRAWERNAVIGATION,
+  HOME,
+  IRRIGATIONSETTING,
+} from '../../constants/routeNames';
 
 const Irrigation = () => {
   const {navigate} = useNavigation();
@@ -116,7 +120,7 @@ const Irrigation = () => {
             </BoxContainer>
           </Container>
           <View style={styles.stopButtonView}>
-            <CustomButton 
+            <CustomButton
               title={'all stop'}
               upperCase
               darkmode

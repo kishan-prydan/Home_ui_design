@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Alert, Text} from 'react-native';
+import {View, Alert} from 'react-native';
 import BackgroundImage from '../../component/common/BackgroundImage';
 import Header from '../../component/common/Header';
 import {useNavigation} from '@react-navigation/native';
@@ -233,8 +233,8 @@ const OtherControl = () => {
               bottomTextPresent
               whiteText
               iconColor
-              iconType={'materialCommunity'}
-              iconName={'controller-classic'}
+              iconType={'fa6'}
+              iconName={'gamepad'}
               bottomFirstTitle={'Offstate'}
               bottomSecondTitle={'Onstate'}
               style={{color: colors.themeColor}}
@@ -249,8 +249,8 @@ const OtherControl = () => {
               secondIcon
               typeSecond={'fa6'}
               nameSecond={'trash-can'}
-              typeThird={'fa'}
-              nameThird={'arrow-circle-left'}
+              typeThird={'fa6'}
+              nameThird={'circle-arrow-left'}
               firstIconPress={() => Alert.alert('Save icon pressed')}
               secondIconPress={() => Alert.alert('Trash icon pressed')}
               thirdIconPress={() => navigation.goBack()}

@@ -6,7 +6,6 @@ import {useNavigation} from '@react-navigation/native';
 import {
   APPDRAWERNAVIGATION,
   HOME,
-  TESTCURTAIN,
 } from '../../constants/routeNames';
 import Container from '../../component/common/Container';
 import LightSettingBoxComponent from '../../component/LightSettingBoxComponent';
@@ -188,8 +187,8 @@ const TestCurtain = () => {
               secondIcon
               typeSecond={'fa6'}
               nameSecond={'trash-can'}
-              typeThird={'fa'}
-              nameThird={'arrow-circle-left'}
+              typeThird={'fa6'}
+              nameThird={'circle-arrow-left'}
               firstIconPress={() => Alert.alert('Save icon pressed')}
               secondIconPress={() => Alert.alert('Trash icon pressed')}
               thirdIconPress={() => navigation.goBack()}

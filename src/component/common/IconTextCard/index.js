@@ -3,10 +3,11 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import styles from './styles';
 import Icon from '../Icon';
 import colors from '../../../assets/theme/colors';
+import { moderateVerticalScale } from 'react-native-size-matters';
 
 const IconTextCard = ({title, type, name, IconView, onPress}) => {
   return (
-    <View style={{marginBottom: 20,}}>
+    <View style={{marginBottom: moderateVerticalScale(20),}}>
       <TouchableOpacity style={styles.mainIconTextView} activeOpacity={0.7} onPress={onPress}>
         <View style={styles.iconTextView}>
           <View style={{...styles.IconView, ...IconView}}>

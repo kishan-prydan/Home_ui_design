@@ -1,4 +1,3 @@
-
 import {StyleSheet} from 'react-native';
 import {moderateScale, moderateVerticalScale, scale} from 'react-native-size-matters';
 import colors from '../../assets/theme/colors';
@@ -24,15 +23,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginVertical: moderateVerticalScale(10),
   },
-  boxTimeinnerContainer: {
+  pressableIconStyle: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginVertical: moderateVerticalScale(10),
-  },
-  checkBoxTextStyle:{
-	color: colors.white,
-	fontSize: scale(18),
+    paddingVertical: moderateVerticalScale(20),
   },
 });
 
