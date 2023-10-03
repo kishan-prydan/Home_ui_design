@@ -33,9 +33,7 @@ const WatchDVD = () => {
             forthType={'ioni'}
             forthName={'arrow-undo'}
             size={24}
-            onPressFirst={() => {
-              navigate(APPDRAWERNAVIGATION);
-            }}
+            oonPressFirst={() => Alert.alert('Drawer button pressed')}
             onPressSecond={() => {
               navigate(HOME);
             }}

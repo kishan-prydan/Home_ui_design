@@ -36,9 +36,7 @@ const Camera = () => {
             forthType={'ioni'}
             forthName={'arrow-undo'}
             size={24}
-            onPressFirst={() => {
-              navigate(APPDRAWERNAVIGATION);
-            }}
+            onPressFirst={() => Alert.alert('Drawer button pressed')}
             onPressSecond={() => {
               navigate(HOME);
             }}

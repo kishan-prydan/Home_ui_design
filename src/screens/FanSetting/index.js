@@ -76,9 +76,7 @@ const FanSetting = () => {
             thirdType={'entypo'}
             thirdName={'menu'}
             size={24}
-            onPressFirst={() => {
-              navigate(APPDRAWERNAVIGATION);
-            }}
+            onPressFirst={() => Alert.alert('Drawer button pressed')}
             onPressSecond={() => {
               navigate(HOME);
             }}
