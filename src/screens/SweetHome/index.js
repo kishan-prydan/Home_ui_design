@@ -5,7 +5,7 @@ import Header from '../../component/common/Header';
 import data from './data';
 import styles from './styles';
 import {useNavigation} from '@react-navigation/native';
-import {APPDRAWERNAVIGATION, HOME} from '../../constants/routeNames';
+import {HOME} from '../../constants/routeNames';
 import { moderateScale } from 'react-native-size-matters';
 
 const SweetHome = () => {

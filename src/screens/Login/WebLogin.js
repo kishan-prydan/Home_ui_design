@@ -19,18 +19,18 @@ import {useDispatch, useSelector} from 'react-redux';
 import {login} from '../../redux/actions/auth';
 
 import validator from '../../utils/validations';
-import {showError, showSuccess} from '../../utils/helperFunction';
+import {showError} from '../../utils/helperFunction';
 import actions from '../../redux/actions';
-import ButtonWithLoader from '../../component/common/ButtonWithLoader';
 
-const LoginComponent = () => {
+
+const WebLogin = () => {
   const {navigate} = useNavigation();
 
   const [state, setState] = useState({
     isLoading: false,
-    code: '654321',
-    userName: 'kishan@prydan.com',
-    password: 'Kishan@1234',
+    code: '124565',
+    userName: 'kishan@gmail.com',
+    password: '12345678',
     isSecure: true,
   });
 
@@ -82,28 +82,20 @@ const LoginComponent = () => {
     return true;
   };
 
-  const handleSubmit = async () => {
-    let params = {
-      code: code,
-      email: userName,
-      password: password,
-    };
-    // console.log('login data here', params);
-
+  const handleSubmit = async() => {
     const checkValid = isValidData();
 
     if (checkValid) {
-      updateState({isLoading: true});
       try {
-        const res = await actions.login(params);
+        const res = await actions.login({
+          distributercode: code,
+          userName: userName,
+          password: password,
+        })
 
-        showSuccess('Data Fetched Successfully');
-        // console.log('++++++++++++ api response ++++++++++++++++', res.userName);
-
-        updateState({isLoading: false});
+        console.log('++++++++++++ api response ++++++++++++++++', res);
       } catch (error) {
         showError(error.message);
-        updateState({isLoading: false});
       }
     }
   };
@@ -145,7 +137,7 @@ const LoginComponent = () => {
             <TextInputWithLabel
               placeHolder="Password"
               name="password"
-              secureTextEntry={isSecure}
+              secureTextEntry={true}
               value={password}
               onChangeText={password => updateState({password})}
               rightIcon
@@ -163,10 +155,11 @@ const LoginComponent = () => {
           </View>
 
           <View style={styles.loginButtonContainer}>
-            <ButtonWithLoader
+            <CustomButton
+              style={styles.loginButton}
+              secondary
               title="Log in"
               onPress={handleSubmit}
-              isLoading={isLoading}
             />
           </View>
         </View>
@@ -175,4 +168,4 @@ const LoginComponent = () => {
   );
 };
 
-export default LoginComponent;
+export default WebLogin;

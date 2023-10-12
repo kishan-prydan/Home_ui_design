@@ -22,6 +22,22 @@ export default StyleSheet.create({
     // backgroundColor: 'plum',
   },
 
+  buttonViewContainer:{
+    alignSelf: 'flex-end',
+    paddingHorizontal: 20,
+  },
+
+  buttonStyle: {
+    width:100,
+    height: 35,
+    borderRadius: 5,
+  },
+
+  textStyle:{
+    fontSize: 12,
+    fontWeight: 600,
+    color: 'purple',
+  },
 
 
   //button view color style
