@@ -1,27 +1,14 @@
 import React, {useState, useEffect} from 'react';
-import {
-  ImageBackground,
-  Text,
-  View,
-  TouchableOpacity,
-  Alert,
-} from 'react-native';
+import {ImageBackground, Text, View, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import imagePath from '../../constants/imagePath';
 import styles from './styles';
-import CustomButton from '../../component/common/CustomButton';
 import TextInputWithLabel from '../../component/TextInputWithLabel/TextInputWithLabel';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import Routes from '../../navigation/Routes';
-import {HOME, LOADING} from '../../constants/routeNames';
-import axios from 'axios';
-import {useDispatch, useSelector} from 'react-redux';
-import {login} from '../../redux/actions/auth';
-
 import validator from '../../utils/validations';
 import {showError, showSuccess} from '../../utils/helperFunction';
 import actions from '../../redux/actions';
 import ButtonWithLoader from '../../component/common/ButtonWithLoader';
+import {FORGOTPASSWORD} from '../../constants/routeNames';
 
 const LoginComponent = () => {
   const {navigate} = useNavigation();
@@ -88,7 +75,6 @@ const LoginComponent = () => {
       email: userName,
       password: password,
     };
-    // console.log('login data here', params);
 
     const checkValid = isValidData();
 
@@ -97,7 +83,7 @@ const LoginComponent = () => {
       try {
         const res = await actions.login(params);
 
-        showSuccess('Data Fetched Successfully');
+        showSuccess('Log in Successfully');
         // console.log('++++++++++++ api response ++++++++++++++++', res.userName);
 
         updateState({isLoading: false});
@@ -106,6 +92,10 @@ const LoginComponent = () => {
         updateState({isLoading: false});
       }
     }
+  };
+
+  const togglePasswordVisibility = () => {
+    updateState({isSecure: !isSecure});
   };
 
   return (
@@ -150,14 +140,15 @@ const LoginComponent = () => {
               onChangeText={password => updateState({password})}
               rightIcon
               type={'fa6'}
-              iconname={'lock'}
+              iconname={isSecure ? 'lock' : 'unlock'}
+              onPressRight={togglePasswordVisibility}
             />
             <Text style={styles.errorText}>{errors.password}</Text>
 
             <TouchableOpacity
               activeOpacity={0.7}
               style={styles.forgotView}
-              onPress={() => Alert.alert('Forgot password button clicked')}>
+              onPress={() => navigate(FORGOTPASSWORD)}>
               <Text style={styles.forgotText}>Forgot Password ?</Text>
             </TouchableOpacity>
           </View>

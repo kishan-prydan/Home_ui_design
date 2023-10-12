@@ -1,6 +1,8 @@
 //Auth stack screens
 export const SPLASH = 'Splash';
 export const LOGIN = 'Login';
+export const FORGOTPASSWORD = 'Forgot Password';
+export const OTPSCREEN = ' Otp Screen';
 export const LOADING = 'Loading';
 
 

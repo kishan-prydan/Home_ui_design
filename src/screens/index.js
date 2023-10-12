@@ -1,6 +1,8 @@
 //Auth Stack Screens
 export {default as SplashScreen} from './SplashScreen';
 export {default as Login} from './Login';
+export {default as ForgotPassword} from './ForgotPassword/ForgotPassword';
+export {default as OtpScreen} from './ForgotPassword/OtpScreen';
 export {default as Loading} from './LoadingScreen/LoadingScreen';
 
 //Main Stack Screens

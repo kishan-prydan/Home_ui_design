@@ -1,6 +1,6 @@
 import React from 'react';
-import {LOADING, LOGIN } from '../constants/routeNames';
-import { Login, Loading} from '../screens';
+import {FORGOTPASSWORD, LOADING, LOGIN, OTPSCREEN } from '../constants/routeNames';
+import { Login, Loading, ForgotPassword, OtpScreen} from '../screens';
 
 export default function AuthStack(Stack) {
   return (
@@ -13,6 +13,16 @@ export default function AuthStack(Stack) {
       <Stack.Screen
         name={LOADING}
         component={Loading}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen 
+        name={FORGOTPASSWORD}
+        component={ForgotPassword}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen 
+        name={OTPSCREEN}
+        component={OtpScreen}
         options={{headerShown: false}}
       />
     </>
