@@ -6,9 +6,9 @@ import {useNavigation} from '@react-navigation/native';
 import BackgroundImage from '../../component/common/BackgroundImage';
 import Header from '../../component/common/Header';
 import HeaderIconComponent from '../../component/common/HeaderIconComponent';
-import {APPDRAWERNAVIGATION, HOME, MODSETTING} from '../../constants/routeNames';
 import colors from '../../assets/theme/colors';
 import CustomButton from '../../component/common/CustomButton';
+import routeNames from './../../constants/routeNames';
 
 const MoodScreen = () => {
   const {navigate} = useNavigation();
@@ -35,7 +35,7 @@ const MoodScreen = () => {
             size={24}
             onPressFirst={() => Alert.alert('Drawer button pressed')}
             onPressSecond={() => {
-              navigate(HOME);
+              navigate(routeNames.HOME);
             }}
             onPressForth={() => Alert.alert('Add Icon Pressed')}
             textView={{color: colors.primary}}
@@ -67,7 +67,7 @@ const MoodScreen = () => {
                 styles.customButtonStyle,
                 {backgroundColor: colors.white},
               ]}
-              onPress={() => navigate(MODSETTING)}
+              onPress={() => navigate(routeNames.MODSETTING)}
             />
           </View>
         </View>

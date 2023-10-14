@@ -4,11 +4,11 @@ import styles from './styles';
 import Header from '../../component/common/Header';
 import BackgroundColor from '../../component/common/BackgroundColor';
 import {useNavigation} from '@react-navigation/native';
-import {APPDRAWERNAVIGATION, HOME} from '../../constants/routeNames';
 import LightSettingBoxComponent from '../../component/LightSettingBoxComponent';
 import data from './data';
 import CustomButton from '../../component/common/CustomButton';
 import Container from '../../component/common/Container';
+import routeNames from './../../constants/routeNames';
 
 const MusicSetting = () => {
   const {navigate} = useNavigation();
@@ -40,7 +40,7 @@ const MusicSetting = () => {
           size={24}
           onPressFirst={() => Alert.alert('Drawer button pressed')}
           onPressSecond={() => {
-            navigate(HOME);
+            navigate(routeNames.HOME);
           }}
         />
       </View>

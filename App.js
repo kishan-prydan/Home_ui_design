@@ -6,7 +6,7 @@ import Routes from './src/navigation/Routes';
 import FlashMessage from 'react-native-flash-message';
 import {getUserData} from './src/utils/utils';
 import {saveUserData} from './src/redux/actions/auth';
-import {SplashScreen} from './src/screens';
+import SplashScreen from './src/screens/SplashScreen';
 
 const App = () => {
   const [appReady, setAppReady] = useState(false);

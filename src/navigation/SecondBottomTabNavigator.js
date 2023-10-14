@@ -1,31 +1,9 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import * as React from 'react';
-import {
-  CAMERA,
-  CURTAIN,
-  DMX,
-  FAN,
-  HVAC,
-  IRRIGATION,
-  MEDIA,
-  MOODSCREEN,
-  RGBW,
-  ZAUDIO,
-} from '../constants/routeNames';
-import {
-  Camera,
-  Curtain,
-  Dmx,
-  Fan,
-  Hvac,
-  Irrigation,
-  Media,
-  MoodScreen,
-  Rgbw,
-  ZAudio,
-} from '../screens';
 import Icon from '../component/common/Icon';
 import ScrollBottomTabComponent from './ScrollBottomTabComponent';
+import routeNames from './../constants/routeNames';
+import screens from './../screens/index';
 
 const BototmTab = createBottomTabNavigator();
 
@@ -35,8 +13,8 @@ export default function SecondBottomTabNavigator() {
       screenOptions={{headerShown: false}}
       tabBar={props => <ScrollBottomTabComponent {...props} />}>
       <BototmTab.Screen
-        name={RGBW}
-        component={Rgbw}
+        name={routeNames.RGBW}
+        component={screens.Rgbw}
         options={{
           tabBarIcon: ({size, color}) => {
             return (
@@ -53,8 +31,8 @@ export default function SecondBottomTabNavigator() {
         }}
       />
       <BototmTab.Screen
-        name={DMX}
-        component={Dmx}
+        name={routeNames.DMX}
+        component={screens.Dmx}
         options={{
           tabBarIcon: ({size, color}) => {
             return (
@@ -85,12 +63,12 @@ export default function SecondBottomTabNavigator() {
             );
           },
         }}
-        name={HVAC}
-        component={Hvac}
+        name={routeNames.HVAC}
+        component={screens.Hvac}
       />
       <BototmTab.Screen
-        name={MOODSCREEN}
-        component={MoodScreen}
+        name={routeNames.MOODSCREEN}
+        component={screens.MoodScreen}
         options={{
           tabBarIcon: ({size, color}) => {
             return (
@@ -121,8 +99,8 @@ export default function SecondBottomTabNavigator() {
             );
           },
         }}
-        name={ZAUDIO}
-        component={ZAudio}
+        name={routeNames.ZAUDIO}
+        component={screens.ZAudio}
       />
       <BototmTab.Screen
         options={{
@@ -139,8 +117,8 @@ export default function SecondBottomTabNavigator() {
             );
           },
         }}
-        name={CURTAIN}
-        component={Curtain}
+        name={routeNames.CURTAIN}
+        component={screens.Curtain}
       />
       <BototmTab.Screen
         options={{
@@ -157,8 +135,8 @@ export default function SecondBottomTabNavigator() {
             );
           },
         }}
-        name={FAN}
-        component={Fan}
+        name={routeNames.FAN}
+        component={screens.Fan}
       />
       <BototmTab.Screen
         options={{
@@ -175,8 +153,8 @@ export default function SecondBottomTabNavigator() {
             );
           },
         }}
-        name={IRRIGATION}
-        component={Irrigation}
+        name={routeNames.IRRIGATION}
+        component={screens.Irrigation}
       />
       <BototmTab.Screen
         options={{
@@ -193,8 +171,8 @@ export default function SecondBottomTabNavigator() {
             );
           },
         }}
-        name={MEDIA}
-        component={Media}
+        name={routeNames.MEDIA}
+        component={screens.Media}
       />
       <BototmTab.Screen
         options={{
@@ -211,8 +189,8 @@ export default function SecondBottomTabNavigator() {
             );
           },
         }}
-        name={CAMERA}
-        component={Camera}
+        name={routeNames.CAMERA}
+        component={screens.Camera}
       />
     </BototmTab.Navigator>
   );

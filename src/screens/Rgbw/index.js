@@ -3,17 +3,13 @@ import React from 'react';
 import {View, Alert} from 'react-native';
 import Header from '../../component/common/Header';
 import {useNavigation} from '@react-navigation/native';
-import {
-  APPDRAWERNAVIGATION,
-  HOME,
-  RGBWCOMPONENT,
-} from '../../constants/routeNames';
 import BackgroundColor from '../../component/common/BackgroundColor';
 import HeaderIconComponent from '../../component/common/HeaderIconComponent';
 import styles from './styles';
 import PressableIconText from '../../component/common/PressableIconText';
 import colors from '../../assets/theme/colors';
 import Container from '../../component/common/Container';
+import routeNames from './../../constants/routeNames';
 
 const Rgbw = () => {
   const {navigate} = useNavigation();
@@ -39,7 +35,7 @@ const Rgbw = () => {
           size={24}
           onPressFirst={() => Alert.alert('Drawer button pressed')}
           onPressSecond={() => {
-            navigate(HOME);
+            navigate(routeNames.HOME);
           }}
           onPressForth={() => Alert.alert('Add Icon Pressed')}
         />
@@ -59,7 +55,7 @@ const Rgbw = () => {
 
         <Container>
           <PressableIconText
-            onPress={() => navigate(RGBWCOMPONENT)}
+            onPress={() => navigate(routeNames.RGBWCOMPONENT)}
             circleStyle={{backgroundColor: colors.iconSecondColor}}
             iconType={'fa6'}
             iconName={'lightbulb'}

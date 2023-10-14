@@ -4,11 +4,6 @@ import {View, Alert} from 'react-native';
 import BackgroundImage from '../../component/common/BackgroundImage';
 import Header from '../../component/common/Header';
 import {useNavigation} from '@react-navigation/native';
-import {
-  APPDRAWERNAVIGATION,
-  FANSETTING,
-  HOME,
-} from '../../constants/routeNames';
 import colors from '../../assets/theme/colors';
 import HeaderIconComponent from '../../component/common/HeaderIconComponent';
 import styles from './styles';
@@ -18,6 +13,7 @@ import CircleWithIcon from '../../component/common/CircleWithIcon/CircleWithIcon
 import TextComponent from '../../component/common/TextComponent';
 import SliderComponent from '../../component/common/SliderComponent';
 import FanSliderComponent from '../../component/FanSliderComponent';
+import routeNames from './../../constants/routeNames';
 
 const Fan = () => {
   const {navigate} = useNavigation();
@@ -43,9 +39,9 @@ const Fan = () => {
             size={24}
             onPressFirst={() => Alert.alert('Drawer button pressed')}
             onPressSecond={() => {
-              navigate(HOME);
+              navigate(routeNames.HOME);
             }}
-            onPressForth={() => navigate(FANSETTING)}
+            onPressForth={() => navigate(routeNames.FANSETTING)}
             textView={{color: colors.primary}}
           />
         </View>

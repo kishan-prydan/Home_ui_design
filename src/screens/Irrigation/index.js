@@ -11,11 +11,7 @@ import BoxContainer from '../../component/common/BoxContainer';
 import CircleWithIcon from '../../component/common/CircleWithIcon/CircleWithIcon';
 import TextComponent from '../../component/common/TextComponent';
 import CustomButton from '../../component/common/CustomButton';
-import {
-  APPDRAWERNAVIGATION,
-  HOME,
-  IRRIGATIONSETTING,
-} from '../../constants/routeNames';
+import routeNames from './../../constants/routeNames';
 
 const Irrigation = () => {
   const {navigate} = useNavigation();
@@ -44,9 +40,9 @@ const Irrigation = () => {
             size={24}
             onPressFirst={() => Alert.alert('Drawer button pressed')}
             onPressSecond={() => {
-              navigate(HOME);
+              navigate(routeNames.HOME);
             }}
-            onPressForth={() => navigate(IRRIGATIONSETTING)}
+            onPressForth={() => navigate(routeNames.IRRIGATIONSETTING)}
             textView={{color: colors.primary}}
           />
         </View>

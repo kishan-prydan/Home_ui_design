@@ -1,13 +1,13 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {View, Alert} from 'react-native';
 import Header from '../../component/common/Header';
 import {useNavigation} from '@react-navigation/native';
-import {APPDRAWERNAVIGATION, HOME} from '../../constants/routeNames';
 import BackgroundColor from '../../component/common/BackgroundColor';
 import styles from './styles';
 import HeaderIconComponent from '../../component/common/HeaderIconComponent';
 import Container from '../../component/common/Container';
 import InputValue from './InputValue';
+import routeNames from './../../constants/routeNames';
 
 const AcSetting = () => {
   const {navigate} = useNavigation();
@@ -31,15 +31,14 @@ const AcSetting = () => {
           size={24}
           onPressFirst={() => Alert.alert('Drawer button pressed')}
           onPressSecond={() => {
-            navigate(HOME);
+            navigate(routeNames.HOME);
           }}
         />
       </View>
       <BackgroundColor>
         <Container>
-          
           <InputValue />
-          
+
           <View style={styles.secondHeaderView}>
             <HeaderIconComponent
               firstIcon

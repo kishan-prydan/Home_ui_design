@@ -1,8 +1,7 @@
-import React, {useState, useEffect} from 'react';
-import {View, Alert, FlatList, ScrollView} from 'react-native';
+import React, {useState} from 'react';
+import {View, Alert} from 'react-native';
 import Header from '../../component/common/Header';
 import {useNavigation} from '@react-navigation/native';
-import {APPDRAWERNAVIGATION, HOME} from '../../constants/routeNames';
 import BackgroundColor from '../../component/common/BackgroundColor';
 import styles from './styles';
 import HeaderIconComponent from '../../component/common/HeaderIconComponent';
@@ -13,6 +12,7 @@ import colors from '../../assets/theme/colors';
 import CheckBoxComponent from '../../component/common/CheckBoxComponent';
 import Container from '../../component/common/Container';
 import data from './data';
+import routeNames from './../../constants/routeNames';
 
 const LightSetting = () => {
   const {navigate} = useNavigation();
@@ -44,23 +44,13 @@ const LightSetting = () => {
           size={24}
           onPressFirst={() => Alert.alert('Drawer button pressed')}
           onPressSecond={() => {
-            navigate(HOME);
+            navigate(routeNames.HOME);
           }}
         />
       </View>
       <BackgroundColor>
         <Container>
           <View>
-            {/* <FlatList
-              showsVerticalScrollIndicator={false}
-              data={data}
-              renderItem={({item}) => (
-                <LightSettingBoxComponent
-                  mainTitle={item.mainTitle}
-                  boxTitle={item.boxTitle}
-                />
-              )}
-            /> */}
             {data?.map((item, index) => {
               return (
                 <LightSettingBoxComponent

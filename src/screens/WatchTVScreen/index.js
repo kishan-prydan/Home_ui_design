@@ -6,15 +6,11 @@ import Header from '../../component/common/Header';
 import colors from '../../assets/theme/colors';
 import Container from '../../component/common/Container';
 import {useNavigation} from '@react-navigation/native';
-import {
-  APPDRAWERNAVIGATION,
-  HOME,
-  MEDIAOTHERSETTING,
-} from '../../constants/routeNames';
 import FourButton from '../../component/common/RemoteButton/FourButton';
 import TwoButton from '../../component/common/RemoteButton/TwoButton';
 import VolumeChangeButton from '../../component/common/RemoteButton/VolumeChangeButton';
 import ThreeButton from '../../component/common/RemoteButton/ThreeButton';
+import routeNames from './../../constants/routeNames';
 
 const WatchTVScreen = () => {
   const {navigate} = useNavigation();
@@ -40,9 +36,9 @@ const WatchTVScreen = () => {
             size={24}
             onPressFirst={() => Alert.alert('Drawer button pressed')}
             onPressSecond={() => {
-              navigate(HOME);
+              navigate(routeNames.HOME);
             }}
-            onPressForth={() => navigate(MEDIAOTHERSETTING)}
+            onPressForth={() => navigate(routeNames.MEDIAOTHERSETTING)}
             textView={{color: colors.primary}}
           />
         </View>

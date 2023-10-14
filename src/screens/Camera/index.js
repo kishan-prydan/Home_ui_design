@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, Alert} from 'react-native';
+import {View, Alert} from 'react-native';
 import styles from './styles';
 import {useNavigation} from '@react-navigation/native';
 import Header from '../../component/common/Header';
@@ -10,8 +10,8 @@ import HeaderIconComponent from '../../component/common/HeaderIconComponent';
 import BoxContainer from '../../component/common/BoxContainer';
 import TextComponent from '../../component/common/TextComponent';
 import CustomButton from '../../component/common/CustomButton';
-import {APPDRAWERNAVIGATION, CAMERASETTING, HOME, SCENCECONTROLSETTINGS} from '../../constants/routeNames';
 import CircleWithIcon from '../../component/common/CircleWithIcon/CircleWithIcon';
+import routeNames from './../../constants/routeNames';
 
 const Camera = () => {
   const {navigate} = useNavigation();
@@ -38,9 +38,9 @@ const Camera = () => {
             size={24}
             onPressFirst={() => Alert.alert('Drawer button pressed')}
             onPressSecond={() => {
-              navigate(HOME);
+              navigate(routeNames.HOME);
             }}
-            onPressForth={() => navigate(SCENCECONTROLSETTINGS)}
+            onPressForth={() => navigate(routeNames.SCENCECONTROLSETTINGS)}
             textView={{color: colors.primary}}
           />
         </View>
@@ -70,7 +70,7 @@ const Camera = () => {
                 iconStyle={{color: colors.white}}
                 circleView={styles.circleViewStyle}
                 disabled={false}
-                onLongPress={() => navigate(CAMERASETTING)}
+                onLongPress={() => navigate(routeNames.CAMERASETTING)}
               />
               <View style={styles.boxContainerInnerStyle}>
                 <TextComponent

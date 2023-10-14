@@ -10,7 +10,7 @@ import data from './data';
 import ClickableIcon from '../../component/common/ClickableIcon';
 import TextComponent from '../../component/common/TextComponent';
 import {useNavigation} from '@react-navigation/native';
-import {APPDRAWERNAVIGATION, HOME} from '../../constants/routeNames';
+import routeNames from './../../constants/routeNames';
 
 const Hvac = () => {
   const {navigate} = useNavigation();
@@ -43,7 +43,7 @@ const Hvac = () => {
           size={24}
           onPressFirst={() => Alert.alert('Drawer button pressed')}
           onPressSecond={() => {
-            navigate(HOME);
+            navigate(routeNames.HOME);
           }}
           onPressForth={() => Alert.alert('Add Icon Pressed')}
         />

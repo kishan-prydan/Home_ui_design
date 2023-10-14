@@ -15,7 +15,7 @@ import validator from '../../utils/validations';
 import {showError, showSuccess} from '../../utils/helperFunction';
 import actions from '../../redux/actions';
 import ButtonWithLoader from '../../component/common/ButtonWithLoader';
-import {LOGIN, OTPSCREEN} from '../../constants/routeNames';
+import routeNames from './../../constants/routeNames';
 
 const ForgotPassword = () => {
   const {navigate} = useNavigation();
@@ -74,7 +74,7 @@ const ForgotPassword = () => {
           ? showSuccess(res.message)
           : showError('OTP sent to your registered email');
         updateState({isLoading: false});
-        navigate(OTPSCREEN);
+        navigate(routeNames.OTPSCREEN);
       } catch (error) {
         showError(error?.message);
         updateState({isLoading: false});
@@ -107,7 +107,7 @@ const ForgotPassword = () => {
             <TouchableOpacity
               activeOpacity={0.7}
               style={styles.forgotView}
-              onPress={() => navigate(LOGIN)}>
+              onPress={() => navigate(routeNames.LOGIN)}>
               <Text style={styles.forgotText}>Login</Text>
             </TouchableOpacity>
           </View>

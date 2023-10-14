@@ -1,29 +1,32 @@
 import React from 'react';
-import {FORGOTPASSWORD, LOADING, LOGIN, OTPSCREEN } from '../constants/routeNames';
-import { Login, Loading, ForgotPassword, OtpScreen} from '../screens';
+import routeNames from '../constants/routeNames';
+import screens from './../screens/index';
 
 export default function AuthStack(Stack) {
+  const navigationOptions = {
+    headerShown: false,
+  };
   return (
     <>
       <Stack.Screen
-        name={LOGIN}
-        component={Login}
-        options={{headerShown: false}}
+        name={routeNames.LOGIN}
+        component={screens.Login}
+        options={navigationOptions}
       />
-      <Stack.Screen
+      {/* <Stack.Screen
         name={LOADING}
         component={Loading}
-        options={{headerShown: false}}
+        options={navigationOptions}
+      /> */}
+      <Stack.Screen
+        name={routeNames.FORGOTPASSWORD}
+        component={screens.ForgotPassword}
+        options={navigationOptions}
       />
-      <Stack.Screen 
-        name={FORGOTPASSWORD}
-        component={ForgotPassword}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen 
-        name={OTPSCREEN}
-        component={OtpScreen}
-        options={{headerShown: false}}
+      <Stack.Screen
+        name={routeNames.OTPSCREEN}
+        component={screens.OtpScreen}
+        options={navigationOptions}
       />
     </>
   );

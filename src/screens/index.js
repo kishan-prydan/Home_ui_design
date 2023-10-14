@@ -1,42 +1,86 @@
-//Auth Stack Screens
-export {default as SplashScreen} from './SplashScreen';
-export {default as Login} from './Login';
-export {default as ForgotPassword} from './ForgotPassword/ForgotPassword';
-export {default as OtpScreen} from './ForgotPassword/OtpScreen';
-export {default as Loading} from './LoadingScreen/LoadingScreen';
+import Login from './Login';
+import ForgotPassword from './ForgotPassword/ForgotPassword';
+import OtpScreen from './ForgotPassword/OtpScreen';
+import Loading from './LoadingScreen/LoadingScreen';
+import Home from './Home';
+import AddHome from './AddHome';
+import HomeView from './HomeView';
+import SweetHome from './SweetHome';
+import Light from './Light';
+import Rgbw from './Rgbw';
+import Dmx from './Dmx';
+import Hvac from './Hvac';
+import ZAudio from './ZAudio';
+import Curtain from './Curtain';
+import TestCurtain from './TestCurtain';
+import Fan from './Fan';
+import OtherControl from './OtherControl';
+import Irrigation from './Irrigation';
+import Media from './Media';
+import MediaSetting from './MediaSetting';
+import MediaOtherSettings from './MediaOtherSettings';
+import Camera from './Camera';
+import CameraSettings from './CameraSettings';
+import LightSetting from './LightSetting';
+import RgbwComponent from './Rgbw/RgbwComponent';
+import FahrenheitScreen from './FahrenheitScreen';
+import AcSettings from './AcSetting';
+import MusicSetting from './MusicSetting';
+import MoodScreen from './MoodScreen';
+import MoodSetting from './MoodSetting';
+import FanSetting from './FanSetting';
+import IrrigationSetting from './IrrigationSetting';
+import WatchTVScreen from './WatchTVScreen';
+import WatchDVD from './WatchDVD';
+import WatchAppleTV from './WatchAppleTV';
+import WatchRoku from './WatchRoku';
+import WatchSatellite from './WatchSatellite';
+import ScenceControlSettings from './SceneControlSettings';
+import CelsiusScreen from './CelsiusScreen';
 
-//Main Stack Screens
-export {default as Home} from './Home';
-export {default as AddHome} from './AddHome';
-export {default as HomeView} from './HomeView';
-export {default as SweetHome} from './SweetHome';
-export {default as Light} from './Light';
-export {default as Rgbw} from './Rgbw';
-export {default as Dmx} from './Dmx';
-export {default as Hvac} from './Hvac';
-export {default as ZAudio} from './ZAudio';
-export {default as Curtain} from './Curtain';
-export {default as TestCurtain} from './TestCurtain';
-export {default as Fan} from './Fan';
-export {default as OtherControl} from './OtherControl';
-export {default as Irrigation} from './Irrigation';
-export {default as Media} from './Media';
-export {default as MediaSetting} from './MediaSetting';
-export {default as MediaOtherSettings} from './MediaOtherSettings';
-export {default as Camera} from './Camera';
-export {default as CameraSettings} from './CameraSettings';
-export {default as LightSetting} from './LightSetting';
-export {default as RgbwComponent} from './Rgbw/RgbwComponent';
-export {default as FahrenheitScreen} from './FahrenheitScreen';
-export {default as AcSettings} from './AcSetting';
-export {default as MusicSetting} from './MusicSetting';
-export {default as MoodScreen} from './MoodScreen';
-export {default as MoodSetting} from './MoodSetting';
-export {default as FanSetting} from './FanSetting';
-export {default as IrrigationSetting} from './IrrigationSetting';
-export {default as WatchTVScreen} from './WatchTVScreen';
-export {default as WatchDVD} from './WatchDVD';
-export {default as WatchAppleTV} from './WatchAppleTV';
-export {default as WatchRoku} from './WatchRoku';
-export {default as WatchSatellite} from './WatchSatellite';
-export {default as ScenceControlSettings} from './SceneControlSettings';
+const screens = {
+  // Auth Stack Screens
+  Login,
+  ForgotPassword,
+  OtpScreen,
+  Loading,
+
+  // Main Stack Screens
+  Home,
+  AddHome,
+  HomeView,
+  SweetHome,
+  Light,
+  Rgbw,
+  Dmx,
+  Hvac,
+  ZAudio,
+  Curtain,
+  TestCurtain,
+  Fan,
+  OtherControl,
+  Irrigation,
+  Media,
+  MediaSetting,
+  MediaOtherSettings,
+  Camera,
+  CameraSettings,
+  LightSetting,
+  RgbwComponent,
+  FahrenheitScreen,
+  CelsiusScreen,
+  AcSettings,
+  MusicSetting,
+  MoodScreen,
+  MoodSetting,
+  FanSetting,
+  IrrigationSetting,
+  WatchTVScreen,
+  WatchDVD,
+  WatchAppleTV,
+  WatchRoku,
+  WatchSatellite,
+  ScenceControlSettings,
+};
+
+export default screens;

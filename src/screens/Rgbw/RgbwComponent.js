@@ -1,18 +1,15 @@
 import React from 'react';
 import {View, Alert, FlatList} from 'react-native';
 import Header from '../../component/common/Header';
-import {APPDRAWERNAVIGATION, HOME} from '../../constants/routeNames';
 import BackgroundColor from '../../component/common/BackgroundColor';
 import HeaderIconComponent from '../../component/common/HeaderIconComponent';
 import styles from './styles';
-import PressableIconText from '../../component/common/PressableIconText';
-import colors from '../../assets/theme/colors';
 import RgbwSliderComponent from '../../component/RgbwSliderComponent';
 import data from './data';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
+import routeNames from './../../constants/routeNames';
 
 const RgbwComponent = () => {
-
   const {navigate} = useNavigation();
 
   return (
@@ -36,7 +33,7 @@ const RgbwComponent = () => {
           size={24}
           onPressFirst={() => Alert.alert('Drawer button pressed')}
           onPressSecond={() => {
-            navigate(HOME);
+            navigate(routeNames.HOME);
           }}
           onPressForth={() => Alert.alert('Add Icon Pressed')}
         />
@@ -63,7 +60,10 @@ const RgbwComponent = () => {
                 iconType={item.iconType}
                 iconName={item.iocnName}
                 iconStyle={{color: item.iconColor}}
-                circleWithIcon={{...styles.circleIcon, backgroundColor: item.backgroundColor}}
+                circleWithIcon={{
+                  ...styles.circleIcon,
+                  backgroundColor: item.backgroundColor,
+                }}
                 value={item.value}
                 titleTextPresent
                 text={''}

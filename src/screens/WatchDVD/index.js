@@ -6,10 +6,10 @@ import Header from '../../component/common/Header';
 import colors from '../../assets/theme/colors';
 import Container from '../../component/common/Container';
 import {useNavigation} from '@react-navigation/native';
-import {APPDRAWERNAVIGATION, HOME} from '../../constants/routeNames';
 import FourButton from '../../component/common/RemoteButton/FourButton';
 import TwoButton from '../../component/common/RemoteButton/TwoButton';
 import MiddleButton from '../../component/common/RemoteButton/MiddleButton';
+import routeNames from './../../constants/routeNames';
 
 const WatchDVD = () => {
   const {navigate} = useNavigation();
@@ -35,7 +35,7 @@ const WatchDVD = () => {
             size={24}
             oonPressFirst={() => Alert.alert('Drawer button pressed')}
             onPressSecond={() => {
-              navigate(HOME);
+              navigate(routeNames.HOME);
             }}
             onPressForth={() => Alert.alert('Setting button pressed')}
             textView={{color: colors.primary}}

@@ -6,9 +6,9 @@ import BackgroundImage from '../../component/common/BackgroundImage';
 import {useNavigation} from '@react-navigation/native';
 import Header from '../../component/common/Header';
 import colors from '../../assets/theme/colors';
-import {APPDRAWERNAVIGATION, HOME} from '../../constants/routeNames';
 import MediaSettingBox from '../../component/MediaSettingBox';
 import data from './data';
+import routeNames from './../../constants/routeNames';
 
 const MediaSetting = () => {
   const {navigate} = useNavigation();
@@ -32,7 +32,7 @@ const MediaSetting = () => {
             size={24}
             onPressFirst={() => Alert.alert('Drawer button pressed')}
             onPressSecond={() => {
-              navigate(HOME);
+              navigate(routeNames.HOME);
             }}
             textView={{color: colors.primary}}
           />

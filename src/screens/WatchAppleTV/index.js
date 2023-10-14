@@ -6,10 +6,10 @@ import Header from '../../component/common/Header';
 import colors from '../../assets/theme/colors';
 import Container from '../../component/common/Container';
 import {useNavigation} from '@react-navigation/native';
-import {APPDRAWERNAVIGATION, HOME} from '../../constants/routeNames';
 import TwoButton from '../../component/common/RemoteButton/TwoButton';
 import MiddleButton from '../../component/common/RemoteButton/MiddleButton';
 import ThreeButton from '../../component/common/RemoteButton/ThreeButton';
+import routeNames from './../../constants/routeNames';
 
 const WatchAppleTV = () => {
   const {navigate} = useNavigation();
@@ -35,7 +35,7 @@ const WatchAppleTV = () => {
             size={24}
             onPressFirst={() => Alert.alert('Drawer button pressed')}
             onPressSecond={() => {
-              navigate(HOME);
+              navigate(routeNames.HOME);
             }}
             onPressForth={() => Alert.alert('Setting button pressed')}
             textView={{color: colors.primary}}

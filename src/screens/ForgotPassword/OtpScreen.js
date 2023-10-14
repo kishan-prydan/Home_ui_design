@@ -14,8 +14,8 @@ import validator from '../../utils/validations';
 import {showError, showSuccess} from '../../utils/helperFunction';
 import actions from '../../redux/actions';
 import ButtonWithLoader from '../../component/common/ButtonWithLoader';
-import {LOGIN} from '../../constants/routeNames';
 import PropTypes from 'prop-types';
+import routeNames from './../../constants/routeNames';
 
 const OtpScreen = () => {
   const {navigate} = useNavigation();
@@ -130,7 +130,7 @@ const OtpScreen = () => {
           : showSuccess('Password changed successfully');
         // console.log('Getting response from api : ',res);
         updateState({isLoading: false});
-        navigate(LOGIN);
+        navigate(routeNames.LOGIN);
       } catch (error) {
         showError(error.message);
         updateState({isLoading: false});

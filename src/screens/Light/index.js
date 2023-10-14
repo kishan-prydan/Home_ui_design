@@ -3,12 +3,12 @@ import React from 'react';
 import {View, Alert, FlatList} from 'react-native';
 import Header from '../../component/common/Header';
 import {useNavigation} from '@react-navigation/native';
-import {APPDRAWERNAVIGATION, HOME, LIGHTSETTING} from '../../constants/routeNames';
 import BackgroundColor from '../../component/common/BackgroundColor';
 import HeaderIconComponent from '../../component/common/HeaderIconComponent';
 import styles from './styles';
 import LightComponent from '../../component/LightComponent';
 import data from './data';
+import routeNames from './../../constants/routeNames';
 
 const Light = () => {
   const {navigate} = useNavigation();
@@ -34,7 +34,7 @@ const Light = () => {
           size={24}
           onPressFirst={() => Alert.alert('Drawer button pressed')}
           onPressSecond={() => {
-            navigate(HOME);
+            navigate(routeNames.HOME);
           }}
           onPressForth={() => {
             Alert.alert('Add button pressed');
@@ -67,11 +67,11 @@ const Light = () => {
               circleWithIcon={{backgroundColor: item.color}}
               iconStyle={{color: item.iconColor}}
               value={item.value}
-              titleTextPresent= {item.titleTextPresent}
+              titleTextPresent={item.titleTextPresent}
               text={item.text}
               switchTitleText={item.switchText}
-              switchPresent = {item.switchTitleText}
-              onLongPress={() =>navigate(LIGHTSETTING)}
+              switchPresent={item.switchTitleText}
+              onLongPress={() => navigate(routeNames.LIGHTSETTING)}
             />
           )}
         />

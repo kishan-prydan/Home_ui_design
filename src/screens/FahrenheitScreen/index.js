@@ -7,7 +7,7 @@ import HeaderIconComponent from '../../component/common/HeaderIconComponent';
 import Container from './../../component/common/Container/index';
 import DegreeCard from '../../component/DegreeCard/DegreeCard';
 import {useNavigation} from '@react-navigation/native';
-import {ACSETTING, APPDRAWERNAVIGATION, HOME} from '../../constants/routeNames';
+import routeNames from './../../constants/routeNames';
 
 const FahrenheitScreen = () => {
   const {navigate} = useNavigation();
@@ -33,7 +33,7 @@ const FahrenheitScreen = () => {
           size={24}
           onPressFirst={() => Alert.alert('Drawer button pressed')}
           onPressSecond={() => {
-            navigate(HOME);
+            navigate(routeNames.HOME);
           }}
           onPressForth={() => Alert.alert('Add Icon Pressed')}
         />
@@ -53,7 +53,7 @@ const FahrenheitScreen = () => {
               PowerIconPresent
               backgroundIconType={'material'}
               backgroundIconName={'edit'}
-              backgroundIconOnPress={() => navigate(ACSETTING)}
+              backgroundIconOnPress={() => navigate(routeNames.ACSETTING)}
               typeFirst={'fa'}
               nameFirst={'refresh'}
               firstIconPress={() => Alert.alert('Refresh button pressed')}

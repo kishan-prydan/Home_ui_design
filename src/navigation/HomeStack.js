@@ -1,248 +1,186 @@
 import React from 'react';
-import {
-  HOME,
-  ADDHOME,
-  HOMEVIEW,
-  SWEETHOME,
-  APPDRAWERNAVIGATION,
-  BOTTOMTABNAVIGATOR,
-  SECONDBOTTOMTABNAVIGATOR,
-  LIGHTSETTING,
-  RGBWCOMPONENT,
-  HVAC,
-  FAHRENHEITSCREEN,
-  CELSIUSSCREEN,
-  ACSETTING,
-  ZAUDIO,
-  MUSICSETTING,
-  CURTAIN,
-  TESTCURTAIN,
-  MODSETTING,
-  MOODSCREEN,
-  FANSETTING,
-  OTHERCONTROL,
-  FAN,
-  IRRIGATIONSETTING,
-  MEDIA,
-  MEDIASETTING,
-  WATCHTVSCREEN,
-  MEDIAOTHERSETTING,
-  WATCHDVD,
-  WATCHAPPLETV,
-  WATCHROKU,
-  WATCHSATELLITE,
-  IRRIGATION,
-  CAMERA,
-  SCENCECONTROLSETTINGS,
-  CAMERASETTING,
-} from '../constants/routeNames';
-import {
-  AcSettings,
-  AddHome,
-  Camera,
-  CameraSettings,
-  Curtain,
-  FahrenheitScreen,
-  Fan,
-  FanSetting,
-  Home,
-  HomeView,
-  Hvac,
-  Irrigation,
-  IrrigationSetting,
-  LightSetting,
-  Media,
-  MediaOtherSettings,
-  MediaSetting,
-  MoodScreen,
-  MoodSetting,
-  MusicSetting,
-  OtherControl,
-  RgbwComponent,
-  ScenceControlSettings,
-  SweetHome,
-  TestCurtain,
-  WatchAppleTV,
-  WatchDVD,
-  WatchRoku,
-  WatchSatellite,
-  WatchTVScreen,
-  ZAudio,
-} from '../screens';
 import AppDrawerNavigation from './AppDrawerNavigation';
 import BottomTabNavigator from './BottomTabNavigator';
 import SecondBottomTabNavigator from './SecondBottomTabNavigator';
-import CelsiusScreen from '../screens/CelsiusScreen';
+import routeNames from './../constants/routeNames';
+import screens from './../screens/index';
 
 export default function HomeStack(Stack) {
+  const navigationOptions = {
+    headerShown: false,
+  };
   return (
     <>
       <Stack.Screen
-        name={HOME}
-        component={Home}
-        options={{headerShown: false}}
+        name={routeNames.HOME}
+        component={screens.Home}
+        options={navigationOptions}
       />
       <Stack.Screen
-        name={HOMEVIEW}
-        component={HomeView}
-        options={{headerShown: false}}
+        name={routeNames.HOMEVIEW}
+        component={screens.HomeView}
+        options={navigationOptions}
       />
-      <Stack.Screen name={ADDHOME} component={AddHome} />
+      <Stack.Screen name={routeNames.ADDHOME} component={screens.AddHome} />
       <Stack.Screen
-        name={SWEETHOME}
-        component={SweetHome}
-        options={{headerShown: false}}
+        name={routeNames.SWEETHOME}
+        component={screens.SweetHome}
+        options={navigationOptions}
       />
       <Stack.Screen
-        name={APPDRAWERNAVIGATION}
+        name={routeNames.APPDRAWERNAVIGATION}
         component={AppDrawerNavigation}
-        options={{headerShown: false}}
+        options={navigationOptions}
       />
       <Stack.Screen
-        name={BOTTOMTABNAVIGATOR}
+        name={routeNames.BOTTOMTABNAVIGATOR}
         component={BottomTabNavigator}
-        options={{headerShown: false}}
+        options={navigationOptions}
       />
       <Stack.Screen
-        name={SECONDBOTTOMTABNAVIGATOR}
+        name={routeNames.SECONDBOTTOMTABNAVIGATOR}
         component={SecondBottomTabNavigator}
-        options={{headerShown: false}}
+        options={navigationOptions}
       />
       <Stack.Screen
-        name={LIGHTSETTING}
-        component={LightSetting}
-        options={{headerShown: false}}
+        name={routeNames.LIGHTSETTING}
+        component={screens.LightSetting}
+        options={navigationOptions}
       />
       <Stack.Screen
-        name={RGBWCOMPONENT}
-        component={RgbwComponent}
-        options={{headerShown: false}}
+        name={routeNames.RGBWCOMPONENT}
+        component={screens.RgbwComponent}
+        options={navigationOptions}
       />
       <Stack.Screen
-        name={HVAC}
-        component={Hvac}
-        options={{headerShown: false}}
+        name={routeNames.HVAC}
+        component={screens.Hvac}
+        options={navigationOptions}
       />
       <Stack.Screen
-        name={FAHRENHEITSCREEN}
-        component={FahrenheitScreen}
-        options={{headerShown: false}}
+        name={routeNames.FAHRENHEITSCREEN}
+        component={screens.FahrenheitScreen}
+        options={navigationOptions}
       />
       <Stack.Screen
-        name={CELSIUSSCREEN}
-        component={CelsiusScreen}
-        options={{headerShown: false}}
+        name={routeNames.CELSIUSSCREEN}
+        component={screens.CelsiusScreen}
+        options={navigationOptions}
       />
       <Stack.Screen
-        name={ACSETTING}
-        component={AcSettings}
-        options={{headerShown: false}}
+        name={routeNames.ACSETTING}
+        component={screens.AcSettings}
+        options={navigationOptions}
       />
       <Stack.Screen
-        name={ZAUDIO}
-        component={ZAudio}
-        options={{headerShown: false}}
+        name={routeNames.ZAUDIO}
+        component={screens.ZAudio}
+        options={navigationOptions}
       />
       <Stack.Screen
-        name={MUSICSETTING}
-        component={MusicSetting}
-        options={{headerShown: false}}
+        name={routeNames.MUSICSETTING}
+        component={screens.MusicSetting}
+        options={navigationOptions}
       />
       <Stack.Screen
-        name={CURTAIN}
-        component={Curtain}
-        options={{headerShown: false}}
+        name={routeNames.CURTAIN}
+        component={screens.Curtain}
+        options={navigationOptions}
       />
       <Stack.Screen
-        name={TESTCURTAIN}
-        component={TestCurtain}
-        options={{headerShown: false}}
+        name={routeNames.TESTCURTAIN}
+        component={screens.TestCurtain}
+        options={navigationOptions}
       />
       <Stack.Screen
-        name={MOODSCREEN}
-        component={MoodScreen}
-        options={{headerShown: false}}
+        name={routeNames.MOODSCREEN}
+        component={screens.MoodScreen}
+        options={navigationOptions}
       />
       <Stack.Screen
-        name={MODSETTING}
-        component={MoodSetting}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen name={FAN} component={Fan} options={{headerShown: false}} />
-      <Stack.Screen
-        name={FANSETTING}
-        component={FanSetting}
-        options={{headerShown: false}}
+        name={routeNames.MODSETTING}
+        component={screens.MoodSetting}
+        options={navigationOptions}
       />
       <Stack.Screen
-        name={OTHERCONTROL}
-        component={OtherControl}
-        options={{headerShown: false}}
+        name={routeNames.FAN}
+        component={screens.Fan}
+        options={navigationOptions}
       />
       <Stack.Screen
-        name={IRRIGATIONSETTING}
-        component={IrrigationSetting}
-        options={{headerShown: false}}
+        name={routeNames.FANSETTING}
+        component={screens.FanSetting}
+        options={navigationOptions}
       />
       <Stack.Screen
-        name={MEDIA}
-        component={Media}
-        options={{headerShown: false}}
+        name={routeNames.OTHERCONTROL}
+        component={screens.OtherControl}
+        options={navigationOptions}
       />
       <Stack.Screen
-        name={MEDIASETTING}
-        component={MediaSetting}
-        options={{headerShown: false}}
+        name={routeNames.IRRIGATIONSETTING}
+        component={screens.IrrigationSetting}
+        options={navigationOptions}
       />
       <Stack.Screen
-        name={MEDIAOTHERSETTING}
-        component={MediaOtherSettings}
-        options={{headerShown: false}}
+        name={routeNames.MEDIA}
+        component={screens.Media}
+        options={navigationOptions}
       />
       <Stack.Screen
-        name={WATCHTVSCREEN}
-        component={WatchTVScreen}
-        options={{headerShown: false}}
+        name={routeNames.MEDIASETTING}
+        component={screens.MediaSetting}
+        options={navigationOptions}
       />
       <Stack.Screen
-        name={WATCHDVD}
-        component={WatchDVD}
-        options={{headerShown: false}}
+        name={routeNames.MEDIAOTHERSETTING}
+        component={screens.MediaOtherSettings}
+        options={navigationOptions}
       />
       <Stack.Screen
-        name={WATCHAPPLETV}
-        component={WatchAppleTV}
-        options={{headerShown: false}}
+        name={routeNames.WATCHTVSCREEN}
+        component={screens.WatchTVScreen}
+        options={navigationOptions}
       />
       <Stack.Screen
-        name={WATCHROKU}
-        component={WatchRoku}
-        options={{headerShown: false}}
+        name={routeNames.WATCHDVD}
+        component={screens.WatchDVD}
+        options={navigationOptions}
       />
       <Stack.Screen
-        name={WATCHSATELLITE}
-        component={WatchSatellite}
-        options={{headerShown: false}}
+        name={routeNames.WATCHAPPLETV}
+        component={screens.WatchAppleTV}
+        options={navigationOptions}
       />
       <Stack.Screen
-        name={IRRIGATION}
-        component={Irrigation}
-        options={{headerShown: false}}
+        name={routeNames.WATCHROKU}
+        component={screens.WatchRoku}
+        options={navigationOptions}
       />
       <Stack.Screen
-        name={CAMERA}
-        component={Camera}
-        options={{headerShown: false}}
+        name={routeNames.WATCHSATELLITE}
+        component={screens.WatchSatellite}
+        options={navigationOptions}
       />
       <Stack.Screen
-        name={CAMERASETTING}
-        component={CameraSettings}
-        options={{headerShown: false}}
+        name={routeNames.IRRIGATION}
+        component={screens.Irrigation}
+        options={navigationOptions}
       />
       <Stack.Screen
-        name={SCENCECONTROLSETTINGS}
-        component={ScenceControlSettings}
-        options={{headerShown: false}}
+        name={routeNames.CAMERA}
+        component={screens.Camera}
+        options={navigationOptions}
+      />
+      <Stack.Screen
+        name={routeNames.CAMERASETTING}
+        component={screens.CameraSettings}
+        options={navigationOptions}
+      />
+      <Stack.Screen
+        name={routeNames.SCENCECONTROLSETTINGS}
+        component={screens.ScenceControlSettings}
+        options={navigationOptions}
       />
     </>
   );

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {View, Alert} from 'react-native';
 import styles from './styles';
@@ -12,7 +11,7 @@ import BoxContainer from '../../component/common/BoxContainer';
 import CircleWithIcon from '../../component/common/CircleWithIcon/CircleWithIcon';
 import TextComponent from '../../component/common/TextComponent';
 import CustomButton from '../../component/common/CustomButton';
-import { APPDRAWERNAVIGATION, HOME, TESTCURTAIN } from '../../constants/routeNames';
+import routeNames from './../../constants/routeNames';
 
 const Curtain = () => {
   const {navigate} = useNavigation();
@@ -22,28 +21,28 @@ const Curtain = () => {
       <View style={styles.container}>
         <View style={styles.headreView}>
           <Header
-          iconFirst
-          iconThird
-          iconForth
-          title={'CURTAIN'}
-          type={'fa6'}
-          name={'circle-plus'}
-          firstType={'entypo'}
-          firstName={'home'}
-          secondType={'entypo'}
-          secondName={'home'}
-          thirdType={'entypo'}
-          thirdName={'menu'}
-          forthType={'ioni'}
-          forthName={'arrow-undo'}
-          size={24}
-          onPressFirst={() => Alert.alert('Drawer button pressed')}
-          onPressSecond={() => {
-            navigate(HOME);
-          }}
-          onPressForth={() => navigate(TESTCURTAIN)}
-          textView={{color: colors.primary}}
-        />
+            iconFirst
+            iconThird
+            iconForth
+            title={'CURTAIN'}
+            type={'fa6'}
+            name={'circle-plus'}
+            firstType={'entypo'}
+            firstName={'home'}
+            secondType={'entypo'}
+            secondName={'home'}
+            thirdType={'entypo'}
+            thirdName={'menu'}
+            forthType={'ioni'}
+            forthName={'arrow-undo'}
+            size={24}
+            onPressFirst={() => Alert.alert('Drawer button pressed')}
+            onPressSecond={() => {
+              navigate(routeNames.HOME);
+            }}
+            onPressForth={() => navigate(routeNames.TESTCURTAIN)}
+            textView={{color: colors.primary}}
+          />
         </View>
         <View style={styles.secondHeaderView}>
           <HeaderIconComponent

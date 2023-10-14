@@ -3,11 +3,11 @@ import Header from '../../component/common/Header';
 import {Alert, View} from 'react-native';
 import styles from './styles';
 import {useNavigation} from '@react-navigation/native';
-import {SWEETHOME} from '../../constants/routeNames';
 import CircleWithIcon from '../../component/common/CircleWithIcon/CircleWithIcon';
 import colors from '../../assets/theme/colors';
 import ClickableBackgroundImage from '../../component/BackgroundImage';
 import { moderateScale } from 'react-native-size-matters';
+import routeNames from './../../constants/routeNames';
 
 const HomeView = () => {
   const {navigate} = useNavigation();
@@ -43,7 +43,7 @@ const HomeView = () => {
         <View style={styles.backgroudImageContainer}>
           <ClickableBackgroundImage
             onPress={() => {
-              navigate(SWEETHOME);
+              navigate(routeNames.SWEETHOME);
             }}
           />
         </View>

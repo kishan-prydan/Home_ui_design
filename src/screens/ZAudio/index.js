@@ -2,7 +2,6 @@
 import React, {useState} from 'react';
 import {View, Alert} from 'react-native';
 import Header from '../../component/common/Header';
-import {APPDRAWERNAVIGATION, HOME, MUSICSETTING} from '../../constants/routeNames';
 import {useNavigation} from '@react-navigation/native';
 import styles from './styles';
 import BackgroundColor from '../../component/common/BackgroundColor';
@@ -14,6 +13,7 @@ import MusicPlayerFourth from '../../component/MusicPlayerFourth';
 import MusicPlayerThird from '../../component/MusicPlayerThird';
 import Container from '../../component/common/Container';
 import MusicPlayerSecond from '../../component/MusicPlayerSecond';
+import routeNames from './../../constants/routeNames';
 
 const ZAudio = () => {
   const {navigate} = useNavigation();
@@ -51,9 +51,9 @@ const ZAudio = () => {
           size={24}
           onPressFirst={() => Alert.alert('Drawer button pressed')}
           onPressSecond={() => {
-            navigate(HOME);
+            navigate(routeNames.HOME);
           }}
-          onPressForth={() => navigate(MUSICSETTING)}
+          onPressForth={() => navigate(routeNames.MUSICSETTING)}
         />
       </View>
 

@@ -3,7 +3,6 @@ import {View, Alert} from 'react-native';
 import BackgroundImage from '../../component/common/BackgroundImage';
 import Header from '../../component/common/Header';
 import {useNavigation} from '@react-navigation/native';
-import {APPDRAWERNAVIGATION, HOME} from '../../constants/routeNames';
 import Container from '../../component/common/Container';
 import LightSettingBoxComponent from '../../component/LightSettingBoxComponent';
 import TextComponent from '../../component/common/TextComponent';
@@ -13,6 +12,7 @@ import colors from '../../assets/theme/colors';
 import DropdownComponent from '../../component/common/DropdownComponent';
 import CheckBoxComponent from '../../component/common/CheckBoxComponent';
 import TimePicketComponent from '../../component/TimePicketComponent';
+import routeNames from './../../constants/routeNames';
 
 const IrrigationSetting = () => {
   const {navigate} = useNavigation();
@@ -68,7 +68,7 @@ const IrrigationSetting = () => {
             size={24}
             onPressFirst={() => Alert.alert('Drawer button pressed')}
             onPressSecond={() => {
-              navigate(HOME);
+              navigate(routeNames.HOME);
             }}
             textView={{color: colors.primary}}
           />

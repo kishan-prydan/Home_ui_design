@@ -3,7 +3,6 @@ import {View, Alert, Text} from 'react-native';
 import BackgroundImage from '../../component/common/BackgroundImage';
 import Header from '../../component/common/Header';
 import {useNavigation} from '@react-navigation/native';
-import {APPDRAWERNAVIGATION, HOME} from '../../constants/routeNames';
 import Container from '../../component/common/Container';
 import LightSettingBoxComponent from '../../component/LightSettingBoxComponent';
 import TextComponent from '../../component/common/TextComponent';
@@ -12,6 +11,7 @@ import styles from './styles';
 import colors from '../../assets/theme/colors';
 import PressableIcon from '../../component/common/PressableIcon';
 import data from './data';
+import routeNames from './../../constants/routeNames';
 
 const ScenceControlSettings = () => {
   const {navigate} = useNavigation();
@@ -44,7 +44,7 @@ const ScenceControlSettings = () => {
             size={24}
             onPressFirst={() => Alert.alert('Drawer button pressed')}
             onPressSecond={() => {
-              navigate(HOME);
+              navigate(routeNames.HOME);
             }}
             textView={{color: colors.primary}}
           />

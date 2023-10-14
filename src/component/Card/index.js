@@ -4,13 +4,11 @@ import CardComponent from '../CardComponent';
 import CustomButton from '../common/CustomButton';
 import styles from './styles';
 import {useNavigation} from '@react-navigation/native';
-import {ADDHOME, SPLASH} from '../../constants/routeNames';
 import dummyData from './dummyData';
 import ButtonWithLoader from '../common/ButtonWithLoader';
 import actions from '../../redux/actions';
-import {useSelector} from 'react-redux';
-import Routes from '../../navigation/Routes';
-import { showSuccess } from '../../utils/helperFunction';
+import {showSuccess} from '../../utils/helperFunction';
+import routeNames from './../../constants/routeNames';
 
 const Card = () => {
   const {navigate} = useNavigation();
@@ -20,7 +18,7 @@ const Card = () => {
   const onLogOutPress = () => {
     Alert.alert(
       'Log Out',
-      'Are you sure you want to log out',
+      'Are you sure you want to log out?',
       [{text: 'Yes', onPress: logout}, {text: 'No'}],
       {cancelable: true},
     );
@@ -31,7 +29,7 @@ const Card = () => {
     setTimeout(() => {
       actions.logout();
       setIsLoading(false);
-      showSuccess('Logged out successfully')
+      showSuccess('Logged out successfully');
     }, 2000);
   };
 
@@ -68,7 +66,7 @@ const Card = () => {
           secondary
           title="Add More Area"
           onPress={() => {
-            navigate(ADDHOME);
+            navigate(routeNames.ADDHOME);
           }}
         />
       </View>

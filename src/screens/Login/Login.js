@@ -8,7 +8,7 @@ import validator from '../../utils/validations';
 import {showError, showSuccess} from '../../utils/helperFunction';
 import actions from '../../redux/actions';
 import ButtonWithLoader from '../../component/common/ButtonWithLoader';
-import {FORGOTPASSWORD} from '../../constants/routeNames';
+import routeNames from './../../constants/routeNames';
 
 const LoginComponent = () => {
   const {navigate} = useNavigation();
@@ -148,7 +148,7 @@ const LoginComponent = () => {
             <TouchableOpacity
               activeOpacity={0.7}
               style={styles.forgotView}
-              onPress={() => navigate(FORGOTPASSWORD)}>
+              onPress={() => navigate(routeNames.FORGOTPASSWORD)}>
               <Text style={styles.forgotText}>Forgot Password ?</Text>
             </TouchableOpacity>
           </View>

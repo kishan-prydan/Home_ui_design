@@ -1,17 +1,5 @@
 import colors from '../../assets/theme/colors';
-import {
-  BOTTOMTABNAVIGATOR,
-  CAMERA,
-  CURTAIN,
-  FAN,
-  HVAC,
-  IRRIGATION,
-  MEDIA,
-  MOODSCREEN,
-  OTHERCONTROL,
-  SECONDBOTTOMTABNAVIGATOR,
-  ZAUDIO,
-} from '../../constants/routeNames';
+import routeNames from '../../constants/routeNames';
 
 let data = [
   {
@@ -20,7 +8,7 @@ let data = [
     type: 'fa6',
     name: 'lightbulb',
     color: colors.iconSecondColor,
-    screen: BOTTOMTABNAVIGATOR,
+    screen: routeNames.BOTTOMTABNAVIGATOR,
   },
   {
     id: 1,
@@ -28,7 +16,7 @@ let data = [
     type: 'fa6',
     name: 'lightbulb',
     color: colors.iconThirdColor,
-    screen: SECONDBOTTOMTABNAVIGATOR,
+    screen: routeNames.SECONDBOTTOMTABNAVIGATOR,
   },
   {
     id: 3,
@@ -44,7 +32,7 @@ let data = [
     type: 'fa6',
     name: 'snowflake',
     color: colors.iconFifthColor,
-    screen: HVAC,
+    screen: routeNames.HVAC,
   },
   {
     id: 5,
@@ -52,7 +40,7 @@ let data = [
     type: 'fa6',
     name: 'music',
     color: colors.iconSixthColor,
-    screen: ZAUDIO,
+    screen: routeNames.ZAUDIO,
   },
   {
     id: 6,
@@ -60,7 +48,7 @@ let data = [
     type: 'materialCommunity',
     name: 'curtains',
     color: colors.iconSeventhColor,
-    screen: CURTAIN,
+    screen: routeNames.CURTAIN,
   },
   {
     id: 7,
@@ -68,7 +56,7 @@ let data = [
     type: 'fa6',
     name: 'fan',
     color: colors.iconFifthColor,
-    screen: MOODSCREEN,
+    screen: routeNames.MOODSCREEN,
   },
   {
     id: 8,
@@ -76,7 +64,7 @@ let data = [
     type: 'fa6',
     name: 'fan',
     color: colors.iconForthColor,
-    screen: FAN,
+    screen: routeNames.FAN,
   },
   {
     id: 9,
@@ -84,7 +72,7 @@ let data = [
     type: 'fa6',
     name: 'gamepad',
     color: colors.iconThirdColor,
-    screen: OTHERCONTROL,
+    screen: routeNames.OTHERCONTROL,
   },
   {
     id: 10,
@@ -92,7 +80,7 @@ let data = [
     type: 'fa',
     name: 'leaf',
     color: colors.iconSixthColor,
-    screen: IRRIGATION,
+    screen: routeNames.IRRIGATION,
   },
   {
     id: 11,
@@ -100,7 +88,7 @@ let data = [
     type: 'fa6',
     name: 'photo-film',
     color: colors.iconSeventhColor,
-    screen: MEDIA,
+    screen: routeNames.MEDIA,
   },
   {
     id: 12,
@@ -108,7 +96,7 @@ let data = [
     type: 'fa6',
     name: 'video',
     color: colors.iconSecondColor,
-    screen: CAMERA,
+    screen: routeNames.CAMERA,
   },
 ];
 export default data;

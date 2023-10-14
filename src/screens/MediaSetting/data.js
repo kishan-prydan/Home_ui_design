@@ -1,51 +1,45 @@
-import {
-  WATCHAPPLETV,
-  WATCHDVD,
-  WATCHROKU,
-  WATCHSATELLITE,
-  WATCHTVSCREEN,
-} from '../../constants/routeNames';
+import routeNames from "../../constants/routeNames";
 
 let data = [
   {
     id: 23,
     title: 'watch TV',
-    screen: WATCHTVSCREEN,
+    screen: routeNames.WATCHTVSCREEN,
   },
   {
     id: 24,
     title: 'watch DVD',
-    screen: WATCHDVD,
+    screen: routeNames.WATCHDVD,
   },
   {
     id: 25,
     title: 'watch Apple TV',
-    screen: WATCHAPPLETV,
+    screen: routeNames.WATCHAPPLETV,
   },
   {
     id: 26,
     title: 'watch Roku',
-    screen: WATCHROKU,
+    screen: routeNames.WATCHROKU,
   },
   {
     id: 27,
     title: 'watch Projector',
-    // screen: MEDIASETTING,
+    // screen: routeNames.MEDIASETTING,
   },
   {
     id: 28,
     title: 'watch Satellite',
-    screen: WATCHSATELLITE,
+    screen: routeNames.WATCHSATELLITE,
   },
   {
     id: 29,
     title: 'watch Crome Cast',
-    // screen: MEDIASETTING,
+    // screen: routeNames.MEDIASETTING,
   },
   {
     id: 30,
     title: 'watch AVR',
-    // screen: MEDIASETTING,
+    // screen: routeNames.MEDIASETTING,
   },
 ];
 export default data;
