@@ -5,6 +5,7 @@ import {
   View,
   TouchableOpacity,
   Alert,
+  ScrollView,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import imagePath from '../../constants/imagePath';
@@ -21,7 +22,8 @@ const ForgotPassword = () => {
 
   const [state, setState] = useState({
     isLoading: false,
-    userName: 'kishan@prydan.com',
+    // userName: 'kishan.prydan@gmail.com',
+    userName: 'domadiyapriyank717@gmail.com',
   });
 
   const {isLoading, userName} = state;
@@ -58,32 +60,30 @@ const ForgotPassword = () => {
   };
 
   const sendOtpRequest = async () => {
-    try {
-      // const response = await axios.post('', {
-      //   userName: userName,
-      // });
-
-      // console.log('API Response:', response.data);
-      console.log('API Response:', userName);
-
-      showSuccess('Otp has been successfully sent to your registered email id');
-      navigate(OTPSCREEN);
-    } catch (error) {
-      console.error('API Error:', error);
-      showError('Failed to send OTP. Please try again.');
-    }
-  };
-
-  const handleSubmit = async () => {
+    let params = {
+      email: userName,
+    };
     const checkValid = isValidData();
 
     if (checkValid) {
-      sendOtpRequest();
+      updateState({isLoading: true});
+      try {
+        const res = await actions.forgotPassword(params);
+        console.log(res);
+        !!res
+          ? showSuccess(res.message)
+          : showError('OTP sent to your registered email');
+        updateState({isLoading: false});
+        navigate(OTPSCREEN);
+      } catch (error) {
+        showError(error?.message);
+        updateState({isLoading: false});
+      }
     }
   };
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <ImageBackground
         source={imagePath.backgroundImage}
         style={styles.imgStyleForgotPassword}
@@ -115,13 +115,13 @@ const ForgotPassword = () => {
           <View style={styles.loginButtonContainer}>
             <ButtonWithLoader
               title="Get OTP"
-              onPress={handleSubmit}
+              onPress={sendOtpRequest}
               isLoading={isLoading}
             />
           </View>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 

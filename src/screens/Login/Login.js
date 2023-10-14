@@ -15,9 +15,12 @@ const LoginComponent = () => {
 
   const [state, setState] = useState({
     isLoading: false,
-    code: '654321',
-    userName: 'kishan@prydan.com',
-    password: 'Kishan@1234',
+    code: '452925',
+    userName: 'domadiyapriyank717@gmail.com',
+    password: '12345678',
+    // code: '654321',
+    // userName: 'kishan.prydan@gmail.com',
+    // password: 'Kishan@12345',
     isSecure: true,
   });
 
@@ -71,7 +74,7 @@ const LoginComponent = () => {
 
   const handleSubmit = async () => {
     let params = {
-      code: code,
+      distributercode: code,
       email: userName,
       password: password,
     };
@@ -82,10 +85,7 @@ const LoginComponent = () => {
       updateState({isLoading: true});
       try {
         const res = await actions.login(params);
-
-        showSuccess('Log in Successfully');
-        // console.log('++++++++++++ api response ++++++++++++++++', res.userName);
-
+        !!res ? showSuccess(res?.message) : showSuccess('Log in Successfully');
         updateState({isLoading: false});
       } catch (error) {
         showError(error.message);

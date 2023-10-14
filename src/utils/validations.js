@@ -17,7 +17,7 @@ const checkMinLength = (val, minLength, key) => {
 };
 
 export default function (data) {
-  const {code, userName, password, otp} = data;
+  const {code, userName, password, confirmPassword, otp} = data;
 
   if (otp !== undefined) {
     let emptyValidationText = checkEmpty(otp, 'Please Enter OTP');
@@ -62,6 +62,23 @@ export default function (data) {
       let minLengthValidation = checkMinLength(password, 6, 'password');
       if (minLengthValidation !== '') {
         return minLengthValidation;
+      }
+    }
+  }
+
+  if (confirmPassword !== undefined) {
+    let emptyValidationText = checkEmpty(
+      confirmPassword,
+      'Please Enter Confirm Password',
+    );
+    if (emptyValidationText !== '') {
+      return emptyValidationText;
+    } else {
+      let minLengthValidation = checkMinLength(confirmPassword, 6, 'password');
+      if (minLengthValidation !== '') {
+        return minLengthValidation;
+      } else if (confirmPassword !== password) {
+        return 'New password and Confirm Password must be same';
       }
     }
   }

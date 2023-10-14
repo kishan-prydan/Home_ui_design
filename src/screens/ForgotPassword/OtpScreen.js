@@ -1,5 +1,11 @@
 import React, {useState, useEffect, useRef} from 'react';
-import {ImageBackground, Text, View, TextInput} from 'react-native';
+import {
+  Text,
+  View,
+  TextInput,
+  ScrollView,
+  Image,
+} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import imagePath from '../../constants/imagePath';
 import styles from './styles';
@@ -9,6 +15,7 @@ import {showError, showSuccess} from '../../utils/helperFunction';
 import actions from '../../redux/actions';
 import ButtonWithLoader from '../../component/common/ButtonWithLoader';
 import {LOGIN} from '../../constants/routeNames';
+import PropTypes from 'prop-types';
 
 const OtpScreen = () => {
   const {navigate} = useNavigation();
@@ -17,12 +24,14 @@ const OtpScreen = () => {
   const [state, setState] = useState({
     isLoading: false,
     password: '',
-    isSecure: true,
+    confirmPassword: '',
   });
 
-  const {isLoading, password, isSecure} = state;
+  const {isLoading, password, confirmPassword} = state;
   const updateState = data => setState(() => ({...state, ...data}));
   const [errors, setErrors] = useState({});
+  const [isNewPasswordSecure, setIsNewPasswordSecure] = useState(true);
+  const [isConfirmPasswordSecure, setIsConfirmPasswordSecure] = useState(true);
 
   const otpInputRefs = [
     useRef(null),
@@ -48,9 +57,20 @@ const OtpScreen = () => {
     }
   };
 
+  const handleOTPPaste = text => {
+    const sanitizedText = text.replace(/\D/g, '');
+    if (sanitizedText.length === otp.length) {
+      sanitizedText.split('').forEach((value, index) => {
+        otpInputRefs[index].current.setNativeProps({text: value});
+        otp[index] = value;
+      });
+      setOtp([...otp]);
+    }
+  };
+
   useEffect(() => {
     validateForm();
-  }, [otp, password]);
+  }, [otp, password, confirmPassword]);
 
   const otpValue = otp.join('');
 
@@ -67,6 +87,14 @@ const OtpScreen = () => {
     } else if (password.length < 6) {
       errors.password = 'Password must be at least 6 characters.';
     }
+    if (!confirmPassword) {
+      errors.confirmPassword = 'Confirm password is required.';
+    } else if (confirmPassword.length < 6) {
+      errors.confirmPassword =
+        'Confirm Password must be at least 6 characters.';
+    } else if (confirmPassword !== password) {
+      errors.confirmPassword = 'Confirm Password must match the New Password.';
+    }
 
     setErrors(errors);
   };
@@ -75,6 +103,7 @@ const OtpScreen = () => {
     const error = validator({
       otp: otp.join(''),
       password,
+      confirmPassword,
     });
     if (error) {
       showError(error);
@@ -83,31 +112,43 @@ const OtpScreen = () => {
     return true;
   };
 
-  const sendOTP = () => {
-    const otpValue = otp.join('');
-    console.log('OTP Value:', otpValue);
-  };
-
   const handleSubmit = async () => {
+    let params = {
+      otp: otpValue,
+      newPassword: password,
+      conformpPassword: confirmPassword,
+    };
+
     const checkValid = isValidData();
 
     if (checkValid) {
-      sendOTP();
-      showSuccess('Password reset successful');
-      navigate(LOGIN);
+      updateState({isLoading: true});
+      try {
+        const res = await actions.resetPassword(params);
+        !!res
+          ? showSuccess(res.message)
+          : showSuccess('Password changed successfully');
+        // console.log('Getting response from api : ',res);
+        updateState({isLoading: false});
+        navigate(LOGIN);
+      } catch (error) {
+        showError(error.message);
+        updateState({isLoading: false});
+      }
     }
   };
 
-  const togglePasswordVisibility = () => {
-    updateState({isSecure: !isSecure});
+  const toggleNewPasswordVisibility = () => {
+    setIsNewPasswordSecure(!isNewPasswordSecure);
+  };
+
+  const toggleConfirmPasswordVisibility = () => {
+    setIsConfirmPasswordSecure(!isConfirmPasswordSecure);
   };
 
   return (
-    <View style={styles.container}>
-      <ImageBackground
-        source={imagePath.backgroundImage}
-        style={styles.imgStyle}
-      />
+    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+      <Image source={imagePath.backgroundImage} style={styles.imgStyle} />
 
       <View style={styles.mainStyle}>
         <View style={styles.innerMainView}>
@@ -123,6 +164,11 @@ const OtpScreen = () => {
                     ref={otpInputRefs[index]}
                     maxLength={1}
                     keyboardType="numeric"
+                    onPaste={e =>
+                      handleOTPPaste(
+                        e.nativeEvent.clipboardData.getData('Text'),
+                      )
+                    }
                   />
                 </View>
               ))}
@@ -133,15 +179,29 @@ const OtpScreen = () => {
             <TextInputWithLabel
               placeHolder="New Password"
               name="password"
-              secureTextEntry={isSecure}
+              secureTextEntry={isNewPasswordSecure}
               value={password}
               onChangeText={password => updateState({password})}
               rightIcon
               type={'fa6'}
-              iconname={isSecure ? 'lock' : 'unlock'}
-              onPressRight={togglePasswordVisibility}
+              iconname={isNewPasswordSecure ? 'lock' : 'unlock'}
+              onPressRight={toggleNewPasswordVisibility}
             />
             <Text style={styles.errorText}>{errors.password}</Text>
+          </View>
+          <View style={styles.innerStyle}>
+            <TextInputWithLabel
+              placeHolder="Confirm Password"
+              name="confirmPassword"
+              secureTextEntry={isConfirmPasswordSecure}
+              value={confirmPassword}
+              onChangeText={confirmPassword => updateState({confirmPassword})}
+              rightIcon
+              type={'fa6'}
+              iconname={isConfirmPasswordSecure ? 'lock' : 'unlock'}
+              onPressRight={toggleConfirmPasswordVisibility}
+            />
+            <Text style={styles.errorText}>{errors.confirmPassword}</Text>
           </View>
 
           <View style={styles.loginButtonContainer}>
@@ -153,8 +213,14 @@ const OtpScreen = () => {
           </View>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
+};
+
+OtpScreen.propTypes = {
+  message: PropTypes.shape({
+    message: PropTypes.string,
+  }),
 };
 
 export default OtpScreen;

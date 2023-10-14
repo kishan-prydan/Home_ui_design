@@ -12,22 +12,24 @@ const styles = StyleSheet.create({
   },
   imgStyle: {
     width: '100%',
+    height: moderateScale(380),
     justifyContent: 'center',
     alignItems: 'center',
-    flex: 1.6,
+    flex: 1,
   },
   imgStyleForgotPassword: {
     width: '100%',
+    height: moderateScale(520),
     justifyContent: 'center',
     alignItems: 'center',
-    flex: 2.4,
+    // flex: 2.4,
   },
   mainStyle: {
     backgroundColor: colors.white,
     flex: 1,
   },
-  mainStyleForgotPassword:{
-	flex: 1,
+  mainStyleForgotPassword: {
+    // flex: 1,
     backgroundColor: colors.white,
   },
   innerMainView: {
@@ -46,7 +48,7 @@ const styles = StyleSheet.create({
     bottom: 20,
     borderTopLeftRadius: scale(20),
     borderTopRightRadius: scale(20),
-	justifyContent: 'space-between',
+    justifyContent: 'space-between',
   },
   innerStyle: {
     paddingTop: moderateVerticalScale(10),
@@ -65,7 +67,7 @@ const styles = StyleSheet.create({
   loginButtonContainer: {
     width: '100%',
     paddingTop: 15,
-    paddingTop: moderateVerticalScale(40),
+    paddingTop: moderateVerticalScale(50),
   },
   loginButton: {
     borderRadius: moderateScale(25),
@@ -81,7 +83,7 @@ const styles = StyleSheet.create({
   },
 
   otpMainContainer: {
-	paddingTop: moderateVerticalScale(20),
+    paddingTop: moderateVerticalScale(20),
   },
 
   header: {
@@ -91,10 +93,10 @@ const styles = StyleSheet.create({
   },
   otpContainer: {
     flexDirection: 'row',
-	alignItems: 'center',
-	justifyContent: 'space-between',
-	marginTop: moderateVerticalScale(8),
-	marginBottom: moderateVerticalScale(4),
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginTop: moderateVerticalScale(8),
+    marginBottom: moderateVerticalScale(4),
   },
 
   //use this code to make box
@@ -104,17 +106,17 @@ const styles = StyleSheet.create({
     height: 40,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'transparent', 
-	borderWidth: 1,
-	borderColor: colors.borderColor,
-	borderRadius: 5,
+    backgroundColor: 'transparent',
+    borderWidth: 1,
+    borderColor: colors.borderColor,
+    borderRadius: 5,
   },
 
   otpInput: {
     height: 40,
     textAlign: 'center',
     // borderBottomWidth: 1,
-	// borderBottomColor: colors.borderColor,
+    // borderBottomColor: colors.borderColor,
   },
 });
 

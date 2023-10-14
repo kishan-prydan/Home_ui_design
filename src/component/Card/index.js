@@ -10,6 +10,7 @@ import ButtonWithLoader from '../common/ButtonWithLoader';
 import actions from '../../redux/actions';
 import {useSelector} from 'react-redux';
 import Routes from '../../navigation/Routes';
+import { showSuccess } from '../../utils/helperFunction';
 
 const Card = () => {
   const {navigate} = useNavigation();
@@ -30,6 +31,7 @@ const Card = () => {
     setTimeout(() => {
       actions.logout();
       setIsLoading(false);
+      showSuccess('Logged out successfully')
     }, 2000);
   };
 
