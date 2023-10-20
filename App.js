@@ -7,12 +7,16 @@ import FlashMessage from 'react-native-flash-message';
 import {getUserData} from './src/utils/utils';
 import {saveUserData} from './src/redux/actions/auth';
 import SplashScreen from './src/screens/SplashScreen';
+import DataSyncComponent from './src/Database/DataSyncComponent';
+import SyncingScreen from './src/Database/DataSyncComponent';
+import FingerprintAuthScreen from './src/component/FingerprintAuth';
 
 const App = () => {
   const [appReady, setAppReady] = useState(false);
 
   const userDataFetch = async () => {
     const userData = await getUserData();
+
     if (!!userData) {
       saveUserData(userData);
     }
@@ -26,12 +30,16 @@ const App = () => {
     }, 2000);
 
     LogBox.ignoreLogs(['VirtualizedLists should never be nested']);
+    LogBox.ignoreLogs(['Remote debugger']);
   }, []);
+
   return (
     <>
       <StatusBar animated={true} backgroundColor={colors.header} />
       <SafeAreaView style={styles.container}>
         {!!appReady ? <Routes /> : <SplashScreen />}
+        {/* <SyncingScreen/> */}
+        {/* <FingerprintAuthScreen/> */}
         <FlashMessage position="top" />
       </SafeAreaView>
     </>

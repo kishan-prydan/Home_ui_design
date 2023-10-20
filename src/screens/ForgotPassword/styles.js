@@ -3,7 +3,7 @@ import {
   scale,
   moderateScale,
   moderateVerticalScale,
-} from 'react-native-size-matters';
+} from '../../styles/responsiveSize';
 import colors from '../../assets/theme/colors';
 
 const styles = StyleSheet.create({
@@ -12,14 +12,14 @@ const styles = StyleSheet.create({
   },
   imgStyle: {
     width: '100%',
-    height: moderateScale(380),
+    height: moderateScale(401),
     justifyContent: 'center',
     alignItems: 'center',
     flex: 1,
   },
   imgStyleForgotPassword: {
     width: '100%',
-    height: moderateScale(520),
+    height: moderateScale(550),
     justifyContent: 'center',
     alignItems: 'center',
     // flex: 2.4,

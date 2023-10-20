@@ -182,6 +182,11 @@ export default function HomeStack(Stack) {
         component={screens.ScenceControlSettings}
         options={navigationOptions}
       />
+      <Stack.Screen
+        name={routeNames.LOGOUTSETTING}
+        component={screens.LogOutSetting}
+        options={navigationOptions}
+      />
     </>
   );
 }

@@ -37,6 +37,7 @@ import WatchRoku from './WatchRoku';
 import WatchSatellite from './WatchSatellite';
 import ScenceControlSettings from './SceneControlSettings';
 import CelsiusScreen from './CelsiusScreen';
+import LogOutSetting from './LogOutSetting';
 
 const screens = {
   // Auth Stack Screens
@@ -81,6 +82,7 @@ const screens = {
   WatchRoku,
   WatchSatellite,
   ScenceControlSettings,
+  LogOutSetting,
 };
 
 export default screens;

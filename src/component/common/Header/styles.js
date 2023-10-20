@@ -1,32 +1,33 @@
 import {StyleSheet} from 'react-native';
 import colors from '../../../assets/theme/colors';
+import commonStyles from '../../../styles/commonStyles';
+import {
+  moderateScale,
+  moderateScaleVertical,
+} from '../../../styles/responsiveSize';
 
 export default StyleSheet.create({
   headerStyle: {
     flexDirection: 'row',
-    minHeight: 48,
-    // backgroundColor: 'yellow',
-    paddingTop: 30,
-    paddingBottom: 10,
+    minHeight: moderateScale(48),
+    paddingTop: moderateScaleVertical(30),
+    paddingBottom: moderateScaleVertical(10),
     alignItems: 'center',
     justifyContent: 'space-between',
   },
 
-  textView:{
-    fontSize: 18,
+  textView: {
+    ...commonStyles.fontSize18,
     fontWeight: 'bold',
-    color: colors.header,
   },
 
-  imgView:{
+  imgView: {
     color: colors.header,
-    height: 24,
-    width: 24,
+    height: moderateScale(24),
+    width: moderateScale(24),
   },
 
-  iconContainer:{
-    // flex: 1,
+  iconContainer: {
     flexDirection: 'row',
-    // backgroundColor: 'red',
   },
 });

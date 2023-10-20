@@ -1,9 +1,11 @@
 import {StyleSheet} from 'react-native';
+import { moderateScale } from '../../styles/responsiveSize';
 
 const styles = StyleSheet.create({
   mainView: {
     flex: 1,
     alignItems: 'center',
+    paddingTop: moderateScale(10)
   },
   contentContainer: {
     flexGrow: 1,

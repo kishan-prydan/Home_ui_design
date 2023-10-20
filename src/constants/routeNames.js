@@ -45,6 +45,7 @@ const routeNames = {
   WATCHROKU: 'WatchRoku',
   WATCHSATELLITE: 'WatchSatellite',
   SCENCECONTROLSETTINGS: 'ScenceControlSettings',
+  LOGOUTSETTING: 'LogOutSetting'
 };
 
 export default routeNames;

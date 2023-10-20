@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {moderateVerticalScale, moderateScale} from 'react-native-size-matters';
+import {moderateVerticalScale, moderateScale} from '../../styles/responsiveSize';
 
 const styles = StyleSheet.create({
   imageContainer: {

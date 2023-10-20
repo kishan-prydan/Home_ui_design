@@ -10,9 +10,10 @@ export async function getHeaders() {
   let userData = await AsyncStorage.getItem('userData');
   if (userData) {
     userData = JSON.parse(userData);
-    // console.log(userData.accessToken, 'header')
+    const accessToken = userData.AccessToken;
+    // console.log(accessToken);
     return {
-      authorization: `${userData.access_token}`,
+      authorization: `Bearer ${accessToken}`,
     };
   }
   return {};
@@ -26,16 +27,13 @@ export async function apiReq(
   requestOptions = {},
 ) {
   return new Promise(async (res, rej) => {
-    // if (!navigator.onLine) {
-    //   showError('Network Error. Please check your internet connection.');
-    // return rej({ message: 'No Internet', msg: 'Internet connection error' });
-    // }
-
     const getTokenHeader = await getHeaders();
     headers = {
       ...getTokenHeader,
       ...headers,
     };
+
+    // console.log('api function get headre----------------------------',getTokenHeader);
 
     if (method === 'get' || method === 'delete') {
       data = {
@@ -74,8 +72,8 @@ export async function apiReq(
         }
 
         if (error.message === 'Network Error') {
-          showError('Network Error. Please check your internet connection.');
-          // return rej({message: 'Network Error', msg: 'Network Error'});
+          // showError('Network Error. Please check your internet connection.');
+          return rej({message: 'Network Error', msg: 'Network Error'});
         } else {
           return rej(error);
         }

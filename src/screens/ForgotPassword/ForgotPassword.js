@@ -22,8 +22,8 @@ const ForgotPassword = () => {
 
   const [state, setState] = useState({
     isLoading: false,
-    // userName: 'kishan.prydan@gmail.com',
-    userName: 'domadiyapriyank717@gmail.com',
+    userName: '',
+    // userName: 'domadiyapriyank717@gmail.com',
   });
 
   const {isLoading, userName} = state;

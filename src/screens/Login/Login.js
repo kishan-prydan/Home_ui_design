@@ -9,6 +9,7 @@ import {showError, showSuccess} from '../../utils/helperFunction';
 import actions from '../../redux/actions';
 import ButtonWithLoader from '../../component/common/ButtonWithLoader';
 import routeNames from './../../constants/routeNames';
+import {Image} from 'react-native';
 
 const LoginComponent = () => {
   const {navigate} = useNavigation();
@@ -18,9 +19,9 @@ const LoginComponent = () => {
     code: '452925',
     userName: 'domadiyapriyank717@gmail.com',
     password: '12345678',
-    // code: '654321',
-    // userName: 'kishan.prydan@gmail.com',
-    // password: 'Kishan@12345',
+    // code: '',
+    // userName: '',
+    // password: '',
     isSecure: true,
   });
 
@@ -100,10 +101,9 @@ const LoginComponent = () => {
 
   return (
     <View style={styles.container}>
-      <ImageBackground
-        source={imagePath.backgroundImage}
-        style={styles.imgStyle}
-      />
+      <View style={styles.imgStyleView}>
+        <Image source={imagePath.backgroundImage} style={styles.imgStyle} />
+      </View>
 
       <View style={styles.mainStyle}>
         <View style={styles.innerMainView}>

@@ -1,28 +1,24 @@
 import {StyleSheet} from 'react-native';
-import {
-  scale,
-  moderateScale,
-  moderateVerticalScale,
-} from 'react-native-size-matters';
 import colors from '../../assets/theme/colors';
+import { moderateScale, scale, moderateVerticalScale } from '../../styles/responsiveSize';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  imgStyle: {
-    height: moderateScale(390),
-    width: '100%',
+  imgStyleView:{
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    flex: 1,
+  },
+  imgStyle: {
+    height:moderateScale(430),
+    width: '100%',
+    resizeMode: 'cover',
   },
   mainStyle: {
     backgroundColor: colors.white,
-    width: '100%',
-    height: '100%',
     flex: 1,
-    position: 'relative',
   },
   innerMainView: {
     backgroundColor: colors.white,

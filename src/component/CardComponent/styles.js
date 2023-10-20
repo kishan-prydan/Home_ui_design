@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 import colors from '../../assets/theme/colors';
-import { scale, moderateVerticalScale, moderateScale } from 'react-native-size-matters';
+import { scale, moderateVerticalScale, moderateScale } from '../../styles/responsiveSize';
 
 export default StyleSheet.create({
   container: {
@@ -9,7 +9,6 @@ export default StyleSheet.create({
     borderRadius: scale(15),
     elevation: 5,
     marginBottom: moderateVerticalScale(15),
-    // justifyContent: 'center',
     alignItems: 'center',
   },
 

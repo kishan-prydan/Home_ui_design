@@ -3,8 +3,13 @@ import Card from '../../component/Card';
 import Header from '../../component/common/Header';
 import {Alert, View} from 'react-native';
 import { moderateScale } from 'react-native-size-matters';
+import { useNavigation } from '@react-navigation/native';
+import routeNames from '../../constants/routeNames';
 
 const Home = () => {
+  
+  const {navigate} = useNavigation();
+
   return (
     <View style={{flex: 1}}>
         <Header
@@ -13,7 +18,7 @@ const Home = () => {
           name={'settings'}
           size={24}
           onPressForth={() => {
-            Alert.alert('Setting button pressed');
+            navigate(routeNames.LOGOUTSETTING)
           }}
           headerStyle={{paddingHorizontal:moderateScale(20),}}
         />

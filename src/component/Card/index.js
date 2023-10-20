@@ -1,37 +1,14 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {View, FlatList, Alert} from 'react-native';
 import CardComponent from '../CardComponent';
 import CustomButton from '../common/CustomButton';
 import styles from './styles';
 import {useNavigation} from '@react-navigation/native';
 import dummyData from './dummyData';
-import ButtonWithLoader from '../common/ButtonWithLoader';
-import actions from '../../redux/actions';
-import {showSuccess} from '../../utils/helperFunction';
 import routeNames from './../../constants/routeNames';
 
 const Card = () => {
   const {navigate} = useNavigation();
-
-  const [isLoading, setIsLoading] = useState(false);
-
-  const onLogOutPress = () => {
-    Alert.alert(
-      'Log Out',
-      'Are you sure you want to log out?',
-      [{text: 'Yes', onPress: logout}, {text: 'No'}],
-      {cancelable: true},
-    );
-  };
-
-  const logout = () => {
-    setIsLoading(true);
-    setTimeout(() => {
-      actions.logout();
-      setIsLoading(false);
-      showSuccess('Logged out successfully');
-    }, 2000);
-  };
 
   return (
     <View style={styles.container}>
@@ -51,15 +28,7 @@ const Card = () => {
           contentContainerStyle={styles.contentContainer}
         />
       </View>
-      <View style={styles.buttonViewContainer}>
-        <ButtonWithLoader
-          title={'Log out'}
-          buttonStyle={styles.buttonStyle}
-          titleStyle={styles.textStyle}
-          isLoading={isLoading}
-          onPress={onLogOutPress}
-        />
-      </View>
+
       <View style={styles.buttonContainer}>
         <CustomButton
           style={styles.innerButton}
