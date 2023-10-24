@@ -16,7 +16,16 @@ const showSuccess = (message) => {
     })
 }
 
+const showInfo = (message) => {
+    showMessage({
+        type: 'info',
+        icon: 'info',
+        message
+    })
+}
+
 export {
     showError, 
-    showSuccess
+    showSuccess,
+    showInfo
 }

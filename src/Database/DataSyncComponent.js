@@ -45,7 +45,7 @@ const SyncingScreen = () => {
         }
       } else {
         console.log(
-          // 'No internet connection. Logging data from the local database.',
+          'No internet connection. Logging data from the local database.',
         );
         fetchAllData();
         setIsLoading(false);
@@ -74,7 +74,7 @@ const SyncingScreen = () => {
       }
       setIsLoading(false);
     } catch (error) {
-      console.error('Error fetching data from the API:', error);
+      console.log('Error fetching data from the API:', error);
       setIsLoading(false);
     }
   };

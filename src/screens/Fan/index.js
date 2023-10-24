@@ -1,5 +1,5 @@
 //import liraries
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Alert} from 'react-native';
 import BackgroundImage from '../../component/common/BackgroundImage';
 import Header from '../../component/common/Header';
@@ -17,6 +17,12 @@ import routeNames from './../../constants/routeNames';
 
 const Fan = () => {
   const {navigate} = useNavigation();
+  const [sliderValue, setSliderValue] = useState(2);
+
+  const handleFanSliderPress = value => {
+    setSliderValue(value);
+  };
+
   return (
     <BackgroundImage>
       <View style={styles.container}>
@@ -78,13 +84,25 @@ const Fan = () => {
               </View>
               <View style={styles.lineView}>
                 <View style={styles.lineNumberView}>
-                  <FanSliderComponent title={'Off'} />
-                  <FanSliderComponent title={'1'} />
-                  <FanSliderComponent title={'2'} />
-                  <FanSliderComponent title={'3'} />
+                  <FanSliderComponent
+                    title={'Off'}
+                    onPress={() => handleFanSliderPress(0)}
+                  />
+                  <FanSliderComponent
+                    title={'1'}
+                    onPress={() => handleFanSliderPress(1)}
+                  />
+                  <FanSliderComponent
+                    title={'2'}
+                    onPress={() => handleFanSliderPress(2)}
+                  />
+                  <FanSliderComponent
+                    title={'3'}
+                    onPress={() => handleFanSliderPress(3)}
+                  />
                 </View>
                 <SliderComponent
-                  sliderValue={2}
+                  sliderValue={sliderValue}
                   minimumValue={0}
                   maximumValue={3}
                   step={1}

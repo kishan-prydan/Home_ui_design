@@ -4,7 +4,7 @@ import store from '../redux/store';
 import types from '../redux/types';
 import {showError} from './helperFunction';
 
-const {dispatch, getState} = store;
+const {dispatch} = store;
 
 export async function getHeaders() {
   let userData = await AsyncStorage.getItem('userData');

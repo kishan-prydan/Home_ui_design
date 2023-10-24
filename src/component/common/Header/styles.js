@@ -3,15 +3,15 @@ import colors from '../../../assets/theme/colors';
 import commonStyles from '../../../styles/commonStyles';
 import {
   moderateScale,
-  moderateScaleVertical,
+  moderateVerticalScale,
 } from '../../../styles/responsiveSize';
 
 export default StyleSheet.create({
   headerStyle: {
     flexDirection: 'row',
     minHeight: moderateScale(48),
-    paddingTop: moderateScaleVertical(30),
-    paddingBottom: moderateScaleVertical(10),
+    paddingTop: moderateVerticalScale(30),
+    paddingBottom: moderateVerticalScale(10),
     alignItems: 'center',
     justifyContent: 'space-between',
   },

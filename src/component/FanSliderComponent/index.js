@@ -1,33 +1,30 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, TouchableOpacity} from 'react-native';
 import TextComponent from '../common/TextComponent';
 import {moderateScale, moderateVerticalScale} from 'react-native-size-matters';
 import colors from '../../assets/theme/colors';
 
-const FanSliderComponent = ({title}) => {
+const FanSliderComponent = ({title, onPress}) => {
   return (
     <View style={styles.container}>
-      <View style={styles.lineTextView}>
+      <TouchableOpacity style={styles.lineTextView} activeOpacity={0.9} onPress={onPress}>
         <TextComponent title={title} textStyle={styles.lineTextStyle} />
         <View style={styles.lineView} />
-      </View>
+      </TouchableOpacity>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    // backgroundColor: 'purple',
-	// flex: 1,
-	alignItems: 'center',
-	justifyContent: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   lineTextView: {
     alignItems: 'center',
     justifyContent: 'center',
     paddingRight: 6,
-	// backgroundColor: 'red',
-	flex: 1,
+    flex: 1,
   },
   lineTextStyle: {
     fontSize: 9,
