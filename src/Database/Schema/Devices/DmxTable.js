@@ -17,7 +17,7 @@ export const createDmxTable = () => {
       )`,
       [],
       () => {
-        console.log('Dmx table created successfully');
+        // console.log('Dmx table created successfully');
       },
       error => {
         console.error('Error creating Dmx table:', error);

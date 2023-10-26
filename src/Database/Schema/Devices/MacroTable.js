@@ -20,7 +20,7 @@ export const createMacroTable = () => {
       )`,
       [],
       () => {
-        console.log('Macro table created successfully');
+        // console.log('Macro table created successfully');
       },
       error => {
         console.error('Error creating Macro table:', error);

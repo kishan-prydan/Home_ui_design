@@ -1,16 +1,22 @@
+//import liraries
 import fetchData from '../ApiHandle';
-import {fetchAllAreaData, updateOrInsertAreaData} from '../Schema/AreaDetails';
+import {
+  fetchAllCameraData,
+  updateOrInsertCameraData,
+} from '../Schema/Devices/CameraTable';
 
-const AreaDataSync = async (date, setIsLoading) => {
+// create a component
+const CameraDataSync = async (date, setIsLoading) => {
   try {
-    const apiData = await fetchData(date);
+    const res = await fetchData(date);
+    const apiData = res?.devices[6];
 
-    const existingAreaData = await fetchAllAreaData();
+    const existingAreaData = await fetchAllCameraData();
 
     // Check if apiData is not null or undefined
-    if (apiData && apiData?.areas) {
+    if (apiData) {
       // Store area data
-      for (const item of apiData?.areas) {
+      for (const item of apiData) {
         const existingItem = existingAreaData.find(
           dataItem => dataItem?._id === item?._id,
         );
@@ -18,7 +24,7 @@ const AreaDataSync = async (date, setIsLoading) => {
           !existingItem ||
           JSON.stringify(existingItem) !== JSON.stringify(item)
         ) {
-          updateOrInsertAreaData([item]);
+          updateOrInsertCameraData([item]);
         }
       }
     }
@@ -30,4 +36,4 @@ const AreaDataSync = async (date, setIsLoading) => {
   }
 };
 
-export default AreaDataSync;
+export default CameraDataSync;

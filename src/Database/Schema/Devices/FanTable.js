@@ -20,7 +20,7 @@ export const createFanTable = () => {
       )`,
       [],
       () => {
-        console.log('Fan table created successfully');
+        // console.log('Fan table created successfully');
       },
       error => {
         console.error('Error creating Fan table:', error);

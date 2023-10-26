@@ -2,7 +2,7 @@ import db from '../../Database';
 
 
 //create table query
-export const createDevicesTable = () => {
+export const createHvacTable = () => {
   db.transaction(txn => {
     txn.executeSql(
       `CREATE TABLE IF NOT EXISTS Hvac (
@@ -19,7 +19,7 @@ export const createDevicesTable = () => {
 		)`,
       [],
       () => {
-        console.log('Hvac table created successfully');
+        // console.log('Hvac table created successfully');
       },
       error => {
         console.error('Error creating Hvac table:', error);

@@ -25,7 +25,7 @@ export const createRgbwTable = () => {
       )`,
       [],
       () => {
-        console.log('Rgbw table created successfully');
+        // console.log('Rgbw table created successfully');
       },
       error => {
         console.error('Error creating Rgbw table:', error);

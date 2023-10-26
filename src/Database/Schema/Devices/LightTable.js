@@ -21,7 +21,7 @@ export const createLightTable = () => {
       )`,
       [],
       () => {
-        console.log('Light table created successfully');
+        // console.log('Light table created successfully');
       },
       error => {
         console.error('Error creating Light table:', error);

@@ -17,7 +17,7 @@ export const createCameraTable = () => {
       )`,
       [],
       () => {
-        console.log('Camera table created successfully');
+        // console.log('Camera table created successfully');
       },
       error => {
         console.error('Error creating Camera table:', error);

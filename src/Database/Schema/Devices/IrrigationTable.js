@@ -22,7 +22,7 @@ export const createIrrigationTable = () => {
       )`,
       [],
       () => {
-        console.log('Irrigation table created successfully');
+        // console.log('Irrigation table created successfully');
       },
       error => {
         console.error('Error creating Irrigation table:', error);

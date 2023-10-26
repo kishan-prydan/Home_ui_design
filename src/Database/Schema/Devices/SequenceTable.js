@@ -21,7 +21,7 @@ export const createSequenceTable = () => {
       )`,
       [],
       () => {
-        console.log('Sequence table created successfully');
+        // console.log('Sequence table created successfully');
       },
       error => {
         console.error('Error creating Sequence table:', error);

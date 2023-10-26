@@ -21,7 +21,7 @@ export const createScenesTable = () => {
 		)`,
       [],
       () => {
-        console.log('Scenes table created successfully');
+        // console.log('Scenes table created successfully');
       },
       error => {
         console.error('Error creating Scenes table:', error);

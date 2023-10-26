@@ -1,16 +1,22 @@
+//import liraries
 import fetchData from '../ApiHandle';
-import {fetchAllAreaData, updateOrInsertAreaData} from '../Schema/AreaDetails';
+import {
+  fetchAllCurtainData,
+  updateOrInsertCurtainData,
+} from '../Schema/Devices/CurtainTable';
 
-const AreaDataSync = async (date, setIsLoading) => {
+// create a component
+const CurtainDataSync = async (date, setIsLoading) => {
   try {
-    const apiData = await fetchData(date);
+    const res = await fetchData(date);
+    const apiData = res?.devices[2];
 
-    const existingAreaData = await fetchAllAreaData();
+    const existingAreaData = await fetchAllCurtainData();
 
     // Check if apiData is not null or undefined
-    if (apiData && apiData?.areas) {
+    if (apiData) {
       // Store area data
-      for (const item of apiData?.areas) {
+      for (const item of apiData) {
         const existingItem = existingAreaData.find(
           dataItem => dataItem?._id === item?._id,
         );
@@ -18,7 +24,7 @@ const AreaDataSync = async (date, setIsLoading) => {
           !existingItem ||
           JSON.stringify(existingItem) !== JSON.stringify(item)
         ) {
-          updateOrInsertAreaData([item]);
+          updateOrInsertCurtainData([item]);
         }
       }
     }
@@ -30,4 +36,4 @@ const AreaDataSync = async (date, setIsLoading) => {
   }
 };
 
-export default AreaDataSync;
+export default CurtainDataSync;

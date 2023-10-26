@@ -2,7 +2,7 @@ import db from '../../Database';
 
 
 //create table query
-export const createCurtinTable = () => {
+export const createCurtainTable = () => {
   db.transaction(txn => {
     txn.executeSql(
       `CREATE TABLE IF NOT EXISTS Curtin (
@@ -21,7 +21,7 @@ export const createCurtinTable = () => {
       )`,
       [],
       () => {
-        console.log('Curtin table created successfully');
+        // console.log('Curtain table created successfully');
       },
       error => {
         console.error('Error creating Curtin table:', error);
@@ -32,7 +32,7 @@ export const createCurtinTable = () => {
 
 
 //data insert query
-export const insertCurtinData = data => {
+export const insertCurtainData = data => {
   db.transaction(txn => {
     data.forEach(item => {
       const query =
@@ -59,7 +59,7 @@ export const insertCurtinData = data => {
 
 
 //fetch data by id query
-export const fetchCurtinDataId = _id => {
+export const fetchCurtainDataId = _id => {
   return new Promise((resolve, reject) => {
     db.transaction(txn => {
       const query = 'SELECT * FROM Curtin WHERE _id = ?';
@@ -82,7 +82,7 @@ export const fetchCurtinDataId = _id => {
 
 
 //update query
-export const updateCurtinData = (_id, updatedFields) => {
+export const updateCurtainData = (_id, updatedFields) => {
   db.transaction(txn => {
     const query = 'UPDATE Curtin SET ';
     const params = [];
@@ -108,7 +108,7 @@ export const updateCurtinData = (_id, updatedFields) => {
 };
 
 //update or insert query
-export const updateOrInsertCurtinData = data => {
+export const updateOrInsertCurtainData = data => {
   db.transaction(txn => {
     data.forEach(item => {
       const _id = item._id;
@@ -119,10 +119,10 @@ export const updateOrInsertCurtinData = data => {
         const existingData = res.rows.raw();
 
         if (existingData.length === 0) {
-          insertCurtinData([item]);
+          insertCurtainData([item]);
         } else {
           const id = existingData[0]._id;
-          updateCurtinData(id, item);
+          updateCurtainData(id, item);
         }
       });
     });
@@ -131,7 +131,7 @@ export const updateOrInsertCurtinData = data => {
 
 
 //fetch all data query
-export const fetchAllCurtinData = () => {
+export const fetchAllCurtainData = () => {
   return new Promise((resolve, reject) => {
     db.transaction(txn => {
       txn.executeSql(
@@ -153,7 +153,7 @@ export const fetchAllCurtinData = () => {
 
 
 //delete data by id query
-export const deleteCurtinData = _id => {
+export const deleteCurtainData = _id => {
   db.transaction(txn => {
     txn.executeSql(
       'DELETE FROM Curtin WHERE _id = ?',
@@ -170,7 +170,7 @@ export const deleteCurtinData = _id => {
 
 
 //delete all data query
-export const deleteAllCurtinData = () => {
+export const deleteAllCurtainData = () => {
   db.transaction(txn => {
     txn.executeSql(
       'DELETE FROM Curtin',
