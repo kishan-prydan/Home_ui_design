@@ -1,7 +1,7 @@
 //import liraries
 import {StyleSheet} from 'react-native';
 import colors from '../../../assets/theme/colors';
-import {moderateScale} from 'react-native-size-matters';
+import {moderateScale} from '../../../styles/responsiveSize';
 
 const styles = StyleSheet.create({
   container: {
@@ -13,6 +13,11 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     color: colors.white,
+  },
+  loaderViewStyle:{
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 

@@ -19,7 +19,7 @@ const SliderComponent = ({
   whiteColor,
   trackStyle,
   maximumTrackTintColorChnage,
-  thumbStyle
+  thumbStyle,
 }) => {
   const [value, setValue] = useState(
     initialValue === null || '' || undefined ? 50 : initialValue,
@@ -99,7 +99,9 @@ const SliderComponent = ({
 };
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    // backgroundColor: 'purple',
+  },
   thumbStyle: {
     height: moderateScale(12),
     width: moderateScale(12),

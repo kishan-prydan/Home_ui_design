@@ -1,29 +1,36 @@
 //import liraries
 import React, {useState, useEffect} from 'react';
-import {View, StyleSheet, Alert} from 'react-native';
-import colors from '../../assets/theme/colors';
+import {View, Alert} from 'react-native';
 import ButtonWithLoader from '../../component/common/ButtonWithLoader';
 import actions from '../../redux/actions';
-import {showInfo, showSuccess} from '../../utils/helperFunction';
+import {showError, showInfo, showSuccess} from '../../utils/helperFunction';
 import DeviceInfo from 'react-native-device-info';
 import NetInfo from '@react-native-community/netinfo';
 import TextComponent from '../../component/common/TextComponent';
-import {SINC_GET_AREA} from '../../config/urls';
+import {SINC_GET_DATA} from '../../config/urls';
 import {apiGet} from '../../utils/utils';
 import {
-  fetchAllData,
-  updateOrInsertData,
+  fetchAllAreaData,
+  updateOrInsertAreaData,
 } from '../../Database/Schema/AreaDetails';
 import moment from 'moment';
+import {
+  fetchAllZoneData,
+  updateOrInsertZoneData,
+} from '../../Database/Schema/ZoneDetails';
+import styles from './styles';
 
 const LogOutSetting = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isSyncLoading, setIsSyncLoading] = useState(false);
-  const [deviceIP, setDeviceIP] = useState(null);
   const [deviceName, setDeviceName] = useState(null);
 
   const currentDate = moment().format('DD-MM-YYYY');
+  // const currentDate = '15-10-2023';
 
+  let model = DeviceInfo.getModel();
+
+  //log out code here
   const onLogOutPress = () => {
     Alert.alert(
       'Log Out',
@@ -33,6 +40,7 @@ const LogOutSetting = () => {
     );
   };
 
+  //log out api calling from action (redux)
   const logout = () => {
     setIsLoading(true);
     setTimeout(() => {
@@ -43,15 +51,12 @@ const LogOutSetting = () => {
   };
 
   useEffect(() => {
+    //getting device imformation
     async function fetchDeviceData() {
       try {
-        const state = await NetInfo.fetch();
         const name = await DeviceInfo.getDeviceName();
 
-        if (state.isConnected && state.details.ipAddress) {
-          setDeviceIP(state.details.ipAddress);
-          setDeviceName(name);
-        }
+        setDeviceName(name);
       } catch (error) {
         console.error('Error:', error);
       }
@@ -60,6 +65,7 @@ const LogOutSetting = () => {
     fetchDeviceData();
   }, []);
 
+  //sync function calling here
   const onSyncPress = () => {
     Alert.alert(
       'Sync Data',
@@ -69,38 +75,75 @@ const LogOutSetting = () => {
     );
   };
 
+  //sync function to sync data from server
   const syncOnPress = () => {
-    setIsSyncLoading(true);
-    setTimeout(async () => {
-      try {
-        const res = await apiGet(`${SINC_GET_AREA}/${currentDate}`);
-        const apiData = res.data;
+    NetInfo.fetch().then(async state => {
+      if (state.isConnected) {
+        setIsSyncLoading(true);
+        setTimeout(async () => {
+          try {
+            const res = await apiGet(`${SINC_GET_DATA}/${currentDate}`);
+            const apiData = res;
+            
+            // console.log('checking response---------------', apiData.status);
 
-        const existingData = await fetchAllData();
+            // Separate data for areas and zones
+            const areaData = apiData.areas;
+            const zoneData = apiData.zones;
 
-        for (const item of apiData) {
-          const existingItem = existingData.find(
-            dataItem => dataItem._id === item._id,
-          );
-          if (
-            !existingItem ||
-            JSON.stringify(existingItem) !== JSON.stringify(item)
-          ) {
-            updateOrInsertData([item]);
-            showSuccess('Synced successfully');
+            const existingAreaData = await fetchAllAreaData();
+            const existingZoneData = await fetchAllZoneData();
+
+            // Store area data
+            for (const item of areaData) {
+              const existingItem = existingAreaData.find(
+                dataItem => dataItem._id === item._id,
+              );
+              if (
+                !existingItem ||
+                JSON.stringify(existingItem) !== JSON.stringify(item)
+              ) {
+                updateOrInsertAreaData([item]);
+              }
+            }
+
+            // Store zone data
+            for (const item of zoneData) {
+              const existingItem = existingZoneData.find(
+                dataItem => dataItem._id === item._id,
+              );
+              if (
+                !existingItem ||
+                JSON.stringify(existingItem) !== JSON.stringify(item)
+              ) {
+                updateOrInsertZoneData([item]);
+              }
+            }
+
+            setIsSyncLoading(false);
+          } catch (error) {
+            showInfo('No data found');
+            //fetching all the data from the local database
+            fetchAllAreaData();
+            fetchAllZoneData();
+            setIsSyncLoading(false);
           }
-        }
-        setIsSyncLoading(false);
-      } catch (error) {
-        // console.error('Error fetching data from the API:', error);
-        showInfo('No data found');
-        setIsSyncLoading(false);
+        }, 3000);
+      } else {
+        showError('Internet is not available');
       }
-    }, 3000);
+    });
   };
 
   return (
     <View style={styles.container}>
+      <View style={styles.deviceView}>
+        <TextComponent title={'Device OS: '} />
+        <TextComponent
+          title={DeviceInfo.getSystemName()}
+          textStyle={styles.deviceViewTextStyle}
+        />
+      </View>
       <View style={styles.deviceView}>
         <TextComponent title={'Device Name: '} />
         <TextComponent
@@ -109,18 +152,8 @@ const LogOutSetting = () => {
         />
       </View>
       <View style={styles.deviceView}>
-        <TextComponent title={'Device IP Address: '} />
-        <TextComponent
-          title={deviceIP}
-          textStyle={styles.deviceViewTextStyle}
-        />
-      </View>
-      <View style={styles.deviceView}>
-        <TextComponent title={'Device OS: '} />
-        <TextComponent
-          title={DeviceInfo.getSystemName()}
-          textStyle={styles.deviceViewTextStyle}
-        />
+        <TextComponent title={'Model No: '} />
+        <TextComponent title={model} textStyle={styles.deviceViewTextStyle} />
       </View>
       <ButtonWithLoader
         title={'Log out'}
@@ -139,41 +172,5 @@ const LogOutSetting = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: colors.white,
-  },
-
-  buttonStyle: {
-    width: 100,
-    height: 35,
-    borderRadius: 5,
-    marginTop: 10,
-  },
-  syncButtonStyle: {
-    width: 120,
-    height: 38,
-    borderRadius: 5,
-    marginTop: 20,
-  },
-
-  textStyle: {
-    fontSize: 12,
-    fontWeight: 600,
-    color: 'purple',
-  },
-  deviceView: {
-    flexDirection: 'row',
-    paddingBottom: 10,
-  },
-  deviceViewTextStyle: {
-    color: colors.danger,
-    paddingLeft: 10,
-  },
-});
 
 export default LogOutSetting;

@@ -5,8 +5,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import AuthStack from './AuthStack';
 import HomeStack from './HomeStack';
 import { useSelector } from 'react-redux';
-import SyncingScreen from './../Database/DataSyncComponent';
 import NetInfo from '@react-native-community/netinfo';
+import SyncingScreen from '../Database/SyncComponent';
 
 const Stack = createStackNavigator();
 

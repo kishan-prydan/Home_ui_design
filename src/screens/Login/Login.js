@@ -16,8 +16,8 @@ const LoginComponent = () => {
 
   const [state, setState] = useState({
     isLoading: false,
-    code: '452925',
-    userName: 'domadiyapriyank717@gmail.com',
+    code: '12345',
+    userName: 'sanjaym.smn@gmail.com',
     password: '12345678',
     // code: '',
     // userName: '',

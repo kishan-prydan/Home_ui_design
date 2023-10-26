@@ -23,8 +23,8 @@ export default StyleSheet.create({
 
   imgView: {
     color: colors.header,
-    height: moderateScale(24),
-    width: moderateScale(24),
+    height: moderateScale(25),
+    width: moderateScale(25),
   },
 
   iconContainer: {

@@ -123,6 +123,7 @@ const IrrigationSetting = () => {
                 labelField="label"
                 valueField="value"
                 value={value}
+                mode='modal'
                 onFocus={() => setIsFocus(true)}
                 onBlur={() => setIsFocus(false)}
                 onChange={item => {

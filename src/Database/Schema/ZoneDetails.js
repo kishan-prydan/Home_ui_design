@@ -1,14 +1,13 @@
-import { showSuccess } from '../../utils/helperFunction';
 import db from '../Database';
 
 //create table query
-export const createAreaTables = () => {
+export const createZoneTables = () => {
   db.transaction(txn => {
     txn.executeSql(
-      'CREATE TABLE IF NOT EXISTS AreaDetailsTable (id INTEGER PRIMARY KEY AUTOINCREMENT, areazoneid INTEGER, customerid TEXT, title TEXT, subnetid TEXT, image TEXT, arearole INTEGER, _id TEXT)',
+      'CREATE TABLE IF NOT EXISTS ZoneDetailsTable (id INTEGER PRIMARY KEY AUTOINCREMENT, areazoneid INTEGER, customerid TEXT, zoneid INTEGER, title TEXT, subnetid TEXT, image TEXT, arearole INTEGER, _id TEXT)',
       [],
       () => {
-        // console.log('Area Table created successfully');
+        // console.log('Zone Table created successfully');
       },
       error => {
         console.log('Error creating table:', error);
@@ -19,14 +18,15 @@ export const createAreaTables = () => {
 
 
 //data insert query
-export const insertAreaData = data => {
+export const insertZoneData = data => {
   db.transaction(txn => {
     data.forEach(item => {
       const query =
-        'INSERT INTO AreaDetailsTable (areazoneid, customerid, title, subnetid, image, arearole, _id) VALUES (?, ?, ?, ?, ?, ?, ?)';
+        'INSERT INTO ZoneDetailsTable (areazoneid, customerid, zoneid, title, subnetid, image, arearole, _id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
       const params = [
         item.Areazoneid,
         item.customerid,
+		item.zoneid,
         item.title,
         item.subnetid,
         JSON.stringify(item.image),
@@ -44,10 +44,10 @@ export const insertAreaData = data => {
 
 
 //fetch data by id query
-export const fetchAreaDataId = _id => {
+export const fetchZoneDataId = _id => {
   return new Promise((resolve, reject) => {
     db.transaction(txn => {
-      const query = 'SELECT * FROM AreaDetailsTable WHERE _id = ?';
+      const query = 'SELECT * FROM ZoneDetailsTable WHERE _id = ?';
       const params = [_id];
       txn.executeSql(
         query,
@@ -67,9 +67,9 @@ export const fetchAreaDataId = _id => {
 
 
 //update query
-export const updateAreaData = (_id, updatedFields) => {
+export const updateZoneData = (_id, updatedFields) => {
   db.transaction(txn => {
-    const query = 'UPDATE AND REPLACE AreaDetailsTable SET ';
+    const query = 'UPDATE AND REPLACE ZoneDetailsTable SET ';
     const params = [];
 
     for (const key in updatedFields) {
@@ -94,11 +94,11 @@ export const updateAreaData = (_id, updatedFields) => {
 
 
 //update or insert query
-export const updateOrInsertAreaData = data => {
+export const updateOrInsertZoneData = data => {
   db.transaction(txn => {
     data.forEach(item => {
       const _id = item._id;
-      const query = 'SELECT * FROM AreaDetailsTable WHERE _id = ?';
+      const query = 'SELECT * FROM ZoneDetailsTable WHERE _id = ?';
       const params = [_id];
 
       txn.executeSql(query, params, (tx, res) => {
@@ -108,13 +108,14 @@ export const updateOrInsertAreaData = data => {
 
         if (existingData.length === 0) {
           // console.log('existingData from updateandreplace-------', existingData);
-          insertAreaData([item]);
+          insertZoneData([item]);
           showSuccess('Data inserted successfully')
         } else {
           // If existing data found, update the existing row
           const id = existingData[0]._id;
           // console.log('id from updateandreplace-------', id);
-          updateAreaData(id, item);
+
+          updateZoneData(id, item);
           showSuccess('Data updated successfully')
         }
       });
@@ -124,18 +125,19 @@ export const updateOrInsertAreaData = data => {
 
 
 //fetch all data query
-export const fetchAllAreaData = () => {
+export const fetchAllZoneData = () => {
   return new Promise((resolve, reject) => {
     db.transaction(txn => {
       txn.executeSql(
-        'SELECT * FROM AreaDetailsTable',
+        'SELECT * FROM ZoneDetailsTable',
         [],
         (tx, res) => {
           const rows = res.rows.raw();
-          console.log('all areas data from local database', rows);
+          console.log('all zones data from local database', rows);
           resolve(rows);
         },
         error => {
+          // console.log('Error retrieving data:', error);
           reject(error);
         },
       );
@@ -145,10 +147,10 @@ export const fetchAllAreaData = () => {
 
 
 //delete data by id query
-export const deleteAreaData = _id => {
+export const deleteZoneData = _id => {
   db.transaction(txn => {
     txn.executeSql(
-      'DELETE FROM AreaDetailsTable WHERE _id = ?',
+      'DELETE FROM ZoneDetailsTable WHERE _id = ?',
       [_id],
       (tx, res) => {
         console.log('Data deleted successfully');
@@ -162,10 +164,10 @@ export const deleteAreaData = _id => {
 
 
 //delete all data query
-export const deleteAllAreaData = () => {
+export const deleteAllZoneData = () => {
   db.transaction(txn => {
     txn.executeSql(
-      'DELETE FROM AreaDetailsTable',
+      'DELETE FROM ZoneDetailsTable',
       [],
       (tx, res) => {
         console.log('All data deleted successfully');
@@ -176,3 +178,4 @@ export const deleteAllAreaData = () => {
     );
   });
 };
+

@@ -19,7 +19,7 @@ const MusicCard = ({
         <ClickableIcon
           iconType={'fa6'}
           iconName={'music'}
-          iconSize={18}
+          iconSize={17}
           changeColor={backgroundColor}
           secondContainer={styles.iconContainer}
           iconStyle={iconStyle}

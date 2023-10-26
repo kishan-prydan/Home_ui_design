@@ -1,16 +1,34 @@
 //import liraries
-import React, {Component} from 'react';
-import {TouchableOpacity, ActivityIndicator, titleStyle} from 'react-native';
+import React from 'react';
+import {View, TouchableOpacity, ActivityIndicator} from 'react-native';
 import styles from './styles';
 import TextComponent from '../TextComponent';
 
-const ButtonWithLoader = ({onPress, buttonStyle, isLoading, title}) => {
+const ButtonWithLoader = ({
+  onPress,
+  buttonStyle,
+  isLoading,
+  title,
+  titleStyle,
+}) => {
   return (
-    <TouchableOpacity style={{...styles.container, ...buttonStyle}} onPress={onPress} activeOpacity={0.7}>
+    <TouchableOpacity
+      style={{...styles.container, ...buttonStyle}}
+      onPress={onPress}
+      activeOpacity={0.7}>
       {!!isLoading ? (
-        <ActivityIndicator size={25} color="white" />
+        <View style={styles.loaderViewStyle}>
+          <TextComponent
+            textStyle={{...styles.textStyle, ...titleStyle}}
+            title={'Loading '}
+          />
+          <ActivityIndicator size={25} color="white" />
+        </View>
       ) : (
-        <TextComponent textStyle={{...styles.textStyle, ...titleStyle}} title={title} />
+        <TextComponent
+          textStyle={{...styles.textStyle, ...titleStyle}}
+          title={title}
+        />
       )}
     </TouchableOpacity>
   );

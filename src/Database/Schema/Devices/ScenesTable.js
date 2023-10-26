@@ -1,17 +1,30 @@
-import { showSuccess } from '../../utils/helperFunction';
-import db from '../Database';
+import db from '../../Database';
+
 
 //create table query
-export const createAreaTables = () => {
+export const createScenesTable = () => {
   db.transaction(txn => {
     txn.executeSql(
-      'CREATE TABLE IF NOT EXISTS AreaDetailsTable (id INTEGER PRIMARY KEY AUTOINCREMENT, areazoneid INTEGER, customerid TEXT, title TEXT, subnetid TEXT, image TEXT, arearole INTEGER, _id TEXT)',
+      `CREATE TABLE IF NOT EXISTS Scenes (
+		  id INTEGER PRIMARY KEY AUTOINCREMENT,
+		  _id TEXT,
+		  Remark TEXT,
+		  Subnetid TEXT,
+		  Deviceid TEXT,
+		  AreaNo TEXT,
+		  ScenceNo INTEGER,
+		  onimage TEXT,
+		  offimage TEXT,
+		  zoneid INTEGER,
+		  customerid TEXT,
+		  status TEXT
+		)`,
       [],
       () => {
-        // console.log('Area Table created successfully');
+        console.log('Scenes table created successfully');
       },
       error => {
-        console.log('Error creating table:', error);
+        console.error('Error creating Scenes table:', error);
       },
     );
   });
@@ -19,35 +32,38 @@ export const createAreaTables = () => {
 
 
 //data insert query
-export const insertAreaData = data => {
+export const insertScenesData = data => {
   db.transaction(txn => {
-    data.forEach(item => {
-      const query =
-        'INSERT INTO AreaDetailsTable (areazoneid, customerid, title, subnetid, image, arearole, _id) VALUES (?, ?, ?, ?, ?, ?, ?)';
-      const params = [
-        item.Areazoneid,
-        item.customerid,
-        item.title,
-        item.subnetid,
-        JSON.stringify(item.image),
-        item.arearole,
-        item._id,
+		data.forEach(item => {
+			const query =
+			'INSERT INTO Scenes (_id, Remark, Subnetid, Deviceid, AreaNo, ScenceNo, onimage, offimage, zoneid, customerid, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+			const params = [
+				item._id,
+				item.Remark,
+				item.Subnetid,
+				item.Deviceid,
+				item.AreaNo,
+				item.ScenceNo,
+				JSON.stringify(item.onimage),
+				JSON.stringify(item.offimage),
+				item.zoneid,
+				item.customerid,
+				item.status,
       ];
-
       txn.executeSql(query, params, (tx, res) => {
         console.log('insert data params========================', params);
         console.log('Data inserted successfully');
       });
-    });
+  });
   });
 };
 
 
 //fetch data by id query
-export const fetchAreaDataId = _id => {
+export const fetchSceneDataId = _id => {
   return new Promise((resolve, reject) => {
     db.transaction(txn => {
-      const query = 'SELECT * FROM AreaDetailsTable WHERE _id = ?';
+      const query = 'SELECT * FROM Scenes WHERE _id = ?';
       const params = [_id];
       txn.executeSql(
         query,
@@ -67,9 +83,9 @@ export const fetchAreaDataId = _id => {
 
 
 //update query
-export const updateAreaData = (_id, updatedFields) => {
+export const updateScenesData = (_id, updatedFields) => {
   db.transaction(txn => {
-    const query = 'UPDATE AND REPLACE AreaDetailsTable SET ';
+    const query = 'UPDATE AND REPLACE Scenes SET ';
     const params = [];
 
     for (const key in updatedFields) {
@@ -94,11 +110,11 @@ export const updateAreaData = (_id, updatedFields) => {
 
 
 //update or insert query
-export const updateOrInsertAreaData = data => {
+export const updateOrInsertScenesData = data => {
   db.transaction(txn => {
     data.forEach(item => {
       const _id = item._id;
-      const query = 'SELECT * FROM AreaDetailsTable WHERE _id = ?';
+      const query = 'SELECT * FROM Scenes WHERE _id = ?';
       const params = [_id];
 
       txn.executeSql(query, params, (tx, res) => {
@@ -108,14 +124,13 @@ export const updateOrInsertAreaData = data => {
 
         if (existingData.length === 0) {
           // console.log('existingData from updateandreplace-------', existingData);
-          insertAreaData([item]);
-          showSuccess('Data inserted successfully')
+          insertScenesData([item]);
         } else {
           // If existing data found, update the existing row
           const id = existingData[0]._id;
           // console.log('id from updateandreplace-------', id);
-          updateAreaData(id, item);
-          showSuccess('Data updated successfully')
+
+          updateScenesData(id, item);
         }
       });
     });
@@ -124,18 +139,19 @@ export const updateOrInsertAreaData = data => {
 
 
 //fetch all data query
-export const fetchAllAreaData = () => {
+export const fetchAllScenesData = () => {
   return new Promise((resolve, reject) => {
     db.transaction(txn => {
       txn.executeSql(
-        'SELECT * FROM AreaDetailsTable',
+        'SELECT * FROM Scenes',
         [],
         (tx, res) => {
           const rows = res.rows.raw();
-          console.log('all areas data from local database', rows);
+          console.log('all Scenes data from local database', rows);
           resolve(rows);
         },
         error => {
+          // console.log('Error retrieving data:', error);
           reject(error);
         },
       );
@@ -145,10 +161,10 @@ export const fetchAllAreaData = () => {
 
 
 //delete data by id query
-export const deleteAreaData = _id => {
+export const deleteScenesData = _id => {
   db.transaction(txn => {
     txn.executeSql(
-      'DELETE FROM AreaDetailsTable WHERE _id = ?',
+      'DELETE FROM Scenes WHERE _id = ?',
       [_id],
       (tx, res) => {
         console.log('Data deleted successfully');
@@ -162,10 +178,10 @@ export const deleteAreaData = _id => {
 
 
 //delete all data query
-export const deleteAllAreaData = () => {
+export const deleteAllScenesData = () => {
   db.transaction(txn => {
     txn.executeSql(
-      'DELETE FROM AreaDetailsTable',
+      'DELETE FROM Scenes',
       [],
       (tx, res) => {
         console.log('All data deleted successfully');

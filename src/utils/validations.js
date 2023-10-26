@@ -1,5 +1,7 @@
 import validator from 'is_js';
 
+
+//validation code
 const checkEmpty = (val, key) => {
   if (validator.empty(val.trim())) {
     return `${key}`;
@@ -36,7 +38,7 @@ export default function (data) {
     if (emptyValidationText !== '') {
       return emptyValidationText;
     } else {
-      let minLengthValidation = checkMinLength(code, 6, 'code');
+      let minLengthValidation = checkMinLength(code, 5, 'code');
       if (minLengthValidation !== '') {
         return minLengthValidation;
       }

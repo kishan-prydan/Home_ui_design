@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {moderateScale, moderateVerticalScale} from 'react-native-size-matters';
+import {moderateScale, moderateVerticalScale} from '../../styles/responsiveSize';
 
 const styles = StyleSheet.create({
   container: {
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'pink',
   },
   sliderContainer: {
-    // paddingRight: moderateScale(10),
+    marginRight: moderateScale(5),
   },
   sliderStyle: {
     height: moderateScale(240),

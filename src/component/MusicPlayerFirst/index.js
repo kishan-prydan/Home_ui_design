@@ -35,7 +35,7 @@ const MusicPlayerFirst = () => {
             )}
           />
         </View>
-        <View>
+        <View style={styles.volumeButtonStyle}>
           <SliderComponent
             volumeButtonPresent
             initialValue={85}

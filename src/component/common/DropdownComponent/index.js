@@ -12,6 +12,7 @@ const DropdownComponent = ({
   onChange,
   onFocus,
   onBlur,
+  mode,
 }) => {
   // const [value, setValue] = useState(null);
   // const [isFocus, setIsFocus] = useState(false);
@@ -19,7 +20,7 @@ const DropdownComponent = ({
   return !!darkMode ? (
     <View style={styles.dropDownContainerDark}>
       <Dropdown
-        style={[styles.dropdown]}
+        style={styles.dropdown}
         placeholderStyle={styles.placeholderStyleDark}
         selectedTextStyle={styles.selectedTextStyleDark}
         inputSearchStyle={styles.inputSearchStyleDark}
@@ -33,12 +34,14 @@ const DropdownComponent = ({
         onChange={onChange}
         onFocus={onFocus}
         onBlur={onBlur}
+        mode={mode}
+        iconColor={'#FFFFFF'}
       />
     </View>
   ) : (
     <View style={styles.dropDownContainer}>
       <Dropdown
-        style={[styles.dropdown]}
+        style={styles.dropdown}
         placeholderStyle={styles.placeholderStyle}
         selectedTextStyle={styles.selectedTextStyle}
         inputSearchStyle={styles.inputSearchStyle}
@@ -58,6 +61,8 @@ const DropdownComponent = ({
         onChange={onChange}
         onFocus={onFocus}
         onBlur={onBlur}
+        mode={mode}
+        iconColor={'#4A2125'}
       />
     </View>
   );

@@ -1,5 +1,8 @@
 import {StyleSheet} from 'react-native';
-import {moderateScale, moderateVerticalScale} from 'react-native-size-matters';
+import {
+  moderateScale,
+  moderateVerticalScale,
+} from '../../styles/responsiveSize';
 
 const styles = StyleSheet.create({
   container: {
@@ -16,13 +19,17 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     height: moderateScale(340),
-    overflow: 'hidden',
+    paddingHorizontal: moderateScale(20),
   },
   sliderStyle: {
     height: moderateScale(240),
   },
-  musicControllerContainer:{
+  musicControllerContainer: {
     paddingTop: moderateVerticalScale(10),
+  },
+  volumeButtonStyle: {
+    position: 'absolute',
+    right: 5,
   },
 });
 

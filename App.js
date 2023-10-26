@@ -7,9 +7,6 @@ import FlashMessage from 'react-native-flash-message';
 import {getUserData} from './src/utils/utils';
 import {saveUserData} from './src/redux/actions/auth';
 import SplashScreen from './src/screens/SplashScreen';
-import DataSyncComponent from './src/Database/DataSyncComponent';
-import SyncingScreen from './src/Database/DataSyncComponent';
-import FingerprintAuthScreen from './src/component/FingerprintAuth';
 
 const App = () => {
   const [appReady, setAppReady] = useState(false);

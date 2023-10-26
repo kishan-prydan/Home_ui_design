@@ -1,5 +1,6 @@
 import {showMessage} from "react-native-flash-message";
 
+//function to show the flash message
 const showError = (message) => {
     showMessage({
         type: 'danger',
