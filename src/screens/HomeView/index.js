@@ -6,7 +6,7 @@ import {useNavigation} from '@react-navigation/native';
 import CircleWithIcon from '../../component/common/CircleWithIcon/CircleWithIcon';
 import colors from '../../assets/theme/colors';
 import ClickableBackgroundImage from '../../component/BackgroundImage';
-import { moderateScale } from 'react-native-size-matters';
+import {moderateScale} from 'react-native-size-matters';
 import routeNames from './../../constants/routeNames';
 
 const HomeView = () => {

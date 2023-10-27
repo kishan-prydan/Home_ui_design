@@ -13,7 +13,7 @@ const HvacDataSync = async (date, setIsLoading) => {
 
     // Check if apiData is not null or undefined
     if (apiData) {
-      // Store area data
+      // Store data
       for (const item of apiData) {
         const existingItem = existingAreaData.find(
           dataItem => dataItem._id === item._id,

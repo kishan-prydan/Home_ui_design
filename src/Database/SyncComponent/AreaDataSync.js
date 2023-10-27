@@ -9,7 +9,7 @@ const AreaDataSync = async (date, setIsLoading) => {
 
     // Check if apiData is not null or undefined
     if (apiData && apiData?.areas) {
-      // Store area data
+      // Store data
       for (const item of apiData?.areas) {
         const existingItem = existingAreaData.find(
           dataItem => dataItem?._id === item?._id,

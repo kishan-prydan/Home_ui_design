@@ -1,68 +1,52 @@
 import db from '../../Database';
 
-
-//create table query
-export const createLightTable = () => {
+export const createZAudioTable = () => {
   db.transaction(txn => {
     txn.executeSql(
-      `CREATE TABLE IF NOT EXISTS Light (
+      `CREATE TABLE IF NOT EXISTS ZAudio (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         _id TEXT,
-        deviceid INTEGER,
-        devicename TEXT,
-        lighttype TEXT,
-        subnetid INTEGER,
-        channelid INTEGER,
-        onimage BLOB,
-        offimage BLOB,
+        subnetid TEXT,
+        deviceid TEXT,
         zoneid INTEGER,
         customerid TEXT,
         status TEXT
       )`,
       [],
       () => {
-        // console.log('Light table created successfully');
+        // console.log('ZAudio table created successfully');
       },
       error => {
-        console.error('Error creating Light table:', error);
+        console.error('Error creating ZAudio table:', error);
       },
     );
   });
 };
 
-
-//data insert query
-export const insertLightData = data => {
+export const insertZAudioData = data => {
   db.transaction(txn => {
     data.forEach(item => {
       const query =
-        'INSERT INTO Light (_id, deviceid, devicename, lighttype, subnetid, channelid, onimage, offimage, zoneid, customerid, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+        'INSERT INTO ZAudio (_id, subnetid, deviceid, zoneid, customerid, status) VALUES (?, ?, ?, ?, ?, ?)';
       const params = [
         item._id,
-        item.deviceid,
-        item.devicename,
-        item.lighttype,
         item.subnetid,
-        item.channelid,
-        item.onimage,
-        item.offimage,
+        item.deviceid,
         item.zoneid,
         item.customerid,
         item.status,
       ];
       txn.executeSql(query, params, (tx, res) => {
-        console.log('Light data inserted successfully');
+        console.log('ZAudio data inserted successfully');
       });
     });
   });
 };
 
-
-//fetch data by id query
-export const fetchLightDataId = _id => {
+export const fetchZAudioDataById = _id => {
   return new Promise((resolve, reject) => {
     db.transaction(txn => {
-      const query = 'SELECT * FROM Light WHERE _id = ?';
+      const query = 'SELECT * FROM ZAudio WHERE _id = ?';
       const params = [_id];
       txn.executeSql(
         query,
@@ -72,7 +56,7 @@ export const fetchLightDataId = _id => {
           resolve(rows);
         },
         error => {
-          console.log('Error retrieving Light data:', error);
+          console.log('Error retrieving ZAudio data:', error);
           reject(error);
         },
       );
@@ -80,11 +64,9 @@ export const fetchLightDataId = _id => {
   });
 };
 
-
-//update query
-export const updateLightData = (_id, updatedFields) => {
+export const updateZAudioData = (_id, updatedFields) => {
   db.transaction(txn => {
-    const query = 'UPDATE Light SET ';
+    const query = 'UPDATE ZAudio SET ';
     const params = [];
 
     for (const key in updatedFields) {
@@ -99,51 +81,48 @@ export const updateLightData = (_id, updatedFields) => {
 
     txn.executeSql(query, params, (tx, res) => {
       if (res.rowsAffected > 0) {
-        console.log('Light data updated successfully');
+        console.log('ZAudio data updated successfully');
       } else {
-        console.log('No Light records were updated');
+        console.log('No ZAudio records were updated');
       }
     });
   });
 };
 
-//update or insert query
-export const updateOrInsertLightData = data => {
+export const updateOrInsertZAudioData = data => {
   db.transaction(txn => {
     data.forEach(item => {
       const _id = item._id;
-      const query = 'SELECT * FROM Light WHERE _id = ?';
+      const query = 'SELECT * FROM ZAudio WHERE _id = ?';
       const params = [_id];
 
       txn.executeSql(query, params, (tx, res) => {
         const existingData = res.rows.raw();
 
         if (existingData.length === 0) {
-          insertLightData([item]);
+          insertZAudioData([item]);
         } else {
           const id = existingData[0]._id;
-          updateLightData(id, item);
+          updateZAudioData(id, item);
         }
       });
     });
   });
 };
 
-
-//fetch all data query
-export const fetchAllLightData = () => {
+export const fetchAllZAudioData = () => {
   return new Promise((resolve, reject) => {
     db.transaction(txn => {
       txn.executeSql(
-        'SELECT * FROM Light',
+        'SELECT * FROM ZAudio',
         [],
         (tx, res) => {
           const rows = res.rows.raw();
-          console.log('All Light data from local database', rows);
+          console.log('All ZAudio data from local database', rows);
           resolve(rows);
         },
         error => {
-          console.log('Error retrieving Light data:', error);
+          console.log('Error retrieving ZAudio data:', error);
           reject(error);
         },
       );
@@ -151,35 +130,31 @@ export const fetchAllLightData = () => {
   });
 };
 
-
-//delete data by id query
-export const deleteLightData = _id => {
+export const deleteZAudioData = _id => {
   db.transaction(txn => {
     txn.executeSql(
-      'DELETE FROM Light WHERE _id = ?',
+      'DELETE FROM ZAudio WHERE _id = ?',
       [_id],
       (tx, res) => {
-        console.log('Light data deleted successfully');
+        console.log('ZAudio data deleted successfully');
       },
       error => {
-        console.log('Error deleting Light data:', error);
+        console.log('Error deleting ZAudio data:', error);
       },
     );
   });
 };
 
-
-//delete all data query
-export const deleteAllLightData = () => {
+export const deleteAllZAudioData = () => {
   db.transaction(txn => {
     txn.executeSql(
-      'DELETE FROM Light',
+      'DELETE FROM ZAudio',
       [],
       (tx, res) => {
-        console.log('All Light data deleted successfully');
+        console.log('All ZAudio data deleted successfully');
       },
       error => {
-        console.log('Error deleting all Light data:', error);
+        console.log('Error deleting all ZAudio data:', error);
       },
     );
   });

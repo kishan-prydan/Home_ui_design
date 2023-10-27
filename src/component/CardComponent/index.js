@@ -18,7 +18,7 @@ const CardComponent = ({source, title}) => {
           onPress={() => {
             navigate(routeNames.HOMEVIEW);
           }}>
-          <ImageComponent source={source} onPress={()=>{navigate(routeNames.ADDHOME)}} />
+          <ImageComponent source={{uri: source}} onPress={()=>{navigate(routeNames.ADDHOME)}} />
           <TextComponent title={title} wrapper={styles.textStyle}/>
         </TouchableOpacity>
       </View>

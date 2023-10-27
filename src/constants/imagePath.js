@@ -13,4 +13,5 @@ export default {
   buttonRectangle: require('../assets/images/buttonRectangle.png'),
   buttonMaxHeigthRectangle: require('../assets/images/buttonMaxHeightRectangle.png'),
   buttonMaxWidthRectangle: require('../assets/images/buttonMaxWidthRectangle.png'),
+  defaultImage: require('../assets/images/home.jpg'),
 };

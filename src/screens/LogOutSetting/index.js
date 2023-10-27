@@ -19,6 +19,7 @@ import {
   updateOrInsertZoneData,
 } from '../../Database/Schema/ZoneDetails';
 import styles from './styles';
+import { getTableNames } from '../../Database/Database';
 
 const LogOutSetting = () => {
   const [isLoading, setIsLoading] = useState(false);

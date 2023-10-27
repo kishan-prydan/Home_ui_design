@@ -1,6 +1,5 @@
 import db from '../../Database';
 
-
 //create table query
 export const createSequenceTable = () => {
   db.transaction(txn => {
@@ -13,8 +12,8 @@ export const createSequenceTable = () => {
         Deviceid INTEGER,
         AreaNo INTEGER,
         SequenceNo INTEGER,
-        onimage TEXT,
-        offimage TEXT,
+        onimage BLOB,
+        offimage BLOB,
         zoneid INTEGER,
         customerid TEXT,
         status TEXT
@@ -30,7 +29,6 @@ export const createSequenceTable = () => {
   });
 };
 
-
 //data insert query
 export const insertSequenceData = data => {
   db.transaction(txn => {
@@ -44,8 +42,8 @@ export const insertSequenceData = data => {
         item.Deviceid,
         item.AreaNo,
         item.SequenceNo,
-        JSON.stringify(item.onimage),
-        JSON.stringify(item.offimage),
+        item.onimage,
+        item.offimage,
         item.zoneid,
         item.customerid,
         item.status,
@@ -56,7 +54,6 @@ export const insertSequenceData = data => {
     });
   });
 };
-
 
 //fetch data by id query
 export const fetchSequenceDataById = _id => {
@@ -73,13 +70,12 @@ export const fetchSequenceDataById = _id => {
         },
         error => {
           console.log('Error retrieving Sequence data:', error);
-          reject (error);
+          reject(error);
         },
       );
     });
   });
 };
-
 
 //update query
 export const updateSequenceData = (_id, updatedFields) => {
@@ -107,7 +103,6 @@ export const updateSequenceData = (_id, updatedFields) => {
   });
 };
 
-
 //update or insert query
 export const updateOrInsertSequenceData = data => {
   db.transaction(txn => {
@@ -130,7 +125,6 @@ export const updateOrInsertSequenceData = data => {
   });
 };
 
-
 //fetch all data query
 export const fetchAllSequenceData = () => {
   return new Promise((resolve, reject) => {
@@ -145,13 +139,12 @@ export const fetchAllSequenceData = () => {
         },
         error => {
           console.log('Error retrieving Sequence data:', error);
-          reject (error);
+          reject(error);
         },
       );
     });
   });
 };
-
 
 //delete data by id query
 export const deleteSequenceData = _id => {
@@ -168,7 +161,6 @@ export const deleteSequenceData = _id => {
     );
   });
 };
-
 
 //delete all data query
 export const deleteAllSequenceData = () => {

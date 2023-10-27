@@ -8,6 +8,8 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         borderBottomColor: colors.borderColor,
         borderRadius: moderateScale(4),
+        // backgroundColor: 'plum',
+        // height: '5%',
     },
     inlineStyle: {
         paddingVertical: moderateVerticalScale(6),

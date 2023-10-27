@@ -1,14 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import {View, StyleSheet} from 'react-native';
-import moment from 'moment';
 import NetInfo from '@react-native-community/netinfo';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import SyncingLoader from '../../component/SyncingLoader';
-import colors from '../../assets/theme/colors';
 import {showError} from '../../utils/helperFunction';
 import DataSync from './DataSync';
 
-const SyncingScreen = () => {
+const SyncWithoutLoader = () => {
   const [isLoading, setIsLoading] = useState(true);
   const initialDate = '01-01-1970';
   // const currentDate = moment().format('DD-MM-YYYY');
@@ -28,11 +24,11 @@ const SyncingScreen = () => {
           await AsyncStorage.setItem('isFirstTime', 'false');
 
           // setTimeout(() => {
-            DataSync.syncData(initialDate, setIsLoading);
+          DataSync.syncData(initialDate, setIsLoading);
           // }, 3000);
         } else {
           // setTimeout(() => {
-            DataSync.syncData(currentDate, setIsLoading);
+          DataSync.syncData(currentDate, setIsLoading);
           // }, 3000);
         }
       } else {
@@ -44,19 +40,6 @@ const SyncingScreen = () => {
       }
     });
   }, []);
-
-  return (
-    <View style={styles.container}>{isLoading ? <SyncingLoader /> : null}</View>
-  );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: colors.themeColor,
-  },
-});
-
-export default SyncingScreen;
+export default SyncWithoutLoader;

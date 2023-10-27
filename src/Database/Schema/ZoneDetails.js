@@ -4,7 +4,7 @@ import db from '../Database';
 export const createZoneTables = () => {
   db.transaction(txn => {
     txn.executeSql(
-      'CREATE TABLE IF NOT EXISTS ZoneDetailsTable (id INTEGER PRIMARY KEY AUTOINCREMENT, areazoneid INTEGER, customerid TEXT, zoneid INTEGER, title TEXT, subnetid TEXT, image TEXT, arearole INTEGER, _id TEXT)',
+      'CREATE TABLE IF NOT EXISTS ZoneDetailsTable (id INTEGER PRIMARY KEY AUTOINCREMENT, areazoneid INTEGER, customerid TEXT, zoneid INTEGER, title TEXT, subnetid TEXT, image BLOB, arearole INTEGER, _id TEXT)',
       [],
       () => {
         // console.log('Zone Table created successfully');
@@ -16,7 +16,6 @@ export const createZoneTables = () => {
   });
 };
 
-
 //data insert query
 export const insertZoneData = data => {
   db.transaction(txn => {
@@ -26,10 +25,10 @@ export const insertZoneData = data => {
       const params = [
         item.Areazoneid,
         item.customerid,
-		item.zoneid,
+        item.zoneid,
         item.title,
         item.subnetid,
-        JSON.stringify(item.image),
+        item.image,
         item.arearole,
         item._id,
       ];
@@ -41,7 +40,6 @@ export const insertZoneData = data => {
     });
   });
 };
-
 
 //fetch data by id query
 export const fetchZoneDataId = _id => {
@@ -64,7 +62,6 @@ export const fetchZoneDataId = _id => {
     });
   });
 };
-
 
 //update query
 export const updateZoneData = (_id, updatedFields) => {
@@ -92,7 +89,6 @@ export const updateZoneData = (_id, updatedFields) => {
   });
 };
 
-
 //update or insert query
 export const updateOrInsertZoneData = data => {
   db.transaction(txn => {
@@ -109,20 +105,19 @@ export const updateOrInsertZoneData = data => {
         if (existingData.length === 0) {
           // console.log('existingData from updateandreplace-------', existingData);
           insertZoneData([item]);
-          showSuccess('Data inserted successfully')
+          showSuccess('Data inserted successfully');
         } else {
           // If existing data found, update the existing row
           const id = existingData[0]._id;
           // console.log('id from updateandreplace-------', id);
 
           updateZoneData(id, item);
-          showSuccess('Data updated successfully')
+          showSuccess('Data updated successfully');
         }
       });
     });
   });
 };
-
 
 //fetch all data query
 export const fetchAllZoneData = () => {
@@ -145,7 +140,6 @@ export const fetchAllZoneData = () => {
   });
 };
 
-
 //delete data by id query
 export const deleteZoneData = _id => {
   db.transaction(txn => {
@@ -162,7 +156,6 @@ export const deleteZoneData = _id => {
   });
 };
 
-
 //delete all data query
 export const deleteAllZoneData = () => {
   db.transaction(txn => {
@@ -178,4 +171,3 @@ export const deleteAllZoneData = () => {
     );
   });
 };
-

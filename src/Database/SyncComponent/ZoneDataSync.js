@@ -11,7 +11,7 @@ const ZoneDataSync = async (date, setIsLoading) => {
 
     // Check if apiData is not null or undefined
     if (apiData && apiData.zones) {
-      // Store zone data
+      // Store data
       for (const item of apiData.zones) {
         const existingItem = existingZoneData.find(
           dataItem => dataItem._id === item._id,

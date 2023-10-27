@@ -5,7 +5,7 @@ import db from '../Database';
 export const createAreaTables = () => {
   db.transaction(txn => {
     txn.executeSql(
-      'CREATE TABLE IF NOT EXISTS AreaDetailsTable (id INTEGER PRIMARY KEY AUTOINCREMENT, areazoneid INTEGER, customerid TEXT, title TEXT, subnetid TEXT, image TEXT, arearole INTEGER, _id TEXT)',
+      'CREATE TABLE IF NOT EXISTS AreaDetailsTable (id INTEGER PRIMARY KEY AUTOINCREMENT, areazoneid INTEGER, customerid TEXT, title TEXT, subnetid TEXT, image BLOB, arearole INTEGER, _id TEXT)',
       [],
       () => {
         // console.log('Area Table created successfully');
@@ -29,7 +29,7 @@ export const insertAreaData = data => {
         item.customerid,
         item.title,
         item.subnetid,
-        JSON.stringify(item.image),
+        item.image,
         item.arearole,
         item._id,
       ];

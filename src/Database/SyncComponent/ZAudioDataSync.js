@@ -1,16 +1,16 @@
 //import liraries
 import fetchData from '../ApiHandle';
 import {
-  fetchAllMacroData,
-  updateOrInsertMacroData,
-} from '../Schema/Devices/MacroTable';
+  fetchAllZAudioData,
+  updateOrInsertZAudioData,
+} from '../Schema/Devices/ZAudio';
 
 // create a component
-const MacroDataSync = async (date, setIsLoading) => {
+const ZAudioDataSync = async (date, setIsLoading) => {
   try {
     const res = await fetchData(date);
-    const apiData = res?.devices[9];
-    const existingAreaData = await fetchAllMacroData();
+    const apiData = res?.devices[7];
+    const existingAreaData = await fetchAllZAudioData();
 
     // Check if apiData is not null or undefined
     if (apiData) {
@@ -23,7 +23,7 @@ const MacroDataSync = async (date, setIsLoading) => {
           !existingItem ||
           JSON.stringify(existingItem) !== JSON.stringify(item)
         ) {
-          updateOrInsertMacroData([item]);
+          updateOrInsertZAudioData([item]);
         }
       }
     }
@@ -35,4 +35,4 @@ const MacroDataSync = async (date, setIsLoading) => {
   }
 };
 
-export default MacroDataSync;
+export default ZAudioDataSync;
