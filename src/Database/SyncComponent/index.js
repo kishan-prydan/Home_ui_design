@@ -27,13 +27,13 @@ const SyncingScreen = () => {
         if (isFirstTime === null) {
           await AsyncStorage.setItem('isFirstTime', 'false');
 
-          // setTimeout(() => {
+          setTimeout(() => {
             DataSync.syncData(initialDate, setIsLoading);
-          // }, 3000);
+          }, 4000);
         } else {
-          // setTimeout(() => {
+          setTimeout(() => {
             DataSync.syncData(currentDate, setIsLoading);
-          // }, 3000);
+          }, 4000);
         }
       } else {
         console.log(

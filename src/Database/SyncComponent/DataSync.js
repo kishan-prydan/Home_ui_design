@@ -33,6 +33,10 @@ import {
   createSequenceTable,
   fetchAllSequenceData,
 } from '../Schema/Devices/SequenceTable';
+import {
+  createZAudioTable,
+  fetchAllZAudioData,
+} from '../Schema/Devices/ZAudioTable';
 import AreaDataSync from './AreaDataSync';
 import ZoneDataSync from './ZoneDataSync';
 import CameraDataSync from './CameraDataSync';
@@ -46,7 +50,6 @@ import MacroDataSync from './MacroDataSync';
 import RgbwDataSync from './RgbwDataSync';
 import ScenesDataSync from './ScenesDataSync';
 import SequenceDataSync from './SequenceDataSync';
-import { createZAudioTable, fetchAllZAudioData } from '../Schema/Devices/ZAudio';
 import ZAudioDataSync from './ZAudioDataSync';
 
 const DataSync = {

@@ -1,9 +1,6 @@
 //import liraries
 import fetchData from '../ApiHandle';
-import {
-  fetchAllZAudioData,
-  updateOrInsertZAudioData,
-} from '../Schema/Devices/ZAudio';
+import { fetchAllZAudioData, updateOrInsertZAudioData } from '../Schema/Devices/ZAudioTable';
 
 // create a component
 const ZAudioDataSync = async (date, setIsLoading) => {

@@ -6,6 +6,7 @@ export const createZAudioTable = () => {
       `CREATE TABLE IF NOT EXISTS ZAudio (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         _id TEXT,
+        devicename TEXT,
         subnetid TEXT,
         deviceid TEXT,
         zoneid INTEGER,
@@ -27,9 +28,10 @@ export const insertZAudioData = data => {
   db.transaction(txn => {
     data.forEach(item => {
       const query =
-        'INSERT INTO ZAudio (_id, subnetid, deviceid, zoneid, customerid, status) VALUES (?, ?, ?, ?, ?, ?)';
+        'INSERT INTO ZAudio (_id, devicename, subnetid, deviceid, zoneid, customerid, status) VALUES (?, ?, ?, ?, ?, ?, ?)';
       const params = [
         item._id,
+        item.devicename,
         item.subnetid,
         item.deviceid,
         item.zoneid,

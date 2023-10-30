@@ -35,7 +35,7 @@ export default function Routes() {
   }, [userData, isConnected]);
 
   const fetchData = async () => {
-    await new Promise(resolve => setTimeout(resolve, 3000));
+    await new Promise(resolve => setTimeout(resolve, 4000));
   };
 
   if (syncing) {

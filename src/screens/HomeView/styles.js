@@ -7,14 +7,19 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
   backgroudImageContainer: {
-    paddingHorizontal: moderateScale(20),
-    paddingVertical: moderateVerticalScale(25),
+    paddingVertical: moderateVerticalScale(30),
+
   },
   iconView:{
     alignSelf: 'flex-end',
     position: 'absolute',
     bottom: moderateVerticalScale(40),
     right: moderateScale(20),
+  },
+  warningMessage:{
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 

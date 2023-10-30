@@ -4,14 +4,17 @@ import {
   Text,
   ImageBackground,
   TouchableOpacity,
-  Alert,
   LayoutAnimation,
 } from 'react-native';
 import Icon from '../common/Icon';
 import styles from './styles';
 import colors from '../../assets/theme/colors';
+import { useNavigation } from '@react-navigation/native';
+import routeNames from '../../constants/routeNames';
 
-const ClickableBackgroundImage = ({ onPress }) => {
+const ClickableBackgroundImage = ({ onPress, source, title }) => {
+  const {navigate} = useNavigation();
+
   const [isColorBoxVisible, setIsColorBoxVisible] = useState(false);
 
   const toggleColorBox = () => {
@@ -33,7 +36,7 @@ const ClickableBackgroundImage = ({ onPress }) => {
     <View style={styles.imageContainer}>
       <TouchableOpacity style={{ flex: 1 }} onPress={onPress} activeOpacity={0.9}>
         <ImageBackground
-          source={require('../../assets/images/bedroom-image.jpg')}
+          source={{uri: source}}
           style={styles.image}
           imageStyle={styles.imageStyle}
         >
@@ -58,7 +61,7 @@ const ClickableBackgroundImage = ({ onPress }) => {
             <TouchableOpacity
               style={styles.iconContainer}
               onPress={() => {
-                Alert.alert('Icon Pressed');
+                navigate(routeNames.SWEETHOME);
               }}
             >
               <Icon
@@ -68,7 +71,7 @@ const ClickableBackgroundImage = ({ onPress }) => {
                 name={'eye'}
               />
             </TouchableOpacity>
-            <Text style={styles.textView}>Lorem ipsum_001</Text>
+            <Text style={styles.textView}>{title}</Text>
           </View>
         </ImageBackground>
       </TouchableOpacity>

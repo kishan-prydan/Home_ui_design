@@ -37,8 +37,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     flexDirection: 'row',
     alignItems: 'center',
-    paddingLeft: moderateScale(25),
-    bottom: 0,
+    paddingLeft: moderateScale(15),
+    bottom: 5,
     paddingBottom: moderateVerticalScale(8),
   },
 

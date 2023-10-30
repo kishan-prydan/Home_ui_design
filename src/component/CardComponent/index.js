@@ -6,8 +6,15 @@ import ImageComponent from '../common/ImageComponent';
 import {useNavigation} from '@react-navigation/native';
 import routeNames from './../../constants/routeNames';
 
-const CardComponent = ({source, title}) => {
+const CardComponent = ({source, title, areazoneid}) => {
   const {navigate} = useNavigation();
+
+  const navigateToHomeView = () => {
+    navigate(routeNames.HOMEVIEW, {areazoneid});
+  };
+
+  
+  // console.log('------------data============', areazoneid);
 
   return (
     <>
@@ -15,11 +22,14 @@ const CardComponent = ({source, title}) => {
         <TouchableOpacity
           activeOpacity={0.7}
           style={styles.innerContainer}
-          onPress={() => {
-            navigate(routeNames.HOMEVIEW);
-          }}>
-          <ImageComponent source={{uri: source}} onPress={()=>{navigate(routeNames.ADDHOME)}} />
-          <TextComponent title={title} wrapper={styles.textStyle}/>
+          onPress={navigateToHomeView}>
+          <ImageComponent
+            source={{uri: source}}
+            onPress={() => {
+              navigate(routeNames.ADDHOME);
+            }}
+          />
+          <TextComponent title={title} wrapper={styles.textStyle} />
         </TouchableOpacity>
       </View>
     </>

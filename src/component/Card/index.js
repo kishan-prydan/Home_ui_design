@@ -6,7 +6,6 @@ import styles from './styles';
 import {useNavigation} from '@react-navigation/native';
 import routeNames from './../../constants/routeNames';
 import {fetchAllAreaData} from '../../Database/Schema/AreaDetails';
-import imagePath from '../../constants/imagePath';
 
 const Card = () => {
   const {navigate} = useNavigation();
@@ -17,9 +16,15 @@ const Card = () => {
     const fetchAreaData = async () => {
       try {
         const data = await fetchAllAreaData();
+
+        if (data.length === 0) {
+          console.log('fetchAllAreaData returned an empty array');
+        }
+
+        // console.log('api data from local storage: ', data)
         setAreaData(data);
       } catch (error) {
-        console.error('Error fetching area data:', error);
+        console.log('Error fetching area data:', error);
       }
     };
 
@@ -35,12 +40,15 @@ const Card = () => {
           numColumns={2}
           keyExtractor={item => item.id}
           renderItem={({item}) => {
-            console.log('data in flat list view==============', item);
-
+            // console.log('areazone id-------------', item.areazoneid)
             return (
               <>
                 <View style={{paddingHorizontal: 4}} />
-                <CardComponent title={item.title} source={item.image} />
+                <CardComponent
+                  title={item.title}
+                  source={item.image}
+                  areazoneid={item.areazoneid}
+                />
                 <View style={{paddingHorizontal: 4}} />
               </>
             );

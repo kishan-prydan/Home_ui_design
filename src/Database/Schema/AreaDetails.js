@@ -104,7 +104,7 @@ export const updateOrInsertAreaData = data => {
       txn.executeSql(query, params, (tx, res) => {
         const existingData = res.rows.raw();
 
-        // console.log('res from updateandreplace-------', res);
+        // console.log('res from updateandreplace-------', existingData);
 
         if (existingData.length === 0) {
           // console.log('existingData from updateandreplace-------', existingData);
@@ -115,7 +115,7 @@ export const updateOrInsertAreaData = data => {
           const id = existingData[0]._id;
           // console.log('id from updateandreplace-------', id);
           updateAreaData(id, item);
-          showSuccess('Data updated successfully')
+          showSuccess('Data synced successfully')
         }
       });
     });

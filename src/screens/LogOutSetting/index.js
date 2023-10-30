@@ -170,6 +170,13 @@ const LogOutSetting = () => {
         isLoading={isSyncLoading}
         onPress={() => onSyncPress()}
       />
+      <ButtonWithLoader
+        title={'table name'}
+        buttonStyle={styles.syncButtonStyle}
+        titleStyle={styles.textStyle}
+        isLoading={isSyncLoading}
+        onPress={() => getTableNames()}
+      />
     </View>
   );
 };
