@@ -1,16 +1,18 @@
 //import liraries
 import fetchData from '../ApiHandle';
 import {
-  fetchAllRgbwData,
-  updateOrInsertRgbwData,
-} from '../Schema/Devices/RgbwTable';
+  fetchAllOtherControlsData,
+  updateOrInsertOtherControlsData,
+} from '../Schema/Devices/OtherControlsTable';
 
 // create a component
-const RgbwDataSync = async (date, setIsLoading) => {
+const OtherControlsDataSync = async (date, setIsLoading) => {
   try {
     const res = await fetchData(date);
-    const apiData = res?.devices?.RGBWs;
-    const existingAreaData = await fetchAllRgbwData();
+    const apiData = res?.devices?.othecontrols;
+    // console.log('other control data============', apiData);
+
+    const existingAreaData = await fetchAllOtherControlsData();
 
     // Check if apiData is not null or undefined
     if (apiData) {
@@ -23,7 +25,7 @@ const RgbwDataSync = async (date, setIsLoading) => {
           !existingItem ||
           JSON.stringify(existingItem) !== JSON.stringify(item)
         ) {
-          updateOrInsertRgbwData([item]);
+          updateOrInsertOtherControlsData([item]);
         }
       }
     }
@@ -35,4 +37,4 @@ const RgbwDataSync = async (date, setIsLoading) => {
   }
 };
 
-export default RgbwDataSync;
+export default OtherControlsDataSync;

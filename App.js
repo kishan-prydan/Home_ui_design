@@ -17,7 +17,7 @@ const App = () => {
   const userDataFetch = async () => {
     const userData = await getUserData();
 
-    console.log('user data in app js---------------', userData);
+    // console.log('user data in app js---------------', userData);
 
     if (!!userData) {
       saveUserData(userData);

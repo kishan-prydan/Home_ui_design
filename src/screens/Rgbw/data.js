@@ -3,7 +3,7 @@ import colors from '../../assets/theme/colors';
 let data = [
   {
     id: 0,
-    title: 'red',
+    colorTitle: 'red',
     iconType: 'fa5',
     iocnName: 'lightbulb',
     value: 0,
@@ -12,7 +12,7 @@ let data = [
   },
   {
     id: 2,
-    title: 'green',
+    colorTitle: 'green',
     iconType: 'fa5',
     iocnName: 'lightbulb',
     value: 42,
@@ -21,7 +21,7 @@ let data = [
   },
   {
     id: 3,
-    title: 'blue',
+    colorTitle: 'blue',
     iconType: 'fa5',
     iocnName: 'lightbulb',
     value: 0,
@@ -30,7 +30,7 @@ let data = [
   },
   {
     id: 4,
-    title: 'white',
+    colorTitle: 'white',
     iconType: 'fa5',
     iocnName: 'lightbulb',
     value: 55,

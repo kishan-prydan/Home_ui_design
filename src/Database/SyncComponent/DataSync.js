@@ -51,6 +51,8 @@ import RgbwDataSync from './RgbwDataSync';
 import ScenesDataSync from './ScenesDataSync';
 import SequenceDataSync from './SequenceDataSync';
 import ZAudioDataSync from './ZAudioDataSync';
+import { createOtherControlsTable, fetchAllOtherControlsData } from '../Schema/Devices/OtherControlsTable';
+import OtherControlsDataSync from './OtherControlsDataSync';
 
 const DataSync = {
   initDatabaseTables: () => {
@@ -68,6 +70,7 @@ const DataSync = {
     createScenesTable();
     createSequenceTable();
     createZAudioTable();
+    createOtherControlsTable();
   },
 
   syncData: (date, setIsLoading) => {
@@ -85,6 +88,7 @@ const DataSync = {
     ScenesDataSync(date, setIsLoading);
     SequenceDataSync(date, setIsLoading);
     ZAudioDataSync(date, setIsLoading);
+    OtherControlsDataSync(date, setIsLoading);
   },
 
   loadLocalData: setIsLoading => {
@@ -102,6 +106,7 @@ const DataSync = {
     fetchAllScenesData();
     fetchAllSequenceData();
     fetchAllZAudioData();
+    fetchAllOtherControlsData();
     setIsLoading(false);
   },
 };

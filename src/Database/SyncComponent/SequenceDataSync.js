@@ -6,7 +6,7 @@ import { fetchAllSequenceData, updateOrInsertSequenceData } from '../Schema/Devi
 const SequenceDataSync = async (date, setIsLoading) => {
   try {
     const res = await fetchData(date);
-    const apiData = res?.devices[10];
+    const apiData = res?.devices?.sequences;
     const existingAreaData = await fetchAllSequenceData();
 
     // Check if apiData is not null or undefined

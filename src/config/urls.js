@@ -15,3 +15,6 @@ export const RESETPASSWORD = getApiUrl('/reset-password');
 
 // sinc api urls
 export const SINC_GET_DATA = getApiUrl('/syncalldata');
+
+//add area data
+export const ADD_AREA = getApiUrl('/addarea');

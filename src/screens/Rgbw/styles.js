@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {moderateScale, moderateVerticalScale} from 'react-native-size-matters';
+import {moderateScale, moderateVerticalScale} from '../../styles/responsiveSize';
 
 const styles = StyleSheet.create({
   container: {
@@ -27,6 +27,9 @@ const styles = StyleSheet.create({
     borderRadius: 32,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  pressableIconStyle:{
+    paddingBottom: moderateVerticalScale(20),
   },
 });
 

@@ -5,14 +5,71 @@ import ImagePicker from '../../component/common/ImagePicker';
 import RBSheet from 'react-native-raw-bottom-sheet';
 import CustomButton from '../../component/common/CustomButton';
 import Input from '../../component/common/Input';
+import {apiPost} from '../../utils/utils';
+import {ADD_AREA} from '../../config/urls';
+import validator from '../../utils/validations';
+import {showError} from '../../utils/helperFunction';
+import ButtonWithLoader from '../../component/common/ButtonWithLoader';
 
 const AddHome = ({navigation}) => {
   const refRBSheet = useRef();
-  const [imagePath, setImagePath] = useState(null);
-  const [text, setText] = useState('');
+
+  const [state, setState] = useState({
+    isLoading: false,
+    addArea: '',
+    subnetID: '',
+    imagePath: null,
+  });
+
+  const {isLoading, addArea, subnetID, imagePath} = state;
+
+  const updateState = data => setState(prevState => ({...prevState, ...data}));
 
   const handleImageSelected = path => {
-    setImagePath(path);
+    updateState({imagePath: path});
+  };
+
+  const isValidData = () => {
+    const error = validator({
+      addArea,
+      subnetID,
+    });
+    if (error) {
+      showError(error);
+      return false;
+    }
+
+    if (!imagePath) {
+      showError('Please select an image');
+      return false;
+    }
+
+    return true;
+  };
+
+  const handleSubmit = async () => {
+    let params = {
+      title: addArea,
+      subnetID,
+      image: imagePath,
+    };
+
+    const checkValid = isValidData();
+    if (checkValid) {
+      updateState({isLoading: true});
+      try {
+        const res = await apiPost(ADD_AREA, params);
+
+        console.log('API Response: ', res);
+        updateState({isLoading: false});
+      } catch (error) {
+        console.log(error);
+        updateState({isLoading: false});
+      }
+
+      // Alert.alert('kishan')
+      console.log('data in params: ', params);
+    }
   };
 
   return (
@@ -28,13 +85,20 @@ const AddHome = ({navigation}) => {
                 alt="image"
               />
             )}
-            <Text style={styles.textStyle}>{text}</Text>
+            <View style={{paddingTop: 12}} />
           </View>
           <Input
-            placeholder={'Enter Name Here'}
-            value={text}
-            onChangeText={value => setText(value)}
+            placeholder={'Enter Area Name'}
+            value={addArea}
+            onChangeText={addArea => updateState({addArea})}
           />
+          <Input
+            placeholder="Enter Subnet ID"
+            keyboardType="numeric"
+            value={subnetID}
+            onChangeText={subnetID => updateState({subnetID})}
+          />
+          <View style={{paddingTop: 12}} />
           <CustomButton
             secondary
             title="Select Image"
@@ -59,14 +123,10 @@ const AddHome = ({navigation}) => {
         </View>
       </View>
       <View style={styles.savebuttonContainer}>
-        <CustomButton
-          style={styles.saveButton}
-          secondary
+        <ButtonWithLoader
           title="Save"
-          onPress={() => {
-            Alert.alert('Added Successfully');
-            navigation.goBack();
-          }}
+          onPress={handleSubmit}
+          isLoading={isLoading}
         />
       </View>
     </View>

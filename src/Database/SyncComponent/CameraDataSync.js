@@ -9,7 +9,8 @@ import {
 const CameraDataSync = async (date, setIsLoading) => {
   try {
     const res = await fetchData(date);
-    const apiData = res?.devices[6];
+    // console.log('data from api----------', res.devices.Cameras);
+    const apiData = res?.devices?.Cameras;
 
     const existingAreaData = await fetchAllCameraData();
 

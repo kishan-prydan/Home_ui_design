@@ -19,7 +19,7 @@ const checkMinLength = (val, minLength, key) => {
 };
 
 export default function (data) {
-  const {code, userName, password, confirmPassword, otp} = data;
+  const {code, userName, password, confirmPassword, otp, addArea, subnetID} = data;
 
   if (otp !== undefined) {
     let emptyValidationText = checkEmpty(otp, 'Please Enter OTP');
@@ -38,7 +38,7 @@ export default function (data) {
     if (emptyValidationText !== '') {
       return emptyValidationText;
     } else {
-      let minLengthValidation = checkMinLength(code, 5, 'code');
+      let minLengthValidation = checkMinLength(code, 5, 'Dealer Code');
       if (minLengthValidation !== '') {
         return minLengthValidation;
       }
@@ -81,6 +81,30 @@ export default function (data) {
         return minLengthValidation;
       } else if (confirmPassword !== password) {
         return 'New password and Confirm Password must be same';
+      }
+    }
+  }
+  
+  if (addArea !== undefined) {
+    let emptyValidationText = checkEmpty(addArea, 'Please Enter Area Name');
+    if (emptyValidationText !== '') {
+      return emptyValidationText;
+    } else {
+      let minLengthValidation = checkMinLength(addArea, 4, 'Area Name');
+      if (minLengthValidation !== '') {
+        return minLengthValidation;
+      }
+    }
+  }
+  
+  if (subnetID !== undefined) {
+    let emptyValidationText = checkEmpty(subnetID, 'Please Enter Subnet id');
+    if (emptyValidationText !== '') {
+      return emptyValidationText;
+    } else {
+      let minLengthValidation = checkMinLength(subnetID, 1, 'Subnet id');
+      if (minLengthValidation !== '') {
+        return minLengthValidation;
       }
     }
   }

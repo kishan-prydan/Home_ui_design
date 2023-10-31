@@ -4,7 +4,6 @@ import BottomTabNavigator from './BottomTabNavigator';
 import SecondBottomTabNavigator from './SecondBottomTabNavigator';
 import routeNames from './../constants/routeNames';
 import screens from './../screens/index';
-import SyncingScreen from '../Database/SyncComponent';
 
 export default function HomeStack(Stack) {
   const navigationOptions = {
@@ -12,11 +11,6 @@ export default function HomeStack(Stack) {
   };
   return (
     <>
-      {/* <Stack.Screen
-        name={'Sync Screen'}
-        component={SyncingScreen}
-        options={navigationOptions}
-      /> */}
       <Stack.Screen
         name={routeNames.HOME}
         component={screens.Home}

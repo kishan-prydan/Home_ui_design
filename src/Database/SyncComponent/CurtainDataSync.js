@@ -9,7 +9,7 @@ import {
 const CurtainDataSync = async (date, setIsLoading) => {
   try {
     const res = await fetchData(date);
-    const apiData = res?.devices[2];
+    const apiData = res?.devices?.Curtains;
 
     const existingAreaData = await fetchAllCurtainData();
 

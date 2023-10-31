@@ -7,7 +7,7 @@ import { fetchAllHvacData, updateOrInsertHvacData } from '../Schema/Devices/Hvac
 const HvacDataSync = async (date, setIsLoading) => {
   try {
     const res = await fetchData(date);
-    const apiData = res?.devices[0];
+    const apiData = res?.devices?.airconditioners;
 
     const existingAreaData = await fetchAllHvacData();
 

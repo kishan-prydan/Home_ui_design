@@ -6,7 +6,7 @@ import { fetchAllLightData, updateOrInsertLightData } from '../Schema/Devices/Li
 const LightDataSync = async (date, setIsLoading) => {
   try {
     const res = await fetchData(date);
-    const apiData = res?.devices[7];
+    const apiData = res?.devices?.lights;
     const existingAreaData = await fetchAllLightData();
 
     // Check if apiData is not null or undefined

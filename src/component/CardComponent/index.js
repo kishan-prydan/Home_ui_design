@@ -5,15 +5,19 @@ import TextComponent from '../common/TextComponent';
 import ImageComponent from '../common/ImageComponent';
 import {useNavigation} from '@react-navigation/native';
 import routeNames from './../../constants/routeNames';
+import {useDispatch} from 'react-redux';
+import {setAreazoneId} from '../../redux/actions/setAreazoneId';
 
 const CardComponent = ({source, title, areazoneid}) => {
   const {navigate} = useNavigation();
 
+  const dispatch = useDispatch();
+
   const navigateToHomeView = () => {
-    navigate(routeNames.HOMEVIEW, {areazoneid});
+    dispatch(setAreazoneId(areazoneid));
+    navigate(routeNames.HOMEVIEW);
   };
 
-  
   // console.log('------------data============', areazoneid);
 
   return (

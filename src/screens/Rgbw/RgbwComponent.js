@@ -1,4 +1,5 @@
-import React from 'react';
+//import liraries
+import React, {useState, useEffect} from 'react';
 import {View, Alert, FlatList} from 'react-native';
 import Header from '../../component/common/Header';
 import BackgroundColor from '../../component/common/BackgroundColor';
@@ -6,11 +7,48 @@ import HeaderIconComponent from '../../component/common/HeaderIconComponent';
 import styles from './styles';
 import RgbwSliderComponent from '../../component/RgbwSliderComponent';
 import data from './data';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, useRoute} from '@react-navigation/native';
 import routeNames from './../../constants/routeNames';
+import { useSelector } from 'react-redux';
+import { fetchAllRgbwData } from '../../Database/Schema/Devices/RgbwTable';
 
 const RgbwComponent = () => {
   const {navigate} = useNavigation();
+  const [rgbwData, setRgbwData] = useState([]);
+  const [filterData, setFilterData] = useState([]);
+
+  const route = useRoute();
+
+  // console.log('ayfdtfsaygcgsacxygccsgc', route);
+
+  const zoneid = useSelector(state => state.setZoneId.zoneid);
+  const deviceId = useSelector((state) => state.getRgbwDataByID.deviceid);
+
+  useEffect(() => {
+    const fetchRgbwData = async () => {
+      try {
+        const data = await fetchAllRgbwData();
+
+        if (data.length === 0) {
+          console.log('Rgbw data returned an empty array');
+        }
+
+        // Filter the data based on zoneid
+        const filteredData = data.filter(item => item.zoneid === zoneid);
+        console.log('Rgbw component filter data based on zoneid--------', filteredData);
+        setRgbwData(filteredData);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchRgbwData();
+  }, []);
+
+  const filteredRgbwData = rgbwData.filter(item => item.deviceid === deviceId);
+  
+  console.log('Rgbw inner component filter data based on deviceid--------', filteredRgbwData);
+
 
   return (
     <View style={styles.componentContainer}>
@@ -56,7 +94,7 @@ const RgbwComponent = () => {
             data={data}
             renderItem={({item}) => (
               <RgbwSliderComponent
-                mainTitle={item.title}
+                mainTitle={item.colorTitle}
                 iconType={item.iconType}
                 iconName={item.iocnName}
                 iconStyle={{color: item.iconColor}}

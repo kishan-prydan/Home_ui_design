@@ -9,7 +9,7 @@ import {
 const IrrigationDataSync = async (date, setIsLoading) => {
   try {
     const res = await fetchData(date);
-    const apiData = res?.devices[8];
+    const apiData = res?.devices?.irrigations;
 
     const existingAreaData = await fetchAllIrrigationData();
 

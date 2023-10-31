@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -6,14 +6,18 @@ import {
   TouchableOpacity,
   LayoutAnimation,
 } from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import Icon from '../common/Icon';
 import styles from './styles';
 import colors from '../../assets/theme/colors';
-import { useNavigation } from '@react-navigation/native';
+
+import {useDispatch} from 'react-redux';
+import {setZoneId} from '../../redux/actions/setZoneId';
 import routeNames from '../../constants/routeNames';
 
-const ClickableBackgroundImage = ({ onPress, source, title }) => {
+const ClickableBackgroundImage = ({zoneid, source, title}) => {
   const {navigate} = useNavigation();
+  const dispatch = useDispatch();
 
   const [isColorBoxVisible, setIsColorBoxVisible] = useState(false);
 
@@ -21,6 +25,14 @@ const ClickableBackgroundImage = ({ onPress, source, title }) => {
     setIsColorBoxVisible(!isColorBoxVisible);
     LayoutAnimation.configureNext(LayoutAnimation.Presets.linear);
   };
+
+  const navigateToSweetHomeView = () => {
+    dispatch(setZoneId(zoneid));
+    navigate(routeNames.SWEETHOME);
+  };
+
+  // console.log('------------data in zone id============', zoneid);
+
 
   const colorBoxStyle = {
     backgroundColor: colors.headerOpacity,
@@ -34,25 +46,26 @@ const ClickableBackgroundImage = ({ onPress, source, title }) => {
 
   return (
     <View style={styles.imageContainer}>
-      <TouchableOpacity style={{ flex: 1 }} onPress={onPress} activeOpacity={0.9}>
+      <TouchableOpacity
+        style={{flex: 1}}
+        onPress={navigateToSweetHomeView}
+        activeOpacity={0.9}>
         <ImageBackground
           source={{uri: source}}
           style={styles.image}
-          imageStyle={styles.imageStyle}
-        >
+          imageStyle={styles.imageStyle}>
           <View style={colorBoxStyle}></View>
           <View>
             <TouchableOpacity
               style={styles.IconView}
               activeOpacity={0.7}
-              onPress={toggleColorBox}
-            >
+              onPress={toggleColorBox}>
               <View style={styles.EditButtonIcon}>
                 <Icon
                   type={'fa6'}
                   name={'lightbulb'}
                   size={18}
-                  style={{ color: colors.secondary }}
+                  style={{color: colors.secondary}}
                 />
               </View>
             </TouchableOpacity>
@@ -60,12 +73,9 @@ const ClickableBackgroundImage = ({ onPress, source, title }) => {
           <View style={styles.content}>
             <TouchableOpacity
               style={styles.iconContainer}
-              onPress={() => {
-                navigate(routeNames.SWEETHOME);
-              }}
-            >
+              onPress={navigateToSweetHomeView}>
               <Icon
-                style={{ color: colors.primary }}
+                style={{color: colors.primary}}
                 size={18}
                 type={'fa5'}
                 name={'eye'}

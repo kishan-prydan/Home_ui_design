@@ -9,7 +9,7 @@ import {
 const MacroDataSync = async (date, setIsLoading) => {
   try {
     const res = await fetchData(date);
-    const apiData = res?.devices[9];
+    const apiData = res?.devices?.macroirs;
     const existingAreaData = await fetchAllMacroData();
 
     // Check if apiData is not null or undefined

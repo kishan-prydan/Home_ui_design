@@ -4,7 +4,7 @@ import {
   moderateScale,
   moderateVerticalScale,
   scale,
-} from 'react-native-size-matters';
+} from '../../styles/responsiveSize';
 
 export default StyleSheet.create({
   container: {
@@ -19,11 +19,14 @@ export default StyleSheet.create({
   },
 
   imageView: {
-    paddingTop: moderateVerticalScale(20),
     alignItems: 'center',
   },
 
-  innerViewStyle: {},
+  innerViewStyle: {
+    // backgroundColor: 'plum',
+    // alignItems: 'center',
+    justifyContent: 'space-between',
+  },
 
   savebuttonContainer: {
     paddingBottom: moderateScale(20),

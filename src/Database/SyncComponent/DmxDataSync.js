@@ -9,7 +9,7 @@ import {
 const DmxDataSync = async (date, setIsLoading) => {
   try {
     const res = await fetchData(date);
-    const apiData = res?.devices[3];
+    const apiData = res?.devices?.DMXs;
 
     const existingAreaData = await fetchAllDmxData();
 

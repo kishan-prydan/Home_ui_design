@@ -9,7 +9,7 @@ import {
 const FanDataSync = async (date, setIsLoading) => {
   try {
     const res = await fetchData(date);
-    const apiData = res?.devices[5];
+    const apiData = res?.devices?.fans;
 
     const existingAreaData = await fetchAllFanData();
 

@@ -2,21 +2,19 @@ import React, {useState, useEffect} from 'react';
 import Header from '../../component/common/Header';
 import {Alert, View, FlatList} from 'react-native';
 import styles from './styles';
-import {useNavigation, useRoute} from '@react-navigation/native';
 import CircleWithIcon from '../../component/common/CircleWithIcon/CircleWithIcon';
 import colors from '../../assets/theme/colors';
 import ClickableBackgroundImage from '../../component/BackgroundImage';
 import {moderateScale} from 'react-native-size-matters';
-import routeNames from './../../constants/routeNames';
 import {fetchAllZoneData} from '../../Database/Schema/ZoneDetails';
 import TextComponent from '../../component/common/TextComponent';
+import { useSelector } from 'react-redux';
 
 const HomeView = () => {
-  const {navigate} = useNavigation();
-  const route = useRoute();
 
   const [zoneData, setZoneData] = useState([]);
-  const areazoneid = route.params?.areazoneid;
+  const areazoneid = useSelector((state) => state.setAreazoneId.areazoneid);
+
 
   useEffect(() => {
     // Fetch zones data from the local database
@@ -32,8 +30,6 @@ const HomeView = () => {
         const filteredData = data.filter(
           item => item.areazoneid === areazoneid,
         );
-
-        // console.log('filter data in ZoneData==============', filteredData);
 
         setZoneData(filteredData);
       } catch (error) {
@@ -90,15 +86,13 @@ const HomeView = () => {
             data={zoneData}
             keyExtractor={item => item.id}
             renderItem={({item}) => {
-              // console.log('data in flat list view==============', item.title);
+              // console.log('checking zoneid in data in flat list view==============', item.zoneid);
               return (
                 <View style={{paddingHorizontal: 20}}>
                   <ClickableBackgroundImage
                     source={item.image}
                     title={item.title}
-                    onPress={() => {
-                      navigate(routeNames.SWEETHOME);
-                    }}
+                    zoneid={item.zoneid}
                   />
                   <View style={{paddingVertical: 4}} />
                 </View>

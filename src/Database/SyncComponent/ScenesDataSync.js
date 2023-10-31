@@ -6,7 +6,7 @@ import { fetchAllScenesData, updateOrInsertScenesData } from '../Schema/Devices/
 const ScenesDataSync = async (date, setIsLoading) => {
   try {
     const res = await fetchData(date);
-    const apiData = res?.devices[1];
+    const apiData = res?.devices?.Scences;
     const existingAreaData = await fetchAllScenesData();
 
     // Check if apiData is not null or undefined

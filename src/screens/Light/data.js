@@ -2,7 +2,6 @@ import colors from '../../assets/theme/colors';
 
 let data = [
   {
-    id: 0,
     type: 'fa6',
     name: 'lightbulb',
     color: colors.iconSecondColor,
@@ -13,7 +12,6 @@ let data = [
     switchTitleText: false,
   },
   {
-    id: 1,
     type: 'fa6',
     name: 'lightbulb',
     color: colors.iconThirdColor,
@@ -24,7 +22,6 @@ let data = [
     switchTitleText: false,
   },
   {
-    id: 2,
     type: 'fa6',
     name: 'lightbulb',
     color: colors.iconForthColor,
@@ -35,7 +32,6 @@ let data = [
     switchTitleText: false,
   },
   {
-    id: 3,
     type: 'fa6',
     name: 'lightbulb',
     iconColor: colors.yellow,
@@ -46,7 +42,6 @@ let data = [
     switchTitleText: false,
   },
   {
-    id: 4,
     type: 'fa6',
     name: 'lightbulb',
     iconColor: colors.iconColor,
@@ -57,7 +52,6 @@ let data = [
     switchTitleText: false,
   },
   {
-    id: 5,
     type: 'fa6',
     name: 'lightbulb',
     iconColor: colors.yellow,
