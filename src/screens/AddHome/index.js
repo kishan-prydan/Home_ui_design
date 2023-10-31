@@ -63,11 +63,12 @@ const AddHome = ({navigation}) => {
         console.log('API Response: ', res);
         updateState({isLoading: false});
       } catch (error) {
-        console.log(error);
+        console.log('API Error: ', error);
+        if (error.status === 500) {
+          showError(error.message);
+        }
         updateState({isLoading: false});
       }
-
-      // Alert.alert('kishan')
       console.log('data in params: ', params);
     }
   };
