@@ -11,8 +11,8 @@ import DataSync from './DataSync';
 const SyncingScreen = () => {
   const [isLoading, setIsLoading] = useState(true);
   const initialDate = '01-01-1970';
-  // const currentDate = moment().format('DD-MM-YYYY');
-  const currentDate = '25-10-2023';
+  const currentDate = moment().format('DD-MM-YYYY');
+  // const currentDate = '25-10-2023';
 
   useEffect(() => {
     // Initialize database tables

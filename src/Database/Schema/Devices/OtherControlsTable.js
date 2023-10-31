@@ -23,7 +23,7 @@ export const createOtherControlsTable = () => {
       )`,
       [],
       () => {
-        console.log('OtherControls table created successfully');
+        // console.log('OtherControls table created successfully');
       },
       error => {
         console.error('Error creating OtherControls table:', error);
@@ -55,7 +55,7 @@ export const insertOtherControlsData = data => {
         item.zoneid,
       ];
       txn.executeSql(query, params, (tx, res) => {
-        // console.log('OtherControls data inserted successfully');
+        console.log('OtherControls data inserted successfully');
       });
     });
   });

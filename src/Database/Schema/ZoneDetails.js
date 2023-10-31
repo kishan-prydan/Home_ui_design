@@ -34,7 +34,7 @@ export const insertZoneData = data => {
       ];
 
       txn.executeSql(query, params, (tx, res) => {
-        console.log('insert data params========================', params);
+        // console.log('insert data params========================', params);
         console.log('Data inserted successfully');
       });
     });

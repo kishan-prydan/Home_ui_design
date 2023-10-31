@@ -2,10 +2,9 @@ import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import store from '../redux/store';
 import types from '../redux/types';
-import {showError} from './helperFunction';
+import {showError, showInfo} from './helperFunction';
 
 const {dispatch} = store;
-
 
 //function to get the header response from the server
 export async function getHeaders() {
@@ -57,7 +56,10 @@ export async function apiReq(
         return res(data);
       })
       .catch(error => {
-        console.log(error);
+        // console.log(error);
+        if (error.response.data.status === 204) {
+          console.log('Data not found');
+        }
         if (error && error.response) {
           if (error.response.status === 401) {
             clearUserData();
@@ -85,43 +87,36 @@ export async function apiReq(
   });
 }
 
-
 //post api request function
 export function apiPost(endPoint, data, headers = {}) {
   return apiReq(endPoint, data, 'post', headers);
 }
-
 
 //deeper api request function
 export function apiDelete(endPoint, data, headers = {}) {
   return apiReq(endPoint, data, 'delete', headers);
 }
 
-
 //get api request function
 export function apiGet(endPoint, data, headers = {}, requestOptions) {
   return apiReq(endPoint, data, 'get', headers, requestOptions);
 }
-
 
 //put api request function
 export function apiPut(endPoint, data, headers = {}) {
   return apiReq(endPoint, data, 'put', headers);
 }
 
-
 //patch api request function
 export function apiPatch(endPoint, data, headers = {}) {
   return apiReq(endPoint, data, 'patch', headers);
 }
-
 
 //set item to AsyncStorage
 export function setItem(key, data) {
   data = JSON.stringify(data);
   return AsyncStorage.setItem(key, data);
 }
-
 
 //get item from AsyncStorage
 export function getItem(key) {
@@ -132,25 +127,21 @@ export function getItem(key) {
   });
 }
 
-
 //remove item from AsyncStorage
 export function removeItem(key) {
   return AsyncStorage.removeItem(key);
 }
-
 
 //clear item from AsyncStorage
 export function clearAsyncStorate(key) {
   return AsyncStorage.clear();
 }
 
-
 //set user data to AsyncStorage
 export function setUserData(data) {
   data = JSON.stringify(data);
   return AsyncStorage.setItem('userData', data);
 }
-
 
 //get user data from AsyncStorage
 export async function getUserData() {

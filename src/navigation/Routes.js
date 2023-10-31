@@ -1,10 +1,9 @@
-
-import React, { useState, useEffect } from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import React, {useState, useEffect} from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 import AuthStack from './AuthStack';
 import HomeStack from './HomeStack';
-import { useSelector } from 'react-redux';
+import {useSelector} from 'react-redux';
 import NetInfo from '@react-native-community/netinfo';
 import SyncingScreen from '../Database/SyncComponent';
 
@@ -45,11 +44,12 @@ export default function Routes() {
       </NavigationContainer>
     );
   }
+  console.log('internet connection checking------', isConnected);
 
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        {userData && userData?.AccessToken
+        {!!userData && userData?.AccessToken
           ? HomeStack(Stack)
           : AuthStack(Stack)}
       </Stack.Navigator>

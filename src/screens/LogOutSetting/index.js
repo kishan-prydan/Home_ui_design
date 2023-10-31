@@ -3,23 +3,13 @@ import React, {useState, useEffect} from 'react';
 import {View, Alert} from 'react-native';
 import ButtonWithLoader from '../../component/common/ButtonWithLoader';
 import actions from '../../redux/actions';
-import {showError, showInfo, showSuccess} from '../../utils/helperFunction';
+import {showError, showSuccess} from '../../utils/helperFunction';
 import DeviceInfo from 'react-native-device-info';
 import NetInfo from '@react-native-community/netinfo';
 import TextComponent from '../../component/common/TextComponent';
-import {SINC_GET_DATA} from '../../config/urls';
-import {apiGet} from '../../utils/utils';
-import {
-  fetchAllAreaData,
-  updateOrInsertAreaData,
-} from '../../Database/Schema/AreaDetails';
 import moment from 'moment';
-import {
-  fetchAllZoneData,
-  updateOrInsertZoneData,
-} from '../../Database/Schema/ZoneDetails';
 import styles from './styles';
-import { getTableNames } from '../../Database/Database';
+import DataSync from '../../Database/SyncComponent/DataSync';
 
 const LogOutSetting = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -81,55 +71,11 @@ const LogOutSetting = () => {
     NetInfo.fetch().then(async state => {
       if (state.isConnected) {
         setIsSyncLoading(true);
-        setTimeout(async () => {
-          try {
-            const res = await apiGet(`${SINC_GET_DATA}/${currentDate}`);
-            const apiData = res;
-            
-            // console.log('checking response---------------', apiData.status);
-
-            // Separate data for areas and zones
-            const areaData = apiData.areas;
-            const zoneData = apiData.zones;
-
-            const existingAreaData = await fetchAllAreaData();
-            const existingZoneData = await fetchAllZoneData();
-
-            // Store area data
-            for (const item of areaData) {
-              const existingItem = existingAreaData.find(
-                dataItem => dataItem._id === item._id,
-              );
-              if (
-                !existingItem ||
-                JSON.stringify(existingItem) !== JSON.stringify(item)
-              ) {
-                updateOrInsertAreaData([item]);
-              }
-            }
-
-            // Store zone data
-            for (const item of zoneData) {
-              const existingItem = existingZoneData.find(
-                dataItem => dataItem._id === item._id,
-              );
-              if (
-                !existingItem ||
-                JSON.stringify(existingItem) !== JSON.stringify(item)
-              ) {
-                updateOrInsertZoneData([item]);
-              }
-            }
-
-            setIsSyncLoading(false);
-          } catch (error) {
-            showInfo('No data found');
-            //fetching all the data from the local database
-            fetchAllAreaData();
-            fetchAllZoneData();
-            setIsSyncLoading(false);
-          }
-        }, 3000);
+        setTimeout(() => {
+          DataSync.syncData(currentDate, setIsLoading);
+          showSuccess('Sync completed')
+          setIsSyncLoading(false);
+        }, 4000);
       } else {
         showError('Internet is not available');
       }
@@ -170,13 +116,13 @@ const LogOutSetting = () => {
         isLoading={isSyncLoading}
         onPress={() => onSyncPress()}
       />
-      <ButtonWithLoader
+      {/* <ButtonWithLoader
         title={'table name'}
         buttonStyle={styles.syncButtonStyle}
         titleStyle={styles.textStyle}
         isLoading={isSyncLoading}
         onPress={() => getTableNames()}
-      />
+      /> */}
     </View>
   );
 };
